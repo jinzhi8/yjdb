@@ -1,0 +1,127 @@
+/*--------------------------------------------------|
+| dTree 2.05 | www.destroydrop.com/javascript/tree/ |
+|---------------------------------------------------|
+| Copyright (c) 2002-2003 Geir Landrö               |
+|--------------------------------------------------*/
+
+.dtree {
+	font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	color: #666;
+	white-space: nowrap;
+}
+.dtree img {
+	border: 0px;
+	vertical-align: middle;
+}
+.dtreggge a {
+	//color: #333;
+	text-decoration: none;
+}
+.dtree a.node, .dtree a.nodeSel {
+	white-space: nowrap;
+	padding: 1px 2px 1px 2px;
+}
+.dtree a.nodddde:hover, .dtrddee a.nodeSel:hover {
+	//color: #333;
+	//text-decoration: underline;
+}
+.dTreeNode a.nodeSel {
+	background:url(treeimg/select.gif) no-repeat;
+	width:192px;
+	border:0px;
+	text-decoration: none;
+	color:#fff;
+}
+.dtree .clip {
+	overflow: hidden;
+}
+
+.topdTreeNode{
+background:url(treeimg/top.gif);
+height:27px;
+width:192px;
+}
+.topdTreeNode a{
+margin-left:15px;
+color:#fff;
+font-weight:bold;
+font-size: 14px;
+line-height:27px;
+}
+
+.top1dTreeNode{
+background:url(treeimg/top1.jpg);
+height:33px;
+width:192px;
+}
+.icongwgl a{ background:url(treeimg/icongwgl.png) no-repeat;background-position:45px 50%; }
+.icondzgw a{background:url(treeimg/icondzgw.png) no-repeat;background-position:45px 50%;}
+.iconzwxx a{background:url(treeimg/iconzwxx.png) no-repeat;background-position:45px 50%;}
+.iconjyta a{background:url(treeimg/iconjyta.png) no-repeat;background-position:45px 50%;}
+.iconzwdc a{background:url(treeimg/iconzwdc.png) no-repeat;background-position:45px 50%;}
+.iconbgxx a{background:url(treeimg/iconbgxx.png) no-repeat;background-position:45px 50%;}
+.iconggzl a{background:url(treeimg/iconggzl.png) no-repeat;background-position:45px 50%;}
+.icongrsw a{background:url(treeimg/icongrsw.png) no-repeat;background-position:45px 50%;}
+.iconwjk a{background:url(treeimg/icongwk.png) no-repeat;background-position:45px 50%;}
+.icongwxx a{background:url(treeimg/icongwxx.png) no-repeat;background-position:45px 50%;}
+.iconaqsc a{background:url(treeimg/iconaqsc.png) no-repeat;background-position:45px 50%;}
+.iconxtgl a{background:url(treeimg/iconxtgl.png) no-repeat;background-position:45px 50%;}
+.iconhygl a{background:url(treeimg/iconhygl.png) no-repeat;background-position:45px 50%;}
+.top1dTreeNode  a{
+color:#024069;
+display:block;
+width:100%;
+line-height:31px;
+font-family:SimHei;
+font-size: 14px;
+text-align:center;
+}
+.top1dTreeNode  a:hover,.top1dTreeNode  a:visited,.top1dTreeNode  a:active,.top1dTreeNode  a:link,.top2dTreeNode  a:hover,.top2dTreeNode  a:visited,.top2dTreeNode  a:active,.top2dTreeNode  a:link{
+	text-decoration: none;
+}
+.top2dTreeNode {
+background:url(treeimg/top2.gif);
+height:32px;
+width:192px;
+}
+.nodeclose a{
+background:url(treeimg/open.png);
+}
+.nodeopen a{
+background:url(treeimg/close.png);
+}
+.top2dTreeNode a{
+background-position:left;
+line-height:32px;
+text-indent:15px;
+display: block;
+width:100px;
+margin-left:48px;
+background-repeat:no-repeat;
+color:#000;
+}
+.dTreeNode{
+height:26px;
+width:192px;
+padding:0px;
+margin:0px;
+}
+.dTreeNode  a{ 
+display:block;
+width:192px;
+height:26px;
+color:#000;
+padding:0px;
+margin:0px;
+text-indent:48px;
+line-height:24px;
+background:url(treeimg/back.jpg) no-repeat;
+}
+.dTreeNode  a:hover
+{
+background:url(treeimg/select.gif) no-repeat;
+width:192px;
+border:0px;
+text-decoration: none;
+}

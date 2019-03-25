@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.1//EN"
+		"http://jakarta.apache.org/struts/dtds/struts-config_1_1.dtd">
+<struts-config>
+	<form-beans>
+		<form-bean name="LeaderForm" type="com.kizsoft.oa.leader.LeaderForm"/>
+		<form-bean name="ActForm" type="com.kizsoft.oa.leader.ActForm"/>
+		<form-bean name="ActiForm" type="com.kizsoft.oa.leader.ActiForm"/>
+		<form-bean name="actTypeForm" type="com.kizsoft.oa.leader.ActTypeForm"/>
+		<form-bean name="uploadForm" type="com.kizsoft.oa.leader.UploadForm"/>
+	</form-beans>
+
+	<action-mappings>
+		<action name="actTypeForm" type="com.kizsoft.oa.leader.FormActTypeAction" validate="true" path="/formActTypeAction">
+			<forward name="success" path="/acttype.jsp" redirect="true"/>
+		</action>
+		<action name="LeaderForm" type="com.kizsoft.oa.leader.LeaderAction" validate="true" scope="request" path="/leader">
+			<forward name="list" path="/leader_list.jsp" redirect="false"/>
+			<forward name="create" path="/leader_create.jsp" redirect="false"/>
+			<forward name="edit" path="/leader_edit.jsp" redirect="false"/>
+			<forward name="view" path="/leader_view.jsp" redirect="false"/>
+		</action>
+		<action name="ActForm" type="com.kizsoft.oa.leader.ActAction" validate="true" scope="request" path="/act">
+			<forward name="list" path="/act_list.jsp" redirect="false"/>
+			<forward name="create" path="/act_create.jsp" redirect="false"/>
+			<forward name="edit" path="/act_edit.jsp" redirect="false"/>
+			<forward name="view" path="/act_view.jsp" redirect="false"/>
+			<forward name="make" path="/makearrange.jsp" redirect="false"/>
+		</action>
+		<action name="uploadForm" type="com.kizsoft.oa.leader.UploadAction" validate="true" scope="request" path="/upload">
+			<forward name="upload" path="/upload.jsp" redirect="false"/>
+		</action>
+		<action name="ActiForm" type="com.kizsoft.oa.leader.ActAction" validate="true" scope="request" path="/acti">
+			<forward name="list" path="/act_list_up.jsp" redirect="false"/>
+			<forward name="create" path="/act_create_up.jsp" redirect="false"/>
+			<forward name="edit" path="/act_edit_up.jsp" redirect="false"/>
+			<forward name="view" path="/act_view_up.jsp" redirect="false"/>
+		</action>
+		<action path="/editTypeAction" type="com.kizsoft.oa.leader.EditTypeAction">
+			<forward contextRelative="false" path="/fileType.jsp" name="success"/>
+		</action>
+		<action path="/saveTypeAction" type="com.kizsoft.oa.leader.SaveTypeAction">
+			<forward contextRelative="false" path="/fileType.jsp" name="success"/>
+		</action>
+	</action-mappings>
+</struts-config>

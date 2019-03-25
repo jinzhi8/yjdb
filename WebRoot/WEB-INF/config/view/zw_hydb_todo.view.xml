@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<view>
+    <type>task</type>
+    <moduleid>zw_hydb</moduleid>
+    <viewname>view_flow_tasks_undo</viewname>
+    <unid>unid</unid>
+    <sql>select app_title,activ_name,task_id,issuetime,managedepname,source</sql>
+    <tables>zwdbhy</tables>
+    <filters>
+        <filter>unid=app_id</filter>
+    </filters>
+    <order>issuetime desc</order>
+    <rows>30</rows>
+    <columns>
+		 <column>
+            <title>发布时间</title>
+            <property>$issuetime</property>
+            <filedtype>time</filedtype>
+            <width>150</width>
+            <length>100</length>
+            <align>center</align>
+            <link></link>
+        </column>
+		<column>
+                <title>会议类型</title>
+                <property>$source</property>
+                <filedtype>string</filedtype>
+                <width>170</width>
+                <length>12</length>
+                <align>center</align>
+                <link></link>
+            </column>
+        <column>
+            <title>会议名称</title>
+            <property>$app_title</property>
+            <filedtype>string</filedtype>
+            <width>570</width>
+            <length>100</length>
+            <align>left</align>
+            <link>/workflowEntry.do?taskid=+$task_id</link>
+        </column>
+        <column>
+            <title>状态</title>
+            <property>$activ_name</property>
+            <filedtype>string</filedtype>
+            <width>70</width>
+            <length>10</length>
+            <align>center</align>
+            <link></link>
+        </column>
+    </columns>
+</view>

@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<systemconfig>
+	<system>
+		<description>永嘉县电子政务督办系统</description>
+		<name><![CDATA[永嘉县电子政务督办系统]]></name>
+		<copyright><![CDATA[浙江索思科技有限公司技术支持]]></copyright>
+		<logincopyright><![CDATA[永嘉|技术支持：浙江索思科技有限公司]]></logincopyright>
+		<qdtitle><![CDATA[永嘉县电子政务督办系统]]></qdtitle>
+	</system>
+	<smsapi>
+		<description>内网短信机配置</description>
+		<isenabled>1</isenabled>
+		<serverip></serverip>
+		<apicode>oamsg</apicode>
+		<username>USER_SM</username>
+		<password>USER_SM</password>
+		<dbname>TZSM</dbname>
+		<endpoint>localhost</endpoint>
+		<ownername>wskzm</ownername>
+		<key>wskzm123</key>
+		<appId>wskzm</appId>
+	</smsapi>
+	<smstemplate>
+		<description>短信模版</description>
+		<template><![CDATA[〖永嘉县电子政务督办系统〗您的验证码是：]]></template>
+	</smstemplate>
+</systemconfig>

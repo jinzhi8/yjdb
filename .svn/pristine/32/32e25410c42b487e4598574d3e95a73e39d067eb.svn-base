@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-module
+  type="WEB"
+  name="yjdb"
+  id="myeclipse.1510202688742"
+  context-root="/yjdb"
+  j2ee-spec="5.0"
+  archive="yjdb.war">
+  <attributes>
+    <attribute name="webrootdir" value="WebRoot" />
+  </attributes>
+</project-module>
+

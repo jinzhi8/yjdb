@@ -1,0 +1,238 @@
+/* 基本属性 */
+
+html {
+	font-family:Tahoma, "宋体"Geneva, Arial, Helvetica, sans-seri;
+	font-size:12px;
+	color:#000000;
+	line-height:21px;
+	/**--overflow:hidden;--**/
+	/**--overflow-x:hidden;--**/
+	width:100%;
+	height:100%;
+	scrollbar-base-color:#cfd6df;
+	scrollbar-arrow-color:#FFFFFF;
+	scrollbar-track-color:#EFF4FA;
+	scrollbar-highlight-color:#eff7ee;
+	scrollbar-darkshadow-color:white;
+	scrollbar-3dlight-color:#FFFFFF;
+}
+body{
+	height:100%;
+	margin-top:0px;
+	margin-left:0px;
+	margin-right:0px;
+	margin-bottom:0px;
+}
+table{border:0;margin:0;border-collapse:collapse;}
+table td{padding:0;}
+img{
+	border:0px;
+}
+.mainbody{
+}
+.maincontent{
+	height:100%;
+	width:100%;
+	min-width:1003px;
+	meizz:expression(this.style.width=this.offsetParent.clientWidth<1003?"1003px":"100%");
+}
+.menubg{
+	background-color:#c9d0da;
+}
+.footer{
+	width:100%;
+	background-image:url(footerbg.png);
+	border-top:0px solid #b2bbc8;
+	border-bottom:0px solid #b2bbc8;
+	border-left:1px solid #b2bbc8;
+	border-right:1px solid #b2bbc8;
+}
+.footerleft{
+	text-align:right;
+	width:125px;
+	background-image:url(footerbg.png);
+	border-top:1px solid #b2bbc8;
+	border-bottom:1px solid #b2bbc8;
+	border-left:1px solid #b2bbc8;
+	border-right:1px solid #b2bbc8;
+}
+.footerright{
+	text-align:left;
+	width:160px;
+	background-image:url(footerbg.png);
+	border-top:1px solid #b2bbc8;
+	border-bottom:1px solid #b2bbc8;
+	border-left:1px solid #b2bbc8;
+	border-right:1px solid #b2bbc8;
+}
+.footercenter{
+	background-image:url(footerbg.png);
+	border-top:1px solid #b2bbc8;
+	border-bottom:1px solid #b2bbc8;
+	border-left:1px solid #b2bbc8;
+	border-right:1px solid #b2bbc8;
+}
+.footerleftarrow{
+	width:14px;
+	background-image:url(footerleftarrow.png);
+}
+.footerrightarrow{
+	background-image:url(footerrightarrow.png);
+}
+.viewlist {
+	border:0;
+	border-collapse:collapse;
+	width:100%;
+	border-top:1px solid #B2BBC8;
+	border-bottom:1px solid #B2BBC8;
+	border-left:1px solid #B2BBC8;
+	border-right:1px solid #B2BBC8;
+	color:#333333
+}
+.viewlist .deeptd {
+	background:#E6E9EE;
+}
+.viewlist .tinttd {
+
+
+	background:#F9F9F9;
+}
+.viewlist td {
+	padding:0;
+	border-right:1px solid #B2BBC8;
+	border-bottom:1px solid #B2BBC8;
+}
+.viewlist th {
+	color:#516989;
+	padding:0;
+	background:#cfd6df;
+	border-left:1px solid #B2BBC8;
+	border-bottom:1px solid #b2bbc8;
+	border-top:1px solid #eaedf1;
+}
+
+a{
+	cc:expression(window.status='');
+}  
+.menuitem{
+	width:100%;
+}
+.banner {
+	width:100%;
+	height:55px;
+	margin-left:auto;
+	margin-right:auto;
+	background-image:url(banner_bg.png);
+}
+.bannerbu {
+	color:#ffffff;
+	width:43px;
+	height:26px;
+	line-height:26px;
+	background-image:url(banner_bu2.png);
+	text-align:center;
+}
+.logo {
+	width:286px;
+	height:55px;
+	text-align:right;
+}
+.pagecontent {
+	width:100%;
+	height:100%;
+	margin-left:auto;
+	margin-right:auto;
+}
+.footer {
+	width:100%;
+	height:22px;
+	line-height:22px;
+	margin-left:auto;
+	margin-right:auto;
+	background-image:url(index_footerbg.png);
+}
+.footerbg {
+	height:22px;
+	background-color:#b2bbc8;
+}
+.leftbg {
+	background-color:#c9d0da;
+}
+.index_cd {
+	font-family:Arial;
+	color:#ffffff;
+	padding-left:18px;
+	height:21px;
+	background-image:url(index_cd.png);
+	vertical-align:middle;
+}
+.index_cd1 {
+	font-family:Arial;
+	color:#242f40;
+	padding-left:18px;
+	height:20px;
+	line-height:20px;
+	vertical-align: middle;
+}
+.index_bu {
+	height:88px;
+	background-image:url(index_bu.png);
+}
+.rightbg {
+	background-color:#eaedf1;
+}
+.rightbg1 {
+	background-color:#b2bbc8;
+}
+.jsbbg {
+	color:#ffffff;
+	height:21px;
+	line-height:21px;
+	text-align:left;
+	background-image:url(index_jsbbg.png);
+}
+a:link {
+	color:#ffffff;
+	text-decoration:none;
+}
+a:visited {
+	color:#ffffff;
+	text-decoration:none;
+}
+a:hover {
+	color:#ffa800;
+	text-decoration:none;
+}
+a:active {
+	color:#ffa800;
+	text-decoration:none;
+}
+.h1 {
+	font-family:Arial;
+	font-size:11px;
+	font-weight:bold;
+	padding-left:9px;
+	color:#131e30;
+	height:25px;
+	line-height:25px;
+	vertical-align:middle;
+}
+.h2 {
+	font-family:Arial;
+	color:#93a6c0;
+	text-align:center;
+	vertical-align:middle;
+}
+.h3 {
+	font-family:Arial;
+	color:#131e30;
+	text-align:center;
+	vertical-align:middle;
+}
+.h4 {
+	font-family:Arial;
+	color:#131e30;
+	text-align:left;
+	vertical-align:middle;
+}
+

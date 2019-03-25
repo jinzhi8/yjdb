@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.1//EN"
+		"http://jakarta.apache.org/struts/dtds/struts-config_1_1.dtd">
+<struts-config>
+	<form-beans>
+		<form-bean type="com.kizsoft.oa.checkOnWork.formBean.KqmForm" name="kqmForm"/>
+		<form-bean type="com.kizsoft.oa.checkOnWork.formBean.SearchForm" name="searchForm"/>
+		<form-bean type="com.kizsoft.oa.checkOnWork.formBean.HistoryForm" name="HistoryForm"/>
+		<form-bean type="com.kizsoft.oa.checkOnWork.formBean.BForm" name="bForm"/>
+	</form-beans>
+
+	<action-mappings>
+		<action name="kqmForm" type="com.kizsoft.oa.checkOnWork.action.NewAction" validate="true" scope="request"
+				path="/newAction">
+			<forward name="success" path="/content.jsp" redirect="false"/>
+			<forward name="edit" path="/kq_set_edit.jsp" redirect="false"/>
+			<forward name="never" path="/never.jsp" redirect="false"/>
+		</action>
+
+		<action name="kqmForm" type="com.kizsoft.oa.checkOnWork.action.DealAction" validate="true" scope="request"
+				path="/dealAction">
+			<forward contextRelative="false" redirect="true" path="/index.jsp" name="success"/>
+		</action>
+
+
+		<action name="kqmForm" type="com.kizsoft.oa.checkOnWork.action.EditAction" validate="true" scope="request"
+				path="/editAction">
+			<forward contextRelative="false" redirect="true" path="/index.jsp" name="success"/>
+		</action>
+
+		<action name="HistoryForm" type="com.kizsoft.oa.checkOnWork.action.SetFlagAction" validate="true" scope="request"
+				path="/sfAction">
+			<forward name="success" path="/content12.jsp" redirect="false"/>
+			<forward name="false" path="/content12.jsp" redirect="false"/>
+			<forward name="ready" path="/content12.jsp" redirect="false"/>
+		</action>
+		<action name="HistoryForm" type="com.kizsoft.oa.checkOnWork.action.LoginAction" validate="true" scope="request"
+				path="/loginAction">
+			<forward contextRelative="false" redirect="true" path="/index.jsp" name="success"/>
+		</action>
+
+		<action name="bForm" type="com.kizsoft.oa.checkOnWork.action.BAction" validate="true" scope="request" path="/bAction">
+			<forward name="success" path="/content3.jsp" redirect="false"/>
+			<forward name="ready" path="/ready.jsp" redirect="false"/>
+		</action>
+		<action name="bForm" type="com.kizsoft.oa.checkOnWork.action.B2Action" validate="true" scope="request" path="/b2Action">
+			<forward contextRelative="false" redirect="true" path="/index.jsp" name="success"/>
+		</action>
+
+		<action name="searchForm" type="com.kizsoft.oa.checkOnWork.action.SearchAction" validate="true" scope="request"
+				path="/searchAction">
+			<forward contextRelative="false" redirect="false" path="/search.jsp" name="success"/>
+			<forward contextRelative="false" redirect="false" path="/noPurview.jsp" name="noPurview"/>
+		</action>
+		<action name="searchForm" type="com.kizsoft.oa.checkOnWork.action.SelectAction" validate="true" scope="request"
+				path="/selectAction">
+			<forward contextRelative="false" redirect="false" path="/createFile.jsp" name="success"/>
+			<forward contextRelative="false" redirect="false" path="/noPurview.jsp" name="noPurview"/>
+		</action>
+
+		<action path="/searchView" type="com.kizsoft.oa.checkOnWork.view.ViewSearchAction" unknown="false" validate="false">
+			<forward name="success" path="/searchResult.jsp" redirect="false"/>
+		</action>
+	</action-mappings>
+</struts-config>

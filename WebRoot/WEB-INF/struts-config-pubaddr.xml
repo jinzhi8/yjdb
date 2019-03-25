@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.1//EN"
+		"http://jakarta.apache.org/struts/dtds/struts-config_1_1.dtd">
+<struts-config>
+	<data-sources/>
+	<form-beans>
+		<form-bean name="AddressImportActionForm" type="com.kizsoft.oa.pubaddr.beans.AddressImportActionForm"/>
+	</form-beans>
+	<action-mappings>
+		<action path="/pubaddrTypeAction" type="com.kizsoft.oa.pubaddr.actions.PubaddrTypeAction">
+			<forward name="success" contextRelative="false" path="/pubaddrTypeManager.jsp"/>
+		</action>
+		<action name="AddressImportActionForm" path="/AddressImportAction" scope="request"
+				type="com.kizsoft.oa.pubaddr.actions.AddressImportAction">
+			<forward name="success" contextRelative="false" path="/redirect.htm"/>
+		</action>
+	</action-mappings>
+</struts-config>

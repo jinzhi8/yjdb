@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="gbk"?>
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.1//EN"
+		"http://jakarta.apache.org/struts/dtds/struts-config_1_1.dtd">
+<struts-config>
+	<!-- 表单 Bean -->
+	<form-beans>
+		<form-bean name="infoReportForm" type="com.kizsoft.oa.xxsb.InfoReportForm"/>
+	</form-beans>
+	<!-- 全局异常 -->
+	<global-exceptions>
+		<exception handler="com.kizsoft.commons.error.CommonExceptionHandler" key="com.kizsoft.commons.error.exception"
+				   path="/error.jsp"
+				   scope="request" type="java.lang.Exception"/>
+	</global-exceptions>
+	<!-- 全局转发 -->
+	<global-forwards>
+		<forward name="forbid" path="/content.jsp" redirect="true" contextRelative="true"/>
+	</global-forwards>
+	<!-- 操作映射 -->
+	<action-mappings>
+		<action name="infoReportForm" path="/prepareInfoReportAction" scope="request"
+				type="com.kizsoft.oa.xxsb.PrepareInfoReportAction">
+			<forward name="success" contextRelative="false" path="/content.jsp"/>
+			<forward name="failure" contextRelative="false" path="/error.jsp"/>
+		</action>
+		<action name="infoReportForm" path="/showInfo" scope="request" type="com.kizsoft.oa.xxsb.PrepareInfoReportAction">
+			<forward name="success" contextRelative="false" path="/show.jsp"/>
+			<forward name="failure" contextRelative="false" path="/error.jsp"/>
+		</action>
+		<action name="infoReportForm" path="/infoReportAction" scope="request" type="com.kizsoft.oa.xxsb.InfoReportAction">
+			<forward name="success" redirect="true" contextRelative="false" path="/index.jsp"/>
+			<forward name="failure" contextRelative="false" path="/error.jsp"/>
+		</action>
+	</action-mappings>
+</struts-config>

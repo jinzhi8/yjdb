@@ -1,0 +1,181 @@
+.newstyle-blockquote {
+	border-left: 0px;
+}
+.newstyle-blockquote.title1 {
+	color: #0095ff;
+    font-size: 16px;
+    background-color: transparent;
+    padding: 23px 0px 0px 0px;
+    position: relative;
+}
+.newstyle-searchbox {
+	position: relative;
+    width: 285px;
+    padding-right: 67px;
+}
+.newstyle-search {
+	border: 0px;
+}
+.newstyle-searchbox .layui-btn.search_btn {
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    background-color: #1f9fff;
+    border-top-left-radius: 0px;
+    border-bottom-left-radius: 0px;
+}
+.newstyle-blockquote #tjdc {
+	background-color: #67c32a;
+}
+.newstyle-divblockquote{
+    position: absolute;
+    bottom: 12px;
+    right: 13px;
+    z-index: 200;
+}
+.newstyle-divblockquote .layui-inline a {
+	background-color: #68c32b;
+}
+.newstyle-divblockquote .layui-inline:nth-child(1) a {
+	background-color: #1f9fff;
+}
+.newstyle-divblockquote .layui-inline:nth-child(2) a {
+	background-color: #F56C6C;
+}
+.newstyle-divblockquote .layui-inline:nth-child(6) a {
+	background-color: #E6A23C;
+}
+.newstyle-divblockquote .layui-inline:nth-child(7) a {
+	background-color: #909399;
+}
+.db-newstyle-inline {}
+.db-newstyle-inline .layui-form-label {
+	padding-left: 0px;
+	padding-right: 6px;
+	width: auto !important;
+}
+.db-newstyle-inline .layui-input {
+	border: none;
+}
+.db-newstyle-inline .layui-btn.search_btn {
+	background-color: #1f9fff;
+}
+.db-newstyle-inline .layui-btn.reload {
+	background-color: #67c32a;
+}
+.childrenBody {
+	/* padding: 10px; */
+	background-color: #ecf1f7;
+}
+.newclass-mianboxd {
+	margin: 15px 15px 0px 15px;
+	background-color: white;
+	padding: 0px 10px 10px 10px;
+}
+.newclass-mianboxd blockquote {
+	text-indent: 10px;
+}
+.layui-form.layui-border-box.layui-table-view {
+	background-color: white;
+	margin: 0px;
+}
+.newclass-miantitles {
+	/* padding-bottom: 10px; */
+}
+.newclass-miantitles span {
+	font-weight: bold;
+	color: #0095ff;
+}
+.newclass-bw-quoteBox {
+	background-color: white;
+}
+.newclass-layui-table-link {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.break-sign {
+	width: 28px;
+    height: 28px;
+    display: block;
+    float: left;
+    margin-right: 5px;
+    background-repeat: no-repeat;
+}
+.snail {
+	background-image: url(../../../img/snail.png);
+}
+.redflag {
+	background-image: url(../../../img/renflag.png);
+}
+.stateicon {
+    margin-right: 5px;
+    border-radius: 3px;
+    font-style: normal;
+    /* float: left; */
+    /* height: 28px; */
+    /* line-height: 28px; */
+    padding: 4px 3px;
+    font-size: 8px;
+}
+.stateicon-red{
+    color: red;
+    background-color: rgba(255, 0, 0, 0.12);
+    border: 1px solid #f7bbbb;
+}
+.stateicon-white{
+    color: #f57429;
+    background-color: rgba(255, 0, 0, 0.12);
+    border: 1px solid #f7bbbb;
+}
+.stateicon-cs{
+    color: #f57429;
+    background-color: rgba(255, 0, 0, 0.12);
+    border: 1px solid #f7bbbb;
+}
+.stateicon-yellow{
+    color: #ecb40e;
+    background-color: rgba(255, 247, 0, 0.18);
+    border: 1px solid #ffc800;
+}
+.stateicon-blue{
+    color: #0095ff;
+    background-color: rgba(0, 149, 255, 0.18);
+    border: 1px solid #7cc7fd;
+}
+.stateicon-green{
+    color: #138a27;
+    background-color: rgba(103, 216, 75, 0.18);
+    border: 1px solid #37b916;
+}
+.stateicon-orange{
+    color: #ff8100;
+    background-color: rgba(246, 126, 58, 0.12);
+    border: 1px solid #ff8100;
+}
+.newclass-feedback-list {
+    padding: 10px;
+    text-indent: 0px;
+    position: absolute;
+    margin-top: -44px;
+    right: 26px;
+}
+.newclass-feedback-list button {
+    padding: 0px 24px;
+    height: 35px;
+    line-height: 35px;
+    font-size: 13px;
+    background-color: #0096ff;
+}
+.newclass-feedback-list button:nth-child(2) {
+    background-color: #12b112;
+}
+.sl{
+  width:700;
+  display: inline-block;
+  overflow: hidden;
+  vertical-align: middle;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  vertical-align: middle;
+}

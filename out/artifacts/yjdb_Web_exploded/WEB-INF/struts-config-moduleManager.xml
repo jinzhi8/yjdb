@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.1//EN"
+		"http://jakarta.apache.org/struts/dtds/struts-config_1_1.dtd">
+<struts-config>
+	<form-beans>
+		<form-bean name="moduleTypeForm" type="com.kizsoft.commons.module.formbeans.ModuleTypeForm"/>
+		<form-bean name="moduleInfoForm" type="com.kizsoft.commons.module.formbeans.ModuleInfoForm"/>
+		<form-bean name="moduleViewForm" type="com.kizsoft.commons.module.formbeans.ModuleViewForm"/>
+		<form-bean name="applicationForm" type="com.kizsoft.commons.module.formbeans.ModuleApplicationForm"/>
+		<form-bean name="moduleActionForm" type="com.kizsoft.commons.module.formbeans.ModuleActionForm"/>
+		<form-bean name="moduleConfigForm" type="com.kizsoft.commons.module.formbeans.ModuleConfigForm"/>
+	</form-beans>
+
+	<action-mappings>
+		<action path="/editModuleAction" type="com.kizsoft.commons.module.actions.EditModuleAction" name="moduleInfoForm"
+				scope="request">
+			<forward contextRelative="false" path="/moduleDefine.jsp" name="define"/>
+			<forward contextRelative="false" path="/moduleApplications.jsp" name="applications"/>
+			<forward contextRelative="false" path="/moduleViews.jsp" name="views"/>
+			<forward contextRelative="false" path="/moduleActions.jsp" name="actions"/>
+			<forward contextRelative="false" path="/moduleConfigs.jsp" name="configs"/>
+		</action>
+
+		<action path="/formModuleAction" type="com.kizsoft.commons.module.actions.FormModuleAction" name="moduleInfoForm"
+				scope="request">
+			<forward contextRelative="false" path="/moduleDefine.jsp" name="define"/>
+			<forward contextRelative="false" path="/moduleApplications.jsp" name="applications"/>
+			<forward contextRelative="false" path="/moduleViews.jsp" name="views"/>
+			<forward contextRelative="false" path="/moduleActions.jsp" name="actions"/>
+			<forward contextRelative="false" path="/moduleConfigs.jsp" name="configs"/>
+		</action>
+
+		<action path="/editModuleViewAction" type="com.kizsoft.commons.module.actions.EditModuleViewAction"
+				name="moduleViewForm" scope="request">
+			<forward contextRelative="false" path="/moduleViewInfo.jsp" name="success"/>
+		</action>
+
+		<action path="/formModuleViewAction" type="com.kizsoft.commons.module.actions.FormModuleViewAction"
+				name="moduleViewForm" scope="request">
+			<forward redirect="false" contextRelative="false" path="/redirectpage.jsp" name="success"/>
+		</action>
+
+		<action path="/editApplicationAction" type="com.kizsoft.commons.module.actions.EditApplicationAction"
+				name="applicationForm" scope="request">
+			<forward contextRelative="false" path="/moduleApplicationInfo.jsp" name="success"/>
+		</action>
+
+		<action path="/formApplicationAction" type="com.kizsoft.commons.module.actions.FormApplicationAction"
+				name="applicationForm" scope="request">
+			<forward redirect="false" contextRelative="false" path="/redirectpage.jsp" name="success"/>
+		</action>
+
+		<action path="/editModuleActionAction" type="com.kizsoft.commons.module.actions.EditModuleActionAction"
+				name="moduleActionForm" scope="request">
+			<forward contextRelative="false" path="/moduleActionInfo.jsp" name="success"/>
+		</action>
+
+		<action path="/formModuleActionAction" type="com.kizsoft.commons.module.actions.FormModuleActionAction"
+				name="moduleActionForm" scope="request">
+			<forward redirect="false" contextRelative="false" path="/redirectpage.jsp" name="success"/>
+		</action>
+
+		<action path="/editModuleTypeAction" type="com.kizsoft.commons.module.actions.EditModuleTypeAction"
+				name="moduleTypeForm" scope="request">
+			<forward contextRelative="false" path="/moduleType.jsp" name="success"/>
+		</action>
+
+		<action path="/formModuleTypeAction" type="com.kizsoft.commons.module.actions.FormModuleTypeAction"
+				name="moduleTypeForm" scope="request">
+			<forward redirect="false" contextRelative="false" path="/typeredirectpage.jsp" name="success"/>
+		</action>
+
+		<action path="/editModuleConfigAction" type="com.kizsoft.commons.module.actions.EditModuleConfigAction"
+				name="moduleConfigForm" scope="request">
+			<forward contextRelative="false" path="/moduleConfigInfo.jsp" name="success"/>
+		</action>
+
+		<action path="/formModuleConfigAction" type="com.kizsoft.commons.module.actions.FormModuleConfigAction"
+				name="moduleConfigForm" scope="request">
+			<forward redirect="false" contextRelative="false" path="/redirectpage.jsp" name="success"/>
+		</action>
+	</action-mappings>
+</struts-config>

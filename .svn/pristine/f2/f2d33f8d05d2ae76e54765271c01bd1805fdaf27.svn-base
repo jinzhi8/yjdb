@@ -1,0 +1,466 @@
+<%@page import="com.kizsoft.yjdb.utils.CommonUtil"%>
+<%@page language="java" contentType="text/html;charset=UTF-8" %>
+<%@page import="com.kizsoft.commons.acl.ACLManager" %>
+<%@page import="com.kizsoft.commons.acl.ACLManagerFactory" %>
+<%@page import="com.kizsoft.commons.commons.user.Group" %>
+<%@page import="com.kizsoft.commons.commons.user.User" %>
+<%
+//用户登陆验证
+	if (session.getAttribute("userInfo") == null) {
+		response.sendRedirect(request.getContextPath() + "/login.jsp");
+		return;
+	}
+	User userInfo = (User) session.getAttribute("userInfo");
+	String userId = userInfo.getUserId();
+	String userName = userInfo.getUsername();
+	Group groupInfo = userInfo.getGroup();
+	String groupName = groupInfo.getGroupname();
+	String groupID = groupInfo.getGroupId();
+
+	ACLManager aclManager = ACLManagerFactory.getACLManager();
+	boolean admin =  aclManager.isOwnerRole(userId, "sysadmin")||aclManager.isOwnerRole(userId, "dbk");//判断是否为系统管理员或者督办管理员
+	boolean fxz =  aclManager.isOwnerRole(userId, "fxz");//判断是否为副县长
+
+    String name;
+    String sMonth=CommonUtil.getMMMonth(-1);
+    String ssMonth=CommonUtil.getMMMonth(-2);
+    if(admin || fxz){
+        name = "专业口";
+    } else {
+        name = "单位名称";
+    } 
+%>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="cache-control" content="no-cache">
+    <title>永嘉督办系统</title>
+    <script type="text/javascript" src="lib/jquery-3.2.1.min.js"></script>
+    <link rel="stylesheet" href="../js/layui/css/layui.css" media="all" />
+    <link rel="stylesheet" href="css/index.css">
+    <script type="text/javascript" src="lib/jquery.nicescroll.min.js"></script>
+    <script type="text/javascript" src="lib/echarts.min.js"></script>
+    <script type="text/javascript" src="lib/layer.js"></script>
+    <script type="text/javascript" src="../js/layui/layui.js"></script>
+    <script>
+    	var admin=<%=admin%>;
+    	var fxz=<%=fxz%>;
+    	var sMonth="<%=sMonth%>";
+    	var ssMonth="<%=ssMonth%>";
+    </script>
+</head>
+<body>
+  <div class="wrapper">
+    <a class="flower"></a>
+    <div class="content">
+      <!-- echart图表 -->
+      <!-- <div class="images-banner"><div style="display: table-cell;vertical-align: middle;text-align: center"><img src="/yjdb/resources/template/cn/images/index-logo.png" style="opacity: 0.8;"></div></div> -->
+      <div class="chart-list">
+        <!-- <div class="icon-block">
+          <span class="icon">
+            <em></em>
+            <i></i>
+          </span>
+          <div class="legend">
+            <i></i>
+            <div class="legend-content">
+              <p class="title">统计说明</p>
+              <p><i id="lsbjs"></i><span>历史办件数</span></p>
+              <p class="bjzzl"><i>%</i><span>本月与上月办件数增长率</span></p>
+              <p class="bjqst"><i></i><span>近7月办件数趋势图</span></p>
+            </div>
+          </div>
+        </div> -->
+        <div class="block">
+          <div id="dbclass_1" class="block-content supervise">
+            <div class="left">
+              <em>累计总督办件数</em>
+              <label><b id="dbjs_1"></b>件</label>
+             <!--  <i class="updown" id="dbzzl_1"></i> -->
+            </div>
+            <i class="icon"></i>
+            <!-- <div id="chart-supervise" class="chart"></div> -->
+          </div>
+        </div>
+        <div class="block">
+          <div id="dbclass_2"  class="block-content finish">
+            <div class="left">
+              <em>本月到期督办件数</em>
+              <label><b id="dbjs_2"></b>件</label>
+              <!-- <i class="updown" id="dbzzl_2"></i> -->
+            </div>
+            <i class="icon"></i>
+            <!-- <div id="chart-finish" class="chart"></div> -->
+          </div>
+        </div>
+        <div class="block">
+          <div id="dbclass_3" class="block-content wait ">
+            <div class="left">
+              <em>本月新增督办件</em>
+              <label><b id="dbjs_3"></b>件</label>
+              <!-- <i class="updown" id="dbzzl_3"></i> -->
+            </div>
+            <i class="icon"></i>
+            <!-- <div id="chart-wait" class="chart"></div> -->
+          </div>
+        </div>
+        <div class="block">
+          <div id="dbclass_4" class="block-content supervise">
+            <div class="left">
+              <em>正在督办件数</em>
+              <label><b id="dbjs_4"></b>件</label>
+             <!--  <i class="updown" id="dbzzl_1"></i> -->
+            </div>
+            <i class="icon"></i>
+            <!-- <div id="chart-supervise" class="chart"></div> -->
+          </div>
+        </div>      
+      </div>
+      
+      <div class="newclass-indexmianbox">
+      	<!-- 桌面日志 -->
+        <div class="block-wrap newclass-log">
+          <div class="border-box">
+			  <div class="layui-inline" id="datatime"></div>
+          </div>
+        </div>
+      	
+      	 <!-- <div class="content-block fxztj-bmtj  bsld">
+        超期数据统计
+        <div class="block-wrap fxztj">
+          <div class="border-box">
+            <div class="title">
+              <label class="name" data-type="fxzsjtj">
+                <span class="view"><i></i>超期数据统计<b class="cqh"></b></span>
+                <span class="type-list cqh">
+                  <em>县领导</em>
+                  <em>政府直属单位</em>
+                  <em>乡镇街道</em>
+                </span>
+              </label>
+            </div> -->
+            
+      	<!-- 热力图 -->    
+        <div class="block-wrap table newclass-thermodynamicdiagram">
+          <div class="border-box">
+          	  <div class="content-block">
+	          	  <div class="title">
+		              <label class="name" data-type="dftj">
+		                  <span class="view" id="text"></span>
+		              </label>
+		              <a class="detail" href="javascript:void(0);"></a>
+		              <label class="name yy" data-type="dftj" style="position: absolute;">
+		                  <span class="view cqh">县领导<b></b></span>
+		                  <span class="type-list">
+		                      <em>县领导</em>
+		                      <em>县直属有关单位</em>
+		                      <em>功能区、乡镇（街道）</em>
+		                      <em>县属国有企业</em>
+		                      <em>重点工程建设单位</em>
+		                  </span>
+		              </label>
+		           </div>
+	          </div>
+          	  <div id="chart-fsdb" ></div>
+          </div>
+        </div>
+        <p class="clear"></p>
+      </div>
+
+	 <!-- 领导督办件统计 -->
+      <div class="content-block lddbj-wrap gly">
+        <div class="block-wrap echart">
+          <div class="border-box">
+              <div class="title">
+                <label class="name">
+                  <span class="view"><i></i>领导督办件统计</span>
+                </label>
+                <!-- <a class="more" href="javascript:void(0);">MORE+</a> -->
+              </div>
+              <div class="block overhide" id="lddbj-echart">
+              </div>
+          </div>
+        </div>
+        <div class="block-wrap table">
+          <div class="border-box">
+            <div class="block table hide active">
+	            <table class=" table-list newclass-tabe-ldbjl" id="ldbjl">
+	            </table>
+            </div>
+          </div>
+        </div>
+        <p class="clear"></p>
+      </div>
+
+      <!-- 永嘉县政府指数单位总分统计 -->
+      <div class="content-block zsdwzftj  bmdw">
+        <div class="block-wrap zsdwzftj">
+          <div class="border-box">
+            <div class="title">
+              <label class="name" data-type="zsdwzftj">
+                <span class="view"><i></i>永嘉县政府指数单位总分统计<b></b></span>
+                <span class="type-list">
+                  <em>督办件</em>
+                  <em>政务督办</em>
+                  <em>县长热线</em>
+                  <em>两个责任</em>
+                </span>
+              </label>
+              <!-- <a class="more" href="javascript:void(0);">MORE+</a> -->
+              <span class="icon-btn">
+                <a class="table" href="javascript:void(0);" data-type="table"></a>
+                <a class="echart active" href="javascript:void(0);" data-type="echart"></a>
+              </span>
+            </div>
+            <!-- 总分统计图表 -->
+            <div class="block echart-wrap" tabindex="5" style="overflow: hidden; outline: none;">
+              <div class="echart hide active" id="count-echart" _echarts_instance_="ec_1530004174194" style="-webkit-tap-highlight-color: transparent; user-select: none; position: relative;"><div style="position: relative; overflow: hidden; width: 2000px; height: 320px; padding: 0px; margin: 0px; border-width: 0px; cursor: default;"><canvas data-zr-dom-id="zr_0" width="2000" height="320" style="position: absolute; left: 0px; top: 0px; width: 2000px; height: 320px; user-select: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); padding: 0px; margin: 0px; border-width: 0px;"></canvas></div><div style="position: absolute; display: none; border-style: solid; white-space: nowrap; z-index: 9999999; transition: left 0.4s cubic-bezier(0.23, 1, 0.32, 1), top 0.4s cubic-bezier(0.23, 1, 0.32, 1); background-color: rgba(50, 50, 50, 0.7); border-width: 0px; border-color: rgb(51, 51, 51); border-radius: 4px; color: rgb(255, 255, 255); font-style: normal; font-variant: normal; font-weight: normal; font-stretch: normal; font-size: 14px; font-family: &quot;Microsoft YaHei&quot;; line-height: 21px; padding: 5px; left: 483px; top: 149px;">Wed<br><span style="display:inline-block;margin-right:5px;border-radius:10px;width:10px;height:10px;background-color:#03d7b6;"></span>直接访问: 40</div></div>
+               <div class="table hide" id="count-table">
+                 <table class="layui-table" lay-even lay-skin="nob">
+                   <colgroup>
+                     <col>
+                     <col>
+                     <col>
+                     <col>
+                   </colgroup>
+                   <thead>
+                   <tr class="zstab" style="background-color: #04d7b7;color: white;font-weight: bold">
+                       <th>排名序号</th>
+                       <th>单位名称</th>
+                       <th>未办结件</th>
+                       <th>综合得分</th>
+                   </tr>
+                   </thead>
+                   <tbody>
+
+                   </tbody>
+                 </table>
+               </div>
+            </div>
+            <!-- <div class="block echart hide echart-wrap active">
+              <div class="overflow">
+              </div>
+            </div> -->
+          </div>
+        </div>
+        <p class="clear"></p>
+
+      </div>
+      <!-- 最新反馈 -->
+      <div class="content-block zxfk  fxz">
+        <div class="title">
+          <label class="name">
+            <span class="view"><i></i>最新反馈</span>
+          </label>
+          <!-- <a class="more" href="javascript:void(0);">MORE+</a> -->
+        </div>
+        <div class="block-wrap fxztj">
+          <div class="border-box">
+              <ul class="block zxfk-list">
+              </ul>
+          </div>
+        </div>
+        <div class="block-wrap fxztj">
+          <div class="border-box">
+            <ul class="block zxfka-list">
+
+            </ul>
+          </div>
+        </div>
+        <p class="clear"></p>
+      </div>
+
+      <div class="content-block fxztj-bmtj  bsld">
+        <!-- 超期数据统计 -->
+        <div class="block-wrap fxztj">
+          <div class="border-box">
+            <div class="title">
+              <label class="name" data-type="fxzsjtj">
+                <span class="view"><i></i>超期数据统计<b class="cqh"></b></span>
+                <span class="type-list cqh">
+                  <em>县领导</em>
+                  <em>政府直属单位</em>
+                  <em>乡镇街道</em>
+                </span>
+              </label>
+            </div>
+            <!-- 总分统计图表 -->
+            <div class="block echart-wrap">
+                <div class="table hide active">
+                    <table class="layui-table" lay-even lay-skin="nob">
+                        <colgroup>
+                            <col>
+                            <col>
+                            <col>
+                            <col>
+                        </colgroup>
+                        <thead>
+                        <tr class="zstab">
+		                  <th>序号</th>
+		                  <th><%=name%></th>
+		                  <th>超期回复</th>
+		                  <th>超期未办结</th>
+		                  <th>超期办结</th>
+                        </tr>
+                        </thead>
+                        <tbody id="xldsjtj">
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <!-- <div class="block echart-wrap fxzsj-wrap overhide">
+              <table class="layui-table" lay-even lay-skin="nob">
+                <colgroup>
+                  <col>
+                  <col>
+                  <col>
+                  <col>
+                </colgroup>
+                <thead>
+                <tr class="zstab">
+                  <th>单位名称</th>
+                  <th>超期回复</th>
+                  <th>超期未办结</th>
+                  <th>超期办结</th>
+                </tr>
+                </thead>
+                <tbody id="xldsjtj">
+
+                </tbody>
+              </table>
+            </div> -->
+          </div>
+        </div>
+        <div class="block-wrap bmtj">
+          <div class="border-box">
+            <div class="title">
+              <label class="name" data-type="bmtj">
+                <span class="view"><i></i>正在办理件数据统计</span>
+                <%--<span class="type-list">
+                  <em>督办件</em>
+                  <em>政务督办</em>
+                  <em>县长热线</em>
+                  <em>两个责任</em>
+                </span>--%>
+              </label>
+              <a class="detail" href="javascript:void(0);"></a>
+                <label class="name yy" data-type="bmtj" style="position: absolute;">
+                    <span class="view cqh">县领导<b></b></span><!--style="color: black;font-size: 16px;font-weight: 300"-->
+                    <span class="type-list cqh">
+                        <em>县领导</em>
+                        <em>政府直属单位</em>
+                        <em>乡镇街道</em>
+                    </span>
+                </label>
+              <span class="icon-btn">
+                <a class="table active" href="javascript:void(0);" data-type="table"></a>
+                <a class="echart" href="javascript:void(0);" data-type="echart"></a>
+              </span>
+            </div>
+            <!-- 总分统计图表 -->
+            <div class="block echart-wrap">
+                <div class="echart hide" id="bmsj-echart"></div>
+                <div class="table hide active" id="bmtj-table">
+                    <table class="layui-table" lay-even lay-skin="nob">
+                        <colgroup>
+                            <col>
+                            <col>
+                            <col>
+                        </colgroup>
+                        <thead>
+                        <tr class="zstab">
+                            <th>排名</th>
+                            <th><%=name%></th>
+                            <th>正在办理</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+          </div>
+        </div>
+        <p class="clear"></p>
+      </div>
+      <div class="content-block dbj-yjtx">
+        <!-- 督办件 -->
+        <div class="block-wrap dbj">
+          <div class="border-box">
+            <div class="title">
+              <label class="choice-wrap name" data-type="dbj" data-value="">
+                <span class="view"><i></i><span>督办件</span><b></b></span>
+                <span class="type-list">
+                  <em>督办件</em>
+                  <em>政务督办</em>
+                  <em>县长热线</em>
+                  <em>两个责任</em>
+                </span>
+              </label>
+              <!-- <a class="more" href="javascript:void(0);">MORE+</a> -->
+              <label class="choice-wrap radius-btn"  data-type="dbj" data-value="">
+                <span class="view"><span>未办结</span></span>
+                <span class="type-list">
+                  <em>未办结</em>
+                  <em>已办结</em>
+                  <em>超时未办结</em>
+                  <em>超时办结</em>
+                </span>
+              </label>
+            </div>
+            <ul id="dbj" class="block kjk">
+            </ul>
+          </div>
+        </div>
+        <!-- 预警提醒 -->
+        <div class="block-wrap yjtx fxzbm">
+          <div class="border-box">
+            <div class="title">
+              <label class="name">
+                <span class="view"><i></i>预警提醒<%--<b></b>--%></span>
+                <%--<span class="type-list">
+                  <em>标题1</em>
+                  <em>标题2</em>
+                  <em>标题3</em>
+                </span>--%>
+              </label>
+              <!-- <a class="more" href="javascript:void(0);">MORE+</a> -->
+            </div>
+            <ul class="block">
+            </ul>
+          </div>
+        </div>
+        <!-- 最新反馈 -->
+        <div class="block-wrap zxfk gly">
+          <div class="border-box">
+            <div class="title">
+              <label class="name" data-type="zxfk">
+                <span class="view"><i></i>最新反馈<b></b></span>
+                <span class="type-list">
+                  <em>督办件</em>
+                  <em>政务督办</em>
+                  <em>县长热线</em>
+                  <em>两个责任</em>
+                </span>
+              </label>
+              <!-- <a class="more" href="javascript:void(0);">MORE+</a> -->
+            </div>
+            <ul class="block">
+            </ul>
+          </div>
+        </div>
+        <p class="clear"></p>
+      </div>
+    </div>
+  </div>
+</body>
+<script src="js/base.js?t=41"></script>
+<script src="js/common.js?t=41"></script>
+<script src="js/index.js?t=41"></script>
+<script src="js/js.js?t=41&v=<%=Math.random()%>"></script>
+<!-- <script type="text/javascript" src="../resources/template/cn/js/index.js?"+Math.random()></script>
+<script type="text/javascript" src="../resources/template/cn/js/cache.js?"+Math.random()></script> -->
+</html>

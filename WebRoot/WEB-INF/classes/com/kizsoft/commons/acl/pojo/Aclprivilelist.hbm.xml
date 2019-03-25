@@ -1,0 +1,94 @@
+<?xml version="1.0"?>
+<!--
+  ~ Copyright (C) 2011-2012.索思奇智版权所有
+  ~ @author 温政权
+  ~ @version 1.0, 2012
+  -->
+
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 2.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-2.0.dtd" >
+
+<!-- DO NOT EDIT: This is a generated file that is synchronized -->
+<!-- by MyEclipse Hibernate tool integration.                   -->
+<!-- Created Thu Apr 07 11:23:53 CST 2005                         -->
+<hibernate-mapping package="com.kizsoft.commons.acl.pojo">
+
+    <class name="Aclprivilelist" table="ACLPRIVILELIST">
+        <id name="confid" column="CONFID" type="java.lang.String">
+            <generator class="uuid.hex"/>
+        </id>
+        <property name="workid" column="WORKID" type="java.lang.String" not-null="true"/>
+        <property name="ownerid" column="OWNERID" type="java.lang.String" not-null="true"/>
+        <property name="ownertype" column="OWNERTYPE" type="java.lang.Long"/>
+        <property name="purview" column="PURVIEW" type="java.lang.String"/>
+        <property name="agentsign" column="AGENTSIGN" type="java.lang.Long"/>
+        <property name="agentstart" column="AGENTSTART" type="java.util.Date"/>
+        <property name="agentend" column="AGENTEND" type="java.util.Date"/>
+        <property name="worktype" column="WORKTYPE" type="java.lang.String"/>
+        <property name="workcode" column="WORKCODE" type="java.lang.String"/>
+    </class>
+    <query name="queryPrivileByLoginnameAndSourcecode">
+        <![CDATA[
+			select l from Acluserrole AS r,Acluser u,Aclprivilelist AS l
+			where r.userid=:u.userid and l.ownerid = r.roleid
+			and l.workid=:workid and and u.loginname=:loginname
+		  ]]>
+    </query>
+    <query name="queryPrivileByUseridAndSourcecode">
+        <![CDATA[
+			select l from Acluserrole AS r,Aclprivilelist AS l
+			where r.userid=:userid and l.ownerid = r.roleid
+			and l.workid=:workid
+		  ]]>
+    </query>
+    <query name="queryPrivileByWorkId">
+        <![CDATA[
+    	select r FROM Aclprivilelist AS r where trim(r.workid) =:workid 
+		  ]]>
+    </query>
+    <query name="queryHasPrivileByUserAndSource">
+        <![CDATA[
+    	select r FROM Aclprivilelist AS r where r.workid =:workid and (r.ownerid=:ownerid or r.ownerid='*')
+		  ]]>
+    </query>
+    <query name="queryHasPrivile">
+        <![CDATA[
+    	select r FROM Aclprivilelist AS r where r.workid =:workid and r.ownerid=:ownerid
+    			and worktype = :worktype and r.purview = :purview
+		  ]]>
+    </query>
+    <query name="queryPrivileByUserType">
+        <![CDATA[
+    	select r FROM Aclprivilelist AS r where  r.ownerid=:ownerid
+						    			and worktype = :worktype 
+		]]>
+    </query>
+    <query name="queryCountPrivileByUserTypePrivile">
+        <![CDATA[
+    	select r FROM Aclprivilelist AS r where  r.ownerid=:ownerid
+		    			and worktype = :worktype and purview=:purview
+		]]>
+    </query>
+    <query name="queryOwnerBySourceId">
+        <![CDATA[
+		select u.truename FROM Aclprivilelist AS l,Acluser AS u 
+		WHERE l.ownerid = u.userid and trim(l.workid)= :workid
+		]]>
+    </query>
+    <query name="queryRoleBySourceId">
+        <![CDATA[
+		select r.rolename  from Aclprivilelist l, Aclrole r 
+		where r.roleid = l.ownerid and trim(l.workid)= :workid
+		]]>
+    </query>
+    <query name="queryPrivilegeByCategoryId">
+        <![CDATA[
+		select l  from Aclprivilelist l, Aclprivileresource s
+		 where s.categoryid=:categoryid and l.workid=s.regname
+		 and l.ownerid=:ownerid
+		]]>
+    </query>
+
+</hibernate-mapping>
+

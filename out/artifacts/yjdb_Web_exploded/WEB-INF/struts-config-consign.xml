@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.1//EN"
+		"http://jakarta.apache.org/struts/dtds/struts-config_1_1.dtd">
+<struts-config>
+	<data-sources/>
+	<form-beans>
+		<form-bean type="com.kizsoft.commons.consign.ConsignForm" name="consignForm"/>
+	</form-beans>
+
+	<global-forwards type="org.apache.struts.action.ActionForward">
+		<forward name="error" path="../html/error.jsp" redirect="true"/>
+		<forward name="refresh" path="../html/refresh.jsp" redirect="true"/>
+		<forward name="login" path="../html/login.jsp" redirect="true"/>
+		<forward name="noprivilege" path="../html/noright.jsp" redirect="true"/>
+	</global-forwards>
+
+	<action-mappings>
+		<action name="consignForm" type="com.kizsoft.commons.consign.ViewAction" validate="true" scope="request" path="/viewAction">
+			<forward name="success" path="/viewevent.jsp" redirect="false"/>
+		</action>
+		<action name="consignForm" type="com.kizsoft.commons.consign.EditAction" validate="true" scope="request" path="/editAction">
+			<forward name="success" path="/content.jsp" redirect="false"/>
+			<forward name="showcontent" path="/show.jsp" redirect="false"/>
+			<forward name="endcontent" path="/show_end.jsp" redirect="false"/>
+		</action>
+		<action name="consignForm" type="com.kizsoft.commons.consign.NewAction" validate="true" scope="request" path="/newAction">
+			<forward name="success" path="/content.jsp" redirect="false"/>
+		</action>
+		<action name="consignForm" type="com.kizsoft.commons.consign.DealAction" validate="true" scope="request" path="/dealAction">
+			<forward name="success" path="/index.jsp" redirect="true"/>
+		</action>
+		<action name="consignForm" type="com.kizsoft.commons.consign.ShowAction" validate="true" scope="request" path="/showAction">
+			<forward name="success" path="/show.jsp" redirect="false"/>
+		</action>
+	</action-mappings>
+</struts-config>

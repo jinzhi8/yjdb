@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+    <items>
+        <item>
+            <name>主　　题</name>
+            <id>title</id>
+            <type>String</type>
+            <exp>like</exp>
+        </item>
+    </items>
+</search>

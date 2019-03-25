@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.1//EN"
+		"http://jakarta.apache.org/struts/dtds/struts-config_1_1.dtd">
+<struts-config>
+	<action-mappings>
+		<action path="/docBaseConfAction" type="com.kizsoft.oa.docbase.actions.DocBaseConfAction">
+			<forward name="success" redirect="true" path="/docbaseconf.jsp"/>
+		</action>
+		<action path="/settingDepAction" type="com.kizsoft.oa.docbase.actions.SettingDepAction">
+			<forward name="success" redirect="true" path="/settingDepManager.jsp"/>
+		</action>
+	</action-mappings>
+</struts-config>

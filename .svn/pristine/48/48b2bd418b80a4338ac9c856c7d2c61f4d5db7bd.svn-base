@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<!DOCTYPE taglib PUBLIC "-//Sun Microsystems, Inc.//DTD JSP Tag Library 1.1//EN"
+        "http://java.sun.com/j2ee/dtds/web-jsptaglibrary_1_1.dtd">
+
+<taglib>
+    <tlibversion>1.0</tlibversion>
+    <jspversion>1.1</jspversion>
+    <shortname>ch</shortname>
+    <uri>/mytaglib</uri>
+
+    <tag>
+        <name>view</name>
+        <tagclass>com.kizsoft.commons.util.view.ViewFormatTag</tagclass>
+        <bodycontent>empty</bodycontent>
+        <attribute>
+            <name>entries</name>
+            <required>true</required>
+        </attribute>
+        <attribute>
+            <name>format</name>
+            <required>true</required>
+        </attribute>
+    </tag>
+    <tag>
+        <name>viewplus</name>
+        <tagclass>com.kizsoft.commons.util.view.ViewFormatPlusTag</tagclass>
+        <bodycontent>empty</bodycontent>
+        <attribute>
+            <name>format</name>
+            <required>true</required>
+        </attribute>
+    </tag>
+    <tag>
+        <name>taskview</name>
+        <tagclass>com.kizsoft.commons.util.view.TaskViewTag</tagclass>
+        <bodycontent>empty</bodycontent>
+        <attribute>
+            <name>moduleID</name>
+            <required>true</required>
+        </attribute>
+        <attribute>
+            <name>format</name>
+            <required>true</required>
+        </attribute>
+    </tag>
+    <tag>
+        <name>showview</name>
+        <tagclass>com.kizsoft.commons.util.view.ViewTag</tagclass>
+        <bodycontent>empty</bodycontent>
+        <attribute>
+            <name>page</name>
+            <required>false</required>
+        </attribute>
+        <attribute>
+            <name>format</name>
+            <required>true</required>
+        </attribute>
+	<attribute>
+            <name>desktop</name>
+            <required>false</required>
+        </attribute>
+    </tag>
+    <tag>
+        <name>showSearch</name>
+        <tagclass>com.kizsoft.commons.util.search.SearchTag</tagclass>
+        <bodycontent>empty</bodycontent>
+        <attribute>
+            <name>moduleid</name>
+            <required>true</required>
+        </attribute>
+        <attribute>
+            <name>format</name>
+            <required>true</required>
+        </attribute>
+    </tag>
+    <tag>
+        <name>showStat</name>
+        <tagclass>com.kizsoft.commons.util.search.SearchTag</tagclass>
+        <bodycontent>empty</bodycontent>
+        <attribute>
+            <name>page</name>
+            <required>true</required>
+        </attribute>
+        <attribute>
+            <name>format</name>
+            <required>true</required>
+        </attribute>
+        <attribute>
+            <name>nextPage</name>
+            <required>false</required>
+        </attribute>
+    </tag>
+    <tag>
+        <name>poview</name>
+        <tagclass>com.kizsoft.commons.util.view.ViewPOFormatTag</tagclass>
+        <bodycontent>empty</bodycontent>
+        <attribute>
+            <name>page</name>
+        </attribute>
+        <attribute>
+            <name>format</name>
+        </attribute>
+    </tag>
+    <tag>
+        <name>attachment</name>
+        <tagclass>com.kizsoft.commons.util.attachment.AttachmentTag</tagclass>
+        <bodycontent>empty</bodycontent>
+        <attribute>
+            <name>table</name>
+        </attribute>
+        <attribute>
+            <name>moduleid</name>
+        </attribute>
+        <attribute>
+            <name>unid</name>
+        </attribute>
+        <attribute>
+            <name>type</name>
+        </attribute>
+        <attribute>
+            <name>attnum</name>
+        </attribute>
+        <attribute>
+            <name>target</name>
+        </attribute>
+    </tag>
+
+
+    <tag>
+        <name>stat</name>
+        <tagclass>com.kizsoft.commons.util.stat.StatTag</tagclass>
+        <bodycontent>empty</bodycontent>
+        <attribute>
+            <name>name</name>
+            <required>true</required>
+        </attribute>
+        <attribute>
+            <name>page</name>
+            <required>true</required>
+        </attribute>
+        <attribute>
+            <name>styleClass</name>
+            <required>false</required>
+        </attribute>
+    </tag>
+</taglib>
+
+
+
+

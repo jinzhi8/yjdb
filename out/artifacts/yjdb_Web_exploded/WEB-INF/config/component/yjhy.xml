@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<config>
+    <insert
+        sql="insert into yj_hy(unid,title,depname,depid,userid,username,bsperson,bspersonid,status,createtime,state,statetime,bh,type) values(?,?,?,?,?,?,?,?,?,?,?,?,?,?)" primaryKey="unid"  class="com.kizsoft.yjdb.manager.YcInfoManager"  title="title" sequence="SEQ_UNID"
+         jsp="/yj_hy/index.jsp">
+        <field dbCol="unid" formCol="unid" type="string" />
+        <field dbCol="title" formCol="title" type="string" />
+        <field dbCol="depname" formCol="depname" type="string" />
+        <field dbCol="depid" formCol="depid" type="string" />
+        <field dbCol="userid" formCol="userid" type="string" />
+        <field dbCol="username" formCol="username" type="string" />
+        <field dbCol="bsperson" formCol="bsperson"  type="string" />
+        <field dbCol="bspersonid" formCol="bspersonid" type="string" />
+        <field dbCol="status" formCol="status" type="string" value="" />  
+        <field dbCol="createtime" formCol="createtime" type="string" />
+        <field dbCol="state" formCol="state" type="string"/>
+        <field dbCol="statetime" formCol="statetime" type="string"/>
+        <field dbCol="bh" formCol="bh" type="string"/>
+        <field dbCol="type" formCol="type" type="string"/>
+    </insert>
+    <update
+        sql="update yj_hy set title=?,depname=?,depid=?,userid=?,username=?,bsperson=?,bspersonid=?,status=?,createtime=?,state=?,statetime=?,bh=?,type=? where unid=?" primaryKey="unid" class="com.kizsoft.yjdb.manager.YcInfoManager" title="title" sequence="SEQ_UNID"
+         jsp="/yj_hy/index.jsp">
+        <field dbCol="title" formCol="title" type="string" />
+        <field dbCol="depname" formCol="depname" type="string" />
+        <field dbCol="depid" formCol="depid" type="string" />
+        <field dbCol="userid" formCol="userid" type="string" />
+        <field dbCol="username" formCol="username" type="string" />
+        <field dbCol="bsperson" formCol="bsperson"  type="string" />
+        <field dbCol="bspersonid" formCol="bspersonid" type="string" />
+        <field dbCol="status" formCol="status" type="string" value="" />  
+        <field dbCol="createtime" formCol="createtime" type="string" />
+        <field dbCol="state" formCol="state" type="string"/>
+        <field dbCol="statetime" formCol="statetime" type="string"/>
+        <field dbCol="bh" formCol="bh" type="string"/>
+        <field dbCol="type" formCol="type" type="string"/>
+        <field dbCol="unid" formCol="unid" type="string" value="" />
+    </update>
+</config>
+
+
+

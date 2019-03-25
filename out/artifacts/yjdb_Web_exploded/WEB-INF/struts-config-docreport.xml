@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.1//EN"
+		"http://jakarta.apache.org/struts/dtds/struts-config_1_1.dtd">
+<struts-config>
+	<action-mappings>
+		<action path="/DoGetDocAction" type="com.kizsoft.oa.docreport.actions.DoGetDocAction">
+			<forward name="success" contextRelative="false" path="/../getdoc/index.jsp" redirect="true"/>
+		</action>
+		<!--
+		<action path="/xml2docaction" type="com.kizsoft.oa.doc2xml.actions.Doc2XMLAction">
+		</action>
+		-->
+	</action-mappings>
+</struts-config>

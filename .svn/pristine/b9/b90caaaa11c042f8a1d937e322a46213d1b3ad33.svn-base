@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<config>
+    <insert
+        sql="insert into yj_lr(unid,title,depname,depid,userid,username,lwdepname,psperson,pspersonid,status,bh,qtperson,qtpersonid,phperson,phpersonid,createtime,jbsx,fklx,fkzq,details,import,qtdepnameid,qtdepname,phdepnameid,phdepname,state,statetime,gqstate,ishy,docunid,zrdepname,zrdepnameid,lxrname,lxrmobile,lxrshort,dstatus,ldmb,dwmb,sort,dtype,sfscrwnr,lxrnameid,qptime,contactid) values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)" primaryKey="unid" class="com.kizsoft.yjdb.manager.PsInfoManager" title="title" sequence="SEQ_UNID"
+         jsp="/yj_lr/index.jsp">
+        <field dbCol="unid" formCol="unid" type="string" value="" />
+        <field dbCol="title" formCol="title" type="string" value="" />
+        <field dbCol="depname" formCol="depname" type="string" />
+        <field dbCol="depid" formCol="depid" type="string" />
+        <field dbCol="userid" formCol="userid" type="string" />
+        <field dbCol="username" formCol="username" type="string" />
+        <field dbCol="lwdepname" formCol="lwdepname" type="string" value="" />
+        <field dbCol="psperson" formCol="psperson" type="string" value="" />
+        <field dbCol="pspersonid" formCol="pspersonid" type="string" value="" />
+        <field dbCol="status" formCol="status" type="string" value="" />
+        <field dbCol="bh" formCol="bh" type="string" value="" />
+        <field dbCol="qtperson" formCol="qtperson" type="string" value="" />
+        <field dbCol="qtpersonid" formCol="qtpersonid" type="string" />
+        <field dbCol="phperson" formCol="phperson" type="string" />
+        <field dbCol="phpersonid" formCol="phpersonid" type="string" />
+        <field dbCol="createtime" formCol="createtime" type="string" />
+        <field dbCol="jbsx" formCol="jbsx" type="string" />
+        <field dbCol="fklx" formCol="fklx" type="string" />
+        <field dbCol="fkzq" formCol="fkzq" type="string" />
+        <field dbCol="details" formCol="details" type="string" />
+        <field dbCol="import" formCol="import" type="string" />
+        <field dbCol="qtdepnameid" formCol="qtdepnameid" type="string" />
+        <field dbCol="qtdepname" formCol="qtdepname" type="string" />
+        <field dbCol="phdepnameid" formCol="phdepnameid" type="string" />       
+        <field dbCol="phdepname" formCol="phdepname" type="string"/>
+        <field dbCol="state" formCol="state" type="string"/>
+        <field dbCol="statetime" formCol="statetime" type="string"/>
+        <field dbCol="gqstate" formCol="gqstate" type="string"/>
+        <field dbCol="ishy" formCol="ishy" type="string"/>
+        <field dbCol="docunid" formCol="docunid" type="string"/>
+        <field dbCol="zrdepname" formCol="zrdepname" type="string"/>
+        <field dbCol="zrdepnameid" formCol="zrdepnameid" type="string"/>
+        <field dbCol="lxrname" formCol="lxrname" type="string"/>
+        <field dbCol="lxrmobile" formCol="lxrmobile" type="string"/>
+        <field dbCol="lxrshort" formCol="lxrshort" type="string"/>
+        <field dbCol="dstatus" formCol="dstatus" type="string"/>
+        <field dbCol="ldmb" formCol="ldmb" type="string"/>
+        <field dbCol="dwmb" formCol="dwmb" type="string"/>
+        <field dbCol="sort" formCol="sort" type="string"/>
+        <field dbCol="dtype" formCol="dtype" type="string"/>
+        <field dbCol="sfscrwnr" formCol="sfscrwnr" type="string"/>
+        <field dbCol="lxrnameid" formCol="lxrnameid" type="string"/>
+        <field dbCol="qptime" formCol="qptime" type="string"/>
+        <field dbCol="contactid" formCol="contactid" type="string"/>
+    </insert>
+    <update
+        sql="update yj_lr set title=?,depname=?,depid=?,userid=?,username=?,lwdepname=?,psperson=?,pspersonid=?,status=?,bh=?,qtperson=?,qtpersonid=?,phperson=?,phpersonid=?,createtime=?,jbsx=?,fklx=?,fkzq=?,details=?,import=?,qtdepnameid=?,qtdepname=?,phdepnameid=?,phdepname=?,state=?,statetime=?,gqstate=?,ishy=?,docunid=?,zrdepname=?,zrdepnameid=?,lxrname=?,lxrmobile=?,lxrshort=?,dstatus=?,ldmb=?,dwmb=?,sort=?,dtype=?,sfscrwnr=?,lxrnameid=?,qptime=?,contactid=? where unid=?" primaryKey="unid"  class="com.kizsoft.yjdb.manager.PsInfoManager" title="title" sequence="SEQ_UNID"
+         jsp="/yj_lr/index.jsp">
+        <field dbCol="title" formCol="title" type="string" value="" />
+        <field dbCol="depname" formCol="depname" type="string" />
+        <field dbCol="depid" formCol="depid" type="string" />
+        <field dbCol="userid" formCol="userid" type="string" />
+        <field dbCol="username" formCol="username" type="string" />
+        <field dbCol="lwdepname" formCol="lwdepname" type="string" value="" />
+        <field dbCol="psperson" formCol="psperson" type="string" value="" />
+        <field dbCol="pspersonid" formCol="pspersonid" type="string" value="" />
+        <field dbCol="status" formCol="status" type="string" value="" />
+        <field dbCol="bh" formCol="bh" type="string" value="" />
+        <field dbCol="qtperson" formCol="qtperson" type="string" value="" />
+        <field dbCol="qtpersonid" formCol="qtpersonid" type="string" />
+        <field dbCol="phperson" formCol="phperson" type="string" />
+        <field dbCol="phpersonid" formCol="phpersonid" type="string" />
+        <field dbCol="createtime" formCol="createtime" type="string" />
+        <field dbCol="jbsx" formCol="jbsx" type="string" />
+        <field dbCol="fklx" formCol="fklx" type="string" />
+        <field dbCol="fkzq" formCol="fkzq" type="string" />
+        <field dbCol="details" formCol="details" type="string" />
+        <field dbCol="import" formCol="import" type="string" />
+        <field dbCol="qtdepnameid" formCol="qtdepnameid" type="string" />
+        <field dbCol="qtdepname" formCol="qtdepname" type="string" />
+        <field dbCol="phdepnameid" formCol="phdepnameid" type="string" />       
+        <field dbCol="phdepname" formCol="phdepname" type="string"/>
+        <field dbCol="state" formCol="state" type="string"/>
+        <field dbCol="statetime" formCol="statetime" type="string"/>
+        <field dbCol="gqstate" formCol="gqstate" type="string"/>
+        <field dbCol="ishy" formCol="ishy" type="string"/>
+        <field dbCol="docunid" formCol="docunid" type="string"/>
+        <field dbCol="zrdepname" formCol="zrdepname" type="string"/>
+        <field dbCol="zrdepnameid" formCol="zrdepnameid" type="string"/>
+        <field dbCol="lxrname" formCol="lxrname" type="string"/>
+        <field dbCol="lxrmobile" formCol="lxrmobile" type="string"/>
+        <field dbCol="lxrshort" formCol="lxrshort" type="string"/>
+        <field dbCol="dstatus" formCol="dstatus" type="string"/>
+        <field dbCol="ldmb" formCol="ldmb" type="string"/>
+        <field dbCol="dwmb" formCol="dwmb" type="string"/>
+        <field dbCol="sort" formCol="sort" type="string"/>
+        <field dbCol="dtype" formCol="dtype" type="string"/>
+        <field dbCol="sfscrwnr" formCol="sfscrwnr" type="string"/>
+        <field dbCol="lxrnameid" formCol="lxrnameid" type="string"/>
+        <field dbCol="qptime" formCol="qptime" type="string"/>
+        <field dbCol="contactid" formCol="contactid" type="string" />
+        <field dbCol="unid" formCol="unid" type="string" />
+    </update>
+</config>
+
+
+

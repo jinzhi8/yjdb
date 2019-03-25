@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<view>
+    <type>common</type>
+	<moduleid>systemlog</moduleid>
+    <sql>select dcontent,time,name,mobile,result</sql>
+    <tables>yj_lr_message</tables>
+    <filters>
+        <filter>1=1</filter>
+    </filters>
+    <order>time desc</order>
+    <rows>100</rows>
+    <columns>
+        <column>
+            <title>发送时间</title>
+            <property>$time</property>
+            <filedtype>string</filedtype>
+            <width>100</width>
+            <length>30</length>
+            <align>center</align>
+            <link></link>
+        </column>
+        <column>
+            <title>姓名</title>
+            <property>$name</property>
+            <filedtype>string</filedtype>
+            <width>150</width>
+            <length>30</length>
+            <align>left</align>
+            <link></link>
+        </column>
+        <column>
+            <title>内容</title>
+            <property>$dcontent</property>
+            <filedtype>string</filedtype>
+            <width></width>
+            <length>30</length>
+            <align>center</align>
+            <link></link>
+        </column>
+		<column>
+            <title>发送结果</title>
+            <property>$result</property>
+            <filedtype>string</filedtype>
+            <width>150</width>
+            <length>30</length>
+            <align>center</align>
+            <link></link>
+        </column>
+    </columns>
+</view>

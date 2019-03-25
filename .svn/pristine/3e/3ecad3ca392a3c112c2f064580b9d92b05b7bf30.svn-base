@@ -1,0 +1,180 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>WebOffice接口调用演示</title>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+
+ 
+<SCRIPT ID=clientEventHandlersJS LANGUAGE=javascript>
+<!--
+ 
+function command_onclick() {
+try{
+  	eval(document.all.commandtext.value);
+}catch(e) {
+  alert("异常" +e);
+}
+
+ }
+ 
+function SaveDoc() {
+
+	var returnValue;     // 保存页面的返回值
+	document.all.Dsoframer11.HttpInit(); // 初始化Http引擎
+	// 添加相应的Post元素
+	document.all.Dsoframer11.HttpAddPostString("username", WebForm. username.value);
+	// 添加上传文件
+	document.all.Dsoframer11.HttpAddPostCurrFile("File ","");
+	// 提交上传文件
+	returnValue = document.all.Dsoframer11.HttpPost("../saveDoc.jsp");
+	if("true" == returnValue){
+	  alert("文件上传成功");
+	} else  {
+	  alert("文件上传失败")
+	}
+}
+window.$=function(id) {return typeof id == 'string' ? document.getElementById(id) : id;}; 
+function FramerControl1_NotifyCtrlReady() {
+try{
+	//LoadOriginalFile 接口是打开或者新建Doc，XLS文件，此处为新建Doc文件
+	//document.all.FramerControl1.LoadOriginalFile("./wordprint.doc","doc");
+	var pluginObj = $('FramerControl1');
+	pluginObj.Open("./wordprint.doc", true,"doc");
+	pluginObj.ShowView(3);
+	pluginObj.SetMenuDisplay(0x124);
+	pluginObj.SetFieldValue("title","\t2006-03-16 22:22:22\n\tasdfasdf\n","");
+	//设置文件保护
+	pluginObj.ProtectDoc(1,2,"0x0xx0x0x0x");
+	pluginObj.SetValue("0x0x0x0x0x0x","::DOCPROP:PassWord");
+	pluginObj.SetValue("x0x0x0x0x0x0","::DOCPROP:WritePW");
+	pluginObj.ShowRevisions(0);
+	pluginObj.SetTrackRevisions(0);
+
+	/***
+	Application.Dialogs(80).Show 打开文档
+	Application.Dialogs(84).Show 另存为
+	Application.Dialogs(1007).Show 保存版本
+	Application.Dialogs(164).Show 插入文档
+
+	Application.Dialogs(117).Show 替换
+	Application.Dialogs(112).Show 查找
+	Application.Dialogs(896).Show 定位
+
+	Application.Dialogs(178).Show 页面设置
+	Application.Dialogs(208).Show 打印属性
+	Application.Dialogs(88).Show 打印文档
+	Application.Dialogs(189).Show 边框和底纹
+	Application.Dialogs(181).Show 字体设置
+	Application.Dialogs(168).Show 插入书签
+	Application.Dialogs(172).Show 插入对象
+	Application.Dialogs(163).Show 插入图片
+	Application.Dialogs(162).Show 插入符号
+	Application.Dialogs(370).Show 插入脚注和尾注
+	Application.Dialogs(87).Show 加载模板
+	Application.Dialogs(198).Show 比较两个文档
+
+	Application.Dialogs(197).Show 突出显示修订
+	Application.Dialogs(506).Show 接受或拒绝修订
+	Application.Dialogs(915).Show 更多选项的自动更正
+	Application.Dialogs(874).Show 自动编写摘要
+	Application.Dialogs(196).Show 项目符号和编号
+	Application.Dialogs(828).Show 拼写和语法
+	Application.Dialogs(228).Show 字数统计
+	Application.Dialogs(152).Show 自定义工具栏
+	Application.Dialogs(213).Show 设置用户信息
+	Application.Dialogs(204).Show 文档视图设置
+	Application.Dialogs(577).Show 显示比例
+	Application.Dialogs(1161).Show 双行合一 请先选中行
+	Application.Dialogs(898).Show Web选项
+	Application.Dialogs(88).Show 打印设置
+	ActiveWindow.ActivePane.View.SeekView = 9 设置页眉
+	ActiveWindow.ActivePane.View.SeekView = 10 设置页脚
+
+	ActiveWindow.ActivePane.View.Type = wdPrintView 页面视图
+	ActiveWindow.ActivePane.View.Type = 4 打印预览
+
+	Application.Dialogs(220).Show 激活文档
+
+	Application.Dialogs(300).Show 复制
+	Application.Dialogs(503).Show 保护文档 文档已经保护时出错 
+	Application.Dialogs(521).Show 解除文档保护 文档没有保护时出错
+
+	**/
+	//pluginObj.ActiveDocument.Application.Dialogs(88).Show();
+	//直接用默认打印机打印
+	//pluginObj.ActiveDocument.PrintOut();
+}catch(e){
+	alert(e);
+}	
+}
+
+//-->
+</SCRIPT>
+ 
+<SCRIPT LANGUAGE=javascript FOR=FramerControl1 EVENT=NotifyCtrlReady>
+<!--
+ FramerControl1_NotifyCtrlReady()
+//-->
+</SCRIPT>
+</head>
+ 
+<body >
+ 
+<TABLE bgColor=#0000FF border=0 cellPadding=4 cellSpacing=0 width=98%>
+<!--
+  <TR bgColor=#e5ecf9>
+    <TD align="center" bgcolor="#e5ecf9"><div align="left"><font color="#000000">WebOffice中套红演示:<br>
+	1.打开Word文件，调用接口:LoadOriginalFile<br>
+	2.在红头位置插入书签，如文档中已经存在书签，这一步可以省略。调用接口：SetFieldValue<br>
+	3.在书签位置插入红头文件，其中红头文件可以是Http服务器上的doc文件。调用接口：SetFieldValue<br></font> </div></TD>
+  </TR>
+  <FORM action="#" method="post" name="form1" >
+  <TR bgColor=#ffffff>
+    <TD bgcolor="#ffffff"><div align="left">从 接口脚本 中复制到下面，然后点击“执行”按钮，系统就会自动执行此 JavaScript 脚本： 
+          <textarea style="WIDTH: 900px; HEIGHT: 100px" name=commandtext cols=28 >
+		  //在文件当前位置插入书签，如文档中已经存在书签，这一步可以省略。
+		  //document.all.FramerControl1.SetFieldValue("hongtou", "红头", "::ADDMARK::");
+		  //在书签位置插入红头文件，其中红头文件可以是Http服务器上的doc文件。
+		  //document.all.FramerControl1.SetFieldValue("hongtou", "http://www.xxxx.com.cn/hongtou.doc", "::FILE::");
+		  //初始化Http引擎
+			document.all.FramerControl1.HttpInit();
+			//增加Post变量
+			//document.all.FramerControl1.HttpAddPostString("RecordID","20060102200");
+			//document.all.FramerControl1.HttpAddPostString("UserID","李局长");
+			//上传打开的文件
+			document.all.FramerControl1.HttpAddPostCurrFile("FileData", "文档名.doc");
+			//执行上传动作
+			document.all.FramerControl1.HttpPost("http://localhost/oa/resources/jsp/upload.jsp"); 
+		  </textarea>
+    </div></TD>
+    </TR>
+  <TR bgColor=#ffffff>
+    <TD align=center><div align="left">
+      <INPUT type=button value=执行 name="command" LANGUAGE=javascript onclick="return command_onclick()">
+    </div></TD>
+  </TR>
+-->
+  <TR bgColor=#ffffff >
+    <TD width="100%" height="100%" align=center >
+	<input type="button" value="选择打印机打印" onclick="$('FramerControl1').ActiveDocument.Application.Dialogs(88).Show();">
+	<input type="button" value="使用默认打印机打印" onclick="$('FramerControl1').ActiveDocument.PrintOut();">
+	<br/>
+	<OBJECT classid="clsid:00460182-9E5E-11D5-B7C8-B8269041DD57"  id=FramerControl1 style="LEFT: 0px; TOP: 0px; WIDTH: 880; HEIGHT: 650px" VIEWASTEXT>
+	<PARAM NAME="_ExtentX" VALUE="6350">
+	<PARAM NAME="_ExtentY" VALUE="6350">
+	<PARAM NAME="BorderColor" VALUE="-2147483632">
+	<PARAM NAME="BackColor" VALUE="-2147483643">
+	<PARAM NAME="ForeColor" VALUE="-2147483640">
+	<PARAM NAME="TitlebarColor" VALUE="-2147483635">
+	<PARAM NAME="TitlebarTextColor" VALUE="-2147483634">
+	<PARAM NAME="BorderStyle" VALUE="0">
+	<PARAM NAME="Titlebar" VALUE="0">
+	<PARAM NAME="Toolbars" VALUE="1">
+	<PARAM NAME="Menubar" VALUE="0">
+	</OBJECT>
+
+</TD>
+  </TR>
+</FORM></TABLE>
+</body>
+</html>

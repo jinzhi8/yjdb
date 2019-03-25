@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<config>
+    <view sql="select * from zwdb where unid=?" primaryKey="unid" jsp="/zwdbfk/show.jsp">
+        <field dbCol="unid" formCol="unid" type="string"/>
+        <field dbCol="depid" formCol="depid" type="string"/>
+        <field dbCol="depname" formCol="depname" type="string"/>
+        <field dbCol="userid" formCol="userid" type="string"/>
+        <field dbCol="username" formCol="username" type="string"/>
+        <field dbCol="year" formCol="year" type="string"/>
+        <field dbCol="num" formCol="num" type="string"/>
+		<field dbCol="title" formCol="title" type="string"/>
+        <field dbCol="source" formCol="source" type="string"/>
+        <field dbCol="leaderid" formCol="leaderid" type="string"/>
+		<field dbCol="leadername" formCol="leadername" type="string"/>
+		<field dbCol="require" formCol="require" type="string"/>
+		<field dbCol="jbsx" formCol="jbsx" type="date"/>
+		<field dbCol="fklx" formCol="fklx" type="string"/>
+		<field dbCol="fkzq" formCol="fkzq" type="string"/>
+        <field dbCol="qfmanid" formCol="qfmanid" type="string"/>
+        <field dbCol="qfman" formCol="qfman" type="string"/>
+        <field dbCol="qftime" formCol="qftime" type="time"/>
+        <field dbCol="lxr" formCol="lxr" type="string"/>
+        <field dbCol="lxdh" formCol="lxdh" type="string"/>
+        <field dbCol="czhm" formCol="czhm" type="string"/>
+        <field dbCol="issueflag" formCol="issueflag" type="string"/>
+        <field dbCol="issuetime" formCol="issuetime" type="time"/>
+		<field dbCol="managedepname" formCol="managedepname" type="string"/>
+        <field dbCol="managedepid" formCol="managedepid" type="string"/>
+		<field dbCol="copyto" formCol="copyto" type="string"/>
+        <field dbCol="copytoid" formCol="copytoid" type="string"/>
+		<field dbCol="isjs" formCol="isjs" type="string"/>
+		<field dbCol="jstime" formCol="jstime" type="time"/>
+        <field dbCol="hy" formCol="hy" type="string"/>
+        <field dbCol="docunid" formCol="docunid" type="string"/>
+    </view>
+    <edit sql="select * from zwdb where unid=?" primaryKey="unid" jsp="/zwdbfk/content.jsp">
+        <field dbCol="unid" formCol="unid" type="string"/>
+        <field dbCol="depid" formCol="depid" type="string"/>
+        <field dbCol="depname" formCol="depname" type="string"/>
+        <field dbCol="userid" formCol="userid" type="string"/>
+        <field dbCol="username" formCol="username" type="string"/>
+        <field dbCol="year" formCol="year" type="string"/>
+        <field dbCol="num" formCol="num" type="string"/>
+		<field dbCol="title" formCol="title" type="string"/>
+        <field dbCol="source" formCol="source" type="string"/>
+        <field dbCol="leaderid" formCol="leaderid" type="string"/>
+		<field dbCol="leadername" formCol="leadername" type="string"/>
+		<field dbCol="require" formCol="require" type="string"/>
+		<field dbCol="jbsx" formCol="jbsx" type="date"/>
+		<field dbCol="fklx" formCol="fklx" type="string"/>
+		<field dbCol="fkzq" formCol="fkzq" type="string"/>
+        <field dbCol="qfmanid" formCol="qfmanid" type="string"/>
+        <field dbCol="qfman" formCol="qfman" type="string"/>
+        <field dbCol="qftime" formCol="qftime" type="time"/>
+        <field dbCol="lxr" formCol="lxr" type="string"/>
+        <field dbCol="lxdh" formCol="lxdh" type="string"/>
+        <field dbCol="czhm" formCol="czhm" type="string"/>
+        <field dbCol="issueflag" formCol="issueflag" type="string"/>
+        <field dbCol="issuetime" formCol="issuetime" type="time"/>
+		<field dbCol="managedepname" formCol="managedepname" type="string"/>
+        <field dbCol="managedepid" formCol="managedepid" type="string"/>
+		<field dbCol="copyto" formCol="copyto" type="string"/>
+        <field dbCol="copytoid" formCol="copytoid" type="string"/>
+		<field dbCol="isjs" formCol="isjs" type="string"/>
+		<field dbCol="jstime" formCol="jstime" type="time"/>
+        <field dbCol="hy" formCol="hy" type="string"/>
+        <field dbCol="docunid" formCol="docunid" type="string"/>
+    </edit>
+    <insert sql="insert into zwdb(unid,depid,depname,userid ,username,year,num,title,source,leaderid,leadername,require,jbsx,fklx,fkzq,qfmanid,qfman,qftime,lxr,lxdh,czhm,issueflag,issuetime,managedepname,managedepid,copyto,copytoid,isjs,jstime,hy,docunid) values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)"  primaryKey="unid"  title="title"  jsp="/zwdbfk/index.jsp">
+        <field dbCol="unid" formCol="unid" type="string"/>
+        <field dbCol="depid" formCol="depid" type="string"/>
+        <field dbCol="depname" formCol="depname" type="string"/>
+        <field dbCol="userid" formCol="userid" type="string"/>
+        <field dbCol="username" formCol="username" type="string"/>
+        <field dbCol="year" formCol="year" type="string"/>
+        <field dbCol="num" formCol="num" type="string"/>
+		<field dbCol="title" formCol="title" type="string"/>
+        <field dbCol="source" formCol="source" type="string"/>
+        <field dbCol="leaderid" formCol="leaderid" type="string"/>
+		<field dbCol="leadername" formCol="leadername" type="string"/>
+		<field dbCol="require" formCol="require" type="string"/>
+		<field dbCol="jbsx" formCol="jbsx" type="date"/>
+		<field dbCol="fklx" formCol="fklx" type="string"/>
+		<field dbCol="fkzq" formCol="fkzq" type="string"/>
+        <field dbCol="qfmanid" formCol="qfmanid" type="string"/>
+        <field dbCol="qfman" formCol="qfman" type="string"/>
+        <field dbCol="qftime" formCol="qftime" type="time"/>
+        <field dbCol="lxr" formCol="lxr" type="string"/>
+        <field dbCol="lxdh" formCol="lxdh" type="string"/>
+        <field dbCol="czhm" formCol="czhm" type="string"/>
+        <field dbCol="issueflag" formCol="issueflag" type="string"/>
+        <field dbCol="issuetime" formCol="issuetime" type="time"/>
+        <field dbCol="managedepname" formCol="managedepname" type="string"/>
+        <field dbCol="managedepid" formCol="managedepid" type="string"/>
+		<field dbCol="copyto" formCol="copyto" type="string"/>
+        <field dbCol="copytoid" formCol="copytoid" type="string"/>
+		<field dbCol="isjs" formCol="isjs" type="string"/>
+		<field dbCol="jstime" formCol="jstime" type="time"/>
+        <field dbCol="hy" formCol="hy" type="string"/>
+        <field dbCol="docunid" formCol="docunid" type="string"/>
+
+    </insert>
+    <update sql="update zwdb set depid=?,depname=?,userid=? ,username=?,year=?,num=?,title=?,source=?,leaderid=?,leadername=?,require=?,jbsx=?,fklx=?,fkzq=?,qfmanid=?,qfman=?,qftime=?,lxr=?,lxdh=?,czhm=?,issueflag=?,issuetime=?,managedepname=?,managedepid=?,copyto=?,copytoid=?,isjs=?,jstime=?,hy=?,docunid=? where unid=?"   primaryKey="unid" title="title"  jsp="/zwdbfk/index.jsp">
+        <field dbCol="depid" formCol="depid" type="string"/>
+        <field dbCol="depname" formCol="depname" type="string"/>
+        <field dbCol="userid" formCol="userid" type="string"/>
+        <field dbCol="username" formCol="username" type="string"/>
+        <field dbCol="year" formCol="year" type="string"/>
+        <field dbCol="num" formCol="num" type="string"/>
+		<field dbCol="title" formCol="title" type="string"/>
+        <field dbCol="source" formCol="source" type="string"/>
+        <field dbCol="leaderid" formCol="leaderid" type="string"/>
+		<field dbCol="leadername" formCol="leadername" type="string"/>
+		<field dbCol="require" formCol="require" type="string"/>
+		<field dbCol="jbsx" formCol="jbsx" type="date"/>
+		<field dbCol="fklx" formCol="fklx" type="string"/>
+		<field dbCol="fkzq" formCol="fkzq" type="string"/>
+        <field dbCol="qfmanid" formCol="qfmanid" type="string"/>
+        <field dbCol="qfman" formCol="qfman" type="string"/>
+        <field dbCol="qftime" formCol="qftime" type="time"/>
+        <field dbCol="lxr" formCol="lxr" type="string"/>
+        <field dbCol="lxdh" formCol="lxdh" type="string"/>
+        <field dbCol="czhm" formCol="czhm" type="string"/>
+        <field dbCol="issueflag" formCol="issueflag" type="string"/>
+        <field dbCol="issuetime" formCol="issuetime" type="time"/>
+		<field dbCol="managedepname" formCol="managedepname" type="string"/>
+        <field dbCol="managedepid" formCol="managedepid" type="string"/>
+		<field dbCol="copyto" formCol="copyto" type="string"/>
+        <field dbCol="copytoid" formCol="copytoid" type="string"/>
+		<field dbCol="isjs" formCol="isjs" type="string"/>
+		<field dbCol="jstime" formCol="jstime" type="time"/>
+        <field dbCol="hy" formCol="hy" type="string"/>
+        <field dbCol="docunid" formCol="docunid" type="string"/>
+		<field dbCol="unid" formCol="unid" type="string"/>
+    </update>
+    <delete sql="delete from zwdb where unid=?" primaryKey="unid" jsp="/zwdbfk/index.jsp">
+        <field dbCol="unid" formCol="unid" type="string" value=""/>
+    </delete>
+</config>

@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta http-equiv="pragma" content="no-cache">
+    <meta http-equiv="cache-control" content="no-cache">
+    <title>永嘉县电子政务督办系统</title>
+    <script type="text/javascript" src="lib/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript" src="lib/jquery.form.js"></script>
+    <script type="text/javascript" src="lib/layer.js"></script>
+    <script type="text/javascript" src="lib/mobileSelect.js"></script>
+    <link rel="stylesheet" href="lib/mobileSelect.css">
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/feedbackForm.css">
+</head>
+<body>
+  <form id="infoform" enctype="multipart/form-data" method="post" name="infoform" action="http://192.168.77.29/yjdb/yj_common/save.jsp">
+    <input type="hidden" class="tijiaobtn" onclick="submitAndSave()" value="提交" type="submit" name="Submit6">
+    <div class="wrapper">
+      <div class="form-wrap">
+        <p class="title"><i></i>联系人</p>
+        <ul class="form-list">
+          <li>
+            <label><i class="tap">*</i><em>姓名</em></label>
+            <span>
+              <input class="linkman" name="linkman" class="select-input" type="text" placeholder="联系人姓名"/>
+            </span>
+          </li>
+          <li>
+            <label><i></i><em>职务</em></label>
+            <span>
+              <input class="post" class="select-input" name="post" type="text" placeholder="联系人职务"/>
+            </span>
+          </li><li>
+            <label><i class="tap">*</i><em>手机号码</em></label>
+            <span>
+              <input class="telphone"  name="telphone" class="select-input" type="number" placeholder="联系人手机号码"/>
+            </span>
+          </li>
+          <li>
+            <label><i></i><em>机关网号码</em></label>
+            <span>
+              <input class="phone" name="phone" class="select-input" type="number" placeholder="联系人机关网号码"/>
+            </span>
+          </li>
+        </ul>
+      </div>
+      <div class="form-wrap">
+        <p class="title"><i></i>报送区间</p>
+        <ul class="form-list">
+          <li>
+            <label><i></i><em>报送区间</em></label>
+            <span>
+              <input id="bstime" class="bstime select-input" name="bstime" type="text" placeholder="请选择报送区间"  readonly unselectable="on" onfocus="this.blur()" type="text"/>
+              <i class="icon"></i>
+            </span>
+          </li>
+        </ul>
+      </div>
+      <div class="form-wrap">
+        <p class="title"><i></i>反馈信息</p>
+        <ul class="form-list">
+          <li>
+            <label><i></i><em>落实情况</em></label>
+            <span>
+              <input class="lsqk" name="lsqk" placeholder="落实情况" />
+            </span>
+          </li>
+          <li>
+            <label><i></i><em>存在问题</em></label>
+            <span>
+              <input class="problem" name="problem" placeholder="存在问题" />
+            </span>
+          </li>
+          <li>
+            <label><i></i><em>下步思路</em></label>
+            <span>
+              <input class="xbsl" name="xbsl" placeholder="下步思路" />
+            </span>
+          </li>
+        </ul>
+      </div>
+      <div class="form-wrap">
+        <p class="title"><i></i>附件上传</p>
+        <div class="file-wrap">
+          <ul class="file-upload fileattache" data-type="fileattache">
+            <li>
+              <span data-type="fileattache">
+                <img src="img/jia.png"/>
+                <input name="fileattache" type="file" />
+              </span>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="form-wrap">
+        <p class="title"><i></i>领导签字上传</p>
+        <div class="file-wrap">
+          <ul class="file-upload ldfileattache" data-type="ldfileattache">
+            <!-- <li class="view">
+              <span><img src="../img/1.png"/></span>
+            </li> -->
+            <li>
+              <span data-type="ldfileattache">
+                <img src="img/jia.png"/>
+                <input name="ldfileattache" type="file" />
+              </span>
+            </li>
+          </ul>
+        </div>
+        <p class="btn-wrap"><a class="btn">提交</a></p>
+      </div>
+    <input style="display:none;" id="fileUpload" class="fileattache" type="file"/>
+  </form>
+</body>
+<script src="js/base.js"></script>
+<script src="js/common.js"></script>
+<script src="js/feedbackForm.js"></script>
+</html>

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<config>
+    <insert
+        sql="insert into yj_tz(unid,title,depname,depid,userid,username,zwcontent,openness,status,type,createtime,tzstatus,tsdepname,tsdepnameid,xxmb) values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)" primaryKey="unid" title="title" sequence="SEQ_UNID"
+         jsp="/yj_hy/index.jsp">
+        <field dbCol="unid" formCol="unid" type="string" />
+        <field dbCol="title" formCol="title" type="string" />
+        <field dbCol="depname" formCol="depname" type="string" />
+        <field dbCol="depid" formCol="depid" type="string" />
+        <field dbCol="userid" formCol="userid" type="string" />
+        <field dbCol="username" formCol="username" type="string" />
+        <field dbCol="zwcontent" formCol="zwcontent"  type="string" />
+        <field dbCol="openness" formCol="openness" type="string" />
+        <field dbCol="status" formCol="status" type="string" />  
+        <field dbCol="type" formCol="type" type="string" />
+        <field dbCol="createtime" formCol="createtime" type="string"/>
+        <field dbCol="tzstatus" formCol="tzstatus" type="string" />  
+        <field dbCol="tsdepname" formCol="tsdepname" type="string" />
+        <field dbCol="tsdepnameid" formCol="tsdepnameid" type="string"/>
+        <field dbCol="xxmb" formCol="xxmb" type="string"/>
+   
+    </insert>
+    <update
+        sql="update yj_tz set title=?,depname=?,depid=?,userid=?,username=?,zwcontent=?,openness=?,status=?,type=?,createtime=?,tzstatus=?,tsdepname=?,tsdepnameid=?,xxmb=? where unid=?" primaryKey="unid" title="title" sequence="SEQ_UNID"
+         jsp="/yj_hy/index.jsp">
+        <field dbCol="title" formCol="title" type="string" />
+        <field dbCol="depname" formCol="depname" type="string" />
+        <field dbCol="depid" formCol="depid" type="string" />
+        <field dbCol="userid" formCol="userid" type="string" />
+        <field dbCol="username" formCol="username" type="string" />
+        <field dbCol="zwcontent" formCol="zwcontent"  type="string" />
+        <field dbCol="openness" formCol="openness" type="string" />
+        <field dbCol="status" formCol="status" type="string" />  
+        <field dbCol="type" formCol="type" type="string" />
+        <field dbCol="createtime" formCol="createtime" type="string"/>
+        <field dbCol="tzstatus" formCol="tzstatus" type="string" />  
+        <field dbCol="tsdepname" formCol="tsdepname" type="string" />
+        <field dbCol="tsdepnameid" formCol="tsdepnameid" type="string"/>
+        <field dbCol="xxmb" formCol="xxmb" type="string"/>
+        <field dbCol="unid" formCol="unid" type="string" value="" />
+    </update>
+</config>

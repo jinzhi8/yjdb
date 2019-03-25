@@ -1,0 +1,61 @@
+<html>
+<head>
+	<title></title>
+	<meta http-equiv="Content-Type" content="text/html; charset=gbk">
+</head>
+<SCRIPT>
+	function killMePlz(ctrlobj) {
+		showx = event.screenX - event.offsetX + 60; // + deltaX;
+		showy = event.screenY - event.offsetY + 12; // + deltaY;
+		newWINwidth = 210 + 4 + 18;
+
+		retval = window.showModalDialog("CalendarDlg.htm", "", "dialogWidth:197px; dialogHeight:210px; dialogLeft:" + showx + "px; dialogTop:" + showy + "px; status:no; directories:yes;scrollbars:no;Resizable=no; ");
+		if (retval != null) {
+			ctrlobj.value = retval;
+		} else {
+		}
+	}
+
+</script>
+<body>
+<BR>
+
+<form action="" name="searchform" method="post" onsubmit="return(checkempty());">
+	&nbsp;时间：
+	<INPUT TYPE="text" NAME="starttime" size=10 readonly=true onClick="killMePlz(starttime);return false" value="">
+	至&nbsp;
+	<INPUT TYPE="text" NAME="endtime" size=10 readonly=true value="" onClick="killMePlz(endtime);return false">
+
+
+	<input type="text" name="keywords" size="30" value="浙江工程学院">
+	<INPUT TYPE="hidden" name="intGotoPage" value=1>
+	<INPUT TYPE="hidden" name="totalnum" value=0>
+	<INPUT TYPE="hidden" name="totalpages" value=1>
+	<INPUT TYPE="hidden" name="sql" value="">
+	<input type="image" border="0" src="image/go2.gif" align=absmiddle>
+</form>
+
+<SCRIPT LANGUAGE="JavaScript">
+	<!--
+	function check_page() {
+		if (((document.change_page.intGotoPage.value * 1) > (document.change_page.intMaxPage.value * 1)) || ((document.change_page.intGotoPage.value * 1) < 1)) {
+			var intMaxPage = document.change_page.intMaxPage.value;
+			var message = "您输入的值无效! 应该是  0<您输入的值<=" + intMaxPage;
+			alert(message);//
+			return false;
+		} else {
+			return true;
+		}
+	}	//-->
+</SCRIPT>
+
+
+<INPUT TYPE='hidden' name='sql' value=''>
+<INPUT TYPE='hidden' name='searchKey' value='brief'> <INPUT TYPE='hidden' name='keywords' value='浙江工程学院'>
+<INPUT TYPE='hidden' name='starttime' value=''> <INPUT TYPE='hidden' name='endtime' value=''>
+<INPUT TYPE='hidden' name='magazineid' value=''> <INPUT TYPE='hidden' name='intMaxPage' value='1'>
+<INPUT TYPE='hidden' name='totalnum' value='9'> <INPUT TYPE='hidden' name='totalpages' value='1'>
+
+
+<BR></BODY>
+</HTML>

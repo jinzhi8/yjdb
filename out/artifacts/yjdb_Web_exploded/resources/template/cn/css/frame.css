@@ -1,0 +1,156 @@
+HTML {
+	BACKGROUND: #ffffff; OVERFLOW: hidden
+}
+BODY {
+	; WIDTH: expression(document.documentElement.clientWidth<800?"800px":"auto"); min-width: 640px
+}
+
+/*************************首页框架开始***********************/
+.top_nav
+{
+	width: 100%;
+	height: 28px;
+	clear: both;
+	display: block;
+}
+.top_nav UL
+{
+	height: 28px;
+	display: block;
+	list-style-type: none;
+	list-style-image: none;
+	background-image: url("../images/top_nav_bg.jpg");
+	background-repeat: repeat-x;
+	background-position-x: left;
+	background-position-y: bottom;
+}
+.top_nav UL LI
+{
+	float: left;
+}
+.top_nav UL LI A
+{
+	width: 74px;
+	text-align: center;
+	height: 28px;
+	color: #006699;
+	line-height: 28px;
+	padding-top: 0px;
+	text-decoration: none;
+	background-image: url("../images/top_nav_sr.gif");
+	background-repeat: no-repeat;
+	background-position-x: center;
+	background-position-y: bottom;
+}
+.top_nav UL LI A
+{
+	width: 74px;
+	text-align: center;
+	height: 28px;
+	color: #006699;
+	line-height: 28px;
+	padding-top: 0px;
+	text-decoration: none;
+	display: block;
+	background-image: url("../images/top_nav_sr.gif");
+	background-repeat: no-repeat;
+	background-position-x: center;
+	background-position-y: bottom;
+}
+.top_nav UL LI.thisclass A
+{
+	height: 28px;
+	color: #fff;
+	line-height: 28px;
+	padding-top: 0px;
+	font-weight: bold;
+	text-decoration: none;
+	background-image: url("../images/top_nav_on.gif");
+	background-repeat: no-repeat;
+	background-position-x: center;
+	background-position-y: bottom;
+}
+.top_nav UL LI.thisclass A
+{
+	height: 28px;
+	color: #fff;
+	line-height: 28px;
+	padding-top: 0px;
+	font-weight: bold;
+	text-decoration: none;
+	background-image: url("../images/top_nav_on.gif");
+	background-repeat: no-repeat;
+	background-position-x: center;
+	background-position-y: bottom;
+}
+.top_nav UL LI.top_nav_right A
+{
+  width: 40px;
+	height: 28px;
+	color: #006699;
+	line-height: 28px;
+	padding-top: 0px;
+	font-weight: bold;
+	text-decoration: none;
+	background-image:none;
+	background-repeat: no-repeat;
+	background-position-x: center;
+	background-position-y: bottom;
+}
+
+.top_nav UL LI.top_nav_left
+{
+	height: 28px;
+	line-height: 28px;
+	padding-top: 0px;
+	padding-left: 20px;
+}
+/*************************首页框架结束***********************/
+
+#header{width:100%;height:87px;margin:0px;BACKGROUND-IMAGE: url(../images/u_bg_x.jpg); BACKGROUND-REPEAT: repeat-x}
+#top_link {
+	PADDING-RIGHT: 5px; PADDING-LEFT: 5px; BACKGROUND: #fff; PADDING-BOTTOM: 5px; COLOR: #36c; LINE-HEIGHT: 16px; PADDING-TOP: 5px; BORDER-BOTTOM: #e4edf9 1px solid; HEIGHT: 16px; TEXT-ALIGN: right
+}
+#top_link A {
+	COLOR: #36c
+}
+#top_link A:hover {
+	BACKGROUND: #36c; COLOR: #fff; TEXT-DECORATION: none
+}
+#top_link .fl  {
+	DISPLAY: inline-block; MARGIN: 0px 5px
+}
+#top_link .fl STRONG {
+	COLOR: #000
+}
+#logo {
+	BACKGROUND: url(../images/logo.png); FLOAT: left; MARGIN: 0px 0px 0px 0px; WIDTH: 940px; HEIGHT:87px;display:inline-block;
+	filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/logo.png', sizingMethod='scale');
+	background-image: url(../images/logo.png)!important;/* FF IE7 */
+  background-repeat: no-repeat;
+  _filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/logo.png'); /* IE6 */
+}
+.search-box {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 6px; BACKGROUND: url(../images/search_box.png); FLOAT: right; PADDING-BOTTOM: 6px; MARGIN: 3px 3px 0px 0px; WIDTH: 242px; PADDING-TOP: 6px; HEIGHT: 25px
+}
+.search-box INPUT {
+	BORDER-RIGHT: 0px; PADDING-RIGHT: 6px; BORDER-TOP: 0px; PADDING-LEFT: 6px; BACKGROUND: none transparent scroll repeat 0% 0%; FLOAT: left; PADDING-BOTTOM: 5px; FONT: 12px/15px Tahoma; BORDER-LEFT: 0px; WIDTH: 141px; MARGIN-RIGHT: 5px; PADDING-TOP: 5px; BORDER-BOTTOM: 0px; HEIGHT: 22px
+}
+.search-box INPUT.blur {
+	COLOR: #808080
+}
+.search-box BUTTON {
+	BORDER-RIGHT: 0px; BORDER-TOP: 0px; FLOAT: left; BACKGROUND-IMAGE: none; BORDER-LEFT: 0px; WIDTH: 60px; CURSOR: pointer; BORDER-BOTTOM: 0px; HEIGHT: 25px; BACKGROUND-COLOR: transparent;
+}
+.search-box A.btn {
+	PADDING-RIGHT: 0px; BACKGROUND-POSITION: 100px 50%; PADDING-LEFT: 0px; FLOAT: left; PADDING-BOTTOM: 0px; OVERFLOW: hidden; WIDTH: 24px; LINE-HEIGHT: 10; PADDING-TOP: 0px; HEIGHT: 25px
+}
+.search-box A.btn:hover {
+	PADDING-RIGHT: 0px; BACKGROUND-POSITION: 100px 50%; PADDING-LEFT: 0px; FLOAT: left; PADDING-BOTTOM: 0px; OVERFLOW: hidden; WIDTH: 24px; LINE-HEIGHT: 10; PADDING-TOP: 0px; HEIGHT: 25px
+}
+.service-link {
+	DISPLAY: none
+}
+#maincontent{
+	BORDER-RIGHT: #aac7dd 1px solid; BORDER-TOP: #aac7dd 1px solid; RIGHT: 3px; LEFT: 3px; OVERFLOW: hidden; BORDER-LEFT: #aac7dd 0px; ; WIDTH: expression((document.body.clientWidth-7)+"px"); BOTTOM: 3px; BORDER-BOTTOM: #aac7dd 1px solid; POSITION: absolute; TOP: 91px; ; HEIGHT: expression((document.body.clientHeight-96)+"px")
+}

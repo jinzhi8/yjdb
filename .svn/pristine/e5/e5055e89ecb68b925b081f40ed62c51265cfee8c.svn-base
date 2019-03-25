@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://xfire.codehaus.org/config/1.0">
+<!-- 
+  <service>
+    <name>SendSMSService</name>
+    <namespace>http://longwan.zjsos.net/SendSMSService</namespace>
+    <serviceClass>com.kizsoft.commons.service.SendSMSService</serviceClass>
+    <implementationClass>com.kizsoft.commons.service.SendSMSServiceImpl</implementationClass>
+  </service>
+-->
+  <service>
+    <name>RemottingService</name>
+    <namespace>http://server.zjsos.net/</namespace>
+    <serviceClass>com.kizsoft.oa.pay.webservice.IRemottingService</serviceClass>
+    <implementationClass>com.kizsoft.oa.pay.webservice.RemottingService</implementationClass>
+  </service>
+</beans>

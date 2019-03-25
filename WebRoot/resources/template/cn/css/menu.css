@@ -1,0 +1,54 @@
+#jsddm {
+	margin: 0px auto;
+	padding: 0;
+	height:36px;
+	background-image:url(../images/nav_bg.jpg);
+	line-height:36px;
+	width:1006px;
+	
+}
+#jsddm li {
+	float: left;
+	list-style: none;
+	font: 12px Tahoma, Arial;
+	height:36px;
+	line-height:36px;
+	width:82px;
+	border-right: 1px solid #234477;
+}
+#jsddm li a {
+	display: block;
+	text-decoration: none;
+	border-right: 0px solid white;
+	width: 82px;
+	color: #EAFFED;
+	white-space: nowrap;
+	text-align:center;
+}
+#jsddm li a:hover {
+	background:url(../images/hover.jpg);
+	color:#3f6cad;
+}
+#jsddm li ul {
+	margin: 0;
+	padding: 0;
+	position: absolute;
+	visibility: hidden;
+	border-top: 0px solid white;
+	margin-left:-40px;
+}
+#jsddm li ul li {
+	float: none;
+	display: inline;
+	border:none;
+}
+#jsddm li ul li a {
+	width: auto;
+	background: url(../images/hover1.jpg);
+	width:82px;
+	color: #fff;
+}
+#jsddm li ul li a:hover {
+	background:url(../images/hover.jpg);
+	color:#3f6cad;
+}

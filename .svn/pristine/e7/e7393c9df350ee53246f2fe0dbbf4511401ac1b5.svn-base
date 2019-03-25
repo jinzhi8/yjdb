@@ -1,0 +1,162 @@
+@import "base.scss";
+// .title{
+//   display: flex;
+//   align-items: center;
+//   font-size: 1.6rem;
+//   font-weight: 700;
+//   margin-bottom: 10px;
+//   i{
+//     width: 3px;
+//     height: 16px;
+//     display: inline-block;
+//     background-color: #3296FA;
+//     margin-right: 10px;
+//   }
+// }
+.select-input{
+  text-align: right;
+}
+ul.form-list{
+  padding: 0 10px;
+  background-color: #fff;
+  margin-bottom: 10px;
+  li{
+    display: flex;
+    padding: 10px 0;
+    &:not(:last-child){
+      border-bottom: 1px solid #eee;
+    }
+    label{
+      min-width: 95px;
+      i,em{
+        font-style: normal;
+        font-size: 1.6rem;
+      }
+      i{
+        min-width: 10px;
+        height: 21px;
+        display: inline-block;
+      }
+      .tap{
+        color: #f25643;
+
+      }
+    }
+    span{
+      flex:1;
+      display: flex;
+      .icon{
+        @include iconfont;
+        width: 30px;
+        height: 30px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 1.6rem;
+        &:after{
+          content:"\e602";
+          color: #999;
+          position: relative;
+          top:1px;
+        }
+      }
+      textarea,input{
+        border:none;
+        flex: 1;
+        background-color: transparent;
+        font-size: 1.6rem;
+      }
+      textarea{
+        resize: none;
+        height: 60px;
+      }
+    }
+    &:not(:last-child){
+    }
+  }
+}
+.file-wrap{
+  background-color: #fff;
+  margin-bottom: 10px;
+}
+.file-upload{
+  display: flex;
+  flex-flow: row wrap;
+  align-content: flex-start;
+  li{
+    box-sizing: border-box;
+    flex: 0 0 20%;
+    margin: 10px 0;
+    span{
+      width: 50px;
+      height: 50px;
+      background-color: #fafafa;
+      display: flex;
+      // justify-content: center;
+      // align-items: center;
+      padding: 0;
+      margin:auto;
+      background-size:contain;
+      background-position: center;
+      overflow: hidden;
+      position: relative;
+      img{
+        max-width: 100%;
+      }
+      input[type="file"]{
+        position: absolute;
+        left: 0;
+        top:0;
+        bottom: 0;
+        width: 50px;
+      }
+    }
+    em{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex:1;
+    }
+    i{
+      // @include iconfont;
+      font-size: 3rem;
+      // justify-content: center;
+      // align-items: center;
+      // display: flex;
+      // color: #ccc;
+      width:20px;
+      height: 20px;
+      margin: auto;
+      // &:before{
+      //   content:"\e603";
+      // }
+    }
+    input{
+      z-index: 2;
+      opacity: 0;
+    }
+    &:not(:last-child){
+      img{
+        z-index: 9;
+        position: relative;
+      }
+      input[type="file"]{
+        z-index: -1;
+      }
+    }
+  }
+
+}
+.btn-wrap{
+  display: flex;
+  padding: 15px;
+  a.btn{
+    flex: 1;
+    background-color: #3296FA;
+    text-align: center;
+    color: #fff;
+    padding: 10px;
+    font-size: 1.6rem;
+    border-radius: 3px;
+  }
+}

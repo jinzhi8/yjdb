@@ -1,0 +1,53 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+		"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html>
+<head>
+	<title>选择管理部门</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=GB2312"/>
+	<script type="text/javascript" src="js/xtree.js"></script>
+	<link href="css/styles.css" rel="stylesheet" type="text/css"/>
+	<link href="css/xtree.css" rel="stylesheet" type="text/css"/>
+
+	<script language="javascript">
+		function debug() {
+			atree.reload();
+		}
+
+		
+
+	</script>
+</head>
+<body style="background:#eeeeee;font-size:9pt">
+<table width="200" border="0">
+<button type="button" id="bbtn" class="btn">确定</button>
+	</tr>
+
+	<tr>
+		<td colspan="2">
+			<div style="width:100%; height:100%;">
+				<script type="text/javascript">
+					var atree = new WebFXLoadTree("组织机构管理", "tree.do");
+					document.write(atree);
+				</script>
+			</div>
+		</td>
+	</tr>
+</table>
+<script type="text/javascript" src="../resources/template/cn/layui/layui.js"></script>
+<script type="text/javascript">
+	var layer;
+	layui.use(['layer','jquery'], function() {
+		var $ = layui.jquery;
+		layer = layui.layer;
+		
+		$('#bbtn').click(function(){
+			var astr1 = atree.getSelectValue();
+			$('[name=managedept]', parent.document).val(astr1);
+			var index = parent.layer.getFrameIndex(window.name); //先得到当前iframe层的索引
+			parent.layer.close(index);
+		});
+	});
+</script>
+</body>
+</html>

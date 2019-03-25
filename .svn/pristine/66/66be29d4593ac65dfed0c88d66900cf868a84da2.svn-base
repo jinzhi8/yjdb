@@ -1,0 +1,714 @@
+@font-face {
+  font-family: 'iconfont';
+  src: url("../font/iconfont.eot?t=1512436220877");
+  /* IE9*/
+  src: url("../font/iconfont.eot?t=1512436220877#iefix") format("embedded-opentype"), url("../font/iconfont.ttf?t=1512436220877") format("truetype"), url("../font/iconfont.svg?t=1512436220877#iconfont") format("svg");
+  /* iOS 4.1- */
+}
+/* line 139, ../sass/base.scss */
+.select-input {
+  padding-right: 30px !important;
+  background-image: url(../img/xia.png);
+  background-repeat: no-repeat;
+  background-position: center right;
+}
+
+/* line 3, ../sass/form.scss */
+body {
+  background-color: #f9f9f9;
+}
+
+/* line 7, ../sass/form.scss */
+.flow-list {
+  display: flex;
+  padding: 10px 0;
+  border-radius: 8px;
+  background-color: #fff;
+  overflow: hidden;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+}
+/* line 14, ../sass/form.scss */
+.flow-list li {
+  flex: 1;
+  position: relative;
+  z-index: 9;
+}
+/* line 18, ../sass/form.scss */
+.flow-list li i, .flow-list li em {
+  font-style: normal;
+}
+/* line 21, ../sass/form.scss */
+.flow-list li i {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  color: #fff;
+  background-color: #ccc;
+  margin-bottom: 5px;
+}
+/* line 33, ../sass/form.scss */
+.flow-list li em {
+  display: block;
+  text-align: center;
+  color: #ccc;
+}
+/* line 38, ../sass/form.scss */
+.flow-list li b {
+  display: block;
+  height: 1px;
+  width: 100%;
+  border-bottom: 1px solid #bbb;
+  position: absolute;
+  z-index: -1;
+  top: 10px;
+}
+/* line 46, ../sass/form.scss */
+.flow-list li b:first-child {
+  left: 0;
+  right: 50%;
+}
+/* line 50, ../sass/form.scss */
+.flow-list li b:last-child {
+  right: 0;
+  left: 50%;
+}
+/* line 56, ../sass/form.scss */
+.flow-list li:first-child b:first-child {
+  border: none;
+}
+/* line 61, ../sass/form.scss */
+.flow-list li:last-child b:last-child {
+  border: none;
+}
+/* line 67, ../sass/form.scss */
+.flow-list li.ed i {
+  background-color: #3da5fe;
+  color: #3da5fe;
+  position: relative;
+  font-size: 1.4rem;
+  font-family: "iconfont" !important;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-weight: 400;
+}
+/* line 73, ../sass/form.scss */
+.flow-list li.ed i:before {
+  content: "\e6a3";
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+}
+/* line 86, ../sass/form.scss */
+.flow-list li.ed em {
+  color: #3da5fe;
+}
+/* line 89, ../sass/form.scss */
+.flow-list li.ed b {
+  border-color: #3da5fe;
+}
+/* line 95, ../sass/form.scss */
+.flow-list li.ing i {
+  color: #fff;
+  background-color: #3da5fe;
+}
+/* line 100, ../sass/form.scss */
+.flow-list li.ing em {
+  color: #3da5fe;
+}
+
+/* line 107, ../sass/form.scss */
+.wrapper {
+  padding: 15px;
+}
+/* line 109, ../sass/form.scss */
+.wrapper .ticket-line {
+  margin-top: 10px;
+}
+/* line 111, ../sass/form.scss */
+.wrapper .ticket-line span:nth-of-type(2) {
+  background-color: #ebf7ff;
+}
+
+/* line 116, ../sass/form.scss */
+.form-wrap {
+  margin: 1rem 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  overflow: auto;
+  background-color: #fff;
+  border-radius: 8px;
+  display: none;
+}
+/* line 125, ../sass/form.scss */
+.form-wrap.active {
+  display: block;
+}
+
+/* line 129, ../sass/form.scss */
+ul.form-list {
+  border-radius: 3px;
+  overflow: hidden;
+}
+/* line 133, ../sass/form.scss */
+ul.form-list:not(:first-child) .title {
+  padding: 0 10px 10px !important;
+}
+/* line 137, ../sass/form.scss */
+ul.form-list li.title {
+  padding: 10px;
+  font-weight: 700;
+  font-size: 1.4rem;
+  color: #1b6fb7;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #ebf7ff;
+}
+/* line 146, ../sass/form.scss */
+ul.form-list li.title span {
+  display: flex;
+}
+/* line 150, ../sass/form.scss */
+ul.form-list li.title a {
+  display: flex;
+  height: 25px;
+  line-height: 25px;
+  padding: 0 5px;
+  border-radius: 3px;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  font-family: "iconfont" !important;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-weight: 400;
+}
+/* line 160, ../sass/form.scss */
+ul.form-list li.title a:first-child {
+  margin-right: 5px;
+}
+/* line 163, ../sass/form.scss */
+ul.form-list li.title a.add {
+  background-color: #ffa007;
+}
+/* line 165, ../sass/form.scss */
+ul.form-list li.title a.add:before {
+  content: "\e629";
+}
+/* line 169, ../sass/form.scss */
+ul.form-list li.title a.remove {
+  background-color: #ff3333;
+}
+/* line 171, ../sass/form.scss */
+ul.form-list li.title a.remove:before {
+  content: "\e65f";
+}
+/* line 177, ../sass/form.scss */
+ul.form-list li:not(.title) {
+  display: flex;
+  padding: 10px 20px;
+}
+/* line 180, ../sass/form.scss */
+ul.form-list li:not(.title) label {
+  margin-bottom: 5px;
+  color: #666;
+  font-size: 1.4rem;
+}
+/* line 184, ../sass/form.scss */
+ul.form-list li:not(.title) label i {
+  color: #ff3333;
+  font-style: normal;
+}
+/* line 190, ../sass/form.scss */
+ul.form-list li:not(.title).data-wrap input {
+  max-width: 96px;
+}
+/* line 193, ../sass/form.scss */
+ul.form-list li:not(.title).data-wrap input:not(:last-child) {
+  margin-right: 5px;
+}
+/* line 197, ../sass/form.scss */
+ul.form-list li:not(.title) > span {
+  display: flex;
+  flex: 1;
+  justify-content: flex-end;
+}
+/* line 202, ../sass/form.scss */
+ul.form-list li:not(.title):not(.oneLine) {
+  flex-direction: column;
+}
+/* line 207, ../sass/form.scss */
+ul.form-list input, ul.form-list textarea {
+  flex: 1;
+  padding: 5px;
+  border-radius: 3px;
+  border: 1px solid #eee;
+  font-size: 1.4rem;
+}
+/* line 213, ../sass/form.scss */
+ul.form-list input:focus, ul.form-list textarea:focus {
+  border: 1px solid #999;
+}
+/* line 216, ../sass/form.scss */
+ul.form-list input[readonly="true"], ul.form-list textarea[readonly="true"] {
+  color: #666;
+}
+/* line 220, ../sass/form.scss */
+ul.form-list textarea {
+  height: 60px;
+  resize: none;
+}
+
+/* line 226, ../sass/form.scss */
+.reason p {
+  padding: 10px;
+  border: 1px solid #eee;
+  border-radius: 3px;
+  margin: 5px 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  align-items: center;
+}
+/* line 236, ../sass/form.scss */
+.reason p i {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 15px;
+  height: 15px;
+  border: 1px solid #ddd;
+  background-color: #fff;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+/* line 247, ../sass/form.scss */
+.reason p b {
+  display: inline-block;
+  width: 5px;
+  height: 5px;
+  background-color: #999;
+  border-radius: 50%;
+}
+/* line 254, ../sass/form.scss */
+.reason p em {
+  font-style: normal;
+  flex: 1;
+  font-size: 1.4rem;
+}
+/* line 259, ../sass/form.scss */
+.reason p.active {
+  border-color: #3da5fe;
+  color: #3da5fe;
+}
+/* line 263, ../sass/form.scss */
+.reason p.active i {
+  border-color: #3da5fe;
+}
+/* line 266, ../sass/form.scss */
+.reason p.active b {
+  background-color: #3da5fe;
+}
+
+/* line 273, ../sass/form.scss */
+.file-list ol.file-ol {
+  margin: 10px 0 20px;
+  display: flex;
+  flex-flow: row wrap;
+  align-content: flex-start;
+  overflow: auto;
+  display: none;
+}
+/* line 280, ../sass/form.scss */
+.file-list ol.file-ol li:not(.no-data) {
+  box-sizing: border-box;
+  flex: 1;
+  margin: 10px 0;
+}
+/* line 284, ../sass/form.scss */
+.file-list ol.file-ol li:not(.no-data) a, .file-list ol.file-ol li:not(.no-data) input {
+  width: 22rem;
+  height: 22rem;
+}
+/* line 288, ../sass/form.scss */
+.file-list ol.file-ol li:not(.no-data) a {
+  display: flex;
+  margin: auto;
+  position: relative;
+  justify-content: center;
+  align-items: center;
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  border-width: 1px;
+  border-style: solid;
+  border-color: #c0ccda;
+  border-radius: 5px;
+}
+/* line 305, ../sass/form.scss */
+.file-list ol.file-ol li:not(.no-data) a input {
+  position: absolute;
+  left: 0;
+  top: 0;
+  opacity: 0;
+}
+/* line 312, ../sass/form.scss */
+.file-list ol.file-ol li:not(.no-data) a .remove {
+  background: #9ba5b1;
+  color: #fff;
+  display: block;
+  width: 25px;
+  height: 25px;
+  position: absolute;
+  right: 0;
+  top: 0;
+  border-radius: 0 0 0 24px;
+  font-family: "iconfont" !important;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-weight: 400;
+  font-size: 2rem;
+}
+/* line 324, ../sass/form.scss */
+.file-list ol.file-ol li:not(.no-data) a .remove:before {
+  content: "\e65f";
+  position: relative;
+  left: 5px;
+  top: 0;
+}
+/* line 333, ../sass/form.scss */
+.file-list ol.file-ol li:not(.no-data).add-btn a {
+  font-family: "iconfont" !important;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-weight: 400;
+  border-style: dashed;
+}
+/* line 338, ../sass/form.scss */
+.file-list ol.file-ol li:not(.no-data).add-btn a input {
+  display: block;
+}
+/* line 342, ../sass/form.scss */
+.file-list ol.file-ol li:not(.no-data).add-btn a:before {
+  content: "\e629";
+  font-size: 5rem;
+  color: #c0ccda;
+}
+/* line 349, ../sass/form.scss */
+.file-list ol.file-ol .nodata {
+  display: none;
+  flex: 1;
+}
+/* line 353, ../sass/form.scss */
+.file-list ol.file-ol.active {
+  display: flex;
+}
+
+/* line 358, ../sass/form.scss */
+p.btn-wrap {
+  padding: 10px;
+  display: flex;
+}
+/* line 361, ../sass/form.scss */
+p.btn-wrap a {
+  flex: 1;
+  text-align: center;
+  padding: 10px;
+  background-color: #3da5fe;
+  color: #fff;
+  border-radius: 3px;
+  font-size: 1.6rem;
+}
+/* line 364, ../sass/form.scss */
+p.btn-wrap a.push-data {
+  background-color: #3da5fe;
+}
+/* line 367, ../sass/form.scss */
+p.btn-wrap a.clear-sign {
+  background-color: #71beff;
+}
+/* line 370, ../sass/form.scss */
+p.btn-wrap a.lock {
+  background-color: #ccc;
+}
+/* line 374, ../sass/form.scss */
+p.btn-wrap a:first-child {
+  margin-right: 10px;
+}
+
+/* line 378, ../sass/form.scss */
+.success {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+/* line 382, ../sass/form.scss */
+.success .success-body {
+  margin: 30px;
+}
+/* line 385, ../sass/form.scss */
+.success .icon-wrap {
+  width: 90px;
+  margin: auto;
+  margin-bottom: 50px;
+  padding: 10px;
+  border-radius: 10px;
+}
+/* line 393, ../sass/form.scss */
+.success i {
+  font-family: "iconfont" !important;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-weight: 400;
+  display: flex;
+  width: 90px;
+  height: 90px;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+  border-radius: 50%;
+  background-color: #65ce2f;
+  color: #fff;
+  font-size: 5rem;
+}
+/* line 406, ../sass/form.scss */
+.success i:before {
+  content: "\e6a3";
+}
+/* line 409, ../sass/form.scss */
+.success .success-text {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #333;
+  margin-top: 5px;
+}
+/* line 415, ../sass/form.scss */
+.success .subtitle {
+  color: #666;
+  font-size: 1.6rem;
+}
+/* line 419, ../sass/form.scss */
+.success p {
+  text-align: center;
+}
+/* line 422, ../sass/form.scss */
+.success .btn-wrap {
+  padding: 0;
+  margin-top: 50px;
+}
+/* line 425, ../sass/form.scss */
+.success .btn-wrap a {
+  margin: 0 !important;
+}
+
+/* line 430, ../sass/form.scss */
+.shadow {
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.3);
+  z-index: 9999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+/* line 441, ../sass/form.scss */
+.shadow-input {
+  padding: 10px;
+  background-color: #fff;
+  border-radius: 5px;
+  width: 300px;
+}
+/* line 446, ../sass/form.scss */
+.shadow-input .title {
+  font-size: 1.6rem;
+}
+/* line 449, ../sass/form.scss */
+.shadow-input .sign-wrap {
+  position: relative;
+}
+/* line 451, ../sass/form.scss */
+.shadow-input .sign-wrap .clear {
+  display: block;
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  background-color: #333;
+  border-radius: 3px;
+  right: 20px;
+  top: 20px;
+}
+/* line 462, ../sass/form.scss */
+.shadow-input .sign {
+  margin: auto;
+  width: 280px;
+  height: 430px;
+}
+/* line 468, ../sass/form.scss */
+.shadow .statement-wrap, .shadow .title {
+  width: 280px;
+  margin: 10px auto;
+}
+/* line 472, ../sass/form.scss */
+.shadow .statement {
+  text-align: center;
+}
+
+/* line 476, ../sass/form.scss */
+.statement {
+  padding: 15px;
+  line-height: 25px;
+  background-color: #eff6ff;
+  border-radius: 3px;
+  color: #666;
+}
+/* line 482, ../sass/form.scss */
+.statement i {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  vertical-align: middle;
+  border: 1px solid #ddd;
+  border-radius: 3px;
+  margin-right: 5px;
+  font-family: "iconfont" !important;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-weight: 400;
+  color: #ddd;
+}
+/* line 492, ../sass/form.scss */
+.statement i:before {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 15px;
+  content: "\e6a3";
+}
+/* line 500, ../sass/form.scss */
+.statement .agreement-wrap {
+  text-align: center;
+}
+/* line 503, ../sass/form.scss */
+.statement .agreement {
+  font-size: 14px;
+  color: #333;
+}
+/* line 508, ../sass/form.scss */
+.statement .agreement.active i {
+  color: #fff;
+  border-color: #1AAD19;
+  background-color: #1AAD19;
+}
+
+/* line 517, ../sass/form.scss */
+.sign-btn-wrap {
+  text-align: center;
+  margin-top: 15px;
+}
+/* line 520, ../sass/form.scss */
+.sign-btn-wrap a {
+  border-radius: 3px;
+  border: 1px solid #1c86f4;
+  color: #1c86f4;
+  padding: 5px 10px;
+  font-size: 1.4rem;
+  text-align: center;
+}
+/* line 527, ../sass/form.scss */
+.sign-btn-wrap a:last-child {
+  margin-left: 10px;
+}
+
+/* line 532, ../sass/form.scss */
+.wxts {
+  padding: 10px 20px;
+  color: #ffa007;
+  font-size: 1.6rem;
+}
+
+/* line 537, ../sass/form.scss */
+.sliding {
+  display: flex;
+  width: 46px;
+  height: 20px;
+  border-radius: 10px;
+  overflow: hidden;
+  position: relative;
+  background-color: #c1c1c1;
+  border: 1px solid #c1c1c1;
+}
+/* line 546, ../sass/form.scss */
+.sliding b {
+  flex: 1;
+  line-height: 20px;
+  font-style: normal;
+  opacity: 0;
+  color: #fff;
+  transition: all 1s ease-out;
+}
+/* line 552, ../sass/form.scss */
+.sliding b:first-child {
+  text-align: left;
+  padding-left: 8px;
+}
+/* line 556, ../sass/form.scss */
+.sliding b:last-child {
+  text-align: right;
+  padding-right: 8px;
+}
+/* line 560, ../sass/form.scss */
+.sliding b[data-type="no"] {
+  opacity: 1;
+}
+/* line 565, ../sass/form.scss */
+.sliding i {
+  display: block;
+  width: 20px;
+  height: 20px;
+  border-radius: 10px;
+  background-color: #ffff;
+  box-shadow: 0 0 3px rgba(0, 0, 0, 0.3);
+  position: absolute;
+  left: -1px;
+  transition: all .5s ease-out;
+}
+/* line 576, ../sass/form.scss */
+.sliding.active {
+  background-color: #2899f7;
+  border-color: #2899f7;
+}
+/* line 579, ../sass/form.scss */
+.sliding.active b[data-type="yes"] {
+  opacity: 1;
+  transition: all 1s ease-out;
+  color: #fff;
+}
+/* line 584, ../sass/form.scss */
+.sliding.active b[data-type="no"] {
+  opacity: 0;
+}
+/* line 587, ../sass/form.scss */
+.sliding.active i {
+  left: 27px;
+  transition: all .5s ease-out;
+}

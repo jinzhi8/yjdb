@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="gbk"?>
+<view>
+    <type>common</type>
+    <unid>docid</unid>
+    <sql>select publishdate,messenger</sql>
+    <tables>personal_messenger</tables>
+    <filters>
+        <filter>userid=#userID</filter>
+    </filters>
+    <order>publishdate asc</order>
+    <rows>30</rows>
+    <columns>
+        <column>
+            <title>时间</title>
+            <property>$publishdate</property>
+            <filedtype>date</filedtype>
+            <width>20%</width>
+            <length>20</length>
+            <align>center</align>
+            <link></link>
+        </column>
+        <column>
+            <title>批示内容</title>
+            <property>$messenger</property>
+            <filedtype>string</filedtype>
+            <width>80%</width>
+            <length>80</length>
+            <align>left</align>
+            <link></link>
+        </column>
+
+    </columns>
+</view>
+

@@ -1,0 +1,96 @@
+@font-face {
+  font-family: 'iconfont';
+  src: url("../font/iconfont.eot?t=1512436220877");
+  /* IE9*/
+  src: url("../font/iconfont.eot?t=1512436220877#iefix") format("embedded-opentype"), url("../font/iconfont.ttf?t=1512436220877") format("truetype"), url("../font/iconfont.svg?t=1512436220877#iconfont") format("svg");
+  /* iOS 4.1- */
+}
+/* line 3, ../sass/statisticsList.scss */
+body {
+  background-color: #fff;
+}
+
+/* line 6, ../sass/statisticsList.scss */
+header {
+  border-bottom: 10px solid #eee;
+}
+
+/* line 9, ../sass/statisticsList.scss */
+.search-bar {
+  display: flex;
+  align-items: center;
+  padding: 0 20px;
+}
+/* line 13, ../sass/statisticsList.scss */
+.search-bar span {
+  color: #999;
+  font-size: 1.4rem;
+}
+/* line 17, ../sass/statisticsList.scss */
+.search-bar .select-wrap {
+  display: flex;
+  align-items: center;
+  padding: 0 10px;
+}
+/* line 18, ../sass/statisticsList.scss */
+.search-bar .select-wrap.userGroup {
+  flex: 1;
+}
+/* line 24, ../sass/statisticsList.scss */
+.search-bar .select-wrap i {
+  flex: 1;
+  display: inline-block;
+  padding: 10px 0;
+  text-align: center;
+  font-family: "iconfont" !important;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-weight: 400;
+}
+/* line 30, ../sass/statisticsList.scss */
+.search-bar .select-wrap i:after {
+  margin-left: 5px;
+  content: "\e600";
+  display: inline-block;
+  vertical-align: middle;
+  transform: rotate(180deg);
+  top: -2px;
+}
+
+/* line 42, ../sass/statisticsList.scss */
+.data-list li {
+  display: flex;
+  padding: 8px 0;
+}
+/* line 45, ../sass/statisticsList.scss */
+.data-list li span {
+  font-size: 1.4rem;
+}
+/* line 47, ../sass/statisticsList.scss */
+.data-list li span:nth-of-type(2) {
+  flex: 1;
+  text-align: left;
+}
+/* line 55, ../sass/statisticsList.scss */
+.data-list li span:not(:nth-of-type(2)) {
+  width: 85px;
+  text-align: center;
+}
+/* line 59, ../sass/statisticsList.scss */
+.data-list li span:first-child {
+  width: 30px;
+  color: #999;
+}
+/* line 63, ../sass/statisticsList.scss */
+.data-list li span.yzjf {
+  color: #F25643;
+}
+/* line 67, ../sass/statisticsList.scss */
+.data-list li:nth-of-type(odd) {
+  background-color: #f5f5f5;
+}
+/* line 70, ../sass/statisticsList.scss */
+.data-list li.title em {
+  color: #666;
+}

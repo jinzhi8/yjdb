@@ -1,0 +1,134 @@
+body {
+
+	background-color: ffffff;
+	scrollbar-face-color: #D4D0C8;
+	scrollbar-3dlight-color: #f7f7f7;
+	scrollbar-highlight-color: #D4D0C8;
+	scrollbar-shadow-color: #D4D0C8;
+	scrollbar-darkshadow-color: #393939;
+	scrollbar-arrow-color: #444444;
+	scrollbar-track-color: #F7F7F7
+}
+
+td {
+	font-size: 9pt;
+	color: 000000;
+}
+
+.zong, a.zong:visited, a.zong:link, a.zong:active {
+	COLOR: #A18553;
+	TEXT-DECORATION: none
+}
+
+A.zong:hover {
+	COLOR: #ADB306;
+	TEXT-DECORATION: none
+}
+
+.hui, A.hui:visited, a.hui:link, a.hui:active {
+	COLOR: #666666;
+	TEXT-DECORATION: none
+}
+
+A.hui:hover {
+	COLOR: #0033cc;
+	TEXT-DECORATION: none
+}
+
+.hei, A.hei:visited, a.hei:link, a.hei:active {
+	COLOR: #000000;
+	TEXT-DECORATION: none
+}
+
+A.hei:hover {
+	COLOR: #ff0000;
+	TEXT-DECORATION: none
+}
+
+.lan, A.lan:visited, a.lan:link, a.lan:active {
+	COLOR: #0077CC;
+	TEXT-DECORATION: none
+}
+
+A.lan:hover {
+	COLOR: #ff0000;
+}
+
+.org, A.org:visited, a.org:link, a.org:active {
+	COLOR: #81750F;
+	TEXT-DECORATION: none
+}
+
+A.org:hover {
+	COLOR: #AE0000;
+}
+
+.bai, A.bai:visited, a.bai:link, a.bai:active {
+	COLOR: #ffffff;
+	TEXT-DECORATION: none
+}
+
+A.bai:hover {
+	COLOR: #ffff00;
+}
+
+.menu {
+	width: 16pt;
+	font-size: 9pt;
+	color: 000000;
+	line-height: 12pt;
+	cursor: hand;
+	background-image: url(images/menubg.gif);
+}
+
+.menuout {
+	width: 16pt;
+	align: center;
+	font-size: 9pt;
+	color: 333333;
+	line-height: 12pt;
+	cursor: hand;
+	background-image: url(images/menubg_out.gif);
+}
+
+.menuarea_over {
+	BORDER: #F2B957 1px solid;
+	line-height: 15pt;
+	cursor: hand;
+	background-color: #F5FEA3
+}
+
+.menuarea {
+	BORDER: #ffffff 1px solid;
+	line-height: 15pt;
+	cursor: hand;
+}
+
+.tool {
+	BORDER-top: #B9B9B9 1px solid;
+	BORDER-left: #B9B9B9 1px solid;
+	BORDER-right: #B9B9B9 1px solid;
+	line-height: 15pt;
+	cursor: hand;
+	background-color: #ffffff
+}
+
+.input {
+	FONT-WEIGHT: bold;
+	height: 20px;
+	width: 88px;
+	background-image: url(images/input.gif);
+	BORDER: #344C9D 0px solid;
+	font-size: 9pt;
+	color: 000000;
+}
+
+.input_s {
+	FONT-WEIGHT: bold;
+	height: 20px;
+	width: 55px;
+	background-image: url(images/input_s.gif);
+	BORDER: #344C9D 0px solid;
+	font-size: 9pt;
+	color: 000000;
+}

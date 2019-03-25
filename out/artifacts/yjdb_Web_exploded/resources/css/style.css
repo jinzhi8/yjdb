@@ -1,0 +1,146 @@
+/* 基本属性 */
+html
+	.STYLE1 {
+	FONT-FAMILY: "宋体";
+	font-size: 12px;
+	color: #555555;
+	font-style: normal;
+	line-height: 20px;
+}
+
+.STYLE3 {
+	FONT-FAMILY: "宋体";
+	font-size: 13px;
+	color: #000000;
+}
+
+body {
+	margin: 0px 0px 0px 0px;
+	background-color: #d6e4ef;
+}
+
+td {
+	FONT-FAMILY: 宋 体;
+	FONT-SIZE: 12px;
+	color: #d6e4ef
+}
+
+div {
+	float: center;
+	clear: both;
+}
+
+.titlestyle {
+	padding-left: 10px;
+	font-weight: bold;
+	color: #555555;
+}
+
+.menuitem {
+	cursor: hand;
+	width: 100%;
+	padding-left: 5px;
+	font-weight: bold;
+	color: #555555;
+}
+
+.submenuitem {
+	width: 100%;
+	padding-left: 5px;
+	font-weight: bold;
+	color: #555555;
+	text-decoration: none;
+}
+
+.submenuitem a {
+	color: #555555;
+	text-decoration: none;
+}
+
+.indexbutton {
+	cursor: hand;
+	width: 74px;
+	height: 20px;
+	text-align: center;
+	valing: middle;
+	background-image: url(../images/button_exit_1.gif);
+}
+
+.minibutton {
+	cursor: hand;
+	width: 51px;
+	height: 20px;
+	text-align: center;
+	valing: middle;
+	background-image: url(../images/mini_button.png);
+}
+
+.filterfont {
+	filter: glow(color = pink, strength = 10);
+	filter: dropshadow(color = royalblue, offx = 3, offy = 3, positive = 1);
+}
+
+.ItemList {
+	background-image: url(../images/email_bg_1.jpg);
+	background-repeat: repeat-x;
+	width: 169px;
+	height: 23px;
+	line-height: 23px;
+	padding-left: 15px;
+	color: #000000;
+}
+
+.ItemList1 {
+	background-image: url(../images/index_button_3.jpg);
+	background-repeat: repeat-x;
+	widht: 103px height: 23px;
+	line-height: 23px;
+	padding-left: 20px;
+	color: #000000;
+}
+
+.ItemList2 {
+	background-image: url(../images/index_button_4.jpg);
+	background-repeat: repeat-x;
+	width: 333px height: 23px;
+	line-height: 23px;
+	color: #000000;
+}
+
+.ItemList3 {
+	background-image: url(../images/index_button_5.jpg);
+	background-repeat: repeat-x;
+	height: 22px;
+	line-height: 22px;
+	padding-left: 15px;
+	color: #000000;
+}
+
+.tbbody {
+	background-color: #8cc6f6;
+	background-repeat: repeat-x;
+	height: 22px;
+	line-height: 22px;
+}
+
+.tbbody1 {
+	background-color: #ffffff;
+	background-repeat: repeat-x;
+	height: 22px;
+	line-height: 22px;
+}
+
+.tbbody2 {
+	background-color: #70a1c8;
+	background-repeat: repeat-x;
+	height: 22px;
+	line-height: 22px;
+}
+
+.tbbody3 {
+	background-color: #ffffff;
+	background-repeat: repeat-x;
+	height: 22px;
+	line-height: 22px;
+}
+

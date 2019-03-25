@@ -1,0 +1,77 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<stat>
+    <search>
+        <items>
+            <item>
+                <name>操作人员</name>
+                <pageid>username</pageid>
+                <dbid>t.username</dbid>
+                <type>string</type>
+                <exp>equal</exp>
+            </item>
+            <item>
+                <name>操作类型</name>
+                <pageid>activity</pageid>
+                <dbid>t.activity</dbid>
+                <type>string</type>
+                <exp>equal</exp>
+            </item>
+            <item>
+                <name>来源模块</name>
+                <pageid>moduleid</pageid>
+                <dbid>t.moduleid</dbid>
+                <type>string</type>
+                <exp>equal</exp>
+            </item>
+            <item>
+                <name>文档标题</name>
+                <pageid>title</pageid>
+                <dbid>t.title</dbid>
+                <type>string</type>
+                <exp>like</exp>
+            </item>
+            <item>
+                <name>文档ID</name>
+                <pageid>docid</pageid>
+                <dbid>t.docid</dbid>
+                <type>string</type>
+                <exp>equal</exp>
+            </item>
+            <item>
+                <name>IP地址</name>
+                <pageid>clientip</pageid>
+                <dbid>t.clientip</dbid>
+                <type>string</type>
+                <exp>equal</exp>
+            </item>
+            <item>
+                <name>起始时间</name>
+                <pageid>acttime</pageid>
+                <dbid>t.acttime</dbid>
+                <type>date</type>
+                <exp>between</exp>
+            </item>
+        </items>
+    </search>
+    <view>
+        <moduleid>systemlog</moduleid>
+        <type>common</type>
+        <sql>select t.activitylogid,t.username,t.userid,t.department,t.departmentid,to_char(t.acttime,'yyyy-mm-dd hh24-mi-ss') acttime,t.clientip,t.depflag,t.moduleid,decode(t.docid,null,' ',t.docid) docid,t.activity,t.requesturl,decode(t.title,null,' ',t.title) title from activitylog t</sql>
+        <filters>
+            <filter>1=1</filter>
+        </filters>
+        <order>t.activitylogid desc</order>
+        <rows>50</rows>
+        <columns>
+            <column>
+                <title>操作</title>
+                <property>【&lt;font color="green"&gt;&lt;b&gt;+$acttime+&lt;/b&gt;&lt;/font&gt;】+$department+→&lt;font color="red"&gt;&lt;b&gt;+$username+&lt;/b&gt;&lt;/font&gt;「+$clientip+」&lt;br&gt;在『&lt;font color="orange"&gt;+$moduleid+&lt;/font&gt;』模块中【&lt;font color="#cc8833"&gt;&lt;b&gt;+$activity+&lt;/b&gt;&lt;/font&gt;】了+$docid+〖+$title+〗&lt;br&gt;操作来源地址【+$requesturl+】</property>
+                <filedtype>string</filedtype>
+                <width>100%</width>
+                <length>1000</length>
+                <align>left</align>
+                <link/>
+            </column>
+        </columns>
+    </view>
+</stat>

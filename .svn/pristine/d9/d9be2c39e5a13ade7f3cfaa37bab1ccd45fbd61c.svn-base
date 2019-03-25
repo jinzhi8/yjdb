@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.1//EN"
+		"http://jakarta.apache.org/struts/dtds/struts-config_1_1.dtd">
+<struts-config>
+	<form-beans>
+		<form-bean name="personalForm" type="com.kizsoft.oa.personal.PersonalForm"/>
+	</form-beans>
+
+	<action-mappings>
+		<action name="personalForm" path="/personalAction" scope="request" type="com.kizsoft.oa.personal.PersonalAction">
+			<forward name="success" redirect="true" contextRelative="false" path="/personalMessManager.jsp"/>
+			<forward name="changepassword" redirect="false" contextRelative="false" path="/modifysuccess.jsp"/>
+		</action>
+
+		<action name="personalForm" path="/favouritePersonalAction" scope="request"
+				type="com.kizsoft.oa.personal.FavouritePersonalAction">
+			<forward name="success" redirect="true" path="/index.jsp"/>
+			<forward name="success1" redirect="false" path="/favourite.jsp"/>
+			<forward name="failure" redirect="false" contextRelative="false" path="/error.jsp"/>
+		</action>
+
+		<action path="/personalAddressAction" type="com.kizsoft.oa.personal.PersonalAddressAction" scope="request">
+			<forward name="success" redirect="true" path="/personalAddress.jsp"/>
+			<forward name="error" redirect="false" contextRelative="false" path="/error.jsp"/>
+		</action>
+	</action-mappings>
+</struts-config>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.1//EN"
+		"http://jakarta.apache.org/struts/dtds/struts-config_1_1.dtd">
+<struts-config>
+	<form-beans>
+		<form-bean name="AttendImportActionForm" type="com.kizsoft.oa.attend.beans.AttendImportActionForm"/>
+	</form-beans>
+	<action-mappings>
+		<action path="/AttendStatAction" type="com.kizsoft.oa.attend.actions.AttendStatAction">
+			<forward contextRelative="false" path="/attendstatresult.jsp" name="success"/>
+		</action>
+		<action name="AttendImportActionForm" path="/AttendImportAction" scope="request"
+				type="com.kizsoft.oa.attend.actions.AttendImportAction">
+			<forward name="success" contextRelative="false" path="/index.jsp" redirect="true"/>
+		</action>
+	</action-mappings>
+</struts-config>

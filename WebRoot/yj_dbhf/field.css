@@ -1,0 +1,276 @@
+/* line 6, ../sass/index.scss */
+.filed {
+  margin-top: 0px;
+  margin-left: 4px;
+}
+/* line 9, ../sass/index.scss */
+.filed .title {
+  border-top: 1px dashed #eee;
+  padding: .5rem 0;
+}
+/* line 13, ../sass/index.scss */
+.filed li {
+  margin-bottom: 5px;
+}
+/* line 16, ../sass/index.scss */
+.filed span {
+  padding: 8px;
+  display: inline-block;
+  border: 1px solid #eee;
+  border-radius: 3px;
+  width: 250px;
+  overflow: hidden;
+  vertical-align: middle;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  vertical-align: middle;
+}
+/* line 28, ../sass/index.scss */
+.filed a.btn {
+  height: 35px;
+  line-height: 35px;
+  background-color: #5FB878;
+  padding: 0 10px;
+  margin-right: 5px;
+  border-radius: 3px;
+  color: #fff;
+}
+/* line 31, ../sass/index.scss */
+.filed a.remove-file {
+  display: inline-block;
+  border: 1px solid #C9C9C9;
+  background-color: #fff;
+  color: #555;
+}
+/* line 6, ../sass/index.scss */
+.filed2 {
+  margin-top: 0px;
+  margin-left: 87px;
+}
+/* line 9, ../sass/index.scss */
+.filed2 .title {
+  border-top: 1px dashed #eee;
+  padding: .5rem 0;
+}
+/* line 13, ../sass/index.scss */
+.filed2 li {
+  margin-bottom: 5px;
+}
+/* line 16, ../sass/index.scss */
+.filed2 span {
+  padding: 1px;
+  display: inline-block;
+  border: 1px solid #eee;
+  border-radius: 3px;
+  width: 250px;
+  overflow: hidden;
+  vertical-align: middle;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  vertical-align: middle;
+}
+/* line 28, ../sass/index.scss */
+.filed2 a.btn {
+  height: 21px;
+  line-height: 21px;
+  background-color: #5FB878;
+  padding: 0 10px;
+  margin-right: 5px;
+  border-radius: 3px;
+  color: #fff;
+}
+/* line 31, ../sass/index.scss */
+.filed2 a.remove-file {
+  display: inline-block;
+  border: 1px solid #C9C9C9;
+  background-color: #fff;
+  color: #555;
+}
+/* yj_lr dbtj.jsp */
+.layui-table-cell .layui-rate {
+	padding-top: 0px
+}
+.hot_news tr:hover {
+	background-color: #f8f8f8 !important;
+	text-indent: 10px;
+}
+.list-info-div {
+	width: 100%;
+	margin:0px;
+}
+.list-info-div a{
+	font-size: 14px;
+    color: #383838;
+    height: 31px;
+    line-height: 31px;
+    font-weight: bold;
+    display: block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.newclass-time {
+    float: right;
+    margin-right: 10px;
+}
+.newclass-jszctable {
+	width: 100%;
+}
+.newclass-jszctable tr th,.newclass-jszctable tr td {
+	border: none;
+	padding: 10px;
+	vertical-align: top;
+}
+.newclass-jszctable tr th span {
+    white-space: nowrap;
+    color: #5d6063;
+    font-weight: bold;
+    height: 30px;
+    line-height: 30px;
+    display: block;
+}
+.newclass-jszctable tr td div {
+    color: #6d6868;
+    text-indent: 0px !important;
+ /*   height: 30px;
+    line-height: 30px;*/
+}
+.newclass-jszctable-r-mian {
+	width: 100% !important;
+}
+.newclasslist-info-div-mian {
+	width: 100% !important;
+}
+.newclasslist-info-div-mian ul {
+	display: table;
+}
+.newclasslist-info-div-mian ul li{
+    float: left;
+    margin: 0px 63px 0px 0px;
+    height: 30px;
+    line-height: 30px;
+}
+.newclass-btncb {
+    right: 165px !important;
+    top: 10px !important;
+}
+.newclass-bottombtn {
+	
+}
+.newclass-bottombtn .layui-input-inline.filed2 span {
+	height: 35px  !important;
+	line-height: 35px  !important;
+	float: left;
+}
+.newclass-bottombtn a {
+    height: 35px !important;
+    line-height: 35px !important;
+}
+.hd1 {
+	width: 100%;
+}
+.list-info-div .layui-row ,.list-info-div .layui-text{
+	margin: 10px 0px;
+}
+.list-info-div .layui-col-md1.layui-text {
+	margin: 0px;
+}
+.list-info-div .layui-col-md11 {
+	font-weight: bold;
+}
+.list-info-div-mian {
+    /* background-color: #efefef; */
+    clear: both;
+    display: table;
+}
+.list-info-div-mian div {
+    width: 20%;
+    float: left;
+    padding: 5px 0px;
+}
+.list-info-div .layui-col-md11 span {
+	/* margin: 0px 5px 0px 29px; */
+	color: #1aa094;
+}
+.list-info-div .layui-col-md1.layui-text span {
+	color: #1aa094;
+}
+.list-info-div .layui-input-inline.filed2 span{
+    border: 1px solid #cfd2d4;
+    text-indent: 10px;
+    height: 38px;
+    line-height: 38px;
+    margin: 0px 10px 0px 0px;
+    background-color: #f8f9fb;
+}
+.list-info-div .btn.remove-file {
+    cursor: pointer;
+    height: 40px;
+    line-height: 40px;
+    background-color: #0790f7;
+    color: white;
+    border: 1px solid #177ecc;
+}
+.list-info-div .layui-btn.layui-btn-primary.layui-btn-xs {
+    cursor: pointer;
+    height: 40px;
+    line-height: 40px;
+    background-color: ef8b24;
+    color: white;
+    border: none;
+    padding: 0px 10px;
+    font-size: 14px;
+}
+.list-info-div .layui-btn-xs {
+    height: 32px;
+    line-height: 34px;
+    padding: 0px 23px;
+}
+
+.table01 {
+    BORDER-BOTTOM: #e6e6e6 1px solid; TEXT-ALIGN: left; BORDER-LEFT: #e6e6e6 1px solid; BACKGROUND-COLOR: #fff; BORDER-COLLAPSE: collapse; BORDER-TOP: #e6e6e6 1px solid; BORDER-RIGHT: #e6e6e6 1px solid
+}
+.table01 TH {
+    BORDER-BOTTOM: #e6e6e6 1px solid; TEXT-ALIGN: center; BORDER-LEFT: #e6e6e6 1px solid; BACKGROUND-COLOR: #f7f7f7; WIDTH: 150px; HEIGHT: 32px; BORDER-TOP: #e6e6e6 1px solid; FONT-WEIGHT: normal; BORDER-RIGHT: #e6e6e6 1px solid;font-size: 16px;
+}
+.table01 TD {
+    BORDER-BOTTOM: #e6e6e6 1px solid;
+    TEXT-ALIGN: left;
+    BORDER-LEFT: #e6e6e6 1px solid;
+    PADDING-LEFT: 5px;
+    HEIGHT: 32px;
+    BORDER-TOP: #e6e6e6 1px solid;
+    BORDER-RIGHT: #e6e6e6 1px solid;
+    font-size: 16px;
+}
+.table01 INPUT {
+    BORDER-BOTTOM: #e8e8e8 1px solid;
+    BORDER-LEFT: #e8e8e8 1px solid;
+    LINE-HEIGHT: 32px;
+    HEIGHT: 32px;
+    BORDER-TOP: #e8e8e8 1px solid;
+    BORDER-RIGHT: #e8e8e8 1px solid;
+    margin-top: 4px;
+}
+.table01 TEXTAREA {
+    BORDER-BOTTOM: #e8e8e8 1px solid; BORDER-LEFT: #e8e8e8 1px solid; BORDER-TOP: #e8e8e8 1px solid; BORDER-RIGHT: #e8e8e8 1px solid
+}
+.table01 TD{
+    padding: 0px;
+}
+.table01 input{
+    /*width: 100%;*/
+    /*height: 100%;*/
+    margin: 0px;
+    padding: 0px;
+    /*border: none;*/
+    text-indent: 16px;
+    outline: none;
+}
+.table01 input[type="radio"]{
+    width: 15px;
+    width: 15px;
+    height: 15px;
+    margin: 0px 0px 0px 16px;
+    padding: 0px;
+}

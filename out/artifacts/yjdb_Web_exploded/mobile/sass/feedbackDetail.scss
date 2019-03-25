@@ -1,0 +1,146 @@
+@import "base.scss";
+body{
+  background-color: #f5f5f5;
+}
+.wrapper{
+  min-height: auto;
+}
+.title{
+  margin-bottom: 15px;
+  display: flex;
+  font-size: 1.6rem;
+  align-items: center;
+  font-weight: 700;
+  i{
+    width: 5px;
+    height: 18px;
+    background-color: #3296FA;
+    margin-right: 5px;
+  }
+}
+.linkman{
+  background-color: #fff;
+  margin-bottom: 10px;
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+
+  .content{
+    display: flex;
+    align-items: center;
+  }
+  .photo{
+    @include iconfont;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    background-color: rgba(50,150,250,.2);
+    font-size: 5rem;
+    overflow: hidden;
+    color: #f9f9f9;
+    margin-right: 15px;
+    &:before{
+      content:"\e677";
+      position: relative;
+      top: 5px;
+    }
+  }
+  .info-wrap{
+    flex: 1;
+    .name{
+      font-size: 1.6rem;
+    }
+    .info{
+      margin-top: 10px;
+      padding: 5px 10px;
+      background-color: #f9f9f9;
+      p{
+        display: flex;
+        margin: 5px 0;
+        font-size: 1.4rem;
+        color: #333;
+        i{
+          @include iconfont;
+          margin-right: 10px;
+          border-radius: 3px;
+          width: 20px;
+          height: 20px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          color: #666;
+        }
+        &.zw i:before{
+          content:"\e627";
+          font-size: 1.6rem;
+
+        }
+        &.lxfs i:before{
+          content:"\e61d";
+          font-size: 2rem;
+        }
+      }
+    }
+  }
+}
+ul.info-list{
+  padding: 0 10px;
+  background-color: #fff;
+  margin-bottom: 10px;
+  li{
+    display: flex;
+    font-size: 1.6rem;
+    padding: 10px 0;
+    label{
+      color: #999;
+    }
+    span{
+      flex: 1;
+      text-align: right;
+    }
+
+    &:not(:last-child){
+      border-bottom: 1px solid #eee;
+    }
+  }
+  &.feed{
+    li{
+      flex-direction: column;
+      label{
+        font-size: 1.4rem;
+        color: #999;
+        margin-bottom: 10px;
+      }
+      span{
+        text-align: left;
+        em{
+          display: inline-block;
+          margin-bottom: 5px;
+          margin-right: 5px;
+          border-radius: 3px;
+          font-style: normal;
+          padding: 3px 5px;
+          border: 1px solid #3296FA;
+          color: #3296FA;
+        }
+      }
+    }
+
+  }
+}
+.btn-wrap{
+  display: flex;
+  padding: 10px;
+  a{
+    flex: 1;
+    text-align: center;
+    padding: 10px;
+    background-color: #F25643;
+    color: #fff;
+    font-size: 1.6rem;
+    border-radius: 3px;
+  }
+}

@@ -1,0 +1,110 @@
+@font-face {
+  font-family: 'iconfont';
+  src: url("../font/iconfont.eot?t=1512436220877");
+  /* IE9*/
+  src: url("../font/iconfont.eot?t=1512436220877#iefix") format("embedded-opentype"), url("../font/iconfont.ttf?t=1512436220877") format("truetype"), url("../font/iconfont.svg?t=1512436220877#iconfont") format("svg");
+  /* iOS 4.1- */
+}
+/* line 2, ../sass/feedbackList.scss */
+body {
+  background-color: #f5f5f5;
+}
+
+/* line 5, ../sass/feedbackList.scss */
+.wrapper {
+  padding-top: 50px;
+  min-height: auto;
+}
+
+/* line 9, ../sass/feedbackList.scss */
+header {
+  box-shadow: 0 0 3px rgba(0, 0, 0, 0.2);
+}
+
+/* line 13, ../sass/feedbackList.scss */
+.list-wrap li {
+  background-color: #fff;
+  overflow: hidden;
+  margin-bottom: 10px;
+}
+/* line 18, ../sass/feedbackList.scss */
+.list-wrap i {
+  font-family: "iconfont" !important;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-weight: 400;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 5px;
+}
+/* line 25, ../sass/feedbackList.scss */
+.list-wrap .title {
+  font-size: 1.8rem;
+  margin: 10px;
+  word-wrap: break-word;
+}
+/* line 30, ../sass/feedbackList.scss */
+.list-wrap .info-wrap {
+  margin: 0 15px;
+  background-color: #f9f9f9;
+  padding: 10px 0;
+}
+/* line 34, ../sass/feedbackList.scss */
+.list-wrap .info-wrap p {
+  display: flex;
+  align-items: center;
+  font-size: 1.6rem;
+  margin: 0 10px;
+}
+/* line 39, ../sass/feedbackList.scss */
+.list-wrap .info-wrap p span {
+  display: flex;
+}
+/* line 42, ../sass/feedbackList.scss */
+.list-wrap .info-wrap p em {
+  font-style: normal;
+  color: #333;
+}
+/* line 46, ../sass/feedbackList.scss */
+.list-wrap .info-wrap p i {
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  color: rgba(50, 150, 250, 0.7);
+}
+/* line 52, ../sass/feedbackList.scss */
+.list-wrap .info-wrap p.lxr i:before {
+  content: "\e60f";
+  font-size: 2rem;
+}
+/* line 56, ../sass/feedbackList.scss */
+.list-wrap .info-wrap p.lxdh i:before {
+  content: "\e62a";
+  font-size: 1.8rem;
+}
+/* line 60, ../sass/feedbackList.scss */
+.list-wrap .info-wrap p.fkzq i:before {
+  content: "\e60b";
+  font-size: 1.8rem;
+}
+/* line 66, ../sass/feedbackList.scss */
+.list-wrap .assist-wrap {
+  display: flex;
+  justify-content: flex-end;
+  padding: 5px 15px;
+}
+/* line 70, ../sass/feedbackList.scss */
+.list-wrap .assist-wrap span {
+  height: 25px;
+  display: flex;
+  align-items: center;
+  font-size: 1.5rem;
+  color: #666;
+}
+/* line 76, ../sass/feedbackList.scss */
+.list-wrap .assist-wrap span.time-wrap i:before {
+  color: #666;
+  content: "\e6b5";
+}

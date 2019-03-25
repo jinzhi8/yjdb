@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.1//EN"
+		"http://jakarta.apache.org/struts/dtds/struts-config_1_1.dtd">
+<struts-config>
+	<action-mappings>
+		<action path="/settingTypeAction" type="com.kizsoft.oa.setting.actions.SettingTypeAction">
+			<forward contextRelative="false" path="/settingTypeManager.jsp" name="success"/>
+		</action>
+		<action path="/settingSortAction" type="com.kizsoft.oa.setting.actions.SettingSortAction">
+			<forward contextRelative="false" path="/settingSortManager.jsp" name="success"/>
+		</action>
+		<action path="/getSearchResultAction" type="com.kizsoft.oa.setting.actions.GetSearchResultAction">
+			<forward contextRelative="false" path="/filestat.jsp" name="success"/>
+		</action>
+		<action path="/getSearchAction" type="com.kizsoft.oa.setting.actions.GetSearchResultAction">
+			<forward contextRelative="false" path="/filestat_search.jsp" name="success"/>
+		</action>
+		<action path="/settingLeaderAction" type="com.kizsoft.oa.setting.actions.SettingLeaderAction">
+			<forward contextRelative="false" path="/settingLeaderManager.jsp" name="success"/>
+		</action>
+		<action path="/fileBaseConfAction" type="com.kizsoft.oa.setting.actions.FileBaseConfAction">
+			<forward contextRelative="false" path="/fileBaseConfManager.jsp" name="success"/>
+		</action>
+		<action path="/shareBaseFirstAction" type="com.kizsoft.oa.setting.actions.ShareBaseFirstAction">
+			<forward contextRelative="false" path="/shareBaseFirstManager.jsp" name="success"/>
+		</action>
+		<action path="/shareBaseSecondAction" type="com.kizsoft.oa.setting.actions.ShareBaseSecondAction">
+			<forward contextRelative="false" path="/shareBaseSecondManager.jsp" name="success"/>
+		</action>
+		<action path="/pubInfoFirstAction" type="com.kizsoft.oa.setting.actions.PubInfoFirstAction">
+			<forward contextRelative="false" path="/pubInfoFirstManager.jsp" name="success"/>
+		</action>
+		<action path="/pubInfoSecondAction" type="com.kizsoft.oa.setting.actions.PubInfoSecondAction">
+			<forward contextRelative="false" path="/pubInfoSecondManager.jsp" name="success"/>
+		</action>
+		<action path="/dbFirstAction" type="com.kizsoft.oa.setting.actions.DBFirstAction">
+			<forward contextRelative="false" path="/dbFirstManager.jsp" name="success"/>
+		</action>
+		<action path="/dbSecondAction" type="com.kizsoft.oa.setting.actions.DBSecondAction">
+			<forward contextRelative="false" path="/dbSecondManager.jsp" name="success"/>
+		</action>
+	</action-mappings>
+</struts-config>

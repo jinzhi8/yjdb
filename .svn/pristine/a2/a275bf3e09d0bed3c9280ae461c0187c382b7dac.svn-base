@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.1//EN"
+		"http://jakarta.apache.org/struts/dtds/struts-config_1_1.dtd">
+<struts-config>
+	<form-beans>
+		<form-bean name="getDocStatForm" type="com.kizsoft.oa.getdoc.beans.GetdocStatForm"/>
+	</form-beans>
+	<action-mappings>
+		<action path="/saveFileTypeAction" type="com.kizsoft.oa.getdoc.actions.SaveFileTypeAction">
+			<forward contextRelative="false" path="/fileType.jsp" name="success"/>
+		</action>
+
+		<action path="/editFileTypeAction" type="com.kizsoft.oa.getdoc.actions.EditFileTypeAction">
+			<forward contextRelative="false" path="/fileType.jsp" name="success"/>
+			<forward redirect="true" contextRelative="false" path="/error.jsp" name="error"/>
+		</action>
+
+		<action path="/stat" type="com.kizsoft.oa.getdoc.actions.StatAction" name="getDocStatForm">
+			<forward contextRelative="false" path="/statall.jsp" name="success"/>
+			<forward redirect="false" contextRelative="false" path="/error.jsp" name="error"/>
+		</action>
+	</action-mappings>
+</struts-config>

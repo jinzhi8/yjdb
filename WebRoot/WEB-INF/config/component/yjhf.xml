@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<config>
+    <view sql="select * from yj_dbhf where fkid=?" primaryKey="fkid" jsp="/yj_dbhf/index.jsp">
+        <field dbCol="fkid" formCol="fkid" type="string" value="" />
+        <field dbCol="unid" formCol="unid" type="string" value="" />
+        <field dbCol="bstime" formCol="bstime" type="string" />
+        <field dbCol="deptnme" formCol="deptname" type="string" />
+        <field dbCol="linkman" formCol="linkman" type="string" />
+        <field dbCol="telphone" formCol="telphone" type="string" />
+        <field dbCol="lsqk" formCol="lsqk" type="string" value="" />
+        <field dbCol="problem" formCol="problem" type="string" value="" />
+        <field dbCol="xbsl" formCol="xbsl" type="string" value="" />
+        <field dbCol="createtime" formCol="createtime" type="string" value="" />
+        <field dbCol="updatetime" formCol="updatetime" type="string" value="" />
+        <field dbCol="ownerid" formCol="ownerid" type="string" value="" />
+    </view>
+    <edit sql="select * from yj_dbhf where fkid=?" primaryKey="fkid" jsp="/yj_dbhf/index.jsp">
+        <field dbCol="fkid" formCol="fkid" type="string" value="" />
+        <field dbCol="unid" formCol="unid" type="string" value="" />
+        <field dbCol="bstime" formCol="bstime" type="string" />
+        <field dbCol="deptnme" formCol="deptname" type="string" />
+        <field dbCol="linkman" formCol="linkman" type="string" />
+        <field dbCol="telphone" formCol="telphone" type="string" />
+        <field dbCol="lsqk" formCol="lsqk" type="string" value="" />
+        <field dbCol="problem" formCol="problem" type="string" value="" />
+        <field dbCol="xbsl" formCol="xbsl" type="string" value="" />
+        <field dbCol="createtime" formCol="createtime" type="string" value="" />
+        <field dbCol="updatetime" formCol="updatetime" type="string" value="" />
+        <field dbCol="ownerid" formCol="ownerid" type="string" value="" />
+    </edit>
+    <insert
+        sql="insert into yj_dbhf(fkid,unid,deptid,userid,deptname,linkman,telphone,lsqk,problem,xbsl,createtime,updatetime,bstime,state,phone,post,psldid,psld,qtld,qtldid,qtdwid,qtdw,issh) values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)" primaryKey="fkid" sequence="SEQ_UNID"
+         jsp="/yj_dbhf/index.jsp">
+        <field dbCol="fkid" formCol="fkid" type="string" value="" />
+        <field dbCol="unid" formCol="unid" type="string" value="" />
+        <field dbCol="deptid" formCol="deptid" type="string" value="" />
+        <field dbCol="userid" formCol="userid" type="string" value="" />
+        <field dbCol="deptname" formCol="deptname" type="string" />
+        <field dbCol="linkman" formCol="linkman" type="string" />
+        <field dbCol="telphone" formCol="telphone" type="string" />
+        <field dbCol="lsqk" formCol="lsqk" type="string" value="" />
+        <field dbCol="problem" formCol="problem" type="string" value="" />
+        <field dbCol="xbsl" formCol="xbsl" type="string" value="" />
+        <field dbCol="createtime" formCol="createtime" type="string" value="" />
+        <field dbCol="updatetime" formCol="updatetime" type="string" value="" />
+        <field dbCol="bstime" formCol="bstime" type="string" />
+        <field dbCol="state" formCol="state" type="string" />
+        <field dbCol="phone" formCol="phone" type="string" />
+        <field dbCol="post" formCol="post" type="string" />
+        <field dbCol="psldid" formCol="psldid" type="string" />
+        <field dbCol="psld" formCol="psld" type="string" />
+        <field dbCol="qtld" formCol="qtld" type="string" />
+        <field dbCol="qtldid" formCol="qtldid" type="string" />
+        <field dbCol="qtdwid" formCol="qtdwid" type="string" />
+        <field dbCol="qtdw" formCol="qtdw" type="string" />
+        <field dbCol="issh" formCol="issh" type="string" />
+    </insert>
+    <update
+        sql="update yj_lr set bstime=?,deptname=?,linkman=?,telphone=?,lsqk=?,problem=?,xbsl=?,updatetime=?,deptid=?,userid=?,state=?,phone=?,post=? where fkid = ?" primaryKey="fkid" title="title" sequence="SEQ_UNID"
+         jsp="/yj_dbhf/index.jsp">
+        <field dbCol="bstime" formCol="bstime" type="string" />
+        <field dbCol="deptnme" formCol="deptname" type="string" />
+        <field dbCol="linkman" formCol="linkman" type="string" />
+        <field dbCol="telphone" formCol="telphone" type="string" />
+        <field dbCol="lsqk" formCol="lsqk" type="string" value="" />
+        <field dbCol="problem" formCol="problem" type="string" value="" />
+        <field dbCol="xbsl" formCol="xbsl" type="string" value="" />
+        <field dbCol="updatetime" formCol="updatetime" type="string" value="" />
+        <field dbCol="deptid" formCol="deptid" type="string" value="" />
+        <field dbCol="userid" formCol="userid" type="string" value="" />
+        <field dbCol="state" formCol="state" type="string" value="" />
+        <field dbCol="phone" formCol="phone" type="string" value="" />
+        <field dbCol="post" formCol="post" type="string" value="" />
+        <field dbCol="fkid" formCol="fkid" type="string" value="" />
+    </update>
+</config>
+
+
+

@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<view>
+    <type>instance</type>
+    <moduleid>zw_hydb</moduleid>
+    <viewname>view_flow_instances_end</viewname>
+    <unid>unid</unid>
+    <sql>select app_title,instance_id,issuetime,managedepname,source,lxr</sql>
+    <tables>zwdbhy</tables>
+    <filters>
+        <filter>unid=app_id</filter>
+    </filters>
+    <order>issuetime desc</order>
+    <rows>30</rows>
+    <columns>
+		 <column>
+            <title>发布时间</title>
+            <property>$issuetime</property>
+            <filedtype>time</filedtype>
+            <width>130</width>
+            <length>100</length>
+            <align>center</align>
+            <link></link>
+        </column>
+		<column>
+                <title>会议类型</title>
+                <property>$source</property>
+                <filedtype>string</filedtype>
+                <width>170</width>
+                <length>12</length>
+                <align>center</align>
+                <link></link>
+        </column>
+        <column>
+            <title>会议名称</title>
+            <property>$app_title</property>
+            <filedtype>string</filedtype>
+            <width>570</width>
+            <length>100</length>
+            <align>left</align>
+            <link>/workflowEntry.do?instanceid=+$instance_id</link>
+        </column>
+        <column>
+            <title>状态</title>
+            <property>$lxr</property>
+            <filedtype>string</filedtype>
+            <width>130</width>
+            <length>100</length>
+            <align>left</align>
+        </column>
+    </columns>
+</view>

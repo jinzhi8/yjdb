@@ -1,0 +1,29 @@
+body {
+	margin: 6px;
+	background-color: #D6D3CE;
+}
+.list01 {
+	width: 200px;
+	font-size: 9pt;
+}
+.button02 {
+	width: 80px;
+	padding: 0px;
+	margin: 1px;
+	height: 20px;
+	font-family: "ËÎÌו";
+	font-size: 12px;
+	text-decoration: none;
+}
+.button01 {
+	width: 100px;
+	height: 20px;
+	font-size: 12px;
+}
+td {
+	font-family: "ËÎÌו";
+	font-size: 12px;
+	line-height: 20px;
+	color: #000000;
+	text-decoration: none;
+}

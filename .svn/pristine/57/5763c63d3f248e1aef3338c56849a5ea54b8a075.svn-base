@@ -1,0 +1,92 @@
+﻿<HTML>
+<HEAD>
+<meta http-equiv="content-type" content="text/html;charset=utf-8">
+<TITLE>Office</TITLE>
+<SCRIPT LANGUAGE="JavaScript">
+var TANGER_OCX_bDocOpen = false; //标识是否已经打开了文档
+var TANGER_OCX_OBJ = null; //标识控件对象
+window.onload=function(){
+	TANGER_OCX_OBJ = document.all("TANGER_OCX");
+	TANGER_OCX_OBJ.EnableFileCommand(0) = false;
+	TANGER_OCX_OBJ.EnableFileCommand(1) = true;
+	TANGER_OCX_OBJ.EnableFileCommand(2) = false;
+	TANGER_OCX_OBJ.EnableFileCommand(3) = false;
+	TANGER_OCX_OBJ.EnableFileCommand(4) = true;
+	TANGER_OCX_OBJ.EnableFileCommand(5) = true;
+	TANGER_OCX_OBJ.EnableFileCommand(6) = true;
+	TANGER_OCX_OBJ.Titlebar = false;
+	TANGER_OCX_OBJ.CreateNew("Word.Document");
+};
+function newdoc()
+{
+	TANGER_OCX_OBJ.CreateNew("Word.Document");
+}
+
+function opendoc()
+{
+	TANGER_OCX_OBJ.OpenFromURL("http://10.20.65.195/oa/DownloadAttach?uuid=ff93abe7b69f4e2faec1a8b3fa712d0f");
+}
+
+function savedoc()
+{
+	if(!TANGER_OCX_bDocOpen)
+	{
+		alert("您没有正在编辑的文档。");
+		return;
+	}
+	var retHTML = TANGER_OCX_OBJ.SaveToURL
+		(
+			document.forms[0].action,  //此处为uploadedit.asp
+			"EDITFILE",	//文件输入域名称,可任选,不与其他<input type=file name=..>的name部分重复即可
+			"", //可选的其他自定义数据－值对，以&分隔。如：myname=tanger&hisname=tom,一般为空
+			document.forms[0].filename.value, //文件名,此处从表单输入获取，也可自定义
+			"myForm" //控件的智能提交功能可以允许同时提交选定的表单的所有数据.此处可使用id或者序号
+		); //此函数会读取从服务器上返回的信息并保存到返回值中。
+	document.open();
+	document.write("<html><head><title>返回的数据</title></head><body>")
+	document.write(retHTML+"<hr>");
+	document.write('<br><a href="javascript:window.history.back()">返回</a></body>');
+	document.close();
+}
+</SCRIPT>
+
+</HEAD>
+<BODY>
+<center>
+<FORM id="myForm" METHOD="POST" ENCTYPE="multipart/form-data" ACTION="uploadedit.asp">
+<TABLE BORDER=0 width = 500>	
+	<tr>
+		<td align="center"><INPUT type=BUTTON VALUE="新建文档" onclick="newdoc();"></td>
+		<td align="center"><INPUT type=BUTTON VALUE="打开服务器文档" onclick="opendoc();"></td>
+		<td align="center"><INPUT type=BUTTON VALUE="保存文档到服务器" onclick="savedoc();"></td>		
+	</tr>
+</TABLE>
+<TABLE BORDER=0 width = 650>		
+	<tr>
+		<td>请输入要保存的文件名：</td>
+		<td><input id="filename" name="filename" MAXLENGTH=50 size=50 value="新文档.doc"></td>		
+	</tr>
+	<tr>
+		<td>其他数据：</td>
+		<td><input type="text" MAXLENGTH=50 size=50 name="data"></td>
+	</tr>
+	<tr>
+		<td>其他附件：</td>
+		<td><input type="file"  size=50 name="attach1"></td>		
+	</tr>
+</TABLE>
+
+<table width=100% height=700 border=1 cellpadding=0 cellspacing=0 style="border:1px #9dc2db solid">
+<tr width=100%>
+	<td width=100%>		
+		<script language="javascript" type="text/javascript" src="ntko.js"></script>
+		<script language="javascript" type="text/javascript">LoadWebOffice();</script>
+		<script language="JScript" for=TANGER_OCX event="OnDocumentClosed()">TANGER_OCX_bDocOpen = false;</script>
+		<script language="JScript" for=TANGER_OCX event="OnDocumentOpened(TANGER_OCX_str,TANGER_OCX_OBJ)">TANGER_OCX_bDocOpen = true;</script>
+	</td>
+</tr>
+</table>	
+</FORM>
+</center>
+</BODY>
+</HTML>

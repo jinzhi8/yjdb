@@ -1,0 +1,954 @@
+/************************************** 框架开始 **************************************/
+/* 头部样式 */
+.SosOa-layui-header {
+	height: 70px;
+	max-height: 70px;
+	background-color: white !important;
+}
+.SosOa-layui-header .layui-nav .layui-nav-item, .SosOa-layui-header .layui-nav .layui-nav-item>a, .SosOa-layui-header, .logo {
+    line-height: 70px !important;
+    max-height: 70px;
+}
+.SosOa-layui-header .layui-nav-img {
+    width: 50px;
+    height: 50px;
+    margin-right: 5px;
+    border-radius: 50%;
+}
+.SosOa-layui-header .layui-nav cite.adminName {
+    color: #5373ea;
+}
+.SosOa-layui-header .layui-nav span.layui-nav-more{
+    border-color: #4b6de9 transparent transparent;
+}
+.SosOa-layui-header .layui-nav span.layui-nav-mored{
+    border-color: transparent transparent #4b6de9;
+}
+/* 左侧样式 */
+.SosOa-layui-side {
+	width: 210px !important;
+	top: 70px !important;
+	/*box-shadow: 0px 0px 15px #5373ea;*/
+	background-color: transparent!important;
+}
+.SosOa-layui-side .layui-side-scroll {
+    height: 100% !important;
+}
+.SosOa-layui-side .layui-nav-item.layui-nav-itemed {
+    background-color: transparent !important;
+}
+.SosOa-layui-side .layui-nav-tree {
+	width: 210px;
+}
+.SosOa-layui-side .SosOa-layui-navbg {
+	width: 200px;
+    background-color: #4781ea!important;
+    height: 100%;
+    top: 0px;
+    position: absolute;
+    z-index: -1;
+	box-shadow: 0px 0px 15px #5373ea;
+}
+.SosOa-layui-side .layui-nav-item.layui-nav-itemed .layui-nav-child a {
+    /*color: white !important;*/
+}
+.SosOa-layui-side .layui-nav-itemed .layui-nav-child {
+	background-color: transparent !important;
+}
+.SosOa-layui-side .layui-nav-itemed:before {
+	width: 0px !important;
+}
+.SosOa-layui-side .layui-nav .layui-nav-child a:hover,.SosOa-layui-side .layui-nav-tree .layui-nav-item a:hover {
+    background-color: #1a45c2 !important;
+}
+.SosOa-layui-side .layui-nav-tree .layui-nav-item .layui-this a:hover {
+    background-color: #3cd79b !important;
+}
+.SosOa-layui-side .layui-nav-tree .layui-nav-bar {
+	display: none;
+}
+.SosOa-layui-side .layui-nav-tree .layui-nav-child dd.layui-this,.SosOa-layui-side .layui-nav-tree .layui-nav-child dd.layui-this a,.SosOa-layui-side .layui-nav-tree .layui-this,.SosOa-layui-side .layui-nav-tree .layui-this>a,.SosOa-layui-side .layui-nav-tree .layui-this>a:hover {
+    background-color: #3cd79b !important;
+}
+.SosOa-layui-side .layui-nav-tree .layui-this {
+    background-color: #3cd79b;
+}
+.SosOa-layui-side .layui-nav-tree .layui-this span {
+    background: url(../images/leftnav-active.png) no-repeat;
+    width: 10px;
+    height: 56px;
+    display: table;
+    position: fixed;
+    z-index: 9999999999999;
+    left: 200px;
+    margin-top: -51px;
+}
+.SosOa-layui-side .layui-nav {
+	/*background-color: #4781ea!important;*/
+}
+.SosOa-layui-side .layui-nav-tree .layui-nav-item a {
+    height: 51px;
+    line-height: 51px;
+    width: 170px !important;
+    padding: 0px 15px;
+    margin: 0px;
+}
+.SosOa-layui-side .layui-nav-tree .layui-nav-more {
+    top: 17px;
+    right: 20px;
+    margin: 0;
+}
+.SosOa-layui-side .layui-nav-item.layui-nav-itemed dd a {
+    background-color: #315ddd;
+    text-indent: 25px;
+}
+.SosOa-layui-side .layui-nav-item.layui-nav-itemed a {
+    /*background-color: #4781ea !important;*/
+}
+.SosOa-layui-side .layui-nav-tree .layui-this a {
+    background-color: transparent !important;
+}
+/* 右侧样式 */
+.SosOa-closeBox {
+    padding: 0px 15px;
+}
+.SosOa-closeBox a {
+    padding: 0px !important;
+}
+.SosOa-closeBox span.layui-nav-more {
+	display: none
+}
+.SosOa-closeBox a i{
+	color: #4781ea;
+}
+.SosOa-closeBox dl.layui-nav-child.layui-anim.layui-anim-upbit {
+    right: -4px;
+    left: auto;
+}
+.SosOa-closeBox dl.layui-nav-child.layui-anim.layui-anim-upbit a {
+	padding: 0px 31px !important;
+}
+.SosOa-layui-body {
+    top: 70px !important;
+    bottom: 0px !important;
+    overflow: hidden;
+    border-top: 1px solid #eee;
+    background: #eff2ff;
+    border-left: none;
+}
+.childrenBody {
+	padding: 20px;
+    background-color: #eff2ff;
+}
+.childrenBody-white {
+	padding: 20px;
+    background-color: white;
+}
+.SosOa-layui-body .layui-tab-title .layui-this {
+    background-color: #4781ea;
+    color: white;
+}
+.SosOa-layui-body #top_tabs_box {
+	background-color: white;
+}
+.SosOa-layui-body .layui-tab-title li {
+    color: #4781ea;
+    min-width: auto;
+    border-right: 1px solid #eee;
+    padding: 0px 8px;
+}
+.SosOa-layui-body .layui-tab-title li .layui-tab-close {
+    color: #4781ea;
+}
+.SosOa-layui-body .layui-tab-title li.layui-this .layui-tab-close {
+    color: white;
+}
+/************************************** 框架结束 **************************************/
+
+
+
+
+#demo2 {
+	text-align: center;
+}
+.SosOa-layui-card {
+    box-shadow: 2px 3px 17px #ced7f8;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+.SosOa-layui-card .layui-card-header {
+    color: #4781ea;
+    font-size: 16px;
+    padding: 0px;
+    margin: 0px 15px;
+    border-bottom: 1px solid #4781ea;
+    line-height: 50px;
+}
+.SosOa-layui-card .layui-card-header i {
+	width: 18px;
+	height: 100%;
+	display: table;
+	float: left;
+	margin-right: 6px;
+	background-position: center 17px;
+	background-repeat: no-repeat;
+}
+.backlog {
+	background-image: url(../images/backlog.png);
+}
+.documentsread {
+	background-image: url(../images/documentsread.png);
+}
+.conferencenotice {
+	background-image: url(../images/conferencenotice.png);
+}
+.shortcutmenu {
+	background-image: url(../images/shortcutmenu.png);
+}
+.scheduling {
+	background-image: url(../images/scheduling.png);
+}
+.latestissue {
+	background-image: url(../images/latestissue.png);
+}
+.SosOa-layui-card .layui-card-header a {
+	color: #333333;
+	float: right;
+	display: table;
+	height: 42px;
+	text-decoration: underline;
+	background-color: transparent !important;
+}
+.SosOa-layui-card .layui-card-header em {
+    background-color: #4781ea;
+    width: 100px;
+    height: 3px;
+    display: table;
+    position: absolute;
+    top: 41px;
+}
+.SosOa-nopadding {
+	padding: 0px;
+}
+.SosOa-layui-table {
+	margin-top: 0px !important;
+	border-radius: 8px;
+    table-layout: fixed;
+}
+.SosOa-layui-table tbody tr td{
+	color: #333333;
+	height: 46px;
+	line-height: 46px;
+	padding: 0px 15px;
+	font-size: 15px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.SosOa-layui-table tbody tr td:nth-child(2),.SosOa-layui-table tbody tr td:nth-child(3),.SosOa-layui-table tbody tr td:nth-child(5){
+	text-align: center;
+}
+.SosOa-layui-table[lay-even] tr:nth-child(even) {
+    background-color: transparent !important;
+}
+.SosOa-layui-table tbody tr:hover td:nth-child(1){
+    color: #4781ea;
+}
+.SosOa-layui-table thead tr, .SosOa-layui-table[lay-even] tr:nth-child(odd) {
+    background-color: #f5f7ff;
+}
+.SosOa-layui-table thead tr {
+    background-color: transparent !important;
+}
+.SosOa-layui-table thead tr th {
+	color: #333333;
+	text-align: center;
+	font-weight: bold;
+	height: 46px;
+	line-height: 46px;
+	padding: 0px 15px;
+	font-size: 15px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.SosOa-layui-table thead tr th:nth-child(4) {
+	text-align: left;
+}
+.SosOa-layui-table tbody tr td span.notoverdue{
+    background: url(../images/notoverdue.png) left center no-repeat;
+    text-indent: 17px;
+    display: block;
+    color: #3cd79b;
+}
+.SosOa-layui-table tbody tr td span.overdue{
+	background: url(../images/overdue.png) left center no-repeat;
+    text-indent: 17px;
+    display: block;
+    color: #fc6868;
+}
+.SosOa-layui-card .layui-icon.layui-timeline-axis{
+	left: -14px;
+	width: 36px;
+	height: 36px;
+	border-radius: 50%;
+	border: 1px solid #ccc;
+	background-position: center center;
+	background-repeat: no-repeat;
+}
+.SosOa-documentsread .layui-icon.layui-timeline-axis {
+	background-image: url(../images/documentsread-icon.png);
+}
+.SosOa-conferencenotice .layui-icon.layui-timeline-axis {
+	background-image: url(../images/conferencenotice-icon.png);
+}
+.SosOa-scheduling .layui-icon.layui-timeline-axis {
+	background-image: url(../images/scheduling-icon.png);
+}
+.SosOa-layui-card .layui-timeline {
+	padding: 15px 0px 15px 11px;
+}
+.SosOa-layui-card .layui-timeline .layui-timeline-item {
+	padding-bottom: 23px;
+}
+.SosOa-layui-card .layui-timeline .layui-timeline-item:last-child {
+	padding-bottom: 0px;
+}
+.layui-timeline-content div {
+    color: #999;
+    font-size: 15px;
+    position: relative;
+    padding: 0px 0px 0px 10px;
+}
+.layui-timeline-content div span {
+    display: block;
+}
+.layui-timeline-content div span a {
+	background-color: transparent !important;
+    height: auto;
+    color: #333 !important;
+}
+.layui-timeline-content div span a:hover,.layui-timeline-content:hover div span em {
+    text-decoration: none !important;
+    color: #4781ea !important;
+}
+.layui-timeline-content div span em {
+    color: #333 !important;
+    font-style: normal;
+    padding: 0px !important;
+    display: block;
+    margin-right: 44px;
+}
+.layui-timeline-content div span a i {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-size: 16px;
+}
+.layui-timeline-content div span .newest-icon{
+    background-color: #3cd79b;
+    color: white;
+    font-style: normal;
+    border-radius: 2px;
+    padding: 1px 8px;
+    margin-left: 10px;
+    display: table;
+    text-indent: 0px;
+    font-size: 14px;
+    position: absolute;
+    top: 0px;
+    right: 0px;
+}
+.layui-timeline-content div i {
+	display: block;
+    font-size: 14px;
+    font-style: normal;
+    background-position: left center;
+    background-repeat: no-repeat;
+}
+.meetingtime{
+    text-indent: 18px;
+	background-image: url(../images/meetingtime.png);
+}
+.meetingplace{
+    text-indent: 18px;
+	background-image: url(../images/meetingplace.png);
+}
+.publisher{
+    text-indent: 18px;
+	background-image: url(../images/publisher.png);
+}
+.releaseunit{
+    text-indent: 18px;
+	background-image: url(../images/releaseunit.png);
+}
+.releasetime{
+    text-indent: 18px;
+	background-image: url(../images/releasetime.png);
+}
+.shortcutmenu-icon{
+	clear: both;
+	display: table;
+}
+.shortcutmenu-icon li {
+    width: 25%;
+    float: left;
+    height: 87px;
+    font-size: 15px;
+    line-height: 126px;
+    color: #333333;
+    text-align: center;
+    background-image: url(../images/shortcutmenu-icon.png);
+    background-repeat: no-repeat;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+.shortcutmenu-icon li:nth-child(1) {
+    background-position: center 0px;
+}
+.shortcutmenu-icon li:nth-child(2) {
+    background-position: center -94px;
+}
+.shortcutmenu-icon li:nth-child(3) {
+    background-position: center -187px;
+}
+.shortcutmenu-icon li:nth-child(4) {
+    background-position: center -280px;
+}
+.shortcutmenu-icon li:nth-child(5) {
+    background-position: center -374px;
+}
+.shortcutmenu-icon li:nth-child(6) {
+    background-position: center -467px;
+}
+.shortcutmenu-icon li:nth-child(7) {
+    background-position: center -559px;
+}
+.shortcutmenu-icon li:nth-child(8) {
+    background-position: center -651px;
+}
+.latestissue-ul li {
+	margin: 10px 0px;
+}
+.latestissue-ul li:hover a,.latestissue-ul li:hover a em {
+    color: #4781ea;
+}
+.latestissue-ul li a {
+    height: auto;
+    background-color: transparent !important;
+    color: #333;
+    font-size: 14px;
+}
+.latestissue-ul li a em {
+    color: #3cd79b;
+    font-style: normal;
+}
+.latestissue-ul li a i {
+    font-style: normal;
+    float: right;
+    color: #999999;
+    font-size: 14px;
+}
+.SosOa-layui-card-body {
+	padding: 25px;
+}
+.SosOa-layui-form .layui-form-item {
+	/*margin-bottom: 5px;*/
+}
+.SosOa-layui-form .layui-form-item .layui-form-label {
+    padding: 7px 5px;
+    width: auto;
+    min-width: 100px;
+    text-align: right;
+}
+.SosOa-search-btn {
+	background-color: #4781ea;
+	padding: 0px 65px;
+}
+.SosOa-layui-form-item-btn {
+    border-top: 1px solid #d2d2d2;
+    padding: 15px 0px 10px 0px;
+}
+.SosOa-layui-form-item-btn a {
+    color: #4781ea;
+    border: 1px solid #4781ea;
+    background-color: #f5f7ff;
+    min-width: 98px;
+}
+.SosOa-layui-form-item-btn a:nth-child(1) {
+    color: white;
+    background-color: #4781ea;
+}
+.SosOa-layui-form-item-btn button {
+    color: #4781ea;
+    border: 1px solid #4781ea;
+    background-color: #f5f7ff;
+    min-width: 98px;
+}
+.SosOa-layui-form-item-btn button:nth-child(1) {
+    color: white;
+    background-color: #4781ea;
+}
+.SosOa-layui-table1 thead tr th {
+    color: #333;
+    text-align: center;
+    font-weight: bold;
+    border: 1px solid #d2d2d2;
+    height: 26px;
+    line-height: 26px;
+}
+.SosOa-layui-table1 tbody tr td {
+    text-align: center;
+    border: 1px solid #d2d2d2;
+    height: 26px;
+    line-height: 26px;
+}
+.SosOa-layui-table1 tbody tr:hover,.SosOa-layui-table1 thead tr,.SosOa-layui-table1[lay-even] tr:nth-child(even) {
+    background-color: #f5f7ff;
+}
+.SosOa-layui-table2 tbody tr td {
+	text-align: center;
+}
+.SosOa-layui-table2 thead tr th {
+    color: #333;
+    text-align: center;
+    font-weight: normal;
+    border: 1px solid #d2d2d2;
+    height: 40px;
+    line-height: 40px;
+}
+.SosOa-layui-tab-title-leftnav {
+    height: auto;
+    box-shadow: 2px 3px 17px #ced7f8;
+    background-color: white;
+    border-radius: 8px;
+    margin: 10px 18px 0px 10px
+}
+.SosOa-layui-tab-title-leftnav li{
+	color: #333;
+    height: 46px;
+    line-height: 46px;
+    clear: both;
+    display: block;
+    padding: 0px;
+}
+.SosOa-layui-tab-title-leftnav li span{
+    border-bottom: 1px solid #eee;
+    display: table;
+    width: 80%;
+    margin: 0 auto;
+    height: 45px;
+    line-height: 45px;
+    font-size: 15px;
+}
+.SosOa-layui-tab-title-leftnav li.layui-this {
+	background-color: #f5f7ff;
+}
+.SosOa-layui-tab-title-leftnav.layui-tab-title .layui-this:after {
+	border: none;
+}
+.SosOa-layui-tab-title-leftnav div li{
+	color: #4781ea !important;
+	line-height: 51px;
+	font-size: 16px;
+	background-color: transparent !important;
+    border-bottom: 1px solid #4781ea;
+}
+.SosOa-layui-row-col .layui-form-item {
+	margin-right: 0px !important;
+}
+.SosOa-enclosure-list li {
+    color: #333;
+    border-radius: 4px;
+    padding: 5px;
+    background: url(../images/enclosure.png) 11px center no-repeat #f6f7fe;
+    margin: 10px 108px;
+    text-indent: 29px;
+    display: table;
+}
+.SosOa-label-r {
+    padding: 7px 0px;
+    font-weight: 400;
+    line-height: 24px;
+    display: table;
+}
+.SosOa-layui-upload-drag {
+	background-color: #f6f7fe;
+	border: 1px solid #d2d2d2;
+	display: block;
+    height: 165px;
+    padding: 0px;
+    border-radius: 5px;
+    margin: 9px 22px;
+}
+.SosOa-layui-upload-drag p {
+	color: white;
+	background-color: #4781ea;
+    display: table;
+    font-size: 15px;
+    border-bottom-left-radius: 23px;
+    border-bottom-right-radius: 23px;
+    padding: 7px 35px;
+    margin-left: 26px;
+}
+.SosOa-layui-form-item-btns {
+	border-top: none;
+	text-align: center;
+}
+.SosOa-layui-form-item-btnes {
+    padding: 6px 0px;
+	border-top: none;
+	text-align: center;
+}
+.SosOa-layui-divbox span {
+	position: absolute;
+    top: 6px;
+    padding: 0px 7px;
+}
+.SosOa-layui-divbox,.SosOa-layui-divbox1 {
+	position: relative;
+}
+.SosOa-layui-divbox span:last-child {
+	right: 0px;
+}
+.SosOa-layui-divbox div {
+	padding: 0px 19px;
+}
+.SosOa-layui-divbox1 span {
+	position: absolute;
+    top: 6px;
+    padding: 0px 7px;
+    right: 21px;
+}
+.SosOa-layui-divbox1 div {
+	padding-right: 50px;
+}
+.SosOa-layui-form-superior {}
+.SosOa-layui-form-superior .layui-form-item {
+	margin-bottom: 0px;
+    border-top: none !important;
+}
+.SosOa-layui-form-superior>.layui-form-item:first-child {
+    border-top: 1px solid #eee !important;
+}
+.SosOa-layui-form-superior .layui-row .layui-form-item {
+	border-right: none !important;
+}
+.SosOa-layui-form-superior .layui-form-item .layui-form-label,.SosOa-layui-form-superior .layui-form-item .layui-input-block {
+	height: 40px;
+	line-height: 40px;
+	padding-top: 0px !important;
+	padding-bottom: 0px !important;
+}
+.SosOa-layui-form-superior .layui-form-item .layui-input-block {
+	text-indent: 19px;
+}
+.SosOa-layui-form-superior .layui-form-item .layui-input-block a {
+    text-indent: 35px;
+    background: url(../images/enclosure.png) 11px center no-repeat;
+    color: #4781ea;
+    text-decoration: underline;
+    display: table;
+}
+.SosOa-layui-form-superior .layui-form-item .layui-form-label {
+    background-color: #f0f7ff;
+}
+.SosOa-processingflow {}
+.SosOa-processingflow div {}
+.SosOa-ipaddress {
+	color: #315ddd;
+	font-size: 15px;
+}
+.SosOa-ipaddress a {
+	color: #315ddd;
+	text-decoration: underline;
+}
+.SosOa-ipaddressTips{
+	color: #999;
+    text-indent: 109px;
+    font-size: 15px;
+}
+.SosOa-layui-card .layui-form-radio>i:hover,.SosOa-layui-card .layui-form-radioed>i {
+	color: #4781ea !important;
+}
+/* .SosOa-layui-card .layui-form-checked i,.SosOa-layui-card .layui-form-checked:hover i {
+	background-color: #4781ea !important;
+} */
+.SosOa-layuicol-paddingl {
+	padding-left: 12px;
+}
+
+
+
+/* login start */
+.SosOa-login-layui-form {
+    width: 484px !important;
+    padding: 0px !important;
+    height: auto !important;
+    margin-left: -242px !important;
+    padding-top: 110px !important;
+    background-color: transparent !important;
+    box-shadow: none !important;
+}
+.SosOa-logo{
+    position: absolute;
+    left: 50%;
+    margin-left: -219px;
+    top: -141px;
+}
+.SosOa-login-layui-form .layui-form-item{
+    margin-bottom: 15px;
+}
+.SosOa-login-layui-form .layui-form-item .layui-input,.SosOa-login-layui-form .layui-form-item .layui-btn {
+    height: 62px;
+    line-height: 62px;
+    border-radius: 12px;
+    -moz-border-radius: 12px;
+    -webkit-border-radius: 12px;
+    border: none;
+    background-repeat: no-repeat;
+    background-image: url(../images/login-input-icon.png);
+    background-position: 22px 16px;
+    text-indent: 52px;
+    font-size: 19px;
+}
+.SosOa-login-layui-form .layui-form-item:nth-child(3) .layui-input {
+    background-position: 22px -75px;
+}
+.SosOa-login-layui-form .layui-form-item label {
+    top: 22px;
+    margin-left: 49px;
+    font-size: 19px;
+}
+.SosOa-login-layui-form .layui-form-item.layui-input-focus label {
+	display: none;
+}
+.SosOa-login-layui-form .layui-form-item .layui-btn {
+	background-image: none !important;
+    text-indent: 0px !important;
+    background-color: #4781ea;
+    text-decoration: underline;
+    box-shadow: 0px 0px 10px #5eb1ed;
+}
+.SosOa-rememberme {
+	margin-bottom: 33px !important;
+}
+.SosOa-rememberme .layui-form-checked i,.SosOa-rememberme .layui-form-checked:hover i {
+	background-color: #4781ea !important;
+}
+.SosOa-rememberme .layui-form-checked span,.SosOa-rememberme .layui-form-checked:hover span {
+	color: white !important;
+    font-size: 15px;
+}
+.SosOa-rememberme a {
+	float: right;
+    color: white;
+    text-decoration: underline;
+    margin-top: 10px;
+    font-size: 15px;
+}
+/* login end */
+
+.redtips{
+	color: #ff4d4d;
+}
+.handlingopinions {
+    border: 1px solid #e6e6e6;
+    border-bottom: none;
+    display: inherit;
+    padding: 4px 15px;
+    min-height: 37px;
+    margin-top: 24px;
+}
+.handlingopinions div.layui-input-block {
+    height: 36px;
+    line-height: 36px;
+    display: -webkit-inline-box;
+    float: right;
+    margin: 0px;
+    min-height: auto;
+    color: #4781ea;
+}
+.handlingopinions div.layui-input-block .layui-form-switch {
+	margin-top: 0px;
+	margin-right: 5px;
+}
+.currentoperation .layui-input-inline {
+	padding: 7px 0px;
+}
+.handlingopinions-icon input.layui-input.layui-unselect {
+    background: url(../images/handlingopinions-icon.png) #4781ea 84% center no-repeat;
+    display: table;
+    color: white;
+    padding: 6px 43px 6px 23px;
+    border-radius: 20px;
+    width: 125px;
+}
+.handlingopinions-icon .layui-edge {
+	display: none;
+}
+.handlingopinions-icon .layui-form-select dl dd.layui-this {
+    background-color: #f6f7fe;
+    color: black;
+}
+.organizationmanagement {
+	height: auto;
+    box-shadow: 2px 3px 17px #ced7f8;
+    background-color: white;
+    border-radius: 8px;
+    margin: 10px 18px 0px 10px;
+}
+.organizationmanagement-icon {
+	height: 51px;
+    line-height: 55px;
+    font-size: 17px;
+    color: #333;
+    background: url(../images/organizationmanagement-icon.png) 23px center no-repeat;
+    text-indent: 45px;
+    display: block;
+    border-bottom: 1px solid #ccc;
+}
+.organizationmanagementsearch {
+    margin: 10px 0px;
+    display: block;
+    padding: 0px 14px;
+}
+.advancedquery-btn {
+    color: #333 !important;
+    background-color: transparent !important;
+    border: none !important;
+    padding: 0px !important;
+    width: auto !important;
+    min-width: auto !important;
+    text-decoration: underline !important;
+}
+.SosOa-btnlist {
+    padding-bottom: 17px;
+}
+.SosOa-btnlist a {
+    background-color: #4781ea;
+    box-shadow: 0px 0px 10px #5288e9;
+    -moz-box-shadow: 0px 0px 10px #5288e9;
+    -webkit-box-shadow: 0px 0px 10px #5288e9;
+}
+.processmanagement-icon {
+    height: 51px;
+    line-height: 55px;
+    font-size: 17px;
+    color: #333;
+    background: url(../images/processmanagement-icon.png) 23px center no-repeat;
+    text-indent: 45px;
+    display: block;
+    border-bottom: 1px solid #ccc;
+}
+.SosOa-processmanagement {
+    background-color: #4781ea;
+    box-shadow: 0px 0px 10px #5288e9;
+    -moz-box-shadow: 0px 0px 10px #5288e9;
+    -webkit-box-shadow: 0px 0px 10px #5288e9;
+    border-radius: 8px;
+    padding: 16px 23px;
+    margin-bottom: 17px;
+}
+.SosOa-processmanagement a {
+    background-color: transparent !important;
+}
+.SosOa-processmanagement a.current {
+    background-color: #3cd79b !important;
+}
+.SosOa-processmanagement a i {
+    background-image: url(../images/SosOa-processmanagement-icon.png);
+    background-repeat: no-repeat;
+    font-style: normal;
+    text-indent: 25px;
+    display: table;
+    height: 38px;
+    line-height: 38px;
+}
+.SosOa-processmanagement a:nth-child(1) i {
+    background-position: 1px 10px;
+}
+.SosOa-processmanagement a:nth-child(2) i {
+    background-position: 1px -70px;
+}
+.SosOa-processmanagement a:nth-child(3) i {
+    background-position: 1px -152px;
+}
+.SosOa-processmanagement a:nth-child(4) i {
+    background-position: 1px -237px;
+}
+.SosOa-processmanagement a:nth-child(5) i {
+    background-position: 1px -340px;
+}
+.SosOa-processmanagement a:nth-child(6) i {
+    background-position: 1px -453px;
+}
+.SosOa-processmanagement a:nth-child(7) i {
+    background-position: 1px -566px;
+}
+.SosOa-tab-titlemodulemanagement {
+    height: 50px;
+    line-height: 50px;
+    border-bottom: 1px solid #4669e9;
+    margin: 0px 12px 11px 12px;
+}
+.SosOa-tab-titlemodulemanagement li {
+    font-size: 16px;
+    margin-right: 15px;
+    padding: 9px 10px 0px 10px;
+    background-repeat: no-repeat;
+    background-image: url(../images/modulemanagement-icon-normal.png);
+    text-indent: 25px;
+    line-height: 50px;
+}
+.SosOa-tab-titlemodulemanagement .layui-this {
+    color: #4781ea !important;
+    background-image: url(../images/modulemanagement-icon-current.png);
+}
+.SosOa-tab-titlemodulemanagement .layui-this:after {
+    border-bottom: 3px solid #4669e9 !important;
+    height: 52px;
+}
+.SosOa-tab-titlemodulemanagement li:nth-child(1) {
+    background-position: 11px 24px;
+}
+.SosOa-tab-titlemodulemanagement li:nth-child(2) {
+    background-position: 11px -61px;
+}
+.SosOa-tab-titlemodulemanagement li:nth-child(3) {
+    background-position: 11px -146px;
+}
+.SosOa-tab-titlemodulemanagement li:nth-child(4) {
+    background-position: 11px -232px;
+}
+.SosOa-tab-titlemodulemanagement li:nth-child(5) {
+    background-position: 11px -317px;
+}
+.SosOa-layui-cards {
+    padding: 4px 28px;
+}
+.SosOa-bottom-border {
+    border-bottom: 1px solid #d2d2d2;
+    margin-bottom: 15px;
+}
+.SosOa-layui-form-item-top-border {
+    border-top: 1px solid #d2d2d2;
+    padding: 15px 0px 10px 0px;
+}
+.color-green {
+    color:green
+}
+.color-red{
+    color:red
+}
+.color-blue{
+    color:blue
+}
+.layui-nav li dl dd.layui-nav-itemed dl dd a {
+    background-color: #1a44c1 !important;
+    text-indent: 45px !important
+}
+.layui-nav li dl dd.layui-nav-itemed dl dd a:hover {
+    color: #f9ff05 !important;
+}

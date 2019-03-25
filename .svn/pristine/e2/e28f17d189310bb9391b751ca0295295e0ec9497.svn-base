@@ -1,0 +1,115 @@
+package com.kizsoft.yjdb.manager;
+
+import java.sql.SQLException;
+import java.util.Map;
+
+import com.kizsoft.commons.commons.orm.MyDBUtils;
+import com.kizsoft.commons.component.inter.BaseBusiness;
+import com.kizsoft.commons.util.UUIDGenerator;
+import com.oreilly.servlet.MultipartRequest;
+
+import javax.servlet.http.HttpServletRequest;
+
+public class YcInfoManager  implements BaseBusiness{
+		
+  public void perform(HttpServletRequest request){
+    String unid = (request.getParameter("appId") == null) ? "" : request.getParameter("appId");
+    if ("".equals(unid))
+      return;
+    deleteSB(unid);
+    insterSB(request, unid);
+  }
+
+  public void perform(MultipartRequest request){
+    String unid = (request.getParameter("appId") == null) ? "" : request.getParameter("appId");
+    if ("".equals(unid))
+      return;
+    deleteSB(unid);
+    insterSB(request, unid);
+  }
+
+  public void deleteSB(String dbid){
+    try {
+		MyDBUtils.executeUpdate("delete from yj_hy_yc where dbid=? ", dbid);
+	} catch (SQLException e) {
+		e.printStackTrace();
+	}
+  }
+
+  public void insterSB(HttpServletRequest request, String unid) {
+    String trnum = (request.getParameter("trnum") == null) ? "1" : request.getParameter("trnum");
+    int num = 1;
+    try {
+      num = Integer.parseInt(trnum);
+    } catch (Exception e) {
+      e.printStackTrace();
+    }
+    for (int i = 1; i < num; ++i) {
+      String psnr = request.getParameter("psnr" + i);
+      String sort = request.getParameter("sort" + i);
+	  String jtsx = request.getParameter("jtsx" + i);
+      try {
+    	  	MyDBUtils.executeUpdate("insert into  yj_hy_yc(unid,dbid,psnr,sort,jtsx) values(?,?,?,?,?)",UUIDGenerator.getUUID(),unid,psnr,sort,jtsx);
+	        Map<String,Object> map=MyDBUtils.queryForUniqueMap("select * from yj_lr where docunid=? and sort=? ", unid,sort);
+	    	if(map!=null){
+	    		String dbunid=(String)map.get("unid");
+	    		updateDb(unid,psnr,sort,jtsx,dbunid);
+	    	}else{
+	    		inSertDb(unid,psnr,sort,jtsx);
+	    	}
+      } catch (SQLException e) {
+		e.printStackTrace();
+      }
+    }
+  }
+
+  public void insterSB(MultipartRequest request, String unid) {
+	  String trnum = (request.getParameter("trnum") == null) ? "1" : request.getParameter("trnum");
+	  int num = 1;
+	  try {
+	    num = Integer.parseInt(trnum);
+	  } catch (Exception e) {
+	      e.printStackTrace();
+	  }
+	  for (int i = 1; i < num; ++i) {
+	    String psnr = request.getParameter("psnr" + i);
+	    String sort = request.getParameter("sort" + i);
+	    String jtsx = request.getParameter("jtsx" + i);
+	    try {
+	    	MyDBUtils.executeUpdate("insert into  yj_hy_yc(unid,dbid,psnr,sort,jtsx) values(?,?,?,?,?)",UUIDGenerator.getUUID(),unid,psnr,sort,jtsx);
+	    	Map<String,Object> map=MyDBUtils.queryForUniqueMap("select * from yj_lr where docunid=? and sort=? ", unid,sort);
+	    	if(map!=null){
+	    		String dbunid=(String)map.get("unid");
+	    		updateDb(unid,psnr,sort,jtsx,dbunid);
+	    	}else{
+	    		inSertDb(unid,psnr,sort,jtsx);
+	    	}
+	    } catch (SQLException e) {
+	    	e.printStackTrace();
+	    }
+	 }
+  }
+  
+  public static void inSertDb(String unid,String title,String sort,String jtsx){
+	  Map<String,Object>  map=MyDBUtils.queryForUniqueMapToUC("select * from yj_hy where unid=?",unid);
+	  String bh=(String)map.get("bh");
+	  String psperson=(String)map.get("bsperson");
+	  String pspersonid=(String)map.get("bspersonid");
+	  try {
+		 MyDBUtils.executeUpdate("insert into yj_lr(unid,psperson,pspersonid,bh,fklx,state,title,ishy,docunid,sort) values(?,?,?,?,?,?,?,?,?,?)",UUIDGenerator.getUUID(),psperson,pspersonid,bh,"1","0",title,"1",unid,sort);
+	  } catch (SQLException e) {
+		 e.printStackTrace();
+	  }
+  }
+  public static void updateDb(String unid,String title,String sort,String jtsx,String bjunid){
+	  Map<String,Object>  map=MyDBUtils.queryForUniqueMapToUC("select * from yj_hy where unid=?",unid);
+	  String bh=(String)map.get("bh");
+	  String psperson=(String)map.get("bsperson");
+	  String pspersonid=(String)map.get("bspersonid");
+	  try {
+		 MyDBUtils.executeUpdate("update yj_lr set bh=?,psperson=?,pspersonid=?,title=? where unid=?",bh,psperson,pspersonid,title,bjunid);
+	  } catch (SQLException e) {
+		 e.printStackTrace();
+	  }
+  }
+}

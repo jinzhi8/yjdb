@@ -1,0 +1,151 @@
+<mxEditor defaultEdge="edge">
+	<ui>
+		<add as="graph" element="graph"/>
+		<add as="toolbar" element="toolbox"/>
+	</ui>
+	<Array as="templates">
+		<add as="connector">
+			<Connector label="" href="" transName="" >
+				<mxCell1 edge="1" transName1="">
+					<mxGeometry as="geometry" relative="1"/>
+				</mxCell1>
+			</Connector>
+		</add>
+		<br/>
+		<add as="rectangle">
+			<Node label="Node" node_activname="" node_activid="" node_positionx="" node_positiony="" node_startflag="0" node_splitmode="XOR" node_joinmode="XOR" 
+			node_readflag="1" node_activorder="0" node_performermode="single" node_performorder="serial" node_performerchoiceflag="1" node_performername="" node_performer="" 
+			node_deadline="" node_performerpurviewname="" node_performerpurview="" node_description="" node_appjson="" >
+				<mxCell vertex="1" label="Node">	
+					<mxGeometry as="geometry" width="80" height="40"/>
+				</mxCell>
+			</Node>
+		</add>
+		<add as="edge">
+			<Line label="Line" transName="" transTransId="" transFlag="0" transType="half" transDescription="">
+				<mxCell edge="1">
+					<mxGeometry as="geometry" relative="1"/>
+				</mxCell>
+			</Line>
+		</add>
+	</Array>
+	<Array as="actions">
+		<add as="node"><![CDATA[
+			function (editor)
+			{
+				//alert("332534");
+			}
+		]]></add>
+		
+		
+		<add as="setting"><![CDATA[
+			function (cell)
+			{
+				//alert(cell==null);
+				cellAttr(cell);
+			}
+		]]></add>	
+			<add as="remove"><![CDATA[
+			function()
+			{
+				removeNode();
+				
+			}
+		]]></add>	
+		<add as="flowset"><![CDATA[
+			function (editor)
+			{
+				flowSet(editor);
+			}
+		]]></add>
+		
+		<add as="newFlow"><![CDATA[
+			function (editor)
+			{
+				newFlow(editor);
+			}
+		]]></add>
+		
+		<add as="save"><![CDATA[
+			function (editor)
+			{
+				save(editor,"0");
+			}
+		]]></add>
+		<add as="copyflow"><![CDATA[
+			function (editor)
+			{
+				save(editor,"1");
+			}
+		]]></add>
+		<add as="viewXml"><![CDATA[
+			function (editor)
+			{
+				var encoder = new mxCodec();
+				var node = encoder.encode(editor.graph.getModel());
+				mxUtils.popup(mxUtils.getPrettyXml(node), true);
+			}
+		]]></add>
+		
+	</Array>
+	
+	<mxGraph as="graph" swimlaneNesting="0">
+		<include name="config/wfgraph-commons.xml"/>
+		
+		<!--  节点和流向的样式  -->
+		<mxStylesheet as="stylesheet">
+			<add as="defaultEdge">
+				<add as="fontSize" value="10"/>
+				<add as="align" value="center"/>
+				<add as="elbow" value="vertical"/>
+				<add as="shape" value="connector"/>
+				<add as="verticalAlign" value="bottom"/>
+				<add as="strokeColor" value="black"/>
+				<add as="rounded" value="1"/>
+				<add as="edgeStyle" value="elbowEdgeStyle"/>
+				<add as="endArrow" value="classic"/>
+			</add>
+			
+			<add as="defaultVertex" >
+				<add as="shape" value="rectangle"/>
+				<add as="perimeter" value="rectanglePerimeter"/>
+				<add as="fontSize" value="10"/>
+				<add as="fontColor" value="red"/>
+				<add as="align" value="center"/>
+				<add as="verticalAlign" value="middle"/>
+				<add as="shadow" value="1"/>
+				<add as="strokeColor" value="#C3D9FF"/>
+				<add as="fillColor" value="#C3D9FF"/>
+				<add as="gradientColor" value="white"/>
+			</add>-->
+			
+		</mxStylesheet>
+	</mxGraph>
+	
+	<mxDefaultToolbar as="toolbar">
+		<add as="connect" mode="connect" icon="images/line.gif"><![CDATA[
+			function (editor)
+			{
+				if (editor.defaultEdge != null)
+				{
+					editor.defaultEdge.style = 'straightConnector';
+				}
+			}
+		]]></add>
+		<add as="node" template="rectangle" icon="images/node.gif"/>
+		<!--<add as="subnode" action="subnode" icon="images/subnode.gif"/>
+		<add as="line" action="line" icon="images/line.gif"/>
+		<separator/>-->
+		<add as="new" action="newFlow" icon="images/new.gif"/>
+		<add as="save" action="save" icon="images/save.gif"/>
+		<add as="flowset" action="flowset" icon="images/flowset.gif"/>
+		<add as="copyflow" action="copyflow" icon="images/copysaveflow.gif"/>
+		<!--<add as="pasteflow" action="pasteflow" icon="images/pasteflow.gif"/>-->
+		<add as="viewXml" action="viewXml" icon="images/pasteflow.gif"/>
+	</mxDefaultToolbar>
+	<mxDefaultPopupMenu as="popupHandler">	
+		<add as="设置" action="setting" icon="images/properties.gif" if="cell"/>
+		<separator/>
+		<add as="删除" action="remove" icon="images/delete.gif"  if="cell"/>
+	</mxDefaultPopupMenu>
+</mxEditor>

@@ -1,0 +1,19 @@
+<style>
+a {
+	text-decoration: none;
+	float:left;
+	color: #999;
+	cursor: pointer;
+	font: 900 14px/22px "Arial", Helvetica, sans-serif;
+	background: url(viewbutton.gif) no-repeat top right;
+}
+
+a span {
+	margin: 0 10px 0 -10px;
+	padding: 1px 8px 5px 18px;
+	position: relative; /*To fix IE6 problem (not displaying)*/
+	float:left;
+}
+</style>
+
+<a class="viewbutton" hidefocus href="javascript:selectFileInfo();"><span>模板发文模板发文</span></a>

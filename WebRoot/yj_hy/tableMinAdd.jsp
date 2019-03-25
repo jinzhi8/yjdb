@@ -1,0 +1,435 @@
+<%@page language="java" contentType="text/html;charset=UTF-8" %>
+<%@page import="java.util.Date" %>
+<%@page import="java.util.Map" %>
+<%@page import="java.text.SimpleDateFormat" %>
+<%@page import="com.kizsoft.commons.commons.user.Group" %>
+<%@page import="com.kizsoft.commons.commons.user.User" %>
+<%@page import="com.kizsoft.yjdb.utils.CommonUtil" %>
+<%@page import="com.kizsoft.commons.commons.orm.MyDBUtils" %>
+<%@page import="com.kizsoft.yjdb.utils.GsonHelp" %>
+<%@page import="java.util.Calendar" %>
+<%@page import="java.util.List" %>
+<html>
+<head>
+    <%
+        //用户登陆验证
+        if (session.getAttribute("userInfo") == null) {
+            response.sendRedirect(request.getContextPath() + "/login.jsp");
+        }
+        User userInfo = (User) session.getAttribute("userInfo");
+        String userID = userInfo.getUserId();
+        String userName = userInfo.getUsername();
+        Group groupInfo = userInfo.getGroup();
+        String groupName = groupInfo.getGroupname();
+        String groupID = groupInfo.getGroupId();
+        String contextPath = "/".equals(request.getContextPath()) ? "" : request.getContextPath();
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+        String nowtime = sdf.format(new Date());
+        String xmlType = "insert";
+        String unid = CommonUtil.doStr(request.getParameter("unid"));
+        String docunid = CommonUtil.doStr(request.getParameter("docunid"));
+        Map<String, Object> hyMap = MyDBUtils.queryForUniqueMapToUC("select * from yj_hy where unid=?", docunid);
+        String hytime = (String) hyMap.get("createtime");
+        String hytitle = (String) hyMap.get("title");
+        String action = CommonUtil.doStr(request.getParameter("action"));
+        String bh = CommonUtil.doStr(request.getParameter("bh"));
+        String dataObj = "";
+        String attach = "";
+        if (!unid.equals("")) {
+            Map<String, Object> map = MyDBUtils.queryForUniqueMapToUC("select * from yj_lr where unid=?", unid);
+            dataObj = "{\"res\":true,\"data\":" + GsonHelp.toJson(map) + "}";
+            xmlType = "update";
+            attach = CommonUtil.getAttach(unid, request);
+        } else {
+            dataObj = "{\"res\":false}";
+        }
+        //加载领导
+        List<Map<String, Object>> ldList = MyDBUtils.queryForMapToUC("select o.id value,o.ownername name from owner o join ownerrelation oo on o.id = oo.ownerid where oo.parentid = '1000256375' and o.id!='1000905040' order by oo.orderid");
+        //加载督办联络人
+        List<Map<String, Object>> ldrList = MyDBUtils.queryForMapToUC("select o.id value,o.ownername name from owner o join ownerrelation oo on o.id = oo.ownerid where oo.parentid = '1000256386' order by oo.orderid");
+        String ldJson = GsonHelp.toJson(ldList);
+        String ldrJson = GsonHelp.toJson(ldrList);
+        Map<String, Object> ownerMap = MyDBUtils.queryForUniqueMapToUC("select * from owner where id=?", userID);
+        String lxrmobile = "";
+        String lxrshort = "";
+        if (ownerMap != null) {
+            lxrmobile = CommonUtil.doStr((String) ownerMap.get("mobile"));
+            lxrshort = CommonUtil.doStr((String) ownerMap.get("mobileshort"));
+        }
+    /* Calendar date = Calendar.getInstance();
+    String year = String.valueOf(date.get(Calendar.YEAR));
+    int bh=MyDBUtils.queryForInt("select count(1) from  yj_lr where ishy='0' and createtime like '%"+year+"%' " )+1; */
+        int count = MyDBUtils.queryForInt("select count(1) from  yj_lr where docunid=? ", docunid) + 1;
+        String sort = count + "";
+        List<Map<String, Object>> MsssMaps = MyDBUtils.queryForMapToUC("select * from yj_hy_msss where dbid=? order by sort", docunid);
+        String MsssMap = GsonHelp.toJson(MsssMaps);
+        String show1 = "议程";
+        String type = CommonUtil.doStr(request.getParameter("type"));
+        if (type.equals("4")) {
+            show1 = "任务清单";
+        }
+    %>
+    <meta charset="utf-8">
+    <title>批示件督办</title>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <link rel="stylesheet" href="../js/layui/css/layui.css" media="all"/>
+    <link rel="stylesheet" href="../yj_lr/layui-formSelects/dist/formSelects-v4.css" media="all"/>
+    <link rel="stylesheet" href="../css/public.css" media="all"/>
+    <script type="text/javascript" src="../js/layui/layui.js"></script>
+    <script type="text/javascript" src="../js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="../js/jquery.easyui.min.js"></script>
+    <script language="javascript" type="text/javascript" charset="utf-8" src="../yj_hy/js/tableMinAdd.js?v=<%=Math.random()%>"></script>
+    <script>
+        var dataObj = <%=dataObj%>;
+        var nowtime = "<%=nowtime%>";
+        var action = "<%=action%>";
+        var ldJson =<%=ldJson%>;
+        var MsssMap =<%=MsssMap%>;
+        var ldrJson =<%=ldrJson%>;
+        var xmlType = "<%=xmlType%>";
+        var type = "1";
+        var userName = "<%=userName%>";
+        var userID = "<%=userID%>";
+        var hytime = "<%=hytime%>";
+        var hytitle = '<%=hytitle%>';
+    </script>
+</head>
+<body class="childrenBody">
+<form class="layui-form layui-form-pane" action="<%=contextPath%>/yj_common/save.jsp" id="infoform" enctype="multipart/form-data" method="post">
+    <input type="hidden" name="xmlName" value="yjlr"/>
+    <input type="hidden" name="xmlType" value="<%=xmlType%>"/>
+    <input type="hidden" name="moduleId" value="yjlr"/>
+    <input type="hidden" name="userid" value="<%=userID%>"/>
+    <input type="hidden" name="username" value="<%=userName%>"/>
+    <input type="hidden" name="depname" value="<%=groupName%>"/>
+    <input type="hidden" name="depid" value="<%=groupID%>"/>
+    <input type="hidden" name="unid" value="<%=unid%>"/>
+    <input type="hidden" name="state" id="state"/>
+    <input type="hidden" name="statetime"/>
+    <input type="hidden" name="gqstate"/>
+    <input type="hidden" name="docunid" value="<%=docunid%>"/>
+    <input type="hidden" name="ishy" value="1"/>
+    <input type="hidden" name="sort" value="<%=sort%>"/>
+    <input type="hidden" name="dtype" value="1"/>
+    <div class="newclass-nytopboxs">
+        <div class="layui-form-item">
+            <label class="layui-form-label"><i class="hongdian">*</i><%=show1%>
+            </label>
+            <div class="layui-input-block">
+                <input type="text" name="title" lay-verify="required" placeholder="请输入<%=show1%>" class="layui-input">
+            </div>
+        </div>
+        <%if (type.equals("4")) {%>
+        <div class="layui-form-item">
+            <label class="layui-form-label"><i class="hongdian">*</i>所属内容
+            </label>
+            <div class="layui-input-block" style="width:54.4%">
+                <select name="ssnrid" lay-filter="ssnrid"></select>
+                <input type="hidden" name="ssnr">
+            </div>
+        </div>
+        <%}%>
+        <div class="layui-form-item layui-hide ">
+            <div class="layui-inline">
+                <label class="layui-form-label"><i class="hongdian">*</i>来文文号</label>
+                <div class="layui-input-inline">
+                    <input type="text" name="lwdepname" lay-verify="" placeholder="请输入来文文号" class="layui-input">
+                </div>
+            </div>
+            <div class="layui-inline">
+                <label class="layui-form-label"><i class="hongdian">*</i>部署领导</label>
+                <div class="layui-input-inline">
+                    <input type="text" class="layui-input l-text" lay-verify="" value="<%=hyMap.get("bsperson")%>" name="psperson" readonly="true" placeholder="请选择部署领导">
+                    <img class="l-img" title="点击选择处理人" src="<%=request.getContextPath()%>/resources/images/actn133.gif"
+                         onclick="openSelWinNew('<%=request.getContextPath()%>/address/tree_ry.jsp?utype=1&sflag=0&count=1&fields=psperson,pspersonid');">
+                    <input type="text" name="pspersonid" style="display:none" value="<%=hyMap.get("bspersonid")%>">
+                </div>
+            </div>
+            <div class="layui-inline">
+                <label class="layui-form-label"><i class="hongdian">*</i>督办件类型</label>
+                <div class="layui-input-block">
+                    <select name="status" id="status" lay-verify="">
+                        <option value="0">部门请示件</option>
+                        <option value="1">上级来文</option>
+                        <option value="2">信件</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <div class="layui-inline">
+                <label class="layui-form-label"><i class="hongdian">*</i>编号</label>
+                <div class="layui-input-inline">
+                    <input type="text" name="bh" lay-verify="required" placeholder="请输入编号" value="<%=bh%>" class="layui-input">
+                </div>
+            </div>
+            <div class="layui-inline">
+                <label class="layui-form-label">牵头领导</label>
+                <div class="layui-input-inline">
+                    <select name="qtpersonid" lay-filter="qtpersonid"></select>
+                    <input type="hidden" name="qtperson">
+                </div>
+            </div>
+            <div class="layui-inline">
+                <label class="layui-form-label">配合领导</label>
+                <div class="layui-input-inline">
+                    <select xm-select="phpersonid" name="phpersonid" xm-select-height="38px"></select>
+                    <input type="text" name="phperson" style="display:none">
+                </div>
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label"></i>领导联络人</label>
+            <div class="layui-input-block" style="width:54.4%">
+                <select xm-select="llrids" name="llrids" xm-select-height="38px"></select>
+                <input type="text" name="llr" style="display:none">
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <div class="layui-inline">
+                <label class="layui-form-label">发布时间</label>
+                <div class="layui-input-inline">
+                    <input type="text" class="layui-input time" name="createtime" value="<%=nowtime%>">
+                </div>
+            </div>
+            <div class="layui-inline">
+                <label class="layui-form-label"><i class="hongdian">*</i>交办时限</label>
+                <div class="layui-input-inline">
+                    <input type="text" class="layui-input time" lay-verify="required" readonly name="jbsx" placeholder="请填写交办时限">
+                </div>
+            </div>
+            <!-- <div class="layui-inline">
+                <label class="layui-form-label"><i class="hongdian">*</i>签批时间</label>
+                <div class="layui-input-inline">
+                    <input type="text" class="layui-input time" readonly lay-verify="required" name="qptime"
+                           placeholder="请填写签批时间">
+                </div>
+            </div> -->
+        </div>
+        <div class="layui-form-item">
+            <div class="layui-inline">
+                <label class="layui-form-label"><i class="layui-icon">&#xe609;</i>反馈类型</label>
+                <div class="layui-input-block">
+                    <input type="radio" name="fklx" title="一次性反馈" lay-skin="primary" lay-filter="fklx" value="1" checked/>
+                    <input type="radio" name="fklx" title="周期反馈" lay-skin="primary" lay-filter="fklx" value="2"/>
+                    <input type="radio" name="fklx" title="每月定期反馈" lay-skin="primary" lay-filter="fklx" value="3"/>
+                    <input type="radio" name="fklx" title="特定星期反馈" lay-skin="primary" lay-filter="fklx" value="4"/>
+                </div>
+            </div>
+            <div class="layui-inline layui-hide fkzq yc">
+                <label class="layui-form-label"><i class="hongdian">*</i>反馈周期</label>
+                <div class="layui-input-inline">
+                    <select name="fkzq" id="fkzq" lay-filter="zqfk">
+                        <option value="">请选择</option>
+                        <option value="1">每周</option>
+                        <option value="2">半月</option>
+                        <option value="3">每月</option>
+                    </select>
+                </div>
+            </div>
+            <div class="layui-inline layui-hide mydqfk yc">
+                <label class="layui-form-label"><i class="hongdian">*</i>反馈时间</label>
+                <div class="layui-input-inline">
+                    <select name="fkzq" id="mydqfk">
+                        <option value="">请选择</option>
+                        <%for (int i = 1; i < 32; i++) {%>
+                        <option value="<%=i%>"><%=i%>号</option>
+                        <%}%>
+                    </select>
+                </div>
+            </div>
+            <div class="layui-inline layui-hide tdxqfk yc">
+                <label class="layui-form-label"><i class="hongdian">*</i>反馈星期</label>
+                <div class="layui-input-inline">
+                    <select name="fkzq" id="tdxqfk">
+                        <option value="">请选择</option>
+                        <option value="1">星期一</option>
+                        <option value="2">星期二</option>
+                        <option value="3">星期三</option>
+                        <option value="4">星期四</option>
+                        <option value="5">星期五</option>
+                        <option value="6">星期六</option>
+                        <option value="7">星期日</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div id="sfscrwnr" style="display: none">
+            <div class="layui-form-item">
+                <label class="layui-form-label" style="width: 168px"><i class="hongdian">*</i>是否上传任务计划表</label>
+                <input type="radio" name="sfscrwnr" title="否" lay-skin="primary" lay-filter="sfscrwnr" value="0" checked/>
+                <input type="radio" name="sfscrwnr" title="是" lay-skin="primary" lay-filter="sfscrwnr" value="1"/>
+            </div>
+            <%--        <div class="layui-form-item" id="rwnr" style="display: none">
+                        <table style='width:100%;' class="table01" id="return0">
+                            <input type="hidden" id="trnum0" name="trnum" value="0">
+                            <tr>
+                                <TD VALIGN=middle style="width:80%;font-size:14px;">
+                                    <DIV ALIGN=center>任务内容</DIV>
+                                </TD>
+                                <TD VALIGN=middle style="width:20%;font-size:14px;">
+                                    <DIV ALIGN=center>交办时限</DIV>
+                                </TD>
+                                <TD VALIGN=middle class="deeptd">
+                                    <a class="layui-btn layui-btn-sm" onclick="addCount(0);"><i
+                                            class="layui-icon">&#xe654;</i>新增</a>
+                                </TD>
+                            </tr>
+                        </table>
+                    </div>--%>
+        </div>
+        <div class="layui-form-item layui-form-text">
+            <label class="layui-form-label"><i class="hongdian">*</i>具体事项</label>
+            <div class="layui-input-block">
+                <textarea placeholder="请输入督办内容" name="details" class="layui-textarea" lay-verify="required"></textarea>
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <table style='width:100%;' class="table01" id="return">
+                <input type="hidden" id="trnum" name="trnum" value="0">
+                <tr>
+                    <TD VALIGN=middle style="width:90%;font-size:14;">
+                        <DIV ALIGN=center>再次批示</DIV>
+                    </TD>
+                    <TD VALIGN=middle style="width:10%;font-size:14;">
+                        <DIV ALIGN=center>发布时间</DIV>
+                    </TD>
+                    <TD VALIGN=middle class="deeptd">
+                        <a class="layui-btn layui-btn-sm" onclick="addCount();"><i class="layui-icon">&#xe654;</i>新增</a>
+                    </TD>
+                </tr>
+            </table>
+        </div>
+        <div class="layui-form-item  layui-hide">
+            <label class="layui-form-label"><i class="hongdian">*</i>重要性</label>
+            <div class="layui-input-block">
+                <input type="checkbox" name="import" value="0" title="一般" checked lay-check-type="radio">
+                <input type="checkbox" name="import" value="1" title="重要" lay-check-type="radio">
+            </div>
+        </div>
+    </div>
+    <div class="newclass-nytopboxs">
+        <fieldset class="layui-elem-field layui-field-title newclass-layui-elem-field" style="margin-top: 15px;">
+            <legend>明确区分牵头单位、配合单位</legend>
+        </fieldset>
+        <div class="layui-form-item">
+            <label class="layui-form-label">牵头单位</label>
+            <div class="layui-input-block">
+                <input type="text" class="layui-input l-text" name="qtdepname" readonly="true" placeholder="请选择牵头单位">
+                <img class="l-img" title="点击选择处理人" src="<%=request.getContextPath()%>/resources/images/actn133.gif"
+                     onclick="openSelWinNew('<%=request.getContextPath()%>/address/tree_jg.jsp?utype=0&rtype=0&ptype=0&sflag=0&count=1&fields=qtdepname,qtdepnameid');">
+                <input type="text" name="qtdepnameid" style="display:none">
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label"></i>配合单位</label>
+            <div class="layui-input-block">
+                <input type="text" class="layui-input l-text" name="phdepname" readonly="true" placeholder="请选择配合单位">
+                <img class="l-img" title="点击选择处理人" src="<%=request.getContextPath()%>/resources/images/actn133.gif"
+                     onclick="openSelWinNew('<%=request.getContextPath()%>/address/tree_jg.jsp?utype=0&rtype=0&ptype=0&sflag=0&count=0&fields=phdepname,phdepnameid');">
+                <input type="text" name="phdepnameid" style="display:none">
+            </div>
+        </div>
+        <fieldset class="layui-elem-field layui-field-title newclass-layui-elem-field" style="margin-top: 15px;">
+            <legend>无明确区分牵头单位、配合单位</legend>
+        </fieldset>
+        <div class="layui-form-item">
+            <label class="layui-form-label"></i>责任单位</label>
+            <div class="layui-input-block">
+                <input type="text" class="layui-input l-text" name="zrdepname" readonly="true" placeholder="请选择责任单位">
+                <img class="l-img" title="点击选择处理人" src="<%=request.getContextPath()%>/resources/images/actn133.gif"
+                     onclick="openSelWinNew('<%=request.getContextPath()%>/address/tree_jg.jsp?utype=0&rtype=0&ptype=0&sflag=0&count=0&fields=zrdepname,zrdepnameid');">
+                <input type="text" name="zrdepnameid" style="display:none">
+            </div>
+        </div>
+    </div>
+    <div class="newclass-nytopboxs">
+        <div class="layui-form-item">
+            <%-- <div class="layui-inline">
+              <label class="layui-form-label">督办联系人</label>
+              <div class="layui-input-inline">
+                   <input type="text" name="lxrname" lay-verify=""  placeholder="请输入督办联系人" class="layui-input" value="<%=userName%>">
+              </div>
+            </div> --%>
+            <div class="layui-inline">
+                <label class="layui-form-label">督办联系人</label>
+                <div class="layui-input-inline">
+                    <select name="lxrnameid" lay-filter="lxrnameid"></select>
+                    <input type="hidden" name="lxrname" value="<%=userName%>">
+                </div>
+            </div>
+            <div class="layui-inline">
+                <label class="layui-form-label">手机号码</label>
+                <div class="layui-input-inline">
+                    <input type="text" name="lxrmobile" lay-verify="" value="<%=lxrmobile%>" placeholder="请输入督办联系人号码" class="layui-input">
+                </div>
+            </div>
+            <div class="layui-inline">
+                <label class="layui-form-label">短号</label>
+                <div class="layui-input-inline">
+                    <input type="text" name="lxrshort" lay-verify="" value="<%=lxrshort%>" placeholder="请输入督办联系人短号" class="layui-input">
+                </div>
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <div class="layui-inline">
+                <label class="layui-form-label">钉消息推送</label>
+                <div class="layui-input-block">
+                    <input type="radio" name="dstatus" title="否" lay-skin="primary" lay-filter="dstatus" value="0"/>
+                    <input type="radio" name="dstatus" title="是" lay-skin="primary" lay-filter="dstatus" value="1" checked/>
+                </div>
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <a class="layui-btn layui-btn-xs" onclick="getMb();"><i class="layui-icon layui-icon-edit"></i>生成短信模板</a>
+        </div>
+        <div class="layui-form-item  mb">
+            <label class="layui-form-label"></i><i class="hongdian">*</i>领导模板</label>
+            <div class="layui-input-block">
+                <input type="text" class="layui-input" name="ldmb" id="ldmb" lay-verify="required" placeholder="" value="">
+            </div>
+        </div>
+        <div class="layui-form-item  mb">
+            <label class="layui-form-label"></i><i class="hongdian">*</i>单位模板</label>
+            <div class="layui-input-block">
+                <input type="text" class="layui-input" name="dwmb" id="dwmb" lay-verify="required" placeholder="" value="">
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <div class="layui-inline file">
+                <label class="layui-form-label">附件上传</label>
+                <ul class="layui-input-block file-list">
+                    <li class="file-line lock">
+		  			<span class="file-wrap">
+			  			<input type="file" name="fileattache" class="layui-input file-add-input">
+			  			<span class="view"><label class="gray">请上传附件材料</label><a>选择</a></span>
+		  			</span>
+                        <a class="btn add-file" onclick="file.add(this)" href="javascript:;">增加</a>
+                    </li>
+                </ul>
+                <%=attach %>
+                <!-- <p class="tap"><i>*</i>请上传200M以下的图片、压缩包、文档。</p> -->
+            </div>
+        </div>
+
+        <div class="layui-form-item bottom-btn-wrap">
+            <div>
+                <% if (!"qxgq".equals(action)) {%>
+                <submit class="layui-btn layui-btn-normal" lay-submit="" lay-filter="button" onclick="setFlag('0');">保存草稿</submit>
+                <% } %>
+                <submit class="layui-btn" lay-submit="" lay-filter="button" onclick="setFlag('1');">立即提交</submit>
+                <%if (!unid.equals("") && !"qxgq".equals(action)) {%>
+                <!-- <submit  class="layui-btn layui-btn-warm" lay-submit="" lay-filter="newbutton" onclick="setFlag('1');">重新发布</submit> -->
+                <%}%>
+            </div>
+        </div>
+    </div>
+</form>
+<script language="javascript" type="text/javascript" charset="utf-8" src="../resources/js/layer/layerFunction.js?v=<%=Math.random()%>"></script>
+</body>
+</html>

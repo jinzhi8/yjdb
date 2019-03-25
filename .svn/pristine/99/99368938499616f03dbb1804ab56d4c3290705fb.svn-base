@@ -1,0 +1,97 @@
+<%@page import="com.kizsoft.commons.commons.orm.MyDBUtils" %>
+<%@page import="com.kizsoft.commons.commons.user.Group" %>
+<%@page import="com.kizsoft.commons.commons.user.User" %>
+<%@ page import="com.kizsoft.yjdb.utils.CommonUtil" %>
+<%@ page import="java.sql.SQLException" %>
+<%@ page import="java.text.SimpleDateFormat" %>
+<%@ page import="java.util.Date" %>
+<%@ page import="java.util.List" %>
+<%@ page import="java.util.Map" %>
+<%@page language="java" contentType="text/html;charset=UTF-8" %>
+<%
+    //获取登录人信息
+    User userInfo = (User) session.getAttribute("userInfo");
+    String app = CommonUtil.doStr(request.getParameter("app"));
+    String userID = "";
+    String userName = "";
+    String groupName = "";
+    String groupID = "";
+    if ("app".equals(app)) {
+        userID = CommonUtil.doStr(request.getParameter("userID"));
+    } else {
+        if (session.getAttribute("userInfo") == null) {
+            response.sendRedirect(request.getContextPath() + "/login.jsp");
+            return;
+        }
+        Group groupInfo = userInfo.getGroup();
+        userID = userInfo.getUserId();
+        userName = userInfo.getUsername();
+        groupName = groupInfo.getGroupname();
+        groupID = groupInfo.getGroupId();
+    }
+    String status = request.getParameter("status");
+    //获得table数据
+    if ("getList".equals(status)) {
+        String deptid = CommonUtil.doStr(request.getParameter("deptid"));
+        String date = CommonUtil.doStr(request.getParameter("date"));
+
+        List<Map<String, Object>> list = null;
+
+        if("".equals(date)){
+            date = new SimpleDateFormat("yyyy-MM").format(new Date());
+        }
+        list = MyDBUtils.queryForMapToUC("select k.deptid,x.fs,x.kpid,x.id,x.bz,nvl((select o.ownername from owner o where o.id = x.userid),'系统') ownername,to_char(x.createtime,'yyyy-MM-dd') createtime from yj_kp_mx x join yj_kp k on k.id = x.kpid where k.deptid = ? and x.time = ? order by x.createtime desc", deptid,date);
+
+        //System.out.println(json);
+        response.getWriter().print(CommonUtil.getLayTableJson(list));
+        return;
+    }
+    //删除
+    if("del".equals(status)){
+        String id = CommonUtil.doStr(request.getParameter("id"));
+
+        boolean b = MyDBUtils.deleteByIds("delete yj_kp_mx where id = ?", id);
+
+        int code = b? 1:0;
+        out.print("{\"code\":"+ code +"}");
+        return;
+    }
+
+    //新增分数
+    if ("addFs".equals(status)) {
+        String fs = CommonUtil.doStr(request.getParameter("fs"));
+        String bz = CommonUtil.doStr(request.getParameter("bz"));
+        String date = CommonUtil.doStr(request.getParameter("date"));
+        String deptid = CommonUtil.doStr(request.getParameter("deptid"));
+
+        String kpid;
+        if("".equals(date)){
+            date = new SimpleDateFormat("yyyy-MM").format(new Date());
+        }
+        String year = date.substring(0,4);
+        String month = date.substring(5,7);
+
+        Map<String, Object> map = MyDBUtils.queryForUniqueMap("select * from (select x.kpid from yj_kp_mx x join yj_kp k on k.id = x.kpid where k.deptid = ? and x.time = ? order by createtime desc) where rownum = 1", deptid,date);
+        if(map != null) {
+            kpid =(String) map.get("kpid");
+        } else {
+            kpid = CommonUtil.getNumberRandom(16);
+            try {
+                MyDBUtils.executeUpdate("insert into yj_kp(id,deptid,jcfz,dbjzs,dqdbjs,dywcdbjs,wwcdbjs,month,year,jf,kf,zf,bjl,dycswcdbjs) values(?,?,?,?,?,?,?,?,?,?,?,?,?,?)", kpid,deptid,0,0,0,0,0,month,year,0,0,0,0,0);
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+
+        Object[] parameters = {CommonUtil.getNumberRandom(16), kpid,String.valueOf(fs), userID, bz, date};
+        int i = 0;
+        try {
+            i = MyDBUtils.executeUpdate("insert into yj_kp_mx(id,kpid,fs,userid,createtime,bz,time) values(?,?,?,?,sysdate,?,?)", parameters);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        boolean boo = i != 0;
+        response.getWriter().print("{\"success\":" + boo + "}");
+    }
+%>

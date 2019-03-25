@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.1//EN"
+		"http://jakarta.apache.org/struts/dtds/struts-config_1_1.dtd">
+<struts-config>
+	<form-beans>
+		<form-bean name="AttendanceImportActionForm" type="com.kizsoft.oa.attendance.beans.AttendanceImportActionForm"/>
+	</form-beans>
+	<action-mappings>
+		<action path="/attendanceStatAction" type="com.kizsoft.oa.attendance.actions.AttendanceStatAction">
+			<forward contextRelative="false" path="/attendancestatresult.jsp" name="success"/>
+		</action>
+		<action path="/attendanceTypeAction" type="com.kizsoft.oa.attendance.actions.AttendanceTypeAction">
+			<forward contextRelative="false" path="/attendancetypemanager.jsp" name="success" redirect="true"/>
+		</action>
+		<action path="/attendanceTimeAction" type="com.kizsoft.oa.attendance.actions.AttendanceTimeAction">
+			<forward contextRelative="false" path="/attendancetimemanager.jsp" name="success" redirect="true"/>
+		</action>
+		<action path="/attendanceAction" type="com.kizsoft.oa.attendance.actions.AttendanceAction">
+			<forward contextRelative="false" path="/index.jsp" name="success" redirect="true"/>
+		</action>
+		<action name="AttendanceImportActionForm" path="/AttendanceImportAction" scope="request"
+				type="com.kizsoft.oa.attendance.actions.AttendanceImportAction">
+			<forward name="success" contextRelative="false" path="/index.jsp" redirect="true"/>
+		</action>
+	</action-mappings>
+</struts-config>

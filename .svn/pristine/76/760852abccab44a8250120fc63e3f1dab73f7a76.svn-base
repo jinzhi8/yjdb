@@ -1,0 +1,199 @@
+/*--------------------------------------------------|
+| dTree 2.05 | www.destroydrop.com/javascript/tree/ |
+|---------------------------------------------------|
+| Copyright (c) 2002-2003 Geir Landr?              |
+|--------------------------------------------------*/
+
+.dtree {
+	font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	color: #666;
+	white-space: nowrap;
+}
+.dtree img {
+	border: 0px;
+	vertical-align: middle;
+}
+.dtreggge a {
+	//color: #333;
+	text-decoration: none;
+}
+.dtree a.node, .dtree a.nodeSel {
+	/*white-space: nowrap;
+	padding: 1px 2px 1px 2px;*/
+}
+.dtree a.nodddde:hover, .dtrddee a.nodeSel:hover {
+	//color: #333;
+	//text-decoration: underline;
+}
+.dTreeNode a.nodeSel {
+	/*background:url(treeimg/select.gif) no-repeat;
+	width:192px;
+	border:0px;
+	text-decoration: none;
+	color:#fff;*/
+	color: #FFB100;
+}
+.dtree .clip {
+	overflow: hidden;
+}
+
+.topdTreeNode{
+background:url(treeimg/top.gif);
+height:27px;
+width:100%;
+}
+.topdTreeNode a{
+margin-left:15px;
+color:#fff;
+font-weight:bold;
+font-size: 14px;
+line-height:27px;
+}
+
+.top1dTreeNode{
+    /* background: url(treeimg/top1.jpg); */
+    height: 38px;
+    line-height: 38px;
+    width: 100%;
+    background-color: #2f4050;
+    border-bottom: 1px dashed #424c6b;
+}
+.icongwgl a{ background:url(treeimg/icongwgl.png) no-repeat;background-position:45px 50%; }
+.icondzgw a{background:url(treeimg/icondzgw.png) no-repeat;background-position:45px 50%;}
+.iconzwxx a{background:url(treeimg/iconzwxx.png) no-repeat;background-position:45px 50%;}
+.iconjyta a{background:url(treeimg/iconjyta.png) no-repeat;background-position:45px 50%;}
+.iconzwdc a{background:url(treeimg/iconzwdc.png) no-repeat;background-position:45px 50%;}
+.iconbgxx a{background:url(treeimg/iconbgxx.png) no-repeat;background-position:45px 50%;}
+.iconggzl a{background:url(treeimg/iconggzl.png) no-repeat;background-position:45px 50%;}
+.icongrsw a{background:url(treeimg/icongrsw.png) no-repeat;background-position:45px 50%;}
+.iconwjk a{background:url(treeimg/icongwk.png) no-repeat;background-position:45px 50%;}
+.icongwxx a{background:url(treeimg/icongwxx.png) no-repeat;background-position:45px 50%;}
+.iconaqsc a{background:url(treeimg/iconaqsc.png) no-repeat;background-position:45px 50%;}
+.iconxtgl a{background:url(treeimg/iconxtgl.png) no-repeat;background-position:45px 50%;}
+.iconhygl a{background:url(treeimg/iconhygl.png) no-repeat;background-position:45px 50%;}
+.icongytdsp a{background:url(treeimg/icontdsp.png) no-repeat;background-position:45px 50%;}
+.iconzqhd a{background:url(treeimg/zqhd.png) no-repeat;background-position:45px 50%;}
+.icondzdc a{background:url(treeimg/icondzdc.png) no-repeat;background-position:45px 50%;}
+.iconztbj a{background:url(treeimg/iconztbj.png) no-repeat;background-position:45px 50%;}
+.top1dTreeNode a{
+    color: #a7b1c2;
+    display: block;
+    width: 100%;
+    height: 38px;
+    line-height: 38px;
+    font-family: 'Microsoft yahei';
+    font-size: 15px;
+    text-align: left;
+    text-indent: 36px;
+    background: url(img/tzga_iconleftmenu.png) no-repeat;
+}
+.top1dTreeNode a:hover{
+    background-color: #0363C4;
+    color: white;
+}
+.top1dTreeNode  a:hover,.top1dTreeNode  a:visited,.top1dTreeNode  a:active,.top1dTreeNode  a:link,.top2dTreeNode  a:hover,.top2dTreeNode  a:visited,.top2dTreeNode  a:active,.top2dTreeNode  a:link{
+	text-decoration: none;
+}
+.top2dTreeNode {
+background:url(treeimg/top2.gif);
+height:32px;
+width:100%;
+}
+.nodeclose a{
+background:url(treeimg/open.png);
+}
+.nodeopen a{
+background:url(treeimg/close.png);
+}
+.top2dTreeNode a{
+background-position:left;
+line-height:32px;
+text-indent:15px;
+display: block;
+width:100px;
+margin-left:48px;
+background-repeat:no-repeat;
+color:#000;
+}
+.dTreeNode{
+    height: 38px;
+    line-height: 38px;
+    width: 100%;
+    padding: 0px;
+    margin: 0px;
+    border-bottom: 1px dashed #424c6b;
+    background: url(img/leftmenu_hx.png) repeat-y;
+    background-position: 26px 0px;
+}
+.dTreeNode  a{ 
+font-family: 'Microsoft yahei';
+    display: block;
+    width: 229px;
+    /* height: 26px; */
+    /* color: #000; */
+    padding: 0px;
+    margin: 0px;
+    text-indent: 48px;
+    height: 38px;
+    line-height: 38px;
+    /* background: url(treeimg/back.jpg) no-repeat; */
+    color: #a7b1c2;
+    font-size: 14px;
+    /* border-bottom: 1px dashed #424c6b; */
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.dTreeNode  a:hover{
+	/* background: url(treeimg/select.gif) no-repeat; */
+    width: 100%;
+    border: 0px;
+    text-decoration: none;
+    color: orange;
+}
+.top1dTreeNode.iconzhbl a{
+	background-position: 8px 7px;
+}
+.top1dTreeNode.iconjdgl a{
+	background-position: 8px -34px;
+}
+.top1dTreeNode.iconcrjgl a{
+	background-position: 8px -79px;
+}
+.top1dTreeNode.iconjjgl a{
+	background-position: 8px -123px;
+}
+.top1dTreeNode.iconzagl a{
+	background-position: 8px -168px;
+}
+.top1dTreeNode.iconrkgl a{
+	background-position: 8px -213px;
+}
+.top1dTreeNode.iconxfgl a{
+	background-position: 8px -256px;
+}
+.top1dTreeNode.iconbfgl a{
+	background-position: 8px -300px;
+}
+.top1dTreeNode.iconjggl a{
+	background-position: 8px -343px;
+}
+.top1dTreeNode.iconwjgl a{
+	background-position: 8px -388px;
+}
+.top1dTreeNode.iconqta a{
+	background-position: 8px -432px;
+}
+.top1dTreeNode.iconyuy a{
+	background-position: 8px -476px;
+}
+.top1dTreeNode.iconzhgl a{
+	background-position: 8px -520px;
+}
+.top1dTreeNode.icongrsw a{
+	background-position: 8px -564px;
+}
+.top1dTreeNode.iconxtgl a{
+	background-position: 8px -607px;
+}

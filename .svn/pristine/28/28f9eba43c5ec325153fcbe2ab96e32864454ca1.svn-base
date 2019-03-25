@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<view>
+    <type>common</type> 
+    <sql>select unid,title,issuetime,managedepname,nextsj,endsj,fkrid,status,qfman</sql>
+    <tables>(select z.*,za.nextsj,za.endsj,za.fkrid,decode(z.fklx,'一次性反馈',decode((select max(1) from ZWDBHYFKPG zpg where zpg.dbid=z.unid and zpg.fkrid=za.fkrid),1,'已反馈','待反馈'),decode(sign(sysdate-za.nextsj+2),1,'待反馈','已反馈')) status from ZWDBHYMIN z,ZWDBHYACL za where z.unid=za.dbid)</tables>
+    <filters>
+        <filter>isjs='2'</filter>
+        <filter>fkrid = #unitID</filter>
+    </filters>
+    <order>status desc,issuetime desc</order>
+    <rows>30</rows>
+    <columns>
+         <column>
+            <title>发布时间</title>
+            <property>$issuetime</property>
+            <filedtype>time</filedtype>
+            <width>130</width>
+            <length>100</length>
+            <align>left</align>
+            <link></link>
+        </column>
+        <column>
+            <title>牵头单位</title>
+            <property>$managedepname</property>
+            <filedtype>string</filedtype>
+            <width>170</width>
+            <length>12</length>
+            <align>left</align>
+            <link></link>
+        </column>
+        <column>
+            <title>督办事项</title>
+            <property>$title</property>
+            <filedtype>string</filedtype>
+            <width>570</width>
+            <length>100</length>
+            <align>left</align>
+            <link>/view?xmlName=zwdbhyfk+&amp;appId=+$unid+&amp;lf=1;</link>
+            
+            <!-- <link>/edit?xmlName=car_message+&amp;appId=+$unid</link> -->
+        </column>
+        <column>
+            <title>反馈情况</title>
+            <property>$status</property>
+            <filedtype>string</filedtype>
+            <width>130</width>
+            <length>100</length>
+            <align>center</align>
+            <link>/view?xmlName=zwdbhyfk+&amp;appId=+$unid+&amp;lf=1;</link>
+        </column>
+        <column>
+                <title>是否办结</title>
+                <property>$qfman</property>
+                <filedtype>string</filedtype>
+                <width>130</width>
+                <length>100</length>
+                <align>center</align>
+            </column>
+    </columns>
+</view>

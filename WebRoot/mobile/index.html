@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta http-equiv="pragma" content="no-cache">
+    <meta http-equiv="cache-control" content="no-cache">
+    <title>永嘉县电子政务督办系统</title>
+    <link rel="stylesheet" type="text/css" href="css/common.css" />
+    <script type="text/javascript" src="lib/layer.js"></script>
+    <script type="text/javascript" src="lib/jquery-3.2.1.min.js"></script>
+    <script src="lib/dingtalk.js"></script>
+    <!-- <script type="text/javascript" src="lib/layer.js"></script> -->
+    <!-- <link rel="stylesheet" href="css/common.css"> -->
+    <!-- <link rel="stylesheet" href="css/index.css"> -->
+</head>
+<body>
+  <div class="wrapper">
+  </div>
+</body>
+<script type="text/javascript" src="js/base.js"></script>
+<script type="text/javascript" src="js/common.js"></script>
+<!-- <script type="text/javascript" src="js/index.js?t=121"></script> -->
+<script type="text/javascript">
+  // var base = {};
+  var base = {
+    // user:{
+    //   userID:'123',
+    //   userName:'zhd',
+    //   groupName:'桥头镇',
+    //   groupID:'100084769',
+    // }
+    index:{},
+    // user:{
+    //   userID:'4028cd9d64f379430164f457342a0004',
+    //   userName:'系统管理员',
+    //   groupName:'技术支持 ',
+    //   groupID:'1000206379',
+    //   data:1,
+    // }
+  }
+  // console.log(base);
+  // localStorage.yjdbMobile = JSON.stringify(base);
+  // href(base.user.data);
+  $(function(){
+    dd.ready(function(){
+      dd.runtime.permission.requestAuthCode({
+        corpId: "ding5d2dd335032d4436",//正式
+        // corpId: "dingcd4754ac7ed0067b35c2f4657eb6378f",//测试
+        onSuccess: function(result) {
+            getFn.getUserInfo(result.code);
+        },
+        onFail : function(err) {
+          alert(JSON.stringify(err));
+        }
+      })
+    });
+  })
+  //跳转判断封装函数
+  function href(type){
+    // alert(type);
+    if(type != 0){
+      //秘书三科
+      var hrefUrl = "homepage.html";
+    }else{
+      //普通用户
+      var hrefUrl = "overseeRevert.html";
+    }
+    location.href = hrefUrl;
+  }
+  var getFn = {};
+  getFn.getUserInfo = function(code){
+    $.ajax({
+        url: baseUrl+"/yjdbService/api/getOwner",
+        dataType:'json',
+        data:{
+          'code':code,
+        },
+        success: function(result){
+          var data = result.data;
+          if(data.length == 0){
+            message.alert('您的账号暂不支持，请联系管理员！')
+          }else if(data.length == 1){
+            base.user = getFn.userDataClear(data[0]);
+            localStorage.yjdbMobile = JSON.stringify(base);
+            // location.href="overseeRevert.html";
+            href(base.user.data);//跳转
+          }else if(data.length > 1){
+            message.userList(data);
+          }
+        },error:function(result){
+          message.alert(JSON.stringify(result));
+        }
+      })
+  }
+  getFn.userDataClear = function(data){
+    var result = {
+      userID:data.id,
+      userName:data.ownername,
+      groupName:data.dep,
+      groupID:data.depid,
+      data:data.data
+    }
+    return result;
+  }
+
+  function userChoice(index){
+    index = parseInt(index);
+    data = base.userData[index];
+    base.user = getFn.userDataClear(data);
+    localStorage.yjdbMobile = JSON.stringify(base);
+    href(data.data)
+    // base = JSON.param(localStorage.yjdbMobile);
+    console.log(base.userData);
+  }
+
+
+  //测试
+  var test = {};
+  test.getUser = function(){
+    var data  = [{
+        "id":"1000392733",
+        "ownercode":"1000392733",
+        "ownername":"李董乒",
+        "status":1,
+        "flag":1,
+        "password":"456789",
+        "type":0,
+        "email":null,
+        "phone":null,
+        "sex":1,
+        "cardno":null,
+        "birthday":null,
+        "lastloginday":null,
+        "description":null,
+        "address":null,
+        "faxno":null,
+        "homephone":null,
+        "orderNum":null,
+        "mac":null,
+        "template":null,
+        "numId":1,
+        "emailUser":null,
+        "emailPsd":null,
+        "mobile":"13867754139",
+        "processflag":"1",
+        "statflag":"1",
+        "ip":null,
+        "mobileshort":"689212",
+        "phoneshort":null,
+        "homephoneshort":null,
+        "homeaddress":null,
+        "homefax":null,
+        "homeemail":null,
+        "position":"职员",
+        "afterdate":null,
+        "beforedate":null,
+        "identifytime":null,
+        "identifycode":null,
+        "createtime":null,
+        "name":null,
+        "depid":"1000178778",
+        "dep":"县法律援助中心（县公共法律服务中心）"
+    },{
+        "id":"1000821203",
+        "ownercode":"1000821203",
+        "ownername":"叶帆",
+        "status":1,
+        "flag":1,
+        "password":"456789",
+        "type":0,
+        "email":null,
+        "phone":null,
+        "sex":1,
+        "cardno":null,
+        "birthday":null,
+        "lastloginday":null,
+        "description":null,
+        "address":null,
+        "faxno":null,
+        "homephone":null,
+        "orderNum":null,
+        "mac":null,
+        "template":null,
+        "numId":1,
+        "emailUser":null,
+        "emailPsd":null,
+        "mobile":"13867754139",
+        "processflag":"1",
+        "statflag":"1",
+        "ip":null,
+        "mobileshort":null,
+        "phoneshort":null,
+        "homephoneshort":null,
+        "homeaddress":null,
+        "homefax":null,
+        "homeemail":null,
+        "position":null,
+        "afterdate":null,
+        "beforedate":null,
+        "identifytime":null,
+        "identifycode":null,
+        "createtime":null,
+        "name":null,
+        "depid":"1000183448",
+        "dep":"办公室"
+    },{
+        "id":"1000909983",
+        "ownercode":"1000909983",
+        "ownername":"陈光銮",
+        "status":1,
+        "flag":1,
+        "password":"456789",
+        "type":0,
+        "email":null,
+        "phone":null,
+        "sex":1,
+        "cardno":null,
+        "birthday":null,
+        "lastloginday":null,
+        "description":null,
+        "address":null,
+        "faxno":null,
+        "homephone":null,
+        "orderNum":null,
+        "mac":null,
+        "template":null,
+        "numId":1,
+        "emailUser":null,
+        "emailPsd":null,
+        "mobile":"13867754139",
+        "processflag":"1",
+        "statflag":"1",
+        "ip":null,
+        "mobileshort":"669187",
+        "phoneshort":null,
+        "homephoneshort":null,
+        "homeaddress":null,
+        "homefax":null,
+        "homeemail":null,
+        "position":null,
+        "afterdate":null,
+        "beforedate":null,
+        "identifytime":null,
+        "identifycode":null,
+        "createtime":null,
+        "name":null,
+        "depid":"100084704",
+        "dep":"县发改局"
+    }]
+    message.userList(data);
+  }
+</script>
+</html>

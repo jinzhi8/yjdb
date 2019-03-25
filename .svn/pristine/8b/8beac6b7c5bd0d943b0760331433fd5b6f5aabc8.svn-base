@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<view>
+    <type>common</type>
+    <unid>a.unid</unid>
+    <sql>select a.issuetime,b.typename,a.title,a.unid</sql>
+    <tables>bulletin a,bulletintype b</tables>
+    <filters>
+        <filter>a.issueflag='1'</filter>
+        <filter>a.docsign='1'</filter>
+        <filter>a.TYPEID=b.TYPEID</filter>
+    </filters>
+    <order>a.issuetime desc,a.unid desc</order>
+    <rows>30</rows>
+    <columns>
+        <column>
+            <title>发布时间</title>
+            <property>$issuetime</property>
+            <filedtype>date</filedtype>
+            <width>20%</width>
+            <length>20</length>
+            <align>center</align>
+            <link></link>
+        </column>
+        <column>
+            <title>标题</title>
+            <property>【+$typename+】+$title</property>
+            <filedtype>string</filedtype>
+            <width>80%</width>
+            <length>100</length>
+            <align>left</align>
+            <link>/view?xmlName=sharebulletin+&amp;appId=+$unid</link>
+        </column>
+    </columns>
+</view>

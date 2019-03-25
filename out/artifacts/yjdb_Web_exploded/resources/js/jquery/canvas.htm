@@ -1,0 +1,274 @@
+<HEAD>
+<META http-equiv=Content-Type content="text/html; charset=utf-8">
+<script language="javascript" type="text/javascript" charset="utf-8" src="jquery.js"></script>
+<script language="javascript" type="text/javascript" charset="utf-8" src="excanvas.js"></script>
+<script>
+$.jvChart = $.jvChart || {};
+$.extend($.jvChart,{
+ createElement : function(tag, attribs, styles, parent, nopad) {
+  var el = document.createElement(tag);
+  if (attribs) $(el).attr(attribs);
+  if (nopad) $(el).css({padding: 0, border: 'none', margin: 0});
+  if (styles) $(el).css(styles);
+  if (parent) parent.appendChild(el); 
+  return el;
+ },
+ drawEllipse : function(paper, x, y, rx, ry, color, width, fill, shadow, image){
+    var ctx = paper.ctx;
+    ctx.beginPath();  
+    var div = document.createElement("<div id='" + paper.getId() + "' style='position:absolute; cursor:move; left:" + x + "; top:" + y + 
+     "; width:" + rx + "; height:" + ry + "; '></div>");
+    $(paper.canvas).append(div);
+    ctx.element_ = div;
+    $(div).draggable({
+     stop : function(event, ui){
+      $.jvChart.reDrawConnections(paper);
+     } 
+    }); 
+    x = y = 0;
+         var hB = (rx / 2) * .5522848,
+             vB = (ry / 2) * .5522848, 
+             eX = x + rx,            
+             eY = y + ry,            
+             mX = x + rx / 2,            
+             mY = y + ry / 2;    
+                
+         ctx.moveTo(x, mY);        
+         ctx.bezierCurveTo(x, mY - vB, mX - hB, y, mX, y);        
+         ctx.bezierCurveTo(mX + hB, y, eX, mY - vB, eX, mY);        
+         ctx.bezierCurveTo(eX, mY + vB, mX + hB, eY, mX, eY);        
+         ctx.bezierCurveTo(mX - hB, eY, x, mY + vB, x, mY);        
+         ctx.closePath();
+    if (color && width){
+     ctx.strokeStyle = color || "rgb(100, 100, 255)";
+      ctx.lineWidth = width || 2;
+      }
+    if (fill) {
+     ctx.fillStyle = setColor(fill, ctx);
+     ctx.fill();
+ 
+    }
+      ctx.stroke();
+      ctx.element_ = paper.canvas;
+      return div;
+
+
+
+ },
+/* drawCircle : function(paper, x, y, rx, color, width, fill, shadow, image){
+  var ctx = paper.getCtx();
+  var div = document.createElement("<div style='position:absolute; cursor:move; left:" + x + "; top:" + y + 
+   "; width:" + rx + "; height:" + rx + "; '></div>");
+  $(paper.canvas).append(div);
+  ctx.element_ = div;
+  $(div).draggable();
+  x = y = 0;
+  ctx.beginPath();
+  ctx.arc(x, y, rx, 0, 2*Math.PI, true);
+  if (color && width){
+   ctx.strokeStyle = color || "rgb(100, 100, 255)";
+      ctx.lineWidth = width || 2;
+     }
+  if (fill) {
+   ctx.fillStyle = setColor(fill, ctx);
+   ctx.fill();
+
+  }
+     ctx.stroke();
+ },*/
+ drawRect: function(paper, x, y, w, h, radius, color, width, fill, shadow, image) {
+  function drawPath() {
+   ctx.beginPath();
+   if (!radius) {
+    ctx.rect(x, y, w, h);
+   } else {
+    ctx.moveTo(x, y + radius);
+    ctx.lineTo(x, y + h - radius);
+    ctx.quadraticCurveTo(x, y + h, x + radius, y + h); // change: use bezier
+    ctx.lineTo(x + w - radius, y + h);
+    ctx.quadraticCurveTo(x + w, y + h, x + w, y + h - radius);
+    ctx.lineTo(x + w, y + radius);
+    ctx.quadraticCurveTo(x + w, y , x + w - radius, y);
+    ctx.lineTo(x + radius, y);
+    ctx.quadraticCurveTo(x , y, x, y + radius);
+   }
+   ctx.closePath();
+  };
+
+  var ctx = paper.ctx, normalizer = (width || 0) % 2 / 2;
+  var div = document.createElement("<div id='" + paper.getId() + "' style='position:absolute; cursor:move; left:" + x + "; top:" + y + 
+   "; width:" + w + "; height:" + h + "; '></div>");
+  $(paper.canvas).append(div);
+  ctx.element_ = div;
+  $(div).draggable({
+   stop : function(event, ui){
+    $.jvChart.reDrawConnections(paper);
+   } 
+  });    
+  x = y = 0;
+
+  x = Math.round(x) + normalizer;
+  y = Math.round(y) + normalizer;
+  w = Math.round(w);
+  h = Math.round(h);
+  
+  // apply the drop shadow
+  if (shadow) for (var i = 1; i <= 3; i++) {
+      drawRect(paper, x + 1, y + 1, w, h, radius, 'rgba(0, 0, 0, '+ (0.05 * i) +')', 
+       6 - 2 * i);
+  }
+
+  // apply the background image behind everything
+  if (image) ctx.drawImage(image, x, y, w, h);
+  
+  drawPath();
+  if (fill) {
+   ctx.fillStyle = setColor(fill, ctx);
+   ctx.fill();
+   // draw path again
+   if (win.G_vmlCanvasManager) drawPath();
+  }
+  if (width) {
+   ctx.strokeStyle = color;
+   ctx.lineWidth = width;
+   ctx.stroke();
+  }
+  ctx.element_ = paper.canvas;
+
+  return div;
+ },
+ drawConnection : function (paper, obj1, obj2, color, width){
+  var ctx = paper.ctx;
+     var p = [{x: parseInt($(obj1).css('left')) + $(obj1).width() / 2, y: parseInt($(obj1).css('top')) - 1},
+         {x: parseInt($(obj1).css('left')) + $(obj1).width() / 2, y: parseInt($(obj1).css('top')) + $(obj1).height() + 1},
+         {x: parseInt($(obj1).css('left')) - 1, y: parseInt($(obj1).css('top')) + $(obj1).height() / 2},
+         {x: parseInt($(obj1).css('left')) + $(obj1).width() + 1, y: parseInt($(obj1).css('top')) + $(obj1).height() / 2},
+         {x: parseInt($(obj2).css('left')) + $(obj2).width() / 2, y: parseInt($(obj2).css('top')) - 1},
+         {x: parseInt($(obj2).css('left')) + $(obj2).width() / 2, y: parseInt($(obj2).css('top')) + $(obj2).height() + 1},
+         {x: parseInt($(obj2).css('left')) - 1, y: parseInt($(obj2).css('top')) + $(obj2).height() / 2},
+         {x: parseInt($(obj2).css('left')) + $(obj2).width() + 1, y: parseInt($(obj2).css('top')) + $(obj2).height() / 2}];
+     var d = {}, dis = [];
+     for (var i = 0; i < 4; i++) {
+         for (var j = 4; j < 8; j++) {
+             var dx = Math.abs(p[i].x - p[j].x),
+                 dy = Math.abs(p[i].y - p[j].y);
+             if ((i == j - 4) || (((i != 3 && j != 6) || p[i].x < p[j].x) && ((i != 2 && j != 7) || p[i].x > p[j].x) && ((i != 0 && j != 5) || p[i].y > p[j].y) && ((i != 1 && j != 4) || p[i].y < p[j].y))) {
+                 dis.push(dx + dy);
+                 d[dis[dis.length - 1]] = [i, j];
+             }
+         }
+     }
+     if (dis.length == 0) {
+         var res = [0, 4];
+     } else {
+         var res = d[Math.min.apply(Math, dis)];
+     }
+     var x1 = p[res[0]].x,
+         y1 = p[res[0]].y,
+         x4 = p[res[1]].x,
+         y4 = p[res[1]].y/*,
+         dx = Math.max(Math.abs(x1 - x4) / 2, 10),
+         dy = Math.max(Math.abs(y1 - y4) / 2, 10),
+         x2 = [x1, x1, x1 - dx, x1 + dx][res[0]].toFixed(3),
+         y2 = [y1 - dy, y1 + dy, y1, y1][res[0]].toFixed(3),
+         x3 = [0, 0, 0, 0, x4, x4, x4 - dx, x4 + dx][res[1]].toFixed(3),
+         y3 = [0, 0, 0, 0, y1 + dy, y1 - dy, y4, y4][res[1]].toFixed(3)*/;
+
+  ctx.beginPath();
+  ctx.strokeStyle = color;
+  ctx.lineWidth = width;
+  ctx.moveTo(x1, y1);
+  ctx.lineTo(x4, y4);
+  ctx.closePath();
+     ctx.stroke();
+ },
+ reDrawConnections : function (paper){
+  paper.edgePaper.ctx.clearRect(0, 0, paper.width, paper.height);
+  $(paper.edgePaper.edges).each(function(i){
+   $.jvChart.drawConnection(paper.edgePaper, document.getElementById(paper.edgePaper.edges[i][0]), document.getElementById(paper.edgePaper.edges[i][1]), 'rgb(0,0,0)', 2);
+  });
+ }
+
+});
+(function($) {
+$.fn.jvChart = function(width, height) {
+ var paper = {
+  idCounter : 0,
+  idPrefix  : "jvChart-element-",
+  getId     : function() { return this.idPrefix + this.idCounter++; }
+ };
+ var edgePaper = {
+  idCounter : 0,
+  idPrefix  : "jvChart-edge-",
+  getId     : function() { return this.idPrefix + this.idCounter++; },
+  edges : []
+ }; 
+ function getCtx(paper){
+  var cvs = $.jvChart.createElement('canvas', {
+   id: paper.getId(),
+   width: $(paper.canvas).width(),
+   height: $(paper.canvas).height()
+  }, {position: 'absolute'}, paper.canvas);
+
+  if ($.browser.msie) {
+   G_vmlCanvasManager.initElement(cvs);
+   cvs = document.getElementById(cvs.id);
+   $('div', cvs).first().attr('id', paper.idPrefix + 'div');
+  }
+  return cvs.getContext('2d');
+ }
+ 
+ return this.each( function() {
+  paper.canvas = this;
+  edgePaper.canvas = this;
+  $(this).css({overflow:'hidden', position:'relative'});
+  paper.ctx = getCtx(paper);
+  edgePaper.ctx = getCtx(edgePaper);
+  paper.edgePaper = edgePaper;
+  paper.width = $(paper.canvas).width();
+  paper.height = $(paper.canvas).height();
+  this.paper = paper;
+  this.edgePaper = edgePaper;
+ });
+   
+};
+ 
+$.fn.extend({
+ circle : function (x, y, r, color, width, fill, shadow, image) {
+  return $.jvChart.drawCircle($(this).attr('paper'), x || 0, y || 0, r || 0, color, width, fill, shadow, image);
+ },
+ ellipse : function (x, y, rx, ry, color, width, fill, shadow, image) {
+  return $.jvChart.drawEllipse($(this).attr('paper'), x || 0, y || 0, rx || 0, ry || 0, color, width, fill, shadow, image);
+ },
+ rectangle : function (x, y, w, h, r, color, width, fill, shadow, image) {
+        return $.jvChart.drawRect($(this).attr('paper'), x || 0, y || 0, w || 0, h || 0, r || 0, color, width, fill, shadow, image);
+    },
+    connection : function(obj1, obj2, color, width){
+     var p = $(this).attr('edgePaper');
+     $.jvChart.drawConnection(p, obj1, obj2, color, width);
+     p.edges.push([$(obj1).attr('id'), $(obj2).attr('id')]);
+    }
+});
+})(jQuery);
+
+</script>
+<script>
+$(document).ready(function(){
+$("#container").jvChart(600, 400);
+var v1 = $("#container").ellipse(0, 120, 80, 40, 'rgb(0,0,0)', 2);
+var v2 = $("#container").rectangle(100, 20, 80, 40, 10, 'rgb(0,0,0)', 2);
+var v4 = $("#container").ellipse(300, 100, 50, 50, 'rgb(0,0,0)', 2);
+
+var v3 = $("#container").rectangle(290, 180, 60, 40, 2, 'rgb(0,0,0)', 2);
+
+
+$("#container").connection(v1, v2, 'rgb(0,0,0)', 2);
+$("#container").connection(v2, v3, 'rgb(0,0,0)', 2);
+$("#container").connection(v2, v4, 'rgb(0,0,0)', 2);
+});
+</script>
+</HEAD>
+<BODY leftMargin=2 topMargin=2>
+<div id="container" style="width: 600px; height: 400px; background-color:rgb(255,255,255); "></div>
+</BODY>
+</HTML>

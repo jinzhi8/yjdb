@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta http-equiv="pragma" content="no-cache">
+    <meta http-equiv="cache-control" content="no-cache">
+    <title>永嘉县电子政务督办系统</title>
+    <script type="text/javascript" src="lib/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript" src="lib/layer.js"></script>
+    <script type="text/javascript" src="lib/mobileSelect.js"></script>
+    <link rel="stylesheet" href="lib/mobileSelect.css">
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/overseeRevertDetail.css">
+    <script src="lib/dingtalk.js"></script>
+</head>
+<body>
+  <header>
+    <ul class="switchover">
+      <li class="dbxq">
+        <span data-type="dbxq">督办件详情</span>
+      </li>
+      <li class="dbfk">
+        <span data-type="dbfk">督办反馈</span>
+      </li>
+    </ul>
+  </header>
+  <div class="wrapper margin">
+    <div class="content-box dbxq">
+      <div class="info-wrap">
+        <p class="title"><i></i>基本信息</p>
+        <ul class="info-list">
+          <li>
+            <label>会议件名称</label>
+            <span><em>县政府重点交办事项落实情况的报告县政府重点</em></span>
+          </li>
+          <li>
+            <label>会议议程</label>
+            <span><em>县政府重点交办事项落实情况的报告县政府重点</em></span>
+          </li>
+          <li>
+            <label>来文文号</label>
+            <span><em>YJ0011</em></span>
+          </li>
+          <li>
+            <label>发布时间</label>
+            <span><em>2018-9-13 14:28:53</em></span>
+          </li>
+        </ul>
+        <ul class="info-list">
+          <li>
+            <label>具体事项</label>
+            <span><em>县政府重点交办事项落实情况的报告县政府重点</em></span>
+          </li>
+          <li>
+            <label>再次批示</label>
+            <span><em>县政府重点交办事项落实情况的报告县政府重点</em></span>
+          </li>
+        </ul>
+        <ul class="info-list">
+          <li>
+            <label>督办类型</label>
+            <span><em>县政府常务会议</em></span>
+          </li>
+          <li>
+            <label>督办状态</label>
+            <span><em class="point">未办结</em></span>
+          </li>
+        </ul>
+        <ul class="info-list">
+          <li>
+            <label>反馈类型</label>
+            <span><em>一次性反馈</em></span>
+          </li>
+          <li>
+            <label>交办期限</label>
+            <span><em>2018-9-13</em></span>
+          </li>
+        </ul>
+      </div>
+
+      <div class="info-wrap">
+        <p class="title"><i></i>相关人员及单位</p>
+        <div class="member-wrap">
+          <ul>
+            <li>
+              <div class="member-icon"><i class="person"></i><em>部署领导</em></div>
+              <em>宋致炆</em>
+            </li>
+            <li>
+              <div class="member-icon"><i class="dep"></i><em>部署领导</em></div>
+              <em>宋致炆宋致炆宋致炆宋致炆</em>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="content-box dbfk">
+    </div>
+    <!-- <div class="base-wrap">
+      <p class="revert-title">督办件名称 <i class="label-tag">一次性反馈</i></p>
+      <div class="content">按时发生发送发生</div>
+      <div class="date-wrap">
+        <p class="start"><i></i><label>发布日期</label><em>2018-06-31</em></p>
+        <p class="end"><i></i><label>交办期限</label><em>2018-06-31</em></p>
+      </div>
+    </div>
+    <ul class="member-wrap">
+      <li class="member person qt">
+        <div>
+          <b class="tap">牵头领导</b>
+          <i class="photo"></i>
+          <div class="name-wrap">
+            <em class="name">李涉川</em>
+          </div>
+        </div>
+      </li>
+      <li class="member person ps">
+        <div>
+          <b class="tap">批示领导</b>
+          <i class="photo"></i>
+          <div class="name-wrap">
+            <em class="name">周旭丹</em>
+          </div>
+        </div>
+      </li>
+      <li class="member person ph">
+        <div>
+          <b class="tap">配合领导</b>
+          <i class="photo"></i>
+          <div class="name-wrap">
+            <em class="name">陈继林</em>
+          </div>
+        </div>
+      </li>
+      <li class="member dep ph">
+        <div>
+          <b class="tap">配合单位</b>
+          <i class="photo"></i>
+          <div class="name-wrap">
+            <em class="name">桥头镇</em>
+          </div>
+        </div>
+      </li>
+      <li class="member person all-line ph">
+        <div>
+          <b class="tap">督办联系人</b>
+          <i class="photo"></i>
+          <div class="name-wrap">
+            <em class="name">桥头镇</em>
+          </div>
+          <b class="telephone"></b>
+        </div>
+      </li>
+    </ul>
+    <div class="content-wrap">
+      <p class="title"><i></i>批示内容</p>
+      <span>批示内容批示内容批示内容批示内容批示内容</span>
+    </div> -->
+    <!-- <ul class="info-wrap">
+      <li><label>发布时间</label><span>2018年7月13日</span></li>
+      <li><label>发布时间</label><span>2018年7月13日</span></li>
+    </ul> -->
+    <!-- <p class="btn-wrap"><a class="getOverseeRevert">查看反馈列表</a></p> -->
+  </div>
+</body>
+<script src="js/base.js"></script>
+<script src="js/common.js"></script>
+<script src="js/detailsPublic.js"></script>
+<script src="js/overseeRevertDetail.js"></script>
+</html>

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.1//EN"
+		"http://jakarta.apache.org/struts/dtds/struts-config_1_1.dtd">
+<struts-config>
+	<form-beans>
+		<form-bean type="com.kizsoft.oa.archives.formbeans.ArchivesForm" name="archivesForm"/>
+	</form-beans>
+
+	<action-mappings>
+
+		<action path="/newAction" type="com.kizsoft.oa.archives.actions.NewAction" name="archivesForm" scope="request">
+			<forward name="success" path="/content.jsp"/>
+			<forward name="borrow" path="/content_borrow.jsp"/>
+			<forward name="failure" path="/failure.jsp"/>
+		</action>
+
+		<action path="/dealAction" type="com.kizsoft.oa.archives.actions.DealAction" name="archivesForm" scope="request">
+			<forward name="success" path="/index.jsp" redirect="true"/>
+			<forward name="failure" path="/failure.jsp"/>
+		</action>
+
+		<action path="/editAction" type="com.kizsoft.oa.archives.actions.EditAction" name="archivesForm" scope="request">
+			<forward name="edit" path="/content.jsp"/>
+			<forward name="read" path="/content_read.jsp"/>
+			<forward name="lend" path="/content_lend.jsp"/>
+			<forward name="failure" path="/failure.jsp"/>
+		</action>
+
+		<action path="/newSortAction" type="com.kizsoft.oa.archives.actions.NewSortAction" name="archivesForm" scope="request">
+			<forward name="success" path="/content_sort.jsp"/>
+			<forward name="failure" path="/failure.jsp"/>
+		</action>
+
+		<action path="/formArchiveSortAction" type="com.kizsoft.oa.archives.actions.EditSortAction" name="archivesForm"
+				scope="request">
+			<forward name="success" path="/newSortAction.do"/>
+			<forward name="failure" path="/failure.jsp"/>
+		</action>
+
+		<action path="/searchView" type="com.kizsoft.oa.getdoc.ViewSearchAction" unknown="false" validate="false">
+			<forward name="success" path="/searchResult.jsp" redirect="false"/>
+		</action>
+	</action-mappings>
+</struts-config>

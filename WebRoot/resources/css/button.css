@@ -1,0 +1,136 @@
+.formbutton5 {
+	width: 66px;
+	HEIGHT: 25px;
+	BACKGROUND-COLOR: #5fc4d4;
+	BORDER-RIGHT: #1c8ab7 1px solid;
+	PADDING-RIGHT: 2px;
+	BORDER-TOP: #1c8ab7 1px solid;
+	PADDING-LEFT: 2px;
+	FONT-SIZE: 12px;
+	FILTER: progid: DXImageTransform . Microsoft . Gradient(GradientType = 0, StartColorStr = #5fc4d4, EndColorStr = #0c98ae);
+	BORDER-LEFT: #1c8ab7 1px solid;
+	CURSOR: hand;
+	COLOR: #ffffff;
+	PADDING-TOP: 2px;
+	BORDER-BOTTOM: #1c8ab7 1px solid;
+	font-weight: bold;
+	font-size: 12px;
+}
+.formbutton {
+	font-family: "tahoma", "ËÎÌו"; /*www.52css.com*/
+	font-size: 9pt; 
+	color: #555555;
+	border: 1px #93bee2 solid;
+	border-bottom: #93bee2 1px solid;
+	border-left: #93bee2 1px solid;
+	border-right: #93bee2 1px solid;
+	border-top: #93bee2 1px solid;
+	background-image:url(../images/index_button_3.jpg);
+	background-color: #ffffff;
+	cursor: hand;
+	font-style: normal ;
+}
+
+.formbutton2 {
+	width: 66px;
+	HEIGHT: 25px;
+	BORDER-RIGHT: #1c8ab7 1px solid;
+	PADDING-RIGHT: 2px;
+	BORDER-TOP: #1c8ab7 1px solid;
+	PADDING-LEFT: 2px;
+	FONT-SIZE: 12px;
+	FILTER: progid: DXImageTransform . Microsoft . Gradient(GradientType = 0, StartColorStr = #5fc4d4, EndColorStr = #0c98ae);
+	BORDER-LEFT: #1c8ab7 1px solid;
+	CURSOR: hand;
+	COLOR: #ffffff;
+	PADDING-TOP: 2px;
+	BORDER-BOTTOM: #1c8ab7 1px solid;
+	font-weight: bold;
+	font-size: 12px;
+}
+
+.formbuttong {
+	width: 66px;
+	HEIGHT: 25px;
+	BORDER-RIGHT: #54c620 1px solid;
+	PADDING-RIGHT: 2px;
+	BORDER-TOP: #54c620 1px solid;
+	PADDING-LEFT: 2px;
+	FONT-SIZE: 12px;
+	FILTER: progid: DXImageTransform . Microsoft . Gradient(GradientType = 0, StartColorStr = #b8ed47, EndColorStr = #3cad11);
+	BORDER-LEFT: #54c620 1px solid;
+	CURSOR: hand;
+	COLOR: #ffffff;
+	PADDING-TOP: 2px;
+	BORDER-BOTTOM: #54c620 1px solid;
+	font-weight: bold;
+	font-size: 12px;
+}
+
+.formbuttonorange {
+	width: 66px;
+	HEIGHT: 28px;
+	BORDER-RIGHT: #ab5219 1px solid;
+	PADDING-RIGHT: 2px;
+	BORDER-TOP: #ab5219 1px solid;
+	PADDING-LEFT: 2px;
+	FONT-SIZE: 12px;
+	FILTER: progid: DXImageTransform . Microsoft . Gradient(GradientType = 0, StartColorStr = #ffc547, EndColorStr = #f97c0d);
+	BORDER-LEFT: #ab5219 1px solid;
+	CURSOR: hand;
+	COLOR: #ffffff;
+	PADDING-TOP: 2px;
+	BORDER-BOTTOM: #ab5219 1px solid;
+	font-weight: bold;
+	font-size: 12px;
+}
+
+.formbuttongreen {
+	width: 57;
+	HEIGHT: 25px;
+	BORDER-RIGHT: #7EBF4F 1px solid;
+	PADDING-RIGHT: 2px;
+	BORDER-TOP: #7EBF4F 1px solid;
+	PADDING-LEFT: 2px;
+	FONT-SIZE: 12px;
+	FILTER: progid: DXImageTransform . Microsoft . Gradient(GradientType = 0, StartColorStr = #ffffff, EndColorStr = #B3D997);
+	BORDER-LEFT: #7EBF4F 1px solid;
+	CURSOR: hand;
+	COLOR: #555555;
+	PADDING-TOP: 2px;
+	BORDER-BOTTOM: #7EBF4F 1px solid;
+	font-weight: bold;
+}
+
+.formbutton1 {
+	width: 57;
+	HEIGHT: 25px;
+	BORDER-RIGHT: #7EBF4F 1px solid;
+	PADDING-RIGHT: 2px;
+	BORDER-TOP: #7EBF4F 1px solid;
+	PADDING-LEFT: 2px;
+	FONT-SIZE: 12px;
+	FILTER: progid: DXImageTransform . Microsoft . Gradient(GradientType = 0, StartColorStr = #ffffff, EndColorStr = #B3D997);
+	BORDER-LEFT: #7EBF4F 1px solid;
+	CURSOR: hand;
+	COLOR: #555555;
+	PADDING-TOP: 2px;
+	BORDER-BOTTOM: #7EBF4F 1px solid;
+	font-weight: bold;
+}
+
+.formbutton4 {
+	width: 66px;
+	height: 25px;
+	border-left: 1px solid #B1B4CD;
+	border-right: 1px solid #494D74;
+	border-top: 1px solid #B1B4CD;;
+	border-bottom: 1px solid #494D74;
+	background: #696D81;
+	color: #FFFFFF;
+	CURSOR: hand;
+}
+
+.right_col {
+	display: none;
+}

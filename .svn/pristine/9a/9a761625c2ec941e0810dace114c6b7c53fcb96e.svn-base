@@ -1,0 +1,219 @@
+@font-face {
+  font-family: 'iconfont';
+  src: url("../font/iconfont.eot?t=1512436220877");
+  /* IE9*/
+  src: url("../font/iconfont.eot?t=1512436220877#iefix") format("embedded-opentype"), url("../font/iconfont.ttf?t=1512436220877") format("truetype"), url("../font/iconfont.svg?t=1512436220877#iconfont") format("svg");
+  /* iOS 4.1- */
+}
+/* line 2, ../sass/myapply.scss */
+body {
+  background-color: #f5f5f5;
+}
+
+/* line 5, ../sass/myapply.scss */
+.list-wrap {
+  overflow: auto;
+}
+/* line 7, ../sass/myapply.scss */
+.list-wrap > li {
+  background-color: #fff;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+  margin: 10px;
+}
+/* line 11, ../sass/myapply.scss */
+.list-wrap > li .title {
+  font-size: 1.6rem;
+  position: relative;
+  line-height: 30px;
+  padding: 5px 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+/* line 19, ../sass/myapply.scss */
+.list-wrap > li .title div.name {
+  flex: 1;
+  display: flex;
+  align-items: center;
+}
+/* line 24, ../sass/myapply.scss */
+.list-wrap > li .title i, .list-wrap > li .title a {
+  font-family: "iconfont" !important;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-weight: 400;
+}
+/* line 27, ../sass/myapply.scss */
+.list-wrap > li .title i {
+  font-style: normal;
+  font-size: 1.2rem;
+  line-height: 14px;
+  display: inline-block;
+  background-color: #ccc;
+  padding: 3px 5px;
+  position: relative;
+  margin-left: 10px;
+  border-radius: 3px;
+  color: #fff;
+  justify-content: center;
+  align-items: center;
+}
+/* line 41, ../sass/myapply.scss */
+.list-wrap > li .title i:before {
+  content: "\e792";
+  display: block;
+  position: absolute;
+  left: -8px;
+  width: 12px;
+  height: 9px;
+  color: #ccc;
+}
+/* line 53, ../sass/myapply.scss */
+.list-wrap > li .title i.ing {
+  background-color: #E98B2A;
+}
+/* line 55, ../sass/myapply.scss */
+.list-wrap > li .title i.ing:before {
+  color: #E98B2A;
+}
+/* line 59, ../sass/myapply.scss */
+.list-wrap > li .title i.end {
+  background-color: #09BB07;
+}
+/* line 61, ../sass/myapply.scss */
+.list-wrap > li .title i.end:before {
+  color: #09BB07;
+}
+/* line 65, ../sass/myapply.scss */
+.list-wrap > li .title i.yiyi {
+  background-color: #F05E1C;
+}
+/* line 67, ../sass/myapply.scss */
+.list-wrap > li .title i.yiyi:before {
+  color: #F05E1C;
+}
+/* line 72, ../sass/myapply.scss */
+.list-wrap > li .detail {
+  padding: 5px 10px;
+  margin: 0 10px;
+  color: #666;
+  font-size: 1.4rem;
+}
+/* line 77, ../sass/myapply.scss */
+.list-wrap > li .detail span {
+  display: inline-block;
+  overflow: hidden;
+  vertical-align: middle;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  vertical-align: middle;
+  display: block;
+  line-height: 2rem;
+  height: 2rem;
+}
+/* line 84, ../sass/myapply.scss */
+.list-wrap > li .info {
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  background-color: #fbfbfb;
+  color: #999;
+  font-size: 1.4rem;
+  margin-top: 5px;
+}
+/* line 92, ../sass/myapply.scss */
+.list-wrap > li .info a {
+  font-family: "iconfont" !important;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-weight: 400;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  padding-left: 20px;
+}
+/* line 100, ../sass/myapply.scss */
+.list-wrap > li .info a:before {
+  margin-right: 5px;
+  position: absolute;
+}
+/* line 104, ../sass/myapply.scss */
+.list-wrap > li .info a.person:before {
+  content: "\e851";
+  font-size: 1.6rem;
+  left: 0;
+}
+/* line 109, ../sass/myapply.scss */
+.list-wrap > li .info a.time:before {
+  content: "\e60e";
+  font-size: 1.6rem;
+  position: absolute;
+  top: 2px;
+  left: 0;
+}
+/* line 118, ../sass/myapply.scss */
+.list-wrap > li.active .list {
+  display: block;
+}
+/* line 123, ../sass/myapply.scss */
+.list-wrap > li:not(:last-child) {
+  margin-bottom: 10px;
+}
+
+/* line 129, ../sass/myapply.scss */
+.mini-menu {
+  display: inline-block;
+  float: right;
+  position: relative;
+}
+/* line 133, ../sass/myapply.scss */
+.mini-menu a {
+  height: 30px;
+  width: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transform: rotate(90deg);
+  font-size: 1.4rem;
+}
+/* line 142, ../sass/myapply.scss */
+.mini-menu a:before {
+  content: "\e603";
+}
+/* line 145, ../sass/myapply.scss */
+.mini-menu ul.list {
+  min-width: 120px;
+  background-color: #fff;
+  box-shadow: 0 0px 10px rgba(0, 0, 0, 0.2);
+  position: absolute;
+  right: 0px;
+  top: 25px;
+  display: none;
+}
+/* line 153, ../sass/myapply.scss */
+.mini-menu ul.list li {
+  display: flex;
+  padding: 7px;
+}
+/* line 156, ../sass/myapply.scss */
+.mini-menu ul.list li b {
+  font-family: "iconfont" !important;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-weight: 400;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  margin-right: 8px;
+}
+/* line 166, ../sass/myapply.scss */
+.mini-menu ul.list li span {
+  font-size: 1.4rem;
+}

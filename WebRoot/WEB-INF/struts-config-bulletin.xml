@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.1//EN"
+		"http://jakarta.apache.org/struts/dtds/struts-config_1_1.dtd">
+<struts-config>
+	<data-sources/>
+	<form-beans>
+		<form-bean type="com.kizsoft.oa.bulletin.formbeans.BulletinForm" name="bulletinForm"/>
+		<form-bean type="com.kizsoft.oa.bulletin.formbeans.ReplyForm" name="replyForm"/>
+	</form-beans>
+	<global-exceptions>
+		<exception handler="com.kizsoft.oa.error.CommonExceptionHandler"
+				   key="com.kizsoft.oa.error.exception"
+				   path="/error.jsp" scope="request"
+				   type="java.lang.Exception"/>
+	</global-exceptions>
+	<global-forwards>
+		<forward name="forbid" path="../message/forbid.jsp" redirect="true" contextRelative="true"/>
+	</global-forwards>
+	<action-mappings>
+		<action name="bulletinForm" path="/bulletinTypeAction" scope="request"
+				type="com.kizsoft.oa.bulletin.actions.BulletinTypeAction">
+			<forward name="success" contextRelative="false" path="/bulletinTypeManager.jsp"/>
+		</action>
+		<action name="bulletinForm" type="com.kizsoft.oa.bulletin.actions.EditAction" validate="true" scope="request"
+				path="/editAction">
+			<forward name="success" path="/content.jsp" redirect="false"/>
+		</action>
+		<action name="bulletinForm" type="com.kizsoft.oa.bulletin.actions.FormAction" validate="true" scope="request"
+				path="/dealAction">
+			<forward name="success" path="/index.jsp" redirect="true"/>
+		</action>
+		<action name="replyForm" type="com.kizsoft.oa.bulletin.actions.ReplyAction" validate="true" scope="request"
+				path="/replyAction">
+			<forward name="success" path="/index.jsp" redirect="true"/>
+		</action>
+	</action-mappings>
+</struts-config>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.1//EN"
+		"http://jakarta.apache.org/struts/dtds/struts-config_1_1.dtd">
+<struts-config>
+	<data-sources/>
+	<form-beans>
+		<form-bean type="com.kizsoft.oa.meeting.MeetingForm" name="meetingForm"/>
+	</form-beans>
+
+	<action-mappings>
+		<action path="/typeCodeAction" type="com.kizsoft.oa.meeting.TypeCodeAction">
+			<forward contextRelative="false" path="/meetingTypeView.jsp" name="meetingtype"/>
+			<forward contextRelative="false" path="/meetingRoomView.jsp" name="meetingroom"/>
+		</action>
+
+	</action-mappings>
+
+
+</struts-config>

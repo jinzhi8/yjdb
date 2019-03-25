@@ -1,0 +1,83 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<stat>
+	<search>
+		<items>
+			<item>
+				<name>会议名称</name>
+				<pageid>title</pageid>
+				<dbid>title</dbid>
+				<type>string</type>
+				<exp>like</exp>
+			</item>
+			<item>
+				<name>发布时间</name>
+				<pageid>issuetime</pageid>
+				<dbid>issuetime</dbid>
+				<type>date</type>
+				<exp>between</exp>
+			</item>
+		</items>
+	</search>
+	<view>
+		<type>instance</type>
+		<moduleid>zw_hydb</moduleid>
+		<unid>unid</unid>
+		<sql>select decode(a.instance_status,'1','办理中','办结') status,a.instance_id,b.* FROM view_flow_instances_main a,zwdbhy b
+		</sql>
+		<filters>
+			<filter>module_id='zw_hydb'</filter>
+			<filter>unid=app_id</filter>
+			<filter>instance_status in('2')</filter>
+		</filters>
+		<order>issuetime desc</order>
+		<rows>30</rows>
+		<columns>
+			<column>
+				<title>发布时间</title>
+				<property>$issuetime</property>
+				<filedtype>time</filedtype>
+				<width>130</width>
+				<length>100</length>
+				<align>center</align>
+				<link></link>
+			</column>
+			<column>
+				<title>会议类型</title>
+				<property>$source</property>
+				<filedtype>string</filedtype>
+				<width>170</width>
+				<length>12</length>
+				<align>center</align>
+				<link></link>
+			</column>
+			<column>
+				<title>会议名称</title>
+				<property>$title</property>
+				<filedtype>string</filedtype>
+				<width>570</width>
+				<length>100</length>
+				<align>left</align>
+				<link>/workflowEntry.do?instanceid=+$instance_id</link>
+			</column>
+			<!-- <column>
+				<title>办理人员</title>
+				<property>#curPerformer+&lt;br&gt;</property>
+				<filedtype>string</filedtype>
+				<width>130</width>
+				<length>100</length>
+				<align>left</align>
+			</column> -->
+			<column>
+				<title>是否办结</title>
+				<property>$qfman</property>
+				<filedtype>string</filedtype>
+				<width>130</width>
+				<length>100</length>
+				<align>center</align>
+			</column>
+		</columns>
+	</view>
+</stat>
+
+
+

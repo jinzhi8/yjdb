@@ -1,0 +1,296 @@
+@font-face {
+  font-family: 'iconfont';
+  src: url("../font/iconfont.eot?t=1512436220877");
+  /* IE9*/
+  src: url("../font/iconfont.eot?t=1512436220877#iefix") format("embedded-opentype"), url("../font/iconfont.ttf?t=1512436220877") format("truetype"), url("../font/iconfont.svg?t=1512436220877#iconfont") format("svg");
+  /* iOS 4.1- */
+}
+/* line 2, ../sass/common.scss */
+* {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+  font-family: "Microsoft YaHei","Roboto";
+}
+
+/* line 9, ../sass/common.scss */
+a, img {
+  border: 0;
+  -webkit-tap-highlight-color: rgba(255, 0, 0, 0);
+  text-decoration: none;
+  color: inherit;
+}
+
+/* line 15, ../sass/common.scss */
+html {
+  font-size: 62.5%;
+}
+
+/* line 18, ../sass/common.scss */
+a, button, input, textarea {
+  -webkit-tap-highlight-color: transparent;
+  outline: none;
+}
+
+/* line 22, ../sass/common.scss */
+input:not([type="radio"]) {
+  -webkit-appearance: none;
+  border: 1px solid #eee;
+}
+
+/* line 26, ../sass/common.scss */
+body {
+  background-color: #fff;
+}
+
+/* line 29, ../sass/common.scss */
+select {
+  border: 1px solid #eee;
+  padding: 5px;
+  border-radius: 3px;
+  outline: none;
+}
+
+/* line 35, ../sass/common.scss */
+.copyright {
+  font-size: 12px;
+  margin: 10px 0;
+  color: #999;
+  text-align: center;
+}
+
+/* line 43, ../sass/common.scss */
+header {
+  background-color: #23262e;
+  height: 6vh;
+}
+/* line 49, ../sass/common.scss */
+header .logo {
+  width: 10vw;
+  display: block;
+  float: left;
+  clear: both;
+  color: #fff;
+  font-size: 20px;
+  text-align: center;
+  line-height: 6vh;
+}
+/* line 59, ../sass/common.scss */
+header .right {
+  float: right;
+  color: #fff;
+  text-align: right;
+}
+/* line 64, ../sass/common.scss */
+header .menuBtn {
+  font-family: "iconfont" !important;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-weight: 400;
+  color: #fff;
+  background-color: #1aa094;
+  display: block;
+  text-align: center;
+  padding: 7px 8px;
+  float: left;
+  margin-top: 13px;
+}
+/* line 73, ../sass/common.scss */
+header .menuBtn:before {
+  content: "\e692";
+}
+/* line 77, ../sass/common.scss */
+header .info-line {
+  float: right;
+  text-align: right;
+  line-height: 6vh;
+  font-size: 14px;
+}
+/* line 82, ../sass/common.scss */
+header .info-line .dep {
+  display: inline-block;
+  font-family: "iconfont" !important;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-weight: 400;
+}
+/* line 85, ../sass/common.scss */
+header .info-line .dep:before {
+  content: "\e656";
+  margin-right: 5px;
+}
+/* line 90, ../sass/common.scss */
+header .info-line > .name {
+  padding: 0 20px;
+  height: 6vh;
+  display: inline-block;
+}
+/* line 94, ../sass/common.scss */
+header .info-line > .name em {
+  font-style: normal;
+}
+/* line 97, ../sass/common.scss */
+header .info-line > .name em.photo {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-color: #fff;
+  display: inline-block;
+  vertical-align: middle;
+  background-position: center;
+  background-size: contain;
+  background-image: url(../img/1.jpg);
+  margin-right: 5px;
+}
+/* line 109, ../sass/common.scss */
+header .info-line > .name em.name {
+  font-family: "iconfont" !important;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-weight: 400;
+}
+/* line 111, ../sass/common.scss */
+header .info-line > .name em.name:after {
+  content: "\e631";
+  font-size: 12px;
+  margin-left: 5px;
+}
+
+/* line 120, ../sass/common.scss */
+.wrapper {
+  height: 94vh;
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+}
+/* line 125, ../sass/common.scss */
+.wrapper .menu-wrap {
+  width: 10vw;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+}
+/* line 131, ../sass/common.scss */
+.wrapper .menu-wrap menu {
+  background-color: #393d49;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  border-right: 2px solid #1aa094;
+}
+
+/* line 143, ../sass/common.scss */
+menu a {
+  color: #fff;
+  font-size: 16px;
+  display: block;
+  padding: 15px;
+  line-height: 20px;
+  cursor: pointer;
+}
+/* line 150, ../sass/common.scss */
+menu a em {
+  display: inline-block;
+  overflow: hidden;
+  vertical-align: middle;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  vertical-align: middle;
+}
+/* line 155, ../sass/common.scss */
+menu .nav i, menu .nav em, menu .nav b {
+  font-style: normal;
+  font-weight: 400;
+}
+/* line 159, ../sass/common.scss */
+menu .nav i, menu .nav b {
+  font-family: "iconfont" !important;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-weight: 400;
+}
+/* line 162, ../sass/common.scss */
+menu .nav i {
+  margin-right: 10px;
+}
+/* line 165, ../sass/common.scss */
+menu .nav > a {
+  padding: 15px 10px;
+}
+/* line 167, ../sass/common.scss */
+menu .nav > a em {
+  width: 6vw;
+}
+/* line 171, ../sass/common.scss */
+menu .nav > a i:before {
+  content: "\e64f";
+  font-size: 18px;
+}
+/* line 176, ../sass/common.scss */
+menu .nav > a b {
+  float: right;
+  font-size: 12px;
+  display: inline-block;
+  vertical-align: middle;
+}
+/* line 181, ../sass/common.scss */
+menu .nav > a b:before {
+  content: "\e631";
+}
+/* line 186, ../sass/common.scss */
+menu .nav > a.home i:before {
+  content: "\e630";
+}
+/* line 192, ../sass/common.scss */
+menu .nav ul.mini-list {
+  display: none;
+  border-bottom: rgba(44, 48, 58, 0.1) 1px solid;
+  background-color: #2c303a;
+}
+/* line 196, ../sass/common.scss */
+menu .nav ul.mini-list a {
+  padding: 15px 5px;
+  padding-left: 1.5vw;
+}
+/* line 199, ../sass/common.scss */
+menu .nav ul.mini-list a em {
+  width: 5vw;
+}
+/* line 203, ../sass/common.scss */
+menu .nav ul.mini-list a i:before {
+  content: "\e600";
+}
+/* line 210, ../sass/common.scss */
+menu .nav.active > a {
+  background-color: #1aa094;
+}
+/* line 213, ../sass/common.scss */
+menu .nav.active b {
+  transform: rotate(180deg);
+}
+/* line 216, ../sass/common.scss */
+menu .nav.active ul.mini-list {
+  display: block;
+}
+/* line 218, ../sass/common.scss */
+menu .nav.active ul.mini-list .nav.active a {
+  background-color: rgba(26, 160, 148, 0.5);
+}
+
+/* line 225, ../sass/common.scss */
+.content {
+  position: absolute;
+  left: 10vw;
+  right: 0;
+  bottom: 0;
+  top: 0;
+  padding: 15px;
+  overflow: auto;
+}

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.1//EN"
+		"http://jakarta.apache.org/struts/dtds/struts-config_1_1.dtd">
+<struts-config>
+	<data-sources/>
+	<action-mappings>
+        <action path="/jsontree" type="com.kizsoft.commons.commons.tree.JsonTreeAction" validate="true" scope="request"></action>
+		<action path="/tree" type="com.kizsoft.commons.commons.tree.TreeAction" validate="true" scope="request"></action>
+		<action path="/userTree" type="com.kizsoft.commons.commons.tree.UserTreeAction" validate="true" scope="request"></action>
+		<action path="/JianguanTree" type="com.kizsoft.oa.jianguan.actions.JianguanTreeAction" validate="true" scope="request"></action>
+		<action path="/userTreeNew" type="com.kizsoft.commons.commons.tree.NewUserTreeAction" validate="true" scope="request"></action>
+		<action path="/roleTree" type="com.kizsoft.commons.commons.tree.RoleTreeAction" validate="true" scope="request"></action>
+		<action path="/personalTree" type="com.kizsoft.commons.commons.tree.PersonalTreeAction" validate="true" scope="request"></action>
+		<action path="/publicAddressTree" type="com.kizsoft.commons.commons.tree.PublicAddressTreeAction" validate="true" scope="request"></action>
+		<action path="/personalAddressTree" type="com.kizsoft.commons.commons.tree.PersonalAddressTreeAction" validate="true" scope="request"></action>
+		<action path="/address/jsontree2" type="com.kizsoft.commons.commons.tree.JsonTreeAddressListAction">		
+		</action>
+		<action path="/jsontree2" type="com.kizsoft.commons.commons.tree.JsonTreeAddressListAction" validate="true" scope="request"></action>
+	</action-mappings>
+</struts-config>

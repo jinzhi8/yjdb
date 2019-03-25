@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta http-equiv="pragma" content="no-cache">
+    <meta http-equiv="cache-control" content="no-cache">
+    <title>永嘉县电子政务督办系统</title>
+    <script type="text/javascript" src="lib/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript" src="lib/layer.js"></script>
+    <script type="text/javascript" src="lib/echarts.min.js"></script>
+    <script type="text/javascript" src="lib/mobileSelect.js"></script>
+    <script src="lib/dingtalk.js"></script>
+    <link rel="stylesheet" href="lib/mobileSelect.css">
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/menu-nav.css">
+    <link rel="stylesheet" href="css/bulletin.css">
+</head>
+<body>
+  <div class="wrapper">
+    <ul class="form-list">
+      <li><label>通报名称</label><em class="icon" id="tbmc-choice">请选择</em></li>
+      <li><label>起始月份</label><em class="icon" id="startDate">请选择</em></li>
+      <li><label>结束月份</label><em class="icon" id="endDate">请选择</em></li>
+      <li><label>期　　数</label><em><input id="qs" type="number" placeholder="请输入期数" /></em></li>
+    </ul>
+    <p class="btn-wrap"><a class="download">导出</a></p>
+    <div class="shadow">
+      <ul class="shadow-list">
+        <li><em data-code="1">县政府重点交办事项督办落实情况的报告（呈林万乐县长）</em><i></i></li>
+        <li><em data-code="2">县政府督办件落实情况（线上通报）</em><i></i></li>
+        <li><em data-code="3">县政府督办件落实情况的通报（部门单位）</em><i></i></li>
+      </ul>
+      <p class="shadow-btn-wrap"><a class="cancel">取消</a><a class="submit">确定</a></p>
+    </div>
+  </div>
+
+</body>
+<script src="js/base.js"></script>
+<script src="js/common.js"></script>
+<script src="js/menu-nav.js"></script>
+<script src="js/bulletin.js?t=33"></script>
+</html>

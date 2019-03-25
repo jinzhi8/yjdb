@@ -1,0 +1,79 @@
+@font-face {
+  font-family: 'iconfont';
+  src: url("../font/iconfont.eot?t=1512436220877");
+  /* IE9*/
+  src: url("../font/iconfont.eot?t=1512436220877#iefix") format("embedded-opentype"), url("../font/iconfont.ttf?t=1512436220877") format("truetype"), url("../font/iconfont.svg?t=1512436220877#iconfont") format("svg");
+  /* iOS 4.1- */
+}
+/* line 2, ../sass/details2.scss */
+body {
+  background-color: #f9f9f9;
+}
+
+/* line 5, ../sass/details2.scss */
+.title {
+  text-align: center;
+  overflow: hidden;
+  position: relative;
+  padding-bottom: 10px;
+}
+/* line 10, ../sass/details2.scss */
+.title .text {
+  height: 30px;
+  line-height: 30px;
+  font-size: 1.8rem;
+  color: #fff;
+  position: relative;
+  top: 10px;
+}
+/* line 17, ../sass/details2.scss */
+.title .text i {
+  font-family: "iconfont" !important;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 12px;
+  line-height: 12px;
+  display: inline-block;
+  background-color: #ffa901;
+  padding: 3px 5px;
+  position: relative;
+  margin-left: 10px;
+  border-radius: 3px;
+  color: #fff;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 5px;
+}
+/* line 34, ../sass/details2.scss */
+.title .text i:before {
+  content: "\e792";
+  display: block;
+  position: absolute;
+  left: -8px;
+  width: 12px;
+  height: 9px;
+  color: #ffa901;
+  font-size: 10px;
+}
+/* line 44, ../sass/details2.scss */
+.title .text i.success {
+  background-color: #9fee00;
+}
+/* line 47, ../sass/details2.scss */
+.title .text i.success:before {
+  color: #9fee00;
+}
+/* line 52, ../sass/details2.scss */
+.title .background {
+  width: 150%;
+  background-color: #3da5fe;
+  height: 225px;
+  margin-top: -200px;
+  border-radius: 50%;
+  margin-left: -25%;
+  box-shadow: 0 5px 0 rgba(61, 165, 254, 0.5);
+}

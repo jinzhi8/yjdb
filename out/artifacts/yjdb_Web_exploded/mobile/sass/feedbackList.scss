@@ -1,0 +1,82 @@
+@import "base.scss";
+body{
+  background-color: #f5f5f5;
+}
+.wrapper{
+  padding-top: 50px;
+  min-height: auto;
+}
+header{
+  box-shadow:  0 0 3px rgba(0,0,0,.2);
+}
+.list-wrap{
+  li{
+    background-color: #fff;
+    overflow: hidden;
+    margin-bottom: 10px;
+  }
+  i{
+    @include iconfont;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 5px;
+  }
+  .title{
+    font-size: 1.8rem;
+    margin: 10px;
+    word-wrap:break-word;
+  }
+  .info-wrap{
+    margin: 0 15px;
+    background-color: #f9f9f9;
+    padding: 10px 0;
+    p{
+      display: flex;
+      align-items: center;
+      font-size: 1.6rem;
+      margin: 0 10px;
+      span{
+        display: flex;
+      }
+      em{
+        font-style: normal;
+        color: #333;
+      }
+      i{
+        width: 25px;
+        height: 25px;
+        border-radius: 50%;
+        color: rgba(50,150,250,.7);
+      }
+      &.lxr i:before{
+        content:"\e60f";
+        font-size: 2rem;
+      }
+      &.lxdh i:before{
+        content:"\e62a";
+        font-size: 1.8rem;
+      }
+      &.fkzq i:before{
+        content:"\e60b";
+        font-size: 1.8rem;
+      }
+    }
+  }
+  .assist-wrap{
+    display: flex;
+    justify-content: flex-end;
+    padding: 5px 15px;
+    span{
+      height: 25px;
+      display: flex;
+      align-items: center;
+      font-size: 1.5rem;
+      color: #666;
+      &.time-wrap i:before{
+        color: #666;
+        content:"\e6b5";
+      }
+    }
+  }
+}

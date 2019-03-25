@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="utf-8"?>
+<config>
+    <view sql="select * from getshouzwdb where REQUESTID=?" primaryKey="appId" jsp="/zwdb/show.jsp">
+        <field dbCol="REQUESTID" formCol="requestid" type="string" value="" />
+        <field dbCol="TITLE" formCol="title" type="string" value="" />
+        <field dbCol="SENDDEP" formCol="senddep" type="string" />
+        <field dbCol="SENDDEPID" formCol="senddepid" type="string" />
+        <field dbCol="RECEIVEDEP" formCol="receivedep" type="string" />
+        <field dbCol="RECEIVEDEPID" formCol="receivedepid" type="string" />
+        <field dbCol="SEND_ISSUE_DEP_CODE" formCol="send_issue_dep_code" type="string" value="" />
+        <field dbCol="SEND_ISSUE_YEAR" formCol="send_issue_year" type="string" value="" />
+        <field dbCol="SEND_ISSUE_NUM" formCol="send_issue_num" type="string" value="" />
+        <field dbCol="ISSUE_DEP_CODE" formCol="issue_dep_code" type="string" value="" />
+        <field dbCol="ISSUE_YEAR" formCol="issue_year" type="string" value="" />
+        <field dbCol="ISSUE_NUM" formCol="issue_num" type="string" value="" />
+        <field dbCol="SENDDATE" formCol="senddate" type="string" />
+        <field dbCol="GETDATE" formCol="getdate" type="string" />
+        <field dbCol="RANGELIST" formCol="rangelist" type="string" />
+        <field dbCol="RANGEIDLIST" formCol="rangeidlist" type="string" />
+        <field dbCol="DRAFTMAN" formCol="draftman" type="string" />
+        <field dbCol="DRAFTMANID" formCol="draftmanid" type="string" />
+        <field dbCol="DEPARTMENT" formCol="department" type="string" />
+        <field dbCol="DEPARTMENTID" formCol="departmentid" type="string" />
+        <field dbCol="ISSUETIME" formCol="issuetime" type="time" />
+        <field dbCol="ISSUEFLAG" formCol="issueflag" type="string" />
+        <field dbCol="COPYDEP" formCol="copydep" type="string" />
+        <field dbCol="COPYDEPID" formCol="copydepid" type="string" />       
+        <field dbCol="qfmanid" formCol="qfmanid" type="string"/>
+        <field dbCol="issuetime" formCol="issuetime" type="time"/>
+        <field dbCol="leadername" formCol="leadername" type="string"/>
+        <field dbCol="leaderid" formCol="leaderid" type="string"/>
+        <field dbCol="source" formCol="source" type="string"/>
+        <field dbCol="sourceid" formCol="sourceid" type="string"/>
+        <field dbCol="jbsx" formCol="jbsx" type="date"/>
+        <field dbCol="fklx" formCol="fklx" type="string"/>
+        <field dbCol="fkzq" formCol="fkzq" type="string"/>
+        <field dbCol="qftime" formCol="qftime" type="time"/>
+        <field dbCol="managedepname" formCol="managedepname" type="string"/>
+        <field dbCol="managedepid" formCol="managedepid" type="string"/>
+        <field dbCol="copyto" formCol="copyto" type="string"/>
+        <field dbCol="copytoid" formCol="copytoid" type="string"/>
+        <field dbCol="lxr" formCol="lxr" type="string"/>
+        <field dbCol="lxdh" formCol="lxdh" type="string"/>
+        <field dbCol="czhm" formCol="czhm" type="string"/>
+
+        
+    </view>
+    <edit sql="select * from getshouzwdb where REQUESTID=?" primaryKey="requestid" jsp="/zwdb/content.jsp">
+        <field dbCol="REQUESTID" formCol="requestid" type="string" value="" />
+        <field dbCol="TITLE" formCol="title" type="string" value="" />
+        <field dbCol="SENDDEP" formCol="senddep" type="string" />
+        <field dbCol="SENDDEPID" formCol="senddepid" type="string" />
+        <field dbCol="RECEIVEDEP" formCol="receivedep" type="string" />
+        <field dbCol="RECEIVEDEPID" formCol="receivedepid" type="string" />
+        <field dbCol="SEND_ISSUE_DEP_CODE" formCol="send_issue_dep_code" type="string" value="" />
+        <field dbCol="SEND_ISSUE_YEAR" formCol="send_issue_year" type="string" value="" />
+        <field dbCol="SEND_ISSUE_NUM" formCol="send_issue_num" type="string" value="" />
+        <field dbCol="ISSUE_DEP_CODE" formCol="issue_dep_code" type="string" value="" />
+        <field dbCol="ISSUE_YEAR" formCol="issue_year" type="string" value="" />
+        <field dbCol="ISSUE_NUM" formCol="issue_num" type="string" value="" />
+        <field dbCol="SENDDATE" formCol="senddate" type="string" />
+        <field dbCol="GETDATE" formCol="getdate" type="string" />
+        <field dbCol="RANGELIST" formCol="rangelist" type="string" />
+        <field dbCol="RANGEIDLIST" formCol="rangeidlist" type="string" />
+        <field dbCol="DRAFTMAN" formCol="draftman" type="string" />
+        <field dbCol="DRAFTMANID" formCol="draftmanid" type="string" />
+        <field dbCol="DEPARTMENT" formCol="department" type="string" />
+        <field dbCol="DEPARTMENTID" formCol="departmentid" type="string" />
+        <field dbCol="ISSUEFLAG" formCol="issueflag" type="string" />
+        <field dbCol="COPYDEP" formCol="copydep" type="string" />
+        <field dbCol="COPYDEPID" formCol="copydepid" type="string" />
+
+        <field dbCol="qfmanid" formCol="qfmanid" type="string"/>
+        <field dbCol="issuetime" formCol="issuetime" type="time"/>
+        <field dbCol="leadername" formCol="leadername" type="string"/>
+        <field dbCol="leaderid" formCol="leaderid" type="string"/>
+        <field dbCol="source" formCol="source" type="string"/>
+        <field dbCol="sourceid" formCol="sourceid" type="string"/>
+        <field dbCol="jbsx" formCol="jbsx" type="date"/>
+        <field dbCol="fklx" formCol="fklx" type="string"/>
+        <field dbCol="fkzq" formCol="fkzq" type="string"/>
+        <field dbCol="qftime" formCol="qftime" type="time"/>
+        <field dbCol="managedepname" formCol="managedepname" type="string"/>
+        <field dbCol="managedepid" formCol="managedepid" type="string"/>
+        <field dbCol="copyto" formCol="copyto" type="string"/>
+        <field dbCol="copytoid" formCol="copytoid" type="string"/>
+        <field dbCol="lxr" formCol="lxr" type="string"/>
+        <field dbCol="lxdh" formCol="lxdh" type="string"/>
+        <field dbCol="czhm" formCol="czhm" type="string"/>
+    </edit>
+    <insert
+        sql="insert into getshouzwdb(REQUESTID,TITLE,SENDDEP,SENDDEPID,RECEIVEDEP,RECEIVEDEPID,SEND_ISSUE_DEP_CODE,SEND_ISSUE_YEAR,SEND_ISSUE_NUM,ISSUE_DEP_CODE,ISSUE_YEAR,ISSUE_NUM,SENDDATE,GETDATE,RANGELIST,RANGEIDLIST,DRAFTMAN,DRAFTMANID,DEPARTMENT,DEPARTMENTID,ISSUEFLAG,COPYDEP,COPYDEPID,qfmanid,issuetime,leadername,leaderid,source,sourceid,jbsx,fklx,fkzq,qftime,managedepname,managedepid,copyto,copytoid,lxr,lxdh,czhm) values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)"
+         primaryKey="requestid" title="title" sequence="SEQ_UNID"
+         jsp="/zwdb/index.jsp">
+        <field dbCol="REQUESTID" formCol="requestid" type="string" value="" />
+        <field dbCol="TITLE" formCol="title" type="string" value="" />
+        <field dbCol="SENDDEP" formCol="senddep" type="string" />
+        <field dbCol="SENDDEPID" formCol="senddepid" type="string" />
+        <field dbCol="RECEIVEDEP" formCol="receivedep" type="string" />
+        <field dbCol="RECEIVEDEPID" formCol="receivedepid" type="string" />
+        <field dbCol="SEND_ISSUE_DEP_CODE" formCol="send_issue_dep_code" type="string" value="" />
+        <field dbCol="SEND_ISSUE_YEAR" formCol="send_issue_year" type="string" value="" />
+        <field dbCol="SEND_ISSUE_NUM" formCol="send_issue_num" type="string" value="" />
+        <field dbCol="ISSUE_DEP_CODE" formCol="issue_dep_code" type="string" value="" />
+        <field dbCol="ISSUE_YEAR" formCol="issue_year" type="string" value="" />
+        <field dbCol="ISSUE_NUM" formCol="issue_num" type="string" value="" />
+        <field dbCol="SENDDATE" formCol="senddate" type="string" />
+        <field dbCol="GETDATE" formCol="getdate" type="string" />
+        <field dbCol="RANGELIST" formCol="rangelist" type="string" />
+        <field dbCol="RANGEIDLIST" formCol="rangeidlist" type="string" />
+        <field dbCol="DRAFTMAN" formCol="draftman" type="string" />
+        <field dbCol="DRAFTMANID" formCol="draftmanid" type="string" />
+        <field dbCol="DEPARTMENT" formCol="department" type="string" />
+        <field dbCol="DEPARTMENTID" formCol="departmentid" type="string" />
+        <field dbCol="ISSUEFLAG" formCol="issueflag" type="string" />
+        <field dbCol="COPYDEP" formCol="copydep" type="string" />
+        <field dbCol="COPYDEPID" formCol="copydepid" type="string" />
+        <field dbCol="qfmanid" formCol="qfmanid" type="string"/>
+        <field dbCol="issuetime" formCol="issuetime" type="time"/>
+        <field dbCol="leadername" formCol="leadername" type="string"/>
+        <field dbCol="leaderid" formCol="leaderid" type="string"/>
+        <field dbCol="source" formCol="source" type="string"/>
+        <field dbCol="sourceid" formCol="sourceid" type="string"/>
+        <field dbCol="jbsx" formCol="jbsx" type="date"/>
+        <field dbCol="fklx" formCol="fklx" type="string"/>
+        <field dbCol="fkzq" formCol="fkzq" type="string"/>
+        <field dbCol="qftime" formCol="qftime" type="time"/>
+        <field dbCol="managedepname" formCol="managedepname" type="string"/>
+        <field dbCol="managedepid" formCol="managedepid" type="string"/>
+        <field dbCol="copyto" formCol="copyto" type="string"/>
+        <field dbCol="copytoid" formCol="copytoid" type="string"/>
+        <field dbCol="lxr" formCol="lxr" type="string"/>
+        <field dbCol="lxdh" formCol="lxdh" type="string"/>
+        <field dbCol="czhm" formCol="czhm" type="string"/>
+    </insert>
+    <update
+         sql="update getshouzwdb set TITLE=?,SENDDEP=?,SENDDEPID=?,RECEIVEDEP=?,RECEIVEDEPID=?,SEND_ISSUE_DEP_CODE=?,SEND_ISSUE_YEAR=?,SEND_ISSUE_NUM=?,ISSUE_DEP_CODE=?,ISSUE_YEAR=?,ISSUE_NUM=?,SENDDATE=?,GETDATE=?,RANGELIST=?,RANGEIDLIST=?,DRAFTMAN=?,DRAFTMANID=?,DEPARTMENT=?,DEPARTMENTID=?,ISSUEFLAG=?,COPYDEP=?,COPYDEPID=?,qfmanid=?,issuetime=?,leadername=?,leaderid=?,source=?,sourceid=?,jbsx=?,fklx=?,fkzq=?,qftime=?,managedepname=?,managedepid=?,copyto=?,copytoid=?,lxr=?,lxdh=?,czhm=? WHERE REQUESTID=?"
+         primaryKey="requestid" title="title" 
+        jsp="/zwdb/index.jsp">
+        <field dbCol="TITLE" formCol="title" type="string" value="" />
+        <field dbCol="SENDDEP" formCol="senddep" type="string" />
+        <field dbCol="SENDDEPID" formCol="senddepid" type="string" />
+        <field dbCol="RECEIVEDEP" formCol="receivedep" type="string" />
+        <field dbCol="RECEIVEDEPID" formCol="receivedepid" type="string" />
+        <field dbCol="SEND_ISSUE_DEP_CODE" formCol="send_issue_dep_code" type="string" value="" />
+        <field dbCol="SEND_ISSUE_YEAR" formCol="send_issue_year" type="string" value="" />
+        <field dbCol="SEND_ISSUE_NUM" formCol="send_issue_num" type="string" value="" />
+        <field dbCol="ISSUE_DEP_CODE" formCol="issue_dep_code" type="string" value="" />
+        <field dbCol="ISSUE_YEAR" formCol="issue_year" type="string" value="" />
+        <field dbCol="ISSUE_NUM" formCol="issue_num" type="string" value="" />
+        <field dbCol="SENDDATE" formCol="senddate" type="string" />
+        <field dbCol="GETDATE" formCol="getdate" type="string" />
+        <field dbCol="RANGELIST" formCol="rangelist" type="string" />
+        <field dbCol="RANGEIDLIST" formCol="rangeidlist" type="string" />
+        <field dbCol="DRAFTMAN" formCol="draftman" type="string" />
+        <field dbCol="DRAFTMANID" formCol="draftmanid" type="string" />
+        <field dbCol="DEPARTMENT" formCol="department" type="string" />
+        <field dbCol="DEPARTMENTID" formCol="departmentid" type="string" />
+        <field dbCol="ISSUEFLAG" formCol="issueflag" type="string" />
+        <field dbCol="COPYDEP" formCol="copydep" type="string" />
+        <field dbCol="COPYDEPID" formCol="copydepid" type="string" />
+        <field dbCol="qfmanid" formCol="qfmanid" type="string"/>
+        <field dbCol="issuetime" formCol="issuetime" type="time"/>
+        <field dbCol="leadername" formCol="leadername" type="string"/>
+        <field dbCol="leaderid" formCol="leaderid" type="string"/>
+        <field dbCol="source" formCol="source" type="string"/>
+        <field dbCol="sourceid" formCol="sourceid" type="string"/>
+        <field dbCol="jbsx" formCol="jbsx" type="date"/>
+        <field dbCol="fklx" formCol="fklx" type="string"/>
+        <field dbCol="fkzq" formCol="fkzq" type="string"/>
+        <field dbCol="qftime" formCol="qftime" type="time"/>
+        <field dbCol="managedepname" formCol="managedepname" type="string"/>
+        <field dbCol="managedepid" formCol="managedepid" type="string"/>
+        <field dbCol="copyto" formCol="copyto" type="string"/>
+        <field dbCol="copytoid" formCol="copytoid" type="string"/>
+        <field dbCol="lxr" formCol="lxr" type="string"/>
+        <field dbCol="lxdh" formCol="lxdh" type="string"/>
+        <field dbCol="czhm" formCol="czhm" type="string"/>
+        <field dbCol="REQUESTID" formCol="requestid" type="string" value="" />
+    </update>
+    <delete sql="delete from getshouzwdb where REQUESTID=?" primaryKey="requestid" jsp="/zwdb/index.jsp">
+        <field dbCol="REQUESTID" formCol="requestid" type="string" />
+    </delete>
+</config>
+
+
+

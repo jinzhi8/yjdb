@@ -1,0 +1,185 @@
+@font-face {
+  font-family: 'iconfont';
+  src: url("../font/iconfont.eot?t=1512436220877");
+  /* IE9*/
+  src: url("../font/iconfont.eot?t=1512436220877#iefix") format("embedded-opentype"), url("../font/iconfont.ttf?t=1512436220877") format("truetype"), url("../font/iconfont.svg?t=1512436220877#iconfont") format("svg");
+  /* iOS 4.1- */
+}
+/* line 2, ../sass/feedbackDetail.scss */
+body {
+  background-color: #f5f5f5;
+}
+
+/* line 5, ../sass/feedbackDetail.scss */
+.wrapper {
+  min-height: auto;
+}
+
+/* line 8, ../sass/feedbackDetail.scss */
+.title {
+  margin-bottom: 15px;
+  display: flex;
+  font-size: 1.6rem;
+  align-items: center;
+  font-weight: 700;
+}
+/* line 14, ../sass/feedbackDetail.scss */
+.title i {
+  width: 5px;
+  height: 18px;
+  background-color: #3296FA;
+  margin-right: 5px;
+}
+
+/* line 21, ../sass/feedbackDetail.scss */
+.linkman {
+  background-color: #fff;
+  margin-bottom: 10px;
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+}
+/* line 28, ../sass/feedbackDetail.scss */
+.linkman .content {
+  display: flex;
+  align-items: center;
+}
+/* line 32, ../sass/feedbackDetail.scss */
+.linkman .photo {
+  font-family: "iconfont" !important;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-weight: 400;
+  width: 60px;
+  height: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  background-color: rgba(50, 150, 250, 0.2);
+  font-size: 5rem;
+  overflow: hidden;
+  color: #f9f9f9;
+  margin-right: 15px;
+}
+/* line 45, ../sass/feedbackDetail.scss */
+.linkman .photo:before {
+  content: "\e677";
+  position: relative;
+  top: 5px;
+}
+/* line 51, ../sass/feedbackDetail.scss */
+.linkman .info-wrap {
+  flex: 1;
+}
+/* line 53, ../sass/feedbackDetail.scss */
+.linkman .info-wrap .name {
+  font-size: 1.6rem;
+}
+/* line 56, ../sass/feedbackDetail.scss */
+.linkman .info-wrap .info {
+  margin-top: 10px;
+  padding: 5px 10px;
+  background-color: #f9f9f9;
+}
+/* line 60, ../sass/feedbackDetail.scss */
+.linkman .info-wrap .info p {
+  display: flex;
+  margin: 5px 0;
+  font-size: 1.4rem;
+  color: #333;
+}
+/* line 65, ../sass/feedbackDetail.scss */
+.linkman .info-wrap .info p i {
+  font-family: "iconfont" !important;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-weight: 400;
+  margin-right: 10px;
+  border-radius: 3px;
+  width: 20px;
+  height: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #666;
+}
+/* line 76, ../sass/feedbackDetail.scss */
+.linkman .info-wrap .info p.zw i:before {
+  content: "\e627";
+  font-size: 1.6rem;
+}
+/* line 81, ../sass/feedbackDetail.scss */
+.linkman .info-wrap .info p.lxfs i:before {
+  content: "\e61d";
+  font-size: 2rem;
+}
+
+/* line 89, ../sass/feedbackDetail.scss */
+ul.info-list {
+  padding: 0 10px;
+  background-color: #fff;
+  margin-bottom: 10px;
+}
+/* line 93, ../sass/feedbackDetail.scss */
+ul.info-list li {
+  display: flex;
+  font-size: 1.6rem;
+  padding: 10px 0;
+}
+/* line 97, ../sass/feedbackDetail.scss */
+ul.info-list li label {
+  color: #999;
+}
+/* line 100, ../sass/feedbackDetail.scss */
+ul.info-list li span {
+  flex: 1;
+  text-align: right;
+}
+/* line 105, ../sass/feedbackDetail.scss */
+ul.info-list li:not(:last-child) {
+  border-bottom: 1px solid #eee;
+}
+/* line 110, ../sass/feedbackDetail.scss */
+ul.info-list.feed li {
+  flex-direction: column;
+}
+/* line 112, ../sass/feedbackDetail.scss */
+ul.info-list.feed li label {
+  font-size: 1.4rem;
+  color: #999;
+  margin-bottom: 10px;
+}
+/* line 117, ../sass/feedbackDetail.scss */
+ul.info-list.feed li span {
+  text-align: left;
+}
+/* line 119, ../sass/feedbackDetail.scss */
+ul.info-list.feed li span em {
+  display: inline-block;
+  margin-bottom: 5px;
+  margin-right: 5px;
+  border-radius: 3px;
+  font-style: normal;
+  padding: 3px 5px;
+  border: 1px solid #3296FA;
+  color: #3296FA;
+}
+
+/* line 134, ../sass/feedbackDetail.scss */
+.btn-wrap {
+  display: flex;
+  padding: 10px;
+}
+/* line 137, ../sass/feedbackDetail.scss */
+.btn-wrap a {
+  flex: 1;
+  text-align: center;
+  padding: 10px;
+  background-color: #F25643;
+  color: #fff;
+  font-size: 1.6rem;
+  border-radius: 3px;
+}

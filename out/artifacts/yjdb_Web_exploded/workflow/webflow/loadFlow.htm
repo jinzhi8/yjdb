@@ -1,0 +1,57 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>读取流程信息</title>
+<script>
+function loadflow(){
+	if(document.form1.t1.innerText=="")return;
+	if(document.form1.t1.style.display=="block"){
+		parent.doLoadFlow(document.form1.t1.innerText);
+		parent.hidePropertiesPane();
+		document.form1.t1.innerText="";
+	}else{
+	//从文件读取
+		if(document.form1.f1.value=="")return;
+		var fso=new ActiveXObject("Scripting.FileSystemObject");
+		var ff = fso.OpenTextFile( document.form1.f1.value, 1, false,-2);
+		var str="";
+		 while (!ff.AtEndOfStream)
+      		str += ff.ReadLine();
+   		ff.Close( );
+		var b,e;
+		b=str.indexOf("var nn");
+		e=str.indexOf("</textarea>");
+		str=str.substring(b,e)
+		parent.doLoadFlow(str);
+		parent.hidePropertiesPane();
+		document.form1.t1.innerText="";
+		document.form1.f1.value="";
+	}
+}
+function clearText(obj){
+	if(obj.innerHTML=="请将保存的信息复制到下面的文本框内")
+		obj.innerHTML="";
+}
+function tab(bt){
+	if(bt.value=="切换从文件读取"){
+		bt.value="切换从文本读取";
+		document.form1.t1.style.display="none";
+		document.form1.f1.style.display="block";
+	}else{
+		bt.value="切换从文件读取";
+		document.form1.t1.style.display="block";
+		document.form1.f1.style.display="none";
+	}
+}
+</script>
+</head>
+
+<body style="margin:1px;font-size:14px;">
+<form name="form1" onsubmit="return false;">
+<button tabindex="1" onclick="loadflow()">确定</button>&nbsp;<input tabindex="2" type="button" value="切换从文件读取" onclick="tab(this)" />&nbsp;<button onclick="parent.hidePropertiesPane();" tabindex="3">关闭</button><br />
+<textarea tabindex="4" name="t1" style="width:90%;height:100px;display:block" onfocus="clearText(this)">请将保存的信息复制到下面的文本框内</textarea>
+<input tabindex="5" type="file" name="f1" style="display:none;width:90%;" />
+</form>
+</body>
+</html>

@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<view>
+    <type>common</type>
+	<moduleid>systemlog</moduleid>
+    <sql>select to_char(logintime,'yyyy-mm-dd hh24:Mi:SS') datettime,username,loginip,decode(sccuess,'1','成功','0','失败',sccuess) sccuess,decode(depflag,'','电脑端','1','手机端','2','平板端',depflag) depflag</sql>
+    <tables>userlogin</tables>
+    <filters>
+        <filter>1=1</filter>
+    </filters>
+    <order>logintime desc</order>
+    <rows>100</rows>
+    <columns>
+        <column>
+            <title>登录时间</title>
+            <property>$datettime</property>
+            <filedtype>string</filedtype>
+            <width>150</width>
+            <length>30</length>
+            <align>center</align>
+            <link></link>
+        </column>
+        <column>
+            <title>登录人</title>
+            <property>$username</property>
+            <filedtype>string</filedtype>
+            <width></width>
+            <length>30</length>
+            <align>left</align>
+            <link></link>
+        </column>
+        <column>
+            <title>IP地址</title>
+            <property>$loginip</property>
+            <filedtype>string</filedtype>
+            <width>150</width>
+            <length>30</length>
+            <align>center</align>
+            <link></link>
+        </column>
+		<column>
+            <title>状态</title>
+            <property>$sccuess</property>
+            <filedtype>string</filedtype>
+            <width>150</width>
+            <length>30</length>
+            <align>center</align>
+            <link></link>
+        </column>
+		
+			<column>
+            <title>登录终端</title>
+            <property>$depflag</property>
+            <filedtype>string</filedtype>
+            <width>150</width>
+            <length>30</length>
+            <align>center</align>
+            <link></link>
+        </column>
+    </columns>
+</view>

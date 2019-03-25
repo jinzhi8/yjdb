@@ -1,0 +1,83 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title></title>
+<!--以下为,需要引入的css和js类库-->
+<link rel="stylesheet" href="ztree/ztree.css" type="text/css"/>
+ <script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="ztree/jquery.ztree.js"></script>
+<script type="text/javascript" src="jquery.xml2json.js"></script>
+<script>
+//<!--
+var zTree;
+var productIframe;
+var setting = {
+	async: {
+		enable: true,//启用异步加载
+		url:"/oa/address/userTree.do", //异步请求地址
+		autoParam:["id"], //需要传递的参数,为你在ztree中定义的参数名称
+		otherParam:{"chk":"chk"}
+	},
+	view: {
+		dblClickExpand: false,
+		showLine: true,
+		selectedMulti: false,
+		expandSpeed: ($.browser.msie && parseInt($.browser.version)<=6)?"":"fast"
+	},
+	data: {
+		simpleData: {
+			enable: true
+		}
+	}
+};
+function onAsyncSuccess(event, treeId, treeNode, msg) {
+	cancelHalf(treeNode);
+}
+function cancelHalf(treeNode) {
+	var zTree = $.fn.zTree.getZTreeObj("ztree");
+	treeNode.halfCheck = false;
+	zTree.updateNode(treeNode);   //异步加载成功后刷新树节点
+} 
+$(document).ready(function(){
+	//以下为第一次要加载的一级节点
+    $.post("http://localhost/oa/address/userTree.do",{id:'',utype:"1"},function(result){
+		var json = $.xml2json(result);
+		//alert(json);
+		if(window.console) console.log(['test-2 json:',json]);
+		$('#ztree').append(json);
+		$.each(json['TreeNode'], function(i, obj){
+			alert(obj.text);
+			//$('#result-2').append('<p>Title: '+obj.title+'<br/>Link: '+obj.link+'<br/>Description: '+obj.description+'<br/></p>');
+		});
+
+		//$.fn.zTree.init($("#ztree"), setting, result);
+    });
+    //productIframe = $("#products");
+    //productIframe.bind("load", loadReady);
+});  
+function loadReady() {
+	var bodyH = productIframe.contents().find("body").get(0).scrollHeight,
+	htmlH = productIframe.contents().find("html").get(0).scrollHeight,
+	maxH = Math.max(bodyH, htmlH), minH = Math.min(bodyH, htmlH),
+	h = productIframe.height() >= maxH ? minH:maxH ;
+	if (h < 530) h = 530;
+	productIframe.height(h);
+} 
+//--> 
+</script>
+</head>
+<body>
+<table border=0 height=500px align=left>
+	<tr>
+		<td width="20%" align="left" valign="top" style="BORDER-RIGHT: #999999 1px dashed">
+			<ul id="ztree" class="ztree" style="overflow:auto;"></ul>
+		</td>
+		<td width="80%" align="left" valign="top">
+			<iframe name="products" id="products" scrolling="auto" width="100%" height="500px" frameborder="0"></iframe>
+		</td>
+	</tr>
+</table>
+</body>
+</html>
+

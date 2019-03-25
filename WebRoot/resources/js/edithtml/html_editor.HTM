@@ -1,0 +1,364 @@
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gbk">
+<link REL="stylesheet" TYPE="text/css" HREF="Html_Editor.css">
+<script language="javascript">
+var targetDoc;
+var bTextMode = false;
+public_description = new editor;
+function editor() {
+	this.get_contents = GetContents;
+	this.get_oritext = GetOritext;
+	this.get_plaincontents = GetPlainContents;
+	this.get_designmode = GetDesignMode;
+	this.get_allplaincontents = GetAllPlainContents;
+	this.put_designmode = PutDesignMode;
+	this.put_contents = PutContents;
+}
+
+function DoCut() {
+	target.document.execCommand("Cut", false, null);
+}
+
+function DoCopy() {
+	target.document.execCommand("Copy", false, null);
+}
+
+function DoPaste() {
+	target.document.execCommand("Paste", false, null);
+}
+
+function DoSelectAll() {
+	target.document.execCommand("SelectAll", false, null);
+}
+
+function GetContents() {
+	if (target.document.all["cdiv"] != null) return target.document.all["cdiv"].innerHTML; else return target.document.body.innerHTML;
+}
+
+function GetOritext() {
+	if (target.document.all["ori"] != null) return target.document.all["ori"].innerText; else return null;
+}
+
+function GetPlainContents() {
+	if (target.document.all["cdiv"] != null) return target.document.all["cdiv"].innerText; else return target.document.body.innerText;
+}
+
+function GetAllPlainContents() {
+	return target.document.body.innerText;
+}
+
+function GetDesignMode() {
+	return target.document.designMode;
+}
+
+function PutDesignMode(mode) {
+	targetDoc.designMode = mode;
+}
+
+function PutContents(contents) {
+	targetDoc.designMode = "On";
+	if (target.document.all["cdiv"] != null) target.document.all["cdiv"].innerHTML = contents; else target.document.body.innerHTML = contents;
+}
+
+function cleanHtml() {
+	var fonts = target.document.body.all.tags("FONT");
+	var curr;
+	for (var i = fonts.length - 1; i >= 0; i--) {
+		curr = fonts[i];
+		if (curr.style.backgroundColor == "#ffffff") curr.outerHTML = curr.innerHTML;
+	}
+}
+
+function setMode(newMode) {
+	bTextMode = newMode;
+	var cont;
+	if (bTextMode) {
+		cleanHtml();
+		cleanHtml();
+
+		cont = target.document.body.innerHTML;
+		target.document.body.innerText = cont;
+	} else {
+		cont = target.document.body.innerText;
+		target.document.body.innerHTML = cont;
+	}
+	target.focus();
+}
+
+// Check if toolbar is being used when in text mode
+function validateMode() {
+	if (! bTextMode) return true;
+	alert("Please uncheck the \"View HTML source\" checkbox to use the toolbars");
+	target.focus();
+	return false;
+}
+
+//Formats text in composition.
+function format(what, opt) {
+	//if (!validateMode()) return;
+
+	if (opt == "removeFormat") {
+		what = opt;
+		opt = null;
+	}
+
+	if (opt == null) target.document.execCommand(what); else target.document.execCommand(what, "", opt);
+
+	pureText = false;
+	target.focus();
+}
+
+function foreColor() {
+	//if (! validateMode()) return;
+	var arr = showModalDialog("ym/ColorSelect.htm", "", "font-family:Verdana; font-size:12; dialogWidth:30em; dialogHeight:30em");
+	if (arr != null) format('forecolor', arr); else target.focus();
+}
+
+//Sets the background color.
+function backColor() {
+	//if (!validateMode()) return;
+	var arr = showModalDialog("ym/ColorSelect.htm", "", "font-family:Verdana; font-size:12; dialogWidth:30em; dialogHeight:30em");
+	if (arr != null) format('backcolor', arr); else target.focus()
+}
+
+function onFontName(value) {
+	targetDoc.execCommand('FontName', '', value);
+	target.focus();
+}
+
+function onFontSize(value) {
+	targetDoc.execCommand('FontSize', '', value);
+	target.focus();
+}
+
+function onColor(value) {
+	targetDoc.execCommand('forecolor', '', value);
+	target.focus();
+}
+
+function onBKColor(value) {
+	targetDoc.execCommand('backcolor', '', value);
+	target.focus();
+}
+
+function onBold() {
+	targetDoc.execCommand('Bold');
+	target.focus();
+}
+
+function onItalic() {
+	targetDoc.execCommand('Italic');
+	target.focus();
+}
+
+function onUnderLine() {
+	targetDoc.execCommand('Underline');
+	target.focus();
+}
+
+function onALeft() {
+	targetDoc.execCommand('JustifyLeft');
+	target.focus();
+}
+
+function onACenter() {
+	targetDoc.execCommand('JustifyCenter');
+	target.focus();
+}
+
+function onARight() {
+	targetDoc.execCommand('JustifyRight');
+	target.focus();
+}
+
+function onNList() {
+	targetDoc.execCommand('InsertOrderedList');
+	target.focus();
+}
+
+function onBList() {
+	targetDoc.execCommand('InsertUnorderedList');
+	target.focus();
+}
+
+function onOutDent() {
+	targetDoc.execCommand('Outdent');
+	target.focus();
+}
+
+function onInDent() {
+	targetDoc.execCommand('Indent');
+	target.focus();
+}
+
+function getElem(sTag, start) {
+	while ((start != null) && (start.tagName != sTag)) start = start.parentElement;
+	return start;
+}
+
+function onHyperLink() {
+	var DoA = getElem("A", targetDoc.selection.createRange().parentElement());
+	var str = prompt("请输入超链接地址(例如http://www.sohu.com):", DoA ? DoA.href : "http:\/\/");
+
+	if ((str != null) && (str != "http://")) {
+		if (targetDoc.selection.type == "None") {
+			var sel = targetDoc.selection.createRange();
+			sel.pasteHTML("<A HREF=\"" + str + "\">" + str + "</A> ");
+			sel.select();
+		} else {
+			targetDoc.execCommand('CreateLink', '', str);
+		}
+	} else target.focus();
+}
+
+function onImage() {
+	var DoA = getElem("A", targetDoc.selection.createRange().parentElement());
+	var str = prompt("输入图片的超链接(例如http://images.sohu.com/soh1.gif):", DoA ? DoA.href : "http:\/\/");
+
+	if ((str != null) && (str != "http://")) {
+		if (targetDoc.selection.type == "None") {
+			var sel = targetDoc.selection.createRange();
+			sel.pasteHTML("<img src=\"" + str + "\">");
+			sel.select();
+		} else {
+			targetDoc.execCommand('InsertImage', '', str);
+		}
+	} else target.focus();
+}
+
+function imageForm() {
+	var loc = window.parent.location.pathname
+	//var DatabasePath = loc.substr(0, loc.indexOf('.nsf')+4)
+	//window.open(DatabasePath+"/webimagefile?openform" , "UploadImage" , "height=400, width=400, status");
+}
+
+</script>
+
+</head>
+<body>
+<div class="BAR" ID="FormatToolbar1">
+	<select ID="FontName" class="GEN" style="WIDTH: 60px" TITLE="字体" LANGUAGE="javascript" onchange="onFontName(this[this.selectedIndex].value);">
+		<option value="" selected>字体</option>
+		<option value="宋体">宋体</option>
+		<option value="黑体">黑体</option>
+		<option value="楷体_GB2312">楷体</option>
+		<option value="仿宋_GB2312">仿宋</option>
+		<option value="MS Song">MS宋体</option>
+		<option value="MS Hei">MS黑体</option>
+		<option value="MingLiU">MingLiU</option>
+		<option value="Arial">Arial</option>
+		<option value="Arial Black">Arial Black</option>
+		<option value="Arial Narrow">Arial Narrow</option>
+		<option value="Bradley Hand ITC">Bradley Hand ITC</option>
+		<option value="Brush Script MT">Brush Script MT</option>
+		<option value="Century Gothic">Century Gothic</option>
+		<option value="Comic Sans MS">Comic Sans MS</option>
+		<option value="Courier">Courier</option>
+		<option value="Courier New">Courier New</option>
+		<option value="MS Sans Serif">MS Sans Serif</option>
+		<option value="Script">Script</option>
+		<option value="System">System</option>
+		<option value="Times New Roman">Times New Roman</option>
+		<option value="Viner Hand ITC">Viner Hand ITC</option>
+		<option value="Verdana">Verdana</option>
+		<option value="Wide Latin">Wide Latin</option>
+		<option value="Wingdings">Wingdings</option>
+	</select>
+	<select ID="FontSize" class="GEN" TITLE="字号" LANGUAGE="javascript" onchange="onFontSize(this[this.selectedIndex].value);">
+		<option value="" selected>字号</option>
+		<option value="1">1</option>
+		<option value="2">2</option>
+		<option value="3">3</option>
+		<option value="4">4</option>
+		<option value="5">5</option>
+		<option value="6">6</option>
+		<option value="7">7</option>
+	</select>
+
+	<div class="SEP"></div>
+	<div ID="EditMode" class="GEN" style="width:75" TITLE="Editing Mode">
+		<input type=checkbox name="switchMode" LANGUAGE="javascript" onclick="setMode(switchMode.checked)">引入html
+	</div>
+	<div class="SEP"></div>
+	<div class="BTN" TITLE="剪切" LANGUAGE="javascript" onclick="DoCut()">
+		<img class="Ico" src="images/cut.gif">
+	</div>
+	<div class="BTN" TITLE="复制" LANGUAGE="javascript" onclick="DoCopy()">
+		<img class="Ico" src="images/copy.gif">
+	</div>
+	<div class="BTN" TITLE="粘添" LANGUAGE="javascript" onclick="DoPaste()">
+		<img class="Ico" src="images/paste.gif">
+	</div>
+	<div class="SEP"></div>
+
+	<div class="BTN" ID="BTN_BOLD" TITLE="粗体" LANGUAGE="javascript" onclick="return onBold()">
+		<IMG class=ICO height=22 src="images/bold.gif" width=22>
+	</div>
+	<div class="BTN" ID="BTN_ITALIC" TITLE="斜体" LANGUAGE="javascript" onclick="return onItalic()">
+		<IMG class=ICO height=22 src="images/italic.gif" width=22>
+	</div>
+	<div class="BTN" ID="BTN_UNDERLINE" TITLE="下划线" LANGUAGE="javascript" onclick="return onUnderLine()">
+		<IMG class=ICO height=22 src="images/under.gif" width=22>
+	</div>
+	<div class="SEP"></div>
+	<div class="BTN" ID="BTN_FOREGROUND" TITLE="字色" LANGUAGE="javascript" onclick="foreColor()">
+		<img class="Ico" height=22 src="images/tpaint.gif" width=22>
+	</div>
+	<div class="BTN" ID="BTN_BACKROUND" TITLE="背景色" LANGUAGE="javascript" onclick="backColor()">
+		<img class="Ico" height=22 src="images/parea.gif" width=22>
+	</div>
+	<div class="SEP"></div>
+</div>
+
+<div class="BAR" ID="FormatToolbar2">
+
+	<div class="BTN" ID="BTN_ALEFT" TITLE="左对齐" NAME="Justify" LANGUAGE="javascript" onclick="return onALeft()">
+		<IMG class=ICO height=22 src="images/aleft.gif" width=22>
+	</div>
+	<div class="BTN" ID="BTN_ACENTER" TITLE="居中" NAME="Justify" LANGUAGE="javascript" onclick="return onACenter()">
+		<IMG class=ICO height=22 src="images/center.gif" width=22>
+	</div>
+	<div class="BTN" ID="BTN_ARIGHT" TITLE="右对齐" NAME="Justify" LANGUAGE="javascript" onclick="return onARight()">
+		<IMG class=ICO height=22 src="images/aright.gif" width=22>
+	</div>
+
+	<div class="SEP"></div>
+
+	<div class="BTN" ID="BTN_NLIST" TITLE="数字编号" LANGUAGE="javascript" onclick="return onNList()">
+		<IMG class=ICO height=22 src="images/nlist.gif" width=22>
+	</div>
+
+	<div class="BTN" ID="BTN_BLIST" TITLE="项目符号" LANGUAGE="javascript" onclick="return onBList()">
+		<IMG class=ICO height=22 src="images/blist.gif" width=22>
+	</div>
+
+	<div class="BTN" ID="BTN_OUTDENT" TITLE="减小缩进" LANGUAGE="javascript" onclick="return onOutDent()">
+		<IMG class=ICO height=22 src="images/ileft.gif" width=22>
+	</div>
+	<div class="BTN" ID="BTN_INDENT" TITLE="增加缩进" LANGUAGE="javascript" onclick="return onInDent()">
+		<IMG class=ICO height=22 src="images/iright.gif" width=22>
+	</div>
+
+	<div class="SEP"></div>
+
+	<div class="BTN" ID="BTN_HYPERLINK" TITLE="插入超级链接" LANGUAGE="javascript" onclick="return onHyperLink()">
+		<IMG class=ICO height=22 src="images/wlink.gif" width=22>
+	</div>
+
+	<div class="BTN" ID="BTN_IMAGE" TITLE="插入图片" LANGUAGE="javascript" onclick="return imageForm()">
+		<IMG class=ICO height=22 src="images/img.gif" width=22>
+	</div>
+
+</div>
+
+<div ID="tbContentElement" class="tbContentElement">
+	<iframe id=target name=target scrolling="yes" marginwidth=1 style="HEIGHT: 100%; WIDTH: 100%"></iframe>
+	<br>
+</div>
+<script LANGUAGE="Javascript" SRC="Html_Editor.js"></script>
+</body>
+
+<script>
+	targetDoc = document.frames.target.document;
+	targetDoc.designMode = "On";
+</script>

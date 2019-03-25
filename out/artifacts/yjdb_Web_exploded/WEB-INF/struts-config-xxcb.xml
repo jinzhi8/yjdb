@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="gbk"?>
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.1//EN"
+		"http://jakarta.apache.org/struts/dtds/struts-config_1_1.dtd">
+<struts-config>
+	<!-- 表单 Bean -->
+	<form-beans>
+		<form-bean name="infoEditForm" type="com.kizsoft.oa.xxcb.InfoEditForm"/>
+		<form-bean name="magazineTypeForm" type="com.kizsoft.oa.xxcb.MagazineTypeForm"/>
+		<form-bean name="magazineForm" type="com.kizsoft.oa.xxcb.MagazineForm"/>
+		<form-bean name="deptListForm" type="com.kizsoft.oa.xxcb.DeptListForm"/>
+		<form-bean name="standardAddScoreForm" type="com.kizsoft.oa.xxcb.StandardAddScoreForm"/>
+	</form-beans>
+	<!-- 全局异常 -->
+	<global-exceptions>
+		<exception handler="com.kizsoft.commons.error.CommonExceptionHandler" key="com.kizsoft.commons.error.CommonExceptionHandler"
+				   path="../message/error.jsp" scope="request" type="java.lang.Exception"/>
+	</global-exceptions>
+	<!-- 全局转发 -->
+	<global-forwards>
+		<forward name="forbid" path="../message/forbid.jsp" redirect="true" contextRelative="true"/>
+	</global-forwards>
+	<!-- 操作映射 -->
+	<action-mappings>
+		<action name="magazineTypeForm" path="/prepareMagazineTypeAction" scope="request"
+				type="com.kizsoft.oa.xxcb.PrepareMagazineTypeAction">
+			<forward name="success" contextRelative="false" path="/content.jsp"/>
+			<forward name="failure" contextRelative="false" path="/error.jsp"/>
+		</action>
+		<action name="magazineTypeForm" path="/magazineTypeAction" scope="request"
+				type="com.kizsoft.oa.xxcb.MagazineTypeAction">
+			<forward name="success" redirect="false" contextRelative="false" path="/typeManager.jsp"/>
+			<forward name="failure" contextRelative="false" path="/error.jsp"/>
+		</action>
+		<action name="infoEditForm" path="/prepareInfoEditAction" scope="request"
+				type="com.kizsoft.oa.xxcb.PrepareInfoEditAction">
+			<forward name="success" contextRelative="false" path="/content.jsp"/>
+			<forward name="failure" contextRelative="false" path="/error.jsp"/>
+		</action>
+		<action name="infoEditForm" path="/showInfo" scope="request" type="com.kizsoft.oa.xxcb.PrepareInfoEditAction">
+			<forward name="success" contextRelative="false" path="/show.jsp"/>
+			<forward name="failure" contextRelative="false" path="/error.jsp"/>
+		</action>
+		<action name="infoEditForm" path="/infoEditAction" scope="request" type="com.kizsoft.oa.xxcb.InfoEditAction">
+			<forward name="success" redirect="true" contextRelative="false" path="/index.jsp"/>
+			<forward name="failure" contextRelative="false" path="/error.jsp"/>
+		</action>
+		<action name="magazineForm" path="/prepareMagazineAction" scope="request"
+				type="com.kizsoft.oa.xxcb.PrepareMagazineAction">
+			<forward name="create" contextRelative="false" path="/gather.jsp"/>
+			<forward name="edit" contextRelative="false" path="/gather.jsp"/>
+			<forward name="view" contextRelative="false" path="/showmagazine.jsp"/>
+			<forward name="failure" contextRelative="false" path="/error.jsp"/>
+		</action>
+		<action name="magazineForm" path="/magazineAction" scope="request" type="com.kizsoft.oa.xxcb.MagazineAction">
+			<forward name="success" contextRelative="false" path="/success.jsp"/>
+			<forward name="createSuccess" contextRelative="false" path="/createSuccess.jsp"/>
+			<forward name="failure" contextRelative="false" path="/error.jsp"/>
+		</action>
+		<action path="/selectMagazineTypeAction" type="com.kizsoft.oa.xxcb.SelectMagazineTypeAction">
+			<forward name="success" contextRelative="false" path="/selMagazineType.jsp"/>
+		</action>
+		<action name="deptListForm" path="/deptList" scope="request" type="com.kizsoft.oa.xxcb.DeptListAction">
+			<forward name="failure" contextRelative="false" path="/error.jsp"/>
+			<forward name="success" redirect="true" contextRelative="false" path="/index.jsp"/>
+		</action>
+		<action name="deptListForm" path="/prepareDeptList" scope="request" type="com.kizsoft.oa.xxcb.PrepareDeptListAction">
+			<forward name="failure" contextRelative="false" path="/error.jsp"/>
+			<forward name="success" contextRelative="false" path="/dept.jsp"/>
+		</action>
+		<action name="standardAddScoreForm" path="/standardAddScore" scope="request"
+				type="com.kizsoft.oa.xxcb.StandardAddScoreAction">
+			<forward name="success" path="/standardScoreManager.jsp" redirect="false" contextRelative="false"/>
+			<forward name="failure" path="/error.jsp" contextRelative="false"/>
+		</action>
+		<action path="/infoStat" type="com.kizsoft.oa.xxcb.stat.InfoStatAction">
+			<forward name="success" contextRelative="false" path="/statall.jsp"/>
+			<forward name="failure" path="/error.jsp" contextRelative="false"/>
+		</action>
+	</action-mappings>
+</struts-config>

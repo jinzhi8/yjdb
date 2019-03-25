@@ -1,0 +1,98 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<stat>
+	<search>
+		<items>
+			<item>
+				<name>来文标题</name>
+				<pageid>title</pageid>
+				<dbid>title</dbid>
+				<type>string</type>
+				<exp>like</exp>
+			</item>
+			<item>
+				<name>来文文号</name>
+				<pageid>senddep</pageid>
+				<dbid>senddep</dbid>
+				<type>string</type>
+				<exp>like</exp>
+			</item>
+			<item>
+				<name>年份</name>
+				<pageid>issue_year</pageid>
+				<dbid>issue_year</dbid>
+				<type>string</type>
+				<exp>equal</exp>
+			</item>
+			<item>
+				<name>序号</name>
+				<pageid>issue_num</pageid>
+				<dbid>issue_num</dbid>
+				<type>string</type>
+				<exp>like</exp>
+			</item>	
+		</items>
+	</search>
+	<view>
+		<type>instance</type>
+		<moduleid>getshou</moduleid>
+		<sql>select decode(a.instance_status,'1','办理中','办结') status,a.instance_id,b.* FROM view_flow_instances_main a,getshou b
+		</sql>
+		<filters>
+			<filter>module_id='getshou'</filter>
+			<filter>requestid=app_id</filter>
+			<filter>instance_status in('1','2')</filter>
+		</filters>
+		<order>getdate desc</order>
+		<rows>30</rows>
+		<columns>    
+			<column>
+				<title>收文日期</title>
+				<property>$getdate</property>
+				<filedtype>string</filedtype>   
+				<width>70</width>
+				<length>20</length>
+				<align>center</align>
+				<link></link>
+			</column>
+			<column>
+				<title>来文文号</title>
+				<property>$senddep</property>
+				<filedtype>string</filedtype>   
+				<width>120</width>
+				<length>100</length>
+				<align>left</align>
+				<link>/workflowEntry.do?rf=1&amp;instanceid=+$instance_id</link>
+			</column>
+			<column>
+				<title>来文编号</title>
+				<property>〔+$ISSUE_YEAR+〕+$ISSUE_NUM+号</property>
+				<filedtype>string</filedtype>   
+				<width>85</width>
+				<length>100</length>
+				<align>center</align>
+				<link>/workflowEntry.do?rf=1&amp;instanceid=+$instance_id</link>
+			</column>
+			<column>
+				<title>来文标题</title>
+				<property>$title</property>
+				<filedtype>string</filedtype>   
+				<width></width>
+				<length>100</length>
+				<align>left</align>
+				<link>/workflowEntry.do?rf=1&amp;instanceid=+$instance_id</link>
+			</column>
+			<column>
+				<title>当前办理人</title>
+				<property>#curPerformer+&lt;br&gt;+$status</property>
+				<filedtype>string</filedtype>   
+				<width>60</width>
+				<length>30</length>
+				<align>center</align>
+				<link></link>
+			</column>
+		</columns>
+	</view>
+</stat>
+
+
+

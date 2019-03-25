@@ -1,0 +1,442 @@
+var $;
+var reload;
+layui.use(['form','layer','laydate','table','laytpl','jquery','upload'],function(){
+    	var form = layui.form,
+        layer =layui.layer,
+        upload = layui.upload,
+        laydate = layui.laydate,
+        laytpl = layui.laytpl,
+        table = layui.table;
+        $ = layui.jquery;
+
+    //新闻列表
+    var tableIns = table.render({
+        elem: '#tableList',
+        url : 'action/tableAction.jsp?status=selectlr&unid='+unid,
+        cellMinWidth : 195,
+        page : false,
+        //height : "full-205",
+        limit : 100,
+        limits : [100],
+        id : "newsListTable",
+        cols : [[
+            {type: "checkbox"},
+            {field: 'id', title: '序号', width:'3%', align:"center"},
+            {title: show5+'<br/>要求事项', width:'35%',templet:'#titleTpl'},
+            {title: '责任领导<br/>责任单位', width:'8%',align:'center',templet:'#depnameTpl'},
+            /*{field: 'details', title: '具体事项',width:'16%',sort: true, align:'center'},*/
+            {field: 'fkzq', title: '反馈周期',width:'11%',templet:"#fklxTpl"},
+            {field: 'jbsx', title: '交办时限',width:'11%',templet:"#setLimitTimeSsx"},
+           /* {field: 'state', title: '办件状态',width:'7%',align:'center',templet:"#hystate"},*/
+           /* {field: 'createtime', title: '发布时间',width:'9%', align:'center'},*/
+            {field: 'state', title: '是否办结',width:'7%',templet:function(d){
+            	var boolean="";
+            	if(d.state=="2"){
+            		boolean="checked";
+            	}
+                return '<input type="checkbox" value='+d.unid+' lay-filter="newsTop" lay-skin="switch" lay-text="是|否"  '+boolean+'>'
+            }},
+            {field: 'gqstate', title: '是否挂起',width:'8%', align:'center', templet:function(d){
+            	var boolean="";
+            	if(d.gqstate=="1"){
+            		boolean="checked";
+            	}
+                return '<input type="checkbox" value='+d.unid+' name="gqstate" lay-filter="gqTop" lay-skin="switch" lay-text="是|否"  '+boolean+'>'
+            }},
+            {title:'<div class="newclass-btnbox"><a  class="layui-btn wnbutton addNews_btn">新增任务</a><a id="dbtzd" class="layui-btn wnbutton layui-btn-normal">通知单</a><a id="dbtxd" class="layui-btn wnbutton layui-btn-normal">提醒单</a><a id="wn" class="layui-btn wnbutton layui-btn-normal wn">蜗牛件</a><a id="hq" class="layui-btn wnbutton layui-btn-normal hq">红旗件</a></div>',width: '25%',align:'center', toolbar: '#newsListBar'}
+            // {title:'<a style="height: 28px;line-height:28px;" class="layui-btn  addNews_btn">新增任务</a><a style="height: 28px;line-height:28px;" class="layui-btn  import_btn">导出</a><a style="height: 28px;line-height:28px;" id="dbtzd" class="layui-btn layui-btn-normal">通知单</a><a style="height: 28px;line-height:28px;" id="dbtxd" class="layui-btn layui-btn-normal">提醒单</a>',minWidth: '200',align:'center', toolbar: '#newsListBar'}
+        ]],
+        done:function(){
+        	$(".wn").click(function(){
+        	   	 var checkStatus = table.checkStatus('newsListTable'),data = checkStatus.data;
+        	   	 if(data.length > 0) {
+        	        layer.confirm('确定将选中的件设为（取消）蜗牛件？', {icon: 3, title: '提示信息'}, function (index) {
+        	        	for (var i in data) {
+        	        		whstatus(data[i].unid,"1",data[i].whstatus);
+        	            }
+        	            tableIns.reload();
+        	            layer.alert(data.length+"条数据设置成功成功");
+        	        })
+        		     }else{
+        		         layer.msg("请选择对应的蜗牛件");
+        		     }
+        	   })
+        	   
+        	    $(".hq").click(function(){
+        	   	 var checkStatus = table.checkStatus('newsListTable'),data = checkStatus.data;
+        	   	 if(data.length > 0) {
+        	        layer.confirm('确定将选中的件设为（取消）红旗件？', {icon: 3, title: '提示信息'}, function (index) {
+        	        	for (var i in data) {
+        	        		whstatus(data[i].unid,"2",data[i].whstatus);
+        	            }
+        	            tableIns.reload();
+        	            
+        	            layer.alert(data.length+"条数据设置成功成功");
+        	        })
+        		     }else{
+        		         layer.msg("请选择需对应的红旗件");
+        		     }
+        	   })
+        }
+    });
+    reload=function(){
+    	tableIns.reload();
+    }
+    //导出督办通知单
+	$("body").delegate("#dbtzd","click",function(){
+    	var checkStatus = table.checkStatus('newsListTable');
+        if(checkStatus.data.length >= 1) {
+            var chkid = "";
+            for (var i = 0; i < checkStatus.data.length; i++) {
+                if (i < checkStatus.data.length - 1) {
+                    chkid += checkStatus.data[i].unid + ",";
+                } else {
+                    chkid += checkStatus.data[i].unid;
+                }
+            }
+            setdoc(chkid,'tzd');
+        }else {
+            layer.alert("请选择要生成的行", {icon: 5});
+        }
+    });
+    
+  //导出督办提醒单
+	$("body").delegate("#dbtxd","click",function(){
+    	var checkStatus = table.checkStatus('newsListTable');
+    	if(checkStatus.data.length >= 1) {
+            var chkid = "";
+            for (var i = 0; i < checkStatus.data.length; i++) {
+                if (i < checkStatus.data.length - 1) {
+                    chkid += checkStatus.data[i].unid + ",";
+                } else {
+                    chkid += checkStatus.data[i].unid;
+                }
+            }
+            setdoc(chkid,'txd');
+        }else {
+    		layer.alert("请选择要生成的行", {icon: 5});
+    	}
+    });
+    
+    //是否挂起
+    form.on('switch(gqTop)', function(data){
+    	  	var unid=data.value;
+    	  	var status="";
+	        //var index = layer.msg('修改中，请稍候',{icon: 16,time:false,shade:0.8});
+	        setTimeout(function(){
+	            if(data.elem.checked){
+	                layer.msg("挂起成功！");
+	                status="1";
+	                upGqStatus(unid,status);
+	            }else{
+	            	data.action = 'qxgq';
+	                data.unid = data.value;
+	                addNews(data);
+	            }
+	            tableIns.reload();
+	        },500);
+    })
+    
+    //是否办结
+    form.on('switch(newsTop)', function(data){
+    	  	var unid=data.value;
+    	  	var status="";
+	    	  	if(data.elem.checked){
+		    	  	layer.confirm('确认办结？', {
+		      		  btn: ['正常办结', '超时办结'] //可以无限个按钮
+		      		}, function(index, layero){
+		      		  //按钮【按钮一】的回调
+		      			layer.msg("办结成功！");
+		                status="2";
+		                upStatus(unid,status);
+		                setTimeout(function(){
+		                	 tableIns.reload();
+		    	        },500);
+		      		}, function(index){
+		      		  //按钮【按钮二】的回调
+		      			layer.msg("超时办结成功！");
+		                status="3";
+		                upStatus(unid,status);
+		                setTimeout(function(){
+		                	 tableIns.reload();
+		    	        },500);
+		      		});
+	    	  	}else{
+	    	  		layer.msg("取消办结成功！");
+	                status="1";
+	                upStatus(unid,status);
+	                setTimeout(function(){
+	                	 tableIns.reload();
+	    	        },500);
+	    	  	}  
+	       /* setTimeout(function(){
+	            alert(obj.unid);
+	            if(data.elem.checked){
+	                layer.msg("办结成功！");
+	                status="2";
+	                upStatus(unid,status);
+	            }else{
+	                layer.msg("取消办结成功！");
+	                status="1";
+	                upStatus(unid,status);
+	            }
+	            tableIns.reload();
+	        },500);*/
+    })
+
+    //新增督办件
+    function addDbj(bh){
+		layer.open({
+			type: 2,
+			title: '',
+			fix: true,
+			maxmin: false,
+			area: ['95%', '95%'],
+			content : ""+getRootPath()+"/yj_hy/tableMinAdd.jsp?docunid="+unid+"&bh="+bh+"&type="+type,
+			offset: '50px'
+		});
+	}
+    
+    //编辑督办件
+    function addNews(edit){
+    	var index = layer.open({
+			type: 2,
+			title: '',
+			maxmin: false,
+			area: ['95%', '95%'],
+			content : ""+getRootPath()+"/yj_hy/tableMinAdd.jsp?unid="+edit.unid+"&docunid="+unid+"&action="+edit.action+"&type="+type,
+			offset: '50px',
+			success : function(layero, index) {
+                setTimeout(function () {
+                    layui.layer.tips('点击此处返回列表', '.layui-layer-setwin .layui-layer-close', {
+                        tips: 3
+                    });
+                }, 500);
+            }
+		});
+		/*layui.layer.full(index);*/
+        //改变窗口大小时，重置弹窗的宽高，防止超出可视区域（如F12调出debug的操作）
+		/*$(window).on("resize",function(){
+            layui.layer.full(index);
+        })*/
+	}  
+   
+   //是否蜗牛件还是红旗件
+   function whstatus(unid,state,whstatus){
+       $.ajax({
+           type:"post",
+           url:"../yj_lr/updateAction.jsp",
+           data:{"status":"whstatus","unid":unid,"state":state,"whstatus":whstatus},
+           dataType:"json",
+           success:function(result){
+           }
+       });
+   }
+    
+    //生成批示单
+    function setdoc(unid,status){
+    	var index = layer.msg('文档生成中',{icon: 16,time:false,shade:0.8});
+    	$.ajax({
+    		async: true,   //要异步
+    		type:"post",
+    		url:"../SyService",
+    		data:{
+    			fname:"getWord",
+    			type:"qt",
+    			status:status,
+    			unid:unid
+    		},
+    		dataType: "json",
+    		success:function(data){
+    			layer.close(index);
+    			window.location.href="../DownloadAttach?uuid="+data.unid+"";
+    		},error:function(data){
+       			layer.close(index);
+       			layer.msg("生成失败，请稍后再试！");
+       		}
+    	});
+    }
+
+    
+	//导出反馈列表
+	$(".import_btn").click(function() {
+	  	var checkStatus = table.checkStatus('newsListTable');
+	  	if(checkStatus.data.length == 1) {
+	  		for (var i = 0; i < checkStatus.data.length; i++) {
+	  			window.location.href="../yj_lr/tableAction.jsp?status=fkdc&unid=" + checkStatus.data[i].unid;
+	  		}
+	  	} else if(checkStatus.data.length > 1) {
+	  		layer.alert("仅支持单行导出", {icon: 5});
+	  	} else {
+	  		layer.alert("请选择要导出的行", {icon: 5});
+	  	}
+	});
+    
+    /*$(".addNews_btn").click(function(){
+    	var bh=$("input[name='bh']").val();
+    	addDbj(bh);
+    })*/
+
+	$("body").delegate(".addNews_btn","click",function(){
+		var bh=$("input[name='bh']").val();
+		addDbj(bh);
+	});
+
+    //批量删除
+    $(".delAll_btn").click(function(){
+        var checkStatus = table.checkStatus('newsListTable'),
+            data = checkStatus.data;
+        if(data.length > 0) {
+            layer.confirm('确定删除选中的督办件？', {icon: 3, title: '提示信息'}, function (index) {
+            	/*ayui.each(checkStatus, function(index, item) {
+            		item.del();
+            	});*/
+            	for (var i in data) {
+                    removePerson(data[i].unid,"remove");
+                }
+                layer.close(index);
+                tableIns.reload();
+                layer.alert(data.length+"条数据批量删除成功");
+            })
+        }else{
+            layer.msg("请选择需要删除的数据");
+        }
+    })
+    
+    //批量办结
+    $(".upAll_btn").click(function(){
+        var checkStatus = table.checkStatus('newsListTable'),
+            data = checkStatus.data;
+        if(data.length > 0) {
+            layer.confirm('确定办结选中的督办件？', {icon: 3, title: '提示信息'}, function (index) {
+            	/*ayui.each(checkStatus, function(index, item) {
+            		item.del();
+            	});*/
+            	for (var i in data) {
+            		upStatus(data[i].unid,"2");
+                }
+                layer.close(index);
+                tableIns.reload();
+                layer.alert(data.length+"条数据批量办结成功");
+               
+            })
+        }else{
+            layer.msg("请选择需要办结的数据");
+        }
+    })
+
+    //列表操作
+    table.on('tool(newsList)', function(obj){
+        var layEvent = obj.event,
+            data = obj.data;
+        if(layEvent === 'edit'){ //编辑
+            addNews(data);
+        } else if(layEvent === 'del'){ //删除
+            layer.confirm('确定删除此督办件？',{icon:3, title:'提示信息'},function(index){
+            	obj.del(); //删除对应行（tr）的DOM结构
+                layer.close(index);
+                removePerson(data.unid,"remove");
+            });
+        }  else if(layEvent === 'dbtj'){ //预览
+        	layer.open({
+    			type: 2,
+    			title: '',
+    			fix: true,
+    			maxmin: false,
+    			area: ['90%', '90%'],
+    			content : '../yj_lr/dbtj.jsp?unid=' + data.unid,
+    			offset: '50px',
+    			cancel : function(index, layero){
+        		    //do something
+        		    layer.close(index); //如果设定了yes回调，需进行手工关闭
+                    tableIns.reload();
+        		}
+    		});
+        	
+        }else if(layEvent === 'lsjl'){ //历史记录
+        	dHistory(data.unid);
+        }
+    });
+    
+    //批量导入
+    $('#pldr').click(function(){
+    	layui.layer.open({
+    		type: 2,
+    		area: ['90%', '90%'],
+    		content: 'importuserfromxls.jsp',
+    		end: function(){
+    			tableIns.reload();
+    		}
+    	});
+    });
+    
+    //批量导出
+    $('#pldc').click(function(){
+    	var checkStatus = table.checkStatus('newsListTable');
+    	if(checkStatus.data.length) {
+    		var chkid = "";
+			for (var i = 0; i < checkStatus.data.length; i++) {
+				if(i < checkStatus.data.length-1){
+					chkid += checkStatus.data[i].unid + ",";
+				} else {
+					chkid += checkStatus.data[i].unid;
+				}
+			}
+			
+			window.location.href="tableAction.jsp?status=pldc&chkid=" + chkid; 
+			layer.close(index);
+    	} else {
+    		layer.alert("请选择要导出的行", {icon: 5});
+    	}
+    });
+
+})
+//删除督办件
+function removePerson(unid,status){
+	$.ajax({
+		type:"post",
+		url:"../yj_common/Action.jsp",
+		data:{"status":status,"unid":unid,"moduleid":"yj_lr"},
+		dataType:"json",
+		success:function(result){
+		}
+	});
+}
+
+//是否办结
+function upStatus(unid,state){
+	$.ajax({
+		type:"post",
+		url:"../yj_lr/updateAction.jsp",
+		data:{"status":"upkg","unid":unid,"state":state},
+		dataType:"json",
+		success:function(result){
+		}
+	});
+}
+
+//是否挂起
+function upGqStatus(unid,state){
+	$.ajax({
+		type:"post",
+		url:"../yj_lr/updateAction.jsp",
+		data:{"status":"upgq","unid":unid,"gqstate":state},
+		dataType:"json",
+		success:function(result){
+		}
+	});
+}
+
+
+//钉消息历史记录
+function dHistory(unid){
+	layer.open({
+		type: 2,
+		title: '',
+		fix: true,
+		maxmin: false,
+		area: ['90%', '90%'],
+		content : "../yj_lr/dHistory/dHistory.jsp?docunid="+unid,
+		offset: '50px'
+	});
+}

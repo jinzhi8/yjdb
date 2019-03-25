@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<view>
+    <type>common</type> 
+    <sql>select unid,title,issuetime,managedepname,qfman,source</sql>
+    <tables>zwdbhy</tables>
+    <filters>
+        <filter>isjs='2'</filter>
+    </filters>
+    <order>issuetime desc</order>
+    <rows>30</rows>
+    <columns>
+		 <column>
+            <title>发布时间</title>
+            <property>$issuetime</property>
+            <filedtype>time</filedtype>
+            <width>130</width>
+            <length>100</length>
+            <align>center</align>
+            <link></link>
+        </column>
+		<column>
+                <title>会议类型</title>
+                <property>$source</property>
+                <filedtype>string</filedtype>
+                <width>170</width>
+                <length>12</length>
+                <align>center</align>
+                <link></link>
+            </column>
+        <column>
+            <title>会议名称</title>
+            <property>$title</property>
+            <filedtype>string</filedtype>
+            <width>570</width>
+            <length>100</length>
+            <align>left</align>
+            <link>/edit?xmlName=zwdbhyfk+&amp;appId=+$unid</link>
+        </column>
+        <column>
+                <title>是否办结</title>
+                <property>$qfman</property>
+                <filedtype>string</filedtype>
+                <width>130</width>
+                <length>100</length>
+                <align>center</align>
+            </column>
+    </columns>
+</view>

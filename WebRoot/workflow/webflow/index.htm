@@ -1,0 +1,65 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>工作流</title>
+<script language="javascript" src="./webflow.js"></script>
+<script>
+var nodes=new Array();
+var lines=new Array();
+var selectedOne=null,selectedTwo=null;//记录被选择的最近两个控件
+var selectedLine=null;
+
+//选择区域的时候，所选择的全部对象
+//保存内容 Object(index,type(1:node,2:line));
+var selectedArray=null;
+var beginPosition=null;	//选择区域开始的时候的坐标
+
+var selectState=0;//控制状态 ： 0正常；1创建任务；100创建连线，选择源；101创建连线，选择目的
+
+var currentIndex=1000;	//Z-index 为了显示使用
+
+var flag_hideAll=false;	//隐藏所有工具
+
+//每隔2分钟要自动保存一下，保存到cookies
+//TODO
+
+</script>
+<link href="./css/drawer.css" rel="stylesheet" type="text/css">
+</head>
+
+<body onselectstart="return false" onscroll="setPanelScroll();beginPosition=null;">
+
+<div id="panelDraghandle" onClick="hideOrShowPane();event.cancelBubble=true;" class="panelDrag" onDraging="setPanelPosition()" align="center">操作面板</div>
+<div id="panel1" class="panel" style="visibility:visible" onMouseDown="hidePropertiesPane();event.cancelBubble=true;" onMouseUp="event.cancelBubble=true;" onMouseMove="event.cancelBubble=true">
+	<button id="rangeBt" onClick="beginSelectRange();" title="区域选择" style="width:38px" ><img src="./image/range.png" /></button>	
+	<button id="arrowBt" style="border:solid 2px red;width:38px" onClick="_detachEventWhenRange();_unlockAll();_clearSelectedArray();showRangeBt();"  title="指针工具"><img src="./image/icon_arrow.png" /></button>	
+	<hr size="1"/>
+	<!--
+	<button onClick="beginCreateNode(1);" title="Start"><img src="./image/1.png" />流程开始</button>	
+	-->
+	<button onClick="beginCreateNode(2);" title="TaskNode" ><img src="./image/2.png" />普通任务</button>
+	<!--
+	<button onClick="beginCreateNode(3);" title="Fork"><img src="./image/3.png" />分支开始</button>
+	<button onClick="beginCreateNode(4);" title="Join"><img src="./image/4.png" />分支结束</button>	
+	<button onClick="beginCreateNode(99);" title="End"><img src="./image/99.png" />流程结束</button>
+	-->
+	<hr size="1" />
+	<button onClick="beginCreateLine();" title="Transition" onEndWork="selectState=0;"><img src="./image/trans.png" />任务连线</button>
+	<hr size="1" />
+	<button onClick="deleteGraphElement();"><img src="./image/icon_delete.png" />删除所选</button>
+	<hr  size="1"/>
+	<button onClick="saveFlow()"><img src="./image/icon_save.png" />保存流程</button>
+	<button onClick="loadFlow()"><img src="./image/icon_load.png" />读取流程</button>
+	<button onClick="autoTreePos()"><img src="./image/icon_pose.png" />自动布局</button>
+</div>
+
+<div id="hip" interval="-1" style="behavior:url(./snhip.htc)"></div>
+<iframe id="props" name="props" src="setProperties.htm" scrolling="auto" frameborder="0" style="position:absolute;width:400px;height:140px;left:1px;visibility:hidden" ></iframe>
+<iframe id="frmSave" src="about:blank" style="display:none"></iframe>  <!--实现保存-->
+<div id="marginDiv" style="position:absolute;width:300px;text-align:right;top:2000px;left:2000px;color:#999999;overflow:visible;font-size:12px;">&nbsp;222222</div>
+<div id="_test"></div>
+</body>
+</html>
+<script>
+init();
+</script>

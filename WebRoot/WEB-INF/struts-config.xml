@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.1//EN"
+        "http://jakarta.apache.org/struts/dtds/struts-config_1_1.dtd">
+<struts-config>
+    <data-sources/>
+    <form-beans>
+        <form-bean name="deptForm" type="com.kizsoft.commons.uum.actions.DeptFormBean"/>
+        <form-bean name="userForm" type="com.kizsoft.commons.uum.actions.UserFormBean"/>
+        <form-bean name="postForm" type="com.kizsoft.commons.uum.actions.postFormBean"/>
+        <form-bean name="loginForm" type="com.kizsoft.commons.login.LoginForm"/>
+        <form-bean name="aclroleForm" type="com.kizsoft.commons.uum.actions.AclroleFormBean"/>
+		<form-bean name="WFZZMDepUserImportBeanAction" type="com.kizsoft.oa.wwffzzm.actions.WFZZMDepUserImportBeanAction"/>
+    </form-beans>
+    <global-forwards type="org.apache.struts.action.ActionForward">
+        <forward
+            name="error"
+            path="/html/error.jsp"
+            redirect="false"/>
+        <forward
+            name="refresh"
+            path="/html/refresh.jsp"
+            redirect="false"/>
+        <forward
+            name="login"
+            path="/html/login.jsp"
+            redirect="false"/>
+        <forward
+            name="noright"
+            path="/html/noright.jsp"
+            redirect="false"/>
+    </global-forwards>
+    <action-mappings>
+        <action path="/workflowEntry" type="com.kizsoft.commons.workflow.WorkflowEntry">
+            <forward name="success" path="/message/success.jsp" redirect="false"/>
+            <forward name="noprivilege" path="/message/noprivilege.jsp" redirect="true"/>
+            <forward name="norecorderror" path="/message/norecorderror.jsp" redirect="true"/>
+            <forward name="error" path="/message/error.jsp" redirect="true"/>
+            <forward name="failed" path="/message/failed.jsp" redirect="true"/>
+            <forward name="login" path="/login.jsp" redirect="false"/>
+        </action>
+        <action path="/workflowBackAction" type="com.kizsoft.commons.workflow.WorkflowBackAction">
+            <forward name="success" path="/message/success.jsp" redirect="false"/>
+            <forward name="noprivilege" path="/message/noprivilege.jsp" redirect="true"/>
+            <forward name="norecorderror" path="/message/norecorderror.jsp" redirect="true"/>
+            <forward name="error" path="/message/error.jsp" redirect="true"/>
+            <forward name="failed" path="/message/failed.jsp" redirect="true"/>
+            <forward name="login" path="/login.jsp" redirect="false"/>
+        </action>
+        <action path="/login"
+                type="com.kizsoft.commons.login.LoginAction"
+                name="loginForm"
+                scope="request"
+                validate="true">
+            <forward name="success" contextRelative="true" path="/index.jsp" redirect="true"/>
+            <forward name="loginerror" path="/login.jsp" redirect="false"/>
+        </action>
+		
+		<action path="/logindt"
+                type="com.kizsoft.commons.login.LoginAction"
+                name="loginForm"
+                scope="request"
+                validate="true">
+            <forward name="success" contextRelative="true" path="/index.jsp" redirect="true"/>
+            <forward name="loginerror" path="/logindt.jsp" redirect="false"/>
+        </action>
+		
+		<action path="/SingleLogin"
+                type="com.kizsoft.commons.login.SingleLoginAction"  
+                scope="request"
+                validate="true">
+            <forward name="success" contextRelative="true" path="/index.jsp" redirect="true"/>
+            <forward name="loginerror" path="/login.jsp" redirect="false"/>
+        </action>
+		
+		<!--
+		<action path="/singlelogin/singleLogin"
+                type="com.kizsoft.commons.login.SingleLoginAction"  
+                scope="request"
+                validate="true">
+            <forward name="success" contextRelative="true" path="/index.jsp" redirect="true"/>
+            <forward name="loginerror" path="/login.jsp" redirect="false"/>
+        </action>
+		-->
+        <action path="/calogin" type="com.kizsoft.commons.login.CALoginAction"   name="loginForm"     
+                scope="request"
+                validate="true">
+            <forward name="success" contextRelative="true" path="/index.jsp" redirect="true" />
+            <forward name="loginerror" path="/login.jsp"  redirect="false"/>
+            <forward name="multiuser" path="/userselect.jsp"  redirect="false"/>
+        </action>
+        <!--uum action mapping-->
+        <action path="/contacts/tree" type="com.kizsoft.commons.uum.actions.TreeAction">
+            <forward name="success" path="/contacts/message.jsp"/>
+            <forward name="failure" path="/contacts/index.jsp"/>
+            <forward name="newdept" path="/contacts/deptNew.jsp"/>
+            <forward name="tree" path="/contacts/tree.jsp"/>
+            <forward name="child" path="/contacts/childowner.jsp"/>
+        </action>
+		<action path="/uum/tree" type="com.kizsoft.commons.uum.actions.TreeAction">
+            <forward name="success" path="/uum/message.jsp"/>
+            <forward name="failure" path="/uum/index.jsp"/>
+            <forward name="newdept" path="/uum/deptNew.jsp"/>
+            <forward name="tree" path="/uum/tree.jsp"/>
+            <forward name="child" path="/uum/childowner.jsp"/>
+        </action>
+        <action path="/uum/owner"
+                type="com.kizsoft.commons.uum.actions.ownerAction"
+                name="deptForm"
+                scope="request">
+            <forward name="success" path="/uum/message.jsp"/>
+            <forward name="error" path="/uum/error.jsp"/>
+            <forward name="edit" path="/uum/deptNew.jsp"/>
+            <forward name="editsub" path="/uum/subDeptNew.jsp"/>
+        </action>
+        <action path="/uum/subowner"
+                type="com.kizsoft.commons.uum.actions.subOwnerAction"
+                name="deptForm"
+                scope="request">
+            <forward name="success" path="/uum/message.jsp"/>
+            <forward name="addnewsub" path="/uum/subDeptNew.jsp"/>
+            <forward name="error" path="/uum/error.jsp"/>
+        </action>
+        <action path="/uum/user"
+                type="com.kizsoft.commons.uum.actions.userAction"
+                name="userForm"
+                scope="request">
+            <forward name="addnew" path="/uum/user.jsp"/>
+            <forward name="edit" path="/uum/user.jsp"/>
+            <forward name="success" path="/uum/message.jsp"/>
+            <forward name="error" path="/uum/error.jsp"/>
+            <forward name="userlist" path="/uum/childowner.jsp"/>
+            <forward name="import" path="/uum/import.jsp"/>
+            <forward name="query" path="/uum/query.jsp"/>
+        </action>
+        <action path="/uum/loginAction" type="com.kizsoft.commons.uum.actions.loginAction">
+            <forward name="failure" path="/uum/login.jsp"/>
+            <forward name="success" path="/uum/main.jsp"/>
+        </action>
+
+        <action path="/uum/loginOAAction"
+                scope="request"
+                type="com.kizsoft.commons.uum.actions.loginOAAction">
+            <forward name="failure" path="/uum/login.jsp"/>
+            <forward name="success" path="/uum/index.jsp"/>
+        </action>
+        <action path="/uum/post"
+                name="postForm"
+                scope="request"
+                type="com.kizsoft.commons.uum.actions.postAction">
+            <forward name="self" path="/uum/post.jsp"/>
+        </action>
+        <action path="/uum/fproleAction" name="fproleForm"
+                scope="request" type="com.kizsoft.commons.uum.actions.FproleAction">
+            <forward name="list" path="/uum/fprolelist.jsp"/>
+        </action>
+        <action path="/uum/aclroleAction" name="aclroleForm"
+                scope="request" type="com.kizsoft.commons.acl.actions.AclroleAction">
+            <forward name="list" path="/uum/aclrolelist.jsp"/>
+            <forward name="listcategory" path="/uum/categorylist.jsp"/>
+            <forward name="message" path="/uum/message.jsp"/>
+            <forward name="userlistbyrole" path="/uum/userlistbyrole.jsp"/>
+        </action>
+        <action path="/md5Change" scope="request" type="com.kizsoft.commons.uum.MD5Change">
+        </action>
+		<action path="/supgetdocf" scope="request" type="com.kizsoft.oa.kjaci.actions.SupGetdocSelAction">		
+		</action>
+		<action path="/gwbaSel" type="com.kizsoft.oa.documents.actions.GkbaSelAction">		
+		</action>
+		<action path="/issueDepCode" type="com.kizsoft.oa.documents.actions.IssueDepCodeAcrion">		
+		</action>
+		<action path="/userApplyOptions" type="com.kizsoft.oa.userapply.beans.UserApplyOptions">		
+		</action>
+		<action path="/ipManager/ipManagerAction" type="com.kizsoft.oa.ip.actions.IPManagerAction">
+			<forward name="success" redirect="true" path="/ipManager/ipManager.jsp"/>
+		</action>
+		
+		<action path="/meetingview/conferenceDuty" type="com.kizsoft.oa.kjaci.actions.ConferenceDutyAction">
+              <forward name="success" path="/meetingview/conferenceview.jsp"/>
+		</action>
+		
+		<action path="/phone/address/jsontree2" type="com.kizsoft.commons.commons.tree.JsonTreeAddressListAction">		
+		</action>
+		<action path="/pad/address/jsontree2" type="com.kizsoft.commons.commons.tree.JsonTreeAddressListAction">		
+		</action>
+		<action path="/pad/address/userTree" type="com.kizsoft.commons.commons.tree.UserTreeAction" validate="true" scope="request"></action>
+		<action path="/pad/address/personalTree" type="com.kizsoft.commons.commons.tree.PersonalTreeAction" validate="true" scope="request"></action>
+		<action path="/pad/address/jsontree" type="com.kizsoft.commons.commons.tree.JsonTreeAction" validate="true" scope="request"></action>
+		<action name="WFZZMDepUserImportBeanAction"  path="/WFZZMDepUserImportAction" scope="request" type="com.kizsoft.oa.wwffzzm.actions.WFZZMDepUserImportAction">
+			<forward name="success" redirect="true" path="/wwffzzm/import.jsp?flag=1"/>
+		</action>
+		<action path="/MXAddAction" scope="request" type="com.kizsoft.commons.mxworkflow.action.AddAction">		
+		</action>
+		<action path="/yuYueAction" type="com.kizsoft.oa.yuyue.controller.YuyueController" validate="true" scope="request">
+		</action>
+    </action-mappings>
+</struts-config>

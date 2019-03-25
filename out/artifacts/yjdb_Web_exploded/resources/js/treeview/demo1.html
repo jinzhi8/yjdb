@@ -1,0 +1,58 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head>
+    <title>Big Tree</title>
+    <link href="jquery.tree.css" rel="stylesheet" type="text/css" />
+    <script src="jquery.js" type="text/javascript"></script>
+    <!--
+    <script src="js/common.js" type="text/javascript" ></script>
+    -->
+	<script src="jquery.tree.js" type="text/javascript" ></script>
+    <!--
+    <script src="js/tree1.js" type="text/javascript" ></script>
+    -->
+    <script src="treedata.js" type="text/javascript" ></script>
+    
+    <script type="text/javascript">
+        $(document).ready(function() {
+            var o = {
+                showcheck: true,          
+                //url: "http://jscs.cloudapp.net/ControlsSample/GetChildData" 
+                theme: "bbit-tree-lines", //bbit-tree-lines ,bbit-tree-no-lines,bbit-tree-arrows
+                showcheck: true,
+                //theme: "bbit-tree-arrows", //bbit-tree-lines ,bbit-tree-no-lines,bbit-tree-arrows
+                onnodeclick:function(item){alert(item.text);}
+            };
+            o.data = treedata;
+            $("#tree").treeview(o);
+            $("#showchecked").click(function(e){
+                var s=$("#tree").getTSVs();
+                if(s !=null)
+                alert(s.join(","));
+                else
+                alert("NULL");
+            });
+             $("#showcurrent").click(function(e){
+                var s=$("#tree").getTCT();
+                if(s !=null)
+                    alert(s.text);
+                else
+                    alert("NULL");
+             });
+        });
+    </script>
+</head>
+<body class='ie'>
+    <div style="margin-bottom:5px;">
+        <button id="showchecked">Get Seleceted Nodes</button>
+        <button id="showcurrent">Get Current Node</button>
+    </div>
+    <div style="border-bottom: #c3daf9 1px solid; border-left: #c3daf9 1px solid; width: 250px; height: 500px; overflow: auto; border-top: #c3daf9 1px solid; border-right: #c3daf9 1px solid;">
+        <div id="tree">
+            
+        </div>
+        
+    </div>
+</body>
+</html> 

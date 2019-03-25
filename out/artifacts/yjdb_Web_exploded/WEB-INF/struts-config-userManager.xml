@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.1//EN"
+		"http://jakarta.apache.org/struts/dtds/struts-config_1_1.dtd">
+<struts-config>
+	<form-beans>
+		<!--<form-bean name="getDocStatForm" type="com.kizsoft.oa.getdoc.beans.GetdocStatForm" />-->
+		<form-bean name="UserImportActionFormper" type="com.kizsoft.commons.uum.actions.UserImportActionFormper"/>
+	</form-beans>
+	<action-mappings>
+		<action path="/userTree"
+				type="com.kizsoft.oa.userManager.actions.UserTreeAction"
+				scope="request">
+			<forward name="success" path="/userManager/message.jsp"/>
+			<forward name="failure" path="/userManager/index.jsp"/>
+			<forward name="newdept" path="/userManager/deptNew.jsp"/>
+			<forward name="tree" path="/userManager/tree.jsp"/>
+			<forward name="child" path="/userManager/childowner.jsp"/>
+		</action>
+		<action path="/tree"
+				type="com.kizsoft.commons.uum.actions.TreeAction"
+				scope="request">
+			<forward name="success" path="/userManager/message.jsp"/>
+			<forward name="failure" path="/userManager/index.jsp"/>
+			<forward name="newdept" path="/userManager/deptNew.jsp"/>
+			<forward name="tree" path="/userManager/tree.jsp"/>
+			<forward name="child" path="/userManager/childowner.jsp"/>
+		</action>
+		<action path="/owner"
+				type="com.kizsoft.commons.uum.actions.ownerAction"
+				name="deptForm"
+				scope="request">
+			<forward name="success" path="/userManager/message.jsp"/>
+			<forward name="error" path="/userManager/error.jsp"/>
+			<forward name="edit" path="/userManager/deptNew.jsp"/>
+			<forward name="editsub" path="/userManager/subDeptNew.jsp"/>
+		</action>
+		<action path="/subowner"
+				type="com.kizsoft.commons.uum.actions.subOwnerAction"
+				name="deptForm"
+				scope="request">
+			<forward name="success" path="/userManager/message.jsp"/>
+			<forward name="addnewsub" path="/userManager/subDeptNew.jsp"/>
+			<forward name="error" path="/userManager/error.jsp"/>
+		</action>
+		<action path="/user"
+				type="com.kizsoft.commons.uum.actions.userAction"
+				name="userForm"
+				scope="request">
+			<forward name="addnew" path="/userManager/user.jsp"/>
+			<forward name="edit" path="/userManager/user.jsp"/>
+			<forward name="success" path="/userManager/message.jsp"/>
+			<forward name="error" path="/userManager/error.jsp"/>
+			<forward name="userlist" path="/userManager/childowner.jsp"/>
+			<forward name="import" path="/userManager/import.jsp"/>
+		</action>
+		<action input="/login.jsp" path="/userManager/loginAction"
+				scope="request"
+				type="com.kizsoft.commons.uum.actions.loginAction">
+			<forward name="failure" path="/userManager/login.jsp"/>
+			<forward name="success" path="/userManager/main.jsp"/>
+		</action>
+
+		<action path="/loginOAAction"
+				scope="request"
+				type="com.kizsoft.commons.uum.actions.loginOAAction">
+			<forward name="failure" path="/userManager/login.jsp"/>
+			<forward name="success" path="/userManager/index.jsp"/>
+		</action>
+		<action path="/post"
+				name="postForm"
+				scope="request"
+				type="com.kizsoft.commons.uum.actions.postAction">
+			<forward name="self" path="/userManager/post.jsp"/>
+		</action>
+		<action path="/aclroleAction" name="aclroleForm"
+				scope="request" type="com.kizsoft.commons.uum.actions.AclroleAction">
+			<forward name="list" path="/userManager/aclrolelist.jsp"/>
+			<forward name="listcategory" path="/userManager/categorylist.jsp"/>
+			<forward name="message" path="/userManager/message.jsp"/>
+			<forward name="userlistbyrole" path="/userManager/userlistbyrole.jsp"/>
+		</action>
+		<action path="/md5Change" scope="request" type="com.kizsoft.commons.uum.MD5Change">
+		</action>
+		<action name="UserImportActionFormper" path="/UserImportAction" scope="request"
+				type="com.kizsoft.commons.uum.actions.UserImportAction">
+			<forward name="success" redirect="true" path="../uum/importuserfromxls.jsp?flag=1"/>
+		</action>
+	</action-mappings>
+</struts-config>

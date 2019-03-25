@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<view>
+    <type>common</type>
+	<moduleid>systemlog</moduleid>
+    <sql>select t.activitylogid,t.username,t.userid,t.department,t.departmentid,to_char(t.acttime,'yyyy-mm-dd hh24:mi:ss') acttime,t.clientip,t.depflag,t.moduleid,decode(t.docid,null,' ',t.docid) docid,decode(t.activity,'insert','新增','update','修改','delete','删除') activity,t.requesturl,decode(t.title,null,' ',t.title) title</sql>
+    <tables>activitylog t</tables>
+    <filters>
+        <filter>1=1</filter>
+    </filters>
+    <order>t.acttime desc</order>
+    <rows>100</rows>
+    <columns>
+        <column>
+            <title>操作日志</title>
+            <property>【&lt;font color="green"&gt;&lt;b&gt;+$acttime+&lt;/b&gt;&lt;/font&gt;】+$department+→&lt;font color="red"&gt;&lt;b&gt;+$username+&lt;/b&gt;&lt;/font&gt;「+$clientip+」&lt;br&gt;在『&lt;font color="orange"&gt;+$moduleid+&lt;/font&gt;』模块中【&lt;font color="#cc8833"&gt;&lt;b&gt;+$activity+&lt;/b&gt;&lt;/font&gt;】了+$docid+〖+$title+〗&lt;br&gt;操作来源地址【+$requesturl+】</property>
+            <filedtype>string</filedtype>
+            <width>100%</width>
+            <length>1000</length>
+            <align>left</align>
+            <link></link>
+        </column>
+    </columns>
+</view>

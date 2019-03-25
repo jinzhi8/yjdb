@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.1//EN"
+		"http://jakarta.apache.org/struts/dtds/struts-config_1_1.dtd">
+<struts-config>
+	<form-beans>
+		<form-bean name="superviseDeferForm" type="com.kizsoft.oa.supervise.formBeans.SuperviseDeferForm"/>
+	</form-beans>
+	<action-mappings>
+
+		<action path="/editDeferAction" type="com.kizsoft.oa.supervise.servlets.editDeferAction">
+			<forward contextRelative="false" path="/deferApply.jsp" name="success"/>
+			<forward contextRelative="false" path="/showDeferApply.jsp" name="showDeferApply"/>
+		</action>
+
+		<action path="/formDeferAction" type="com.kizsoft.oa.supervise.servlets.formDeferAction" name="superviseDeferForm"
+				scope="request">
+			<forward contextRelative="false" redirect="true" path="/index.jsp" name="success"/>
+		</action>
+
+	</action-mappings>
+
+</struts-config>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.1//EN"
+		"http://jakarta.apache.org/struts/dtds/struts-config_1_1.dtd">
+<struts-config>
+	<form-beans>
+		<form-bean name="superviseForm" type="com.kizsoft.oa.supervise.formBeans.SuperviseForm"/>
+	</form-beans>
+	<action-mappings>
+
+		<action path="/editAction" type="com.kizsoft.oa.supervise.servlets.editAction">
+			<forward contextRelative="false" path="/superviseContent.jsp" name="content"/>
+			<forward contextRelative="false" path="/newContent.jsp" name="newcontent"/>
+			<forward contextRelative="false" path="/showContent.jsp" name="showcontent"/>
+			<forward contextRelative="false" path="/content.jsp" name="editcontent"/>
+		</action>
+
+		<action path="/formAction" type="com.kizsoft.oa.supervise.servlets.formAction" name="superviseForm" scope="request">
+			<forward contextRelative="false" redirect="true" path="/index.jsp" name="success"/>
+		</action>
+
+		<action path="/formIssueCodeAction" type="com.kizsoft.commons.commons.issueCode.formIssueCodeAction">
+			<forward contextRelative="false" path="/superviseIssueCode.jsp" name="success"/>
+		</action>
+
+	</action-mappings>
+
+</struts-config>

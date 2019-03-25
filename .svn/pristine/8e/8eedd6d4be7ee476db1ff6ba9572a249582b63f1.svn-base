@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta http-equiv="pragma" content="no-cache">
+    <meta http-equiv="cache-control" content="no-cache">
+    <title>永嘉县电子政务督办系统</title>
+    <script type="text/javascript" src="lib/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript" src="lib/layer.js"></script>
+    <script type="text/javascript" src="lib/mobileSelect.js"></script>
+    <script type="text/javascript" src="lib/dingtalk.js"></script>
+    <link rel="stylesheet" href="lib/mobileSelect.css">
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/overseeRevertDetail.css">
+
+</head>
+<body>
+  <div class="wrapper">
+    <!-- <div class="linkman">
+      <p class="title"><i></i>联系人</p>
+      <div class="content">
+        <span class="photo"></span>
+        <div class="info-wrap">
+          <p class="name">张三疯</p>
+          <div class="info">
+            <p class="zw"><i></i>科长</p>
+            <p class="lxfs" data-mobile="13812345678" data-short="665678"><i></i>13812345678(665678)</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <ul class="info-list ">
+      <li><label>反馈用户</label><span>桥头镇</span></li>
+      <li><label>批示领导</label><span>黄方磊</span></li>
+      <li><label>牵头领导</label><span>黄方磊</span></li>
+    </ul>
+    <ul class="info-list feed">
+      <li><label>存在问题</label><span>是打发我日企鹅我去</span></li>
+      <li><label>下步思路</label><span>暗示法是正常</span></li>
+      <li><label>牵头单位</label><span>鹤盛镇,巽宅镇,碧莲镇,岩头镇,沙头镇,枫林镇,岩坦镇,大若岩镇,桥下镇,桥头镇,瓯北城市新区(瓯北街道),上塘中心城区,网格员,三江商务区（三江街道）</span></li>
+    </ul>
+    <div class="file-list">
+      <p class="附件"></p>
+      <ul>
+        <li>
+          <a>
+            <i></i>
+            <div>
+              <span>文件名.rar</span>
+            </div>
+          </a>
+        </li>
+      </ul>
+    </div> -->
+  </div>
+</body>
+<script src="js/base.js"></script>
+<script src="js/common.js"></script>
+<script src="js/detailsPublic.js"></script>
+<script src="js/feedbackDetail.js"></script>
+</html>

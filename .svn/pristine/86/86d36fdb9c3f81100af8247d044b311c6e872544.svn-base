@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta http-equiv="pragma" content="no-cache">
+    <meta http-equiv="cache-control" content="no-cache">
+    <title>永嘉县电子政务督办系统</title>
+    <script type="text/javascript" src="lib/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript" src="lib/layer.js"></script>
+    <script type="text/javascript" src="lib/mobileSelect.js"></script>
+    <link rel="stylesheet" href="lib/mobileSelect.css">
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/feedbackList.css">
+</head>
+<body>
+  <a class="add-feedback"></a>
+  <header>
+    <p><span class="page-title">督办件反馈</span></p>
+  </header>
+  <div class="wrapper">
+    <ul class="list-wrap">
+
+    </ul>
+  </div>
+</body>
+<script src="js/base.js"></script>
+<script src="js/common.js"></script>
+<script src="js/feedbackList.js"></script>
+</html>

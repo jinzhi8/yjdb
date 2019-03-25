@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.1//EN"
+		"http://jakarta.apache.org/struts/dtds/struts-config_1_1.dtd">
+<struts-config>
+	<form-beans>
+		<form-bean type="com.kizsoft.oa.meeting2.formBean.MeetingForm" name="mForm"/>
+	</form-beans>
+	<action-mappings>
+		<action name="mForm" type="com.kizsoft.oa.meeting2.action.DealAction" validate="true" scope="request"
+				path="/dealAction">
+			<forward name="success" path="/123.jsp" redirect="false"/>
+		</action>
+		<action name="mForm" type="com.kizsoft.oa.meeting2.action.DealAction" validate="true" scope="request"
+				path="/dealAction_hytz">
+			<forward name="success" path="/meetingnotify_temp.jsp" redirect="false"/>
+		</action>
+		<action name="mForm" type="com.kizsoft.oa.meeting2.action.DealAction" validate="true" scope="request"
+				path="/dealAction_bj">
+			<forward name="success" path="/file_bj_temp.jsp" redirect="false"/>
+		</action>
+	</action-mappings>
+</struts-config>

@@ -1,0 +1,48 @@
+.10
+pt {
+	font-size: 10.5pt
+}
+
+.9
+pt {
+	font-size: 9pt
+}
+
+a:link {
+	text-decoration: none;
+	color: black
+}
+
+a:visited {
+	text-decoration: none;
+	color: black
+}
+
+a:hover {
+	text-decoration: none;
+	color: red
+}
+
+table {
+	font-size: 9pt;
+	cursor: default
+}
+
+b {
+	font-size: 9pt;
+	cursor: default
+}
+
+input {
+	height: 9pt;
+}
+
+.explore td {
+	background-color: #ffffff;
+	height: 9pt;
+	padding: 0px
+}
+
+.explore tr {
+	height: 9px;
+}

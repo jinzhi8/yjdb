@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<view>	
+	<type>task</type>
+	<moduleid>getshou</moduleid>
+	<viewname>view_flow_tasks_draft</viewname>
+	<unid>requestid</unid>
+	<sql>select senddate,issuetime,send_issue_dep_code,send_issue_year,send_issue_num,senddep,app_title,task_id</sql>
+	<tables>getshou</tables>
+	<filters>
+		<filter>requestid=app_id</filter>
+	</filters>
+	<order>issuetime desc</order>	
+	<rows>30</rows>	
+	<columns>    
+		<column>
+			<title>来文日期</title>
+			<property>$senddate</property>
+			<filedtype>date</filedtype>   
+			<width>60</width>
+			<length>20</length>
+			<align>center</align>
+			<link></link>
+		</column>
+		<column>
+			<title>文号</title>
+			<property>$send_issue_dep_code+$send_issue_year+$send_issue_num+号</property>
+			<filedtype>string</filedtype>   
+			<width>130</width>
+			<length>100</length>
+			<align>center</align>
+			<link></link>
+		</column>
+		<column>
+			<title>来文文号</title>
+			<property>$senddep</property>
+			<filedtype>string</filedtype>   
+			<width>120</width>
+			<length>100</length>
+			<align>center</align>
+			<link></link>
+		</column>
+		<column>
+			<title>来文标题</title>
+			<property>$app_title</property>
+			<filedtype>string</filedtype>   
+			<width></width>
+			<length>100</length>
+			<align>left</align>
+			<link>/workflowEntry.do?taskid=+$task_id</link>
+		</column>		
+	</columns>
+</view>
+
+
+
